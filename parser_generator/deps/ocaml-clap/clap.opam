@@ -1,0 +1,13 @@
+opam-version: "2.0"
+synopsis: "Command line arguments parser."
+description: "Easy to use command line arguments parser."
+maintainer: ["Timothée Haudebourg <timothee.haudebourg@irisa.fr>"]
+authors: ["Timothée Haudebourg <timothee.haudebourg@irisa.fr>"]
+homepage: "https://github.com/timothee-haudebourg/ocaml-clap"
+dev-repo: "https://github.com/timothee-haudebourg/ocaml-clap"
+bug-reports: "https://github.com/timothee-haudebourg/ocaml-clap/issues"
+depends: []
+build: [
+  [ make "-j" jobs ]
+]
+install: [ make "install" ]

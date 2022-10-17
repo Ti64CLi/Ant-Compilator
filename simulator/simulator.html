@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:'FR' }}">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <style>
+      canvas { background: #eee; }
+    </style>
+
+
+</head>
+
+<body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+  <label for="myFile" class="btn btn-primary m-1" style="width:200px;"
+	 id="world_button">Load world file</label>
+  <input type="file" id="myFile" name="Toto" style="display: none;">
+  <span id="world_name"></span>
+  <br>
+  
+  <script>
+    $("#myFile").change(function() {
+	filename = this.files[0].name
+	document.getElementById("world_name").textContent = filename;
+    });
+  </script>
+  
+  <label for="red_brain" class="btn btn-primary m-1" style="width:200px;"
+	 id="brain_button">Load red ants brain file</label>
+  <input type="file" id="red_brain" name="red_brain" style="display:none;">
+  <span id="red_brain_name"></span>
+  <script>
+    $("#red_brain").change(function() {
+	filename = this.files[0].name
+	document.getElementById("red_brain_name").textContent = filename;
+    });
+  </script>
+  <br>
+
+  <label for="black_brain" class="btn btn-primary m-1" style="width:200px;"
+	 id="brain_button">Load black ants brain file</label>
+  <input type="file" id="black_brain" name="black_brain" style="display:none;">
+  <span id="black_brain_name"></span>
+  <script>
+    $("#black_brain").change(function() {
+	filename = this.files[0].name
+	document.getElementById("black_brain_name").textContent = filename;
+    });
+  </script>
+  <br>
+  
+  <button class="btn btn-danger my-1" style="width:50px;"
+	  id="restart" title="restart" 
+	  onclick="restart()"><i class="fas fa-fast-backward"></i></button>
+  <button class="btn btn-danger my-1" style="width:50px;"
+	  id="backward" title="decrease speed" 
+	  onclick="decrease()"><i class="fas fa-backward"></i></button>
+  <button class="btn btn-danger my-1" style="width:50px;"
+	  id="forward" title="increase speed" 
+	  onclick="increase()"><i class="fas fa-forward"></i></button>
+  <button class="btn btn-danger my-1" style="width:50px;"
+	  id="stop" title="stop" disabled
+	  onclick="stop()"><i class="fas fa-stop"></i></button>
+  <button class="btn btn-danger my-1" style="width:50px;"
+	  id="start" title="start" 
+	  onclick="start()"><i class="fas fa-play"></i></button>
+  <button class="btn btn-danger my-1" style="width:50px;"
+	  id="end" title="goto end" 
+	  onclick="end()"><i class="fas fa-fast-forward"></i></button>
+  <button type="button" class="btn btn-danger mx-2" style="width:150px;">
+    Reds score <span id="red_score" class="badge badge-primary">0</span>
+  </button>
+  <button type="button" class="btn btn-dark" style="width:150px;">
+    Blacks score <span id="black_score" class="badge badge-primary">0</span>
+  </button>
+  <span id="results"></span>
+  <br>
+
+  
+  <!-- <hr> -->
+  <!-- <textarea style="width:500px;height: 400px" id="output"></textarea> -->
+
+<!-- <canvas id="myCanvas" width="1504" height="639"></canvas> -->
+  <canvas id="myCanvas" width="1047" height="904"></canvas>
+  
+
+</body>
+
+<script>
+  var input = document.getElementById("myFile");
+  var input_red_brain = document.getElementById("red_brain");
+  var input_black_brain = document.getElementById("black_brain");
+  var output = document.getElementById("output");
+  var speed = 10;
+
+  function decrease() {
+      speed += 5;
+  }
+
+  function increase() {
+      if (speed>0) speed -= 5;
+  }
+  
+  input.addEventListener("change", function () {
+      if (this.files && this.files[0]) {
+	  var myFile = this.files[0];
+	  var reader = new FileReader();
+	  
+	  reader.addEventListener('load', function (e) {
+	      load_world(e.target.result);
+	  });
+	  
+	  reader.readAsBinaryString(myFile);
+      }   
+  });
+  
+  input_red_brain.addEventListener("change", function () {
+      if (this.files && this.files[0]) {
+	  var myFile = this.files[0];
+	  var reader = new FileReader();
+	  
+	  reader.addEventListener('load', function (e) {
+	      load_red_brain(e.target.result);
+	  });
+	  
+	  reader.readAsBinaryString(myFile);
+      }   
+  });
+
+  input_black_brain.addEventListener("change", function () {
+      if (this.files && this.files[0]) {
+	  var myFile = this.files[0];
+	  var reader = new FileReader();
+	  
+	  reader.addEventListener('load', function (e) {
+	      load_black_brain(e.target.result);
+	  });
+	  
+	  reader.readAsBinaryString(myFile);
+      }   
+  });
+
+  var canvas_elem = document.getElementById("myCanvas");
+  var canvas = canvas_elem.getContext('2d');
+  var zoom = 1;
+  var delta_x = 0;
+  var delta_y = 0;
+  var size;
+  var width
+  var height;
+  var refresh;
+  
+  function get_y(i,j) {
+      var res= size+j*size*1.5;
+      return res;
+  }
+  function get_x(i,j) {
+      var res = size+i*size*Math.sqrt(3);
+      if (j%2==1) { res += size*Math.sqrt(3)/2; };
+      return res;     
+  }
+  function hex(i,j,fin){
+      var x = get_x(i,j);
+      var y = get_y(i,j);
+      canvas.beginPath();
+      canvas.moveTo(x + size * Math.cos(side * 2 * Math.PI / 12), y + size * Math.sin(side * 2 * Math.PI / 12));      
+      for (var side = 1; side < 8; side++) {
+	  canvas.lineTo(x + size * Math.cos((side+0.5) * 2 * Math.PI / 6), y + size * Math.sin((side+0.5) * 2 * Math.PI / 6));
+      }
+      fin();
+  }
+
+  // color 0..1
+  const color = {
+      red: 0,
+      black: 1,
+  }
+  Object.freeze(color)
+
+  function other_color(c){
+      return 1 - c;
+  }
+  
+  function drawAnt(i,j,d,col,has_food) {
+      var x = get_x(i,j);
+      var y = get_y(i,j);
+      if (col==color.red) canvas.fillStyle = "red";
+      else canvas.fillStyle = "black";
+      //canvas.translate(-x,-y);
+      //canvas.rotate(2 * Math.PI / 6);
+      //canvas.fillRect(x-size*Math.sqrt(3)/2,y-2,size*Math.sqrt(3),4);
+      //canvas.translate(x,y);
+      //canvas.setTransform(1, 0, 0, 1, 0, 0);
+      const cos = Math.cos(d * 2 * Math.PI / 6);
+      const sin = Math.sin(d * 2 * Math.PI / 6);
+      const l = 7*size/10;
+      const ll = 5*size/10;      
+      var triangle = new Path2D();
+      triangle.moveTo(x-ll*sin-l*cos, y + ll*cos-l*sin);
+      triangle.lineTo(x + l*cos, y + l*sin);
+      triangle.lineTo(x+ll*sin-l*cos, y - ll*cos-l*sin);
+      triangle.lineTo(x-ll*sin-l*cos, y + ll*cos-l*sin);
+      canvas.fill(triangle);
+      canvas.strokeStyle = "white";
+      canvas.stroke(triangle);
+      if (has_food) {
+	  var cercle = new Path2D();
+	  cercle.moveTo(x, y);
+	  cercle.arc(x-ll*cos, y-ll*sin, zoom, 0, 2 * Math.PI);
+	  canvas.fillStyle = "orange";
+	  canvas.fill(cercle);
+      }
+      
+  }
+
+  function drawHex(i,j) {
+      function fin(){
+	  canvas.strokeStyle = "#999999";
+	  canvas.stroke();
+      }
+      hex(i,j,fin);
+  }
+
+  function textMark(i,j,num,col){
+      canvas.font = "8px Arial";
+      var delta;
+      if (col==color.red) {
+	  canvas.fillStyle = "red";
+	  delta=size/2;
+      } else {
+	  canvas.fillStyle = "black";
+	  delta= -size/3;
+      }	  
+      canvas.textAlign = "center";
+      var s = "";
+      var n = num;
+      for (var k = 0; k<6; k++) {
+	  s = (n%2) + s;
+	  n = n >> 1
+      }
+      canvas.fillText(s,get_x(i,j),get_y(i,j)+delta);
+  }
+
+  function textHex(i,j,msg){
+      canvas.font = "8px Arial";
+      canvas.fillStyle = "orange";
+      canvas.textAlign = "center";
+      canvas.fillText(msg,get_x(i,j),get_y(i,j)+3);
+  }
+  
+  function fillHex(i,j,color){
+      function fin(){
+	  canvas.fillStyle = color;
+	  canvas.fill();
+	  canvas.strokeStyle = "#999999";
+	  canvas.stroke();
+      }
+      hex(i,j,fin);
+  }
+
+  const nbmaxants = 3*5*6+1;
+
+  var ant_positions;
+  
+  function set_ant_position(i,pos){
+      ant_positions[i] = pos;
+  }
+
+  function remove_ant_position(i){
+      ant_positions[i] = null;
+  }
+
+  function get_ant_position(i) {
+      return ant_positions[i];
+  }
+
+  function ant_exists(i) {
+      return ant_positions[i] != null;
+  }
+  
+  // direction 0..5
+  const direction = {
+      west: 3,
+      swest: 2,
+      seast: 1,
+      east: 0,
+      neast: 5,
+      nwest: 4
+  }
+  Object.freeze(direction);
+
+  function even(x) {
+      return (x%2==0);
+  }
+  
+  function odd(x) {
+      return (x%2==1);
+  }
+  
+  function adjacent_cell(pos,dir) {
+      const x = pos.x;
+      const y = pos.y;
+      switch (dir) {
+      case direction.east:
+	  return {x:x+1, y:y};
+      case direction.seast:
+	  if (even(y)) {
+	      return {x:x, y:y+1};
+	  } else {
+	      return {x:x+1, y:y+1};
+	  }
+      case direction.swest:
+	  if (even(y)) {
+	      return {x:x-1, y:y+1};
+	  } else {
+	      return {x:x, y:y+1};
+	  }
+      case direction.west:
+	  return {x:x-1, y:y};
+      case direction.nwest:
+	  if (even(y)) {
+	      return {x:x-1, y:y-1};
+	  } else {
+	      return {x:x, y:y-1};
+	  }
+      case direction.neast:
+	  if (even(y)) {
+	      return {x:x, y:y-1};
+	  } else {
+	      return {x:x+1, y:y-1};
+	  }
+      }
+  }
+
+  const left_or_right = { left:1, right:2 }
+  Object.freeze(left_or_right);
+  
+  function turn(lr,d) {
+      if (lr==left_or_right.left) {
+	  return (d+5)%6;
+      } else {
+	  return (d+1)%6;
+      }
+  }
+
+  const sense_direction = {
+      here: 1,
+      ahead: 2,
+      leftahead: 3,
+      rightahead: 4,
+  }
+  Object.freeze(sense_direction)
+
+  function parse_sensedir(s,linepos) {
+      switch(s) {
+      case 'Here': return sense_direction.here;
+      case 'Ahead': return sense_direction.ahead;
+      case 'LeftAhead': return sense_direction.leftahead;
+      case 'RightAhead': return sense_direction.rightahead;
+      default:
+	  throw `Parsing error at line ${linepos}: sensedir expected`;
+      }
+  }
+
+  function sensedir_to_string(sd) {
+      switch(sd) {
+      case sense_direction.here: return 'Here';
+      case sense_direction.ahead: return 'Ahead';
+      case sense_direction.leftahead: return 'LeftAhead';
+      case sense_direction.rightahead: return 'RightAhead';
+      }
+  }
+  
+  function sensed_cell(pos,dir,sense_dir) {
+      switch(sense_dir) {
+      case sense_direction.here:
+	  return pos;
+      case sense_direction.ahead:
+	  return adjacent_cell(pos,dir);
+      case sense_direction.leftahead:
+	  return adjacent_cell(pos,turn(left_or_right.left,dir));
+      case sense_direction.rightahead:
+	  return adjacent_cell(pos,turn(left_or_right.right,dir));
+      }
+  }
+  
+  function mkAnt(id,color) {
+      return {
+	  id: id,
+	  color: color,
+	  state: 0,
+	  resting: 0,
+	  direction: direction.east,
+	  has_food: false
+      };
+  }
+
+  //cell
+  const cell = {
+      grass:1,
+      rock:2,
+      red_anthill:3,
+      black_anthill:4
+  }  
+  Object.freeze(cell)
+  
+  function mkCell() {
+      return {
+	  ant: null,
+	  celltype: cell.grass,
+	  food: 0,
+	  red_markers: 0,
+	  black_markers: 0
+      };
+  }
+  var nb_ants = 0;
+  function set_cell_from_char(cll,c) {
+      if (c=='#') {
+	  cll.celltype = cell.rock;
+      } else if (c=='-') {
+	  cll.celltype = cell.black_anthill;
+	  return mkAnt(nb_ants,color.black);
+      } else if (c=='+') {
+	  cll.celltype = cell.red_anthill;
+	  return mkAnt(nb_ants,color.red);
+      } else if ('1'<=c && c<='9') {
+	  cll.food = parseInt(c);
+      }
+      return null;
+  }
+  //position
+  
+  
+  //world
+  function mkWord(width,height) {
+      const world = new Array(width);
+      for (var i=0; i<width; i++) {
+	  var line = new Array(height);
+	  world[i] = line;
+	  for (var j=0; j<height; j++) {
+	      line[j] = mkCell();
+	  }
+      };
+      return world
+  }
+  function world_size() {
+      return {width:world.length, height:world[0].length};
+  }
+  function get_cell(p) {
+      return world[p.x][p.y];
+  }
+  function set_cell(p,v) {
+      world[p.x][p.y] = v;
+  }
+  function rocky(p) {
+      //console.log("pos x:"+p.x+" y:"+p.y);
+      return (get_cell(p).celltype == cell.rock);
+  }
+  function some_ant_is_at(pos) {
+      return get_cell(pos).ant != null;
+  }
+  function ant_at(pos) {
+      const a = get_cell(pos).ant;
+      if (a==null) { throw "Trying to find an inexistant ant"; };
+      return a;
+  }
+
+  function set_ant_at(pos,a) {
+      set_ant_position(a.id,pos);
+      get_cell(pos).ant = a;
+  }
+
+  function clear_ant_at(pos) {
+      const a = get_cell(pos).ant;
+      if (a!=null) {
+	  remove_ant_position(a.id);
+	  get_cell(pos).ant = null;
+      }
+  }
+
+  function ant_is_alive(i) {
+      return ant_exists(i);
+  }
+
+  function find_ant(i) {
+      return get_ant_position(i);
+  }
+
+  function kill_ant_at(pos) {
+      clear_ant_at(pos);
+  }
+
+  function food_at(pos) {
+      return get_cell(pos).food;
+  }
+
+  function set_food_at(pos,i) {
+      const c = get_cell(pos)
+      if (c.celltype == cell.red_anthill) {
+	  red_score += i - c.food;
+	  document.getElementById("red_score").textContent = red_score;
+      } else if (c.celltype == cell.black_anthill) {
+	  black_score += i - c.food;
+	  document.getElementById("black_score").textContent = black_score;
+      }
+      c.food = i;
+  }
+  
+  function anthill_at(pos,col) {
+      if (col==color.red) {
+	  return get_cell(pos).celltype == cell.red_anthill;
+      } else {
+	  return get_cell(pos).celltype == cell.black_anthill;
+      }
+  }
+
+  function markers_at(pos,col) {
+      const cell = get_cell(pos);
+      if (col==color.red) {
+	  return cell.red_markers;
+      } else {
+	  return cell.black_markers;
+      }
+  }
+
+  function set_markers_at(pos,col,markers) {
+      const cell = get_cell(pos);
+      if (col==color.red) {
+	  cell.red_markers = markers;
+      } else {
+	  cell.black_markers = markers;
+      }
+  }
+
+  class Friend {
+      cell_matches(pos,color) {
+	  return some_ant_is_at(pos) && ant_at(pos).color==color;
+      }
+      toString() {
+	  return "Friend";
+      }
+  }
+
+  class Foe {
+      cell_matches(pos,color) {
+	  return some_ant_is_at(pos) && ant_at(pos).color!=color;
+      }
+      toString() {
+	  return "Foe";
+      }
+  }
+
+  class FriendWithFood {
+      cell_matches(pos,color) {
+	  if (some_ant_is_at(pos)) {
+	      const a = ant_at(pos)
+	      return a.color==color && a.has_food;
+	  } else return false;
+      }
+      toString() {
+	  return "FriendWithFood";
+      }
+  }
+
+  class FoeWithFood {
+      cell_matches(pos,color) {
+	  if (some_ant_is_at(pos)) {
+	      const a = ant_at(pos)
+	      return a.color!=color && a.has_food;
+	  } else return false;
+      }
+      toString() {
+	  return "FoeWithFood";
+      }
+  }
+
+  class Food {
+      cell_matches(pos,color) {
+	  return food_at(pos)>0;
+      }
+      toString() {
+	  return "Food";
+      }
+  }
+
+  class Rock {
+      cell_matches(pos,color) {
+	  return rocky(pos);
+      }
+      toString() {
+	  return "Rock";
+      }
+  }
+
+  class Marker {
+      constructor(marker) {
+	  this.marker = marker;
+      }
+      cell_matches(pos,color) {
+	  return check_marker_at(pos,color,this.marker);
+      }
+      toString() {
+	  return `Marker ${this.marker}`;
+      }
+  }
+
+  class FoeMarker {
+      cell_matches(pos,color) {
+	  return check_any_marker_at(pos,other_color(color));
+      }
+      toString() {
+	  return "FoeMarker";
+      }
+  }
+
+  class Home {
+      cell_matches(pos,color) {
+	  return anthill_at(pos,color);
+      }
+      toString() {
+	  return "Home";
+      }
+  }
+
+  class FoeHome {
+      cell_matches(pos,color) {
+	  return anthill_at(pos,other_color(color));
+      }
+      toString() {
+	  return "FoeHome";
+      }
+  }
+
+  function parse_int(l,i,linepos,after) {
+      if (i>=l.length)
+	  throw `Parsing error at line ${linepos+1}: number expected ${after}`;
+      const res = parseInt(l[i]);
+      if (isNaN(res)) throw `Parsing error at line ${linepos+1}: number expected ${after}`;
+      return res;
+  }
+  
+  function parse_condition(l,i,linepos) {
+      switch(l[i]) {
+      case 'Friend': return new Friend();
+      case 'Foe': return new Foe();
+      case 'FriendWithFood': return new FriendWithFood();
+      case 'FoeWithFood': return new FoeWithFood();
+      case 'Food': return new Food();
+      case 'Rock': return new Rock();
+      case 'Marker':
+	  return new Marker(parse_int(l,i+1,linepos,'after command Marker'));
+      case 'FoeMarker': return new FoeMarker();
+      case 'Home': return new Home();
+      case 'FoeHome': return new FoeHome();
+      default:
+	  throw `Parsing error at line ${linepos+1}: invalid condition`;
+      }       
+  }
+  
+  // function add_frontiers() {
+  //     for (var i=0; i<nb_x; i++) {
+  // 	  rocky({x:i, y:0});
+  // 	  rocky({x:i, y:nb_y-1});
+  //     }
+  //     for (var j=0; j<nb_y; j +=1) {
+  // 	  rocky({x:0, y:j});
+  // 	  rocky({x:nb_x-1, y:j});
+  //     }
+  // }
+
+  // function add_zone(pos,celltype,food,shape) {
+  //     const b = (pos.y+1)%2;
+  //     for (var i=0; i<shape.length; i++) {
+  // 	  var line = shape[i];
+  // 	  for (var j=0; j<line.length; j++) {
+  // 	      var ch = line[j];
+  // 	      var p = null;
+  // 	      if (i%2==b && j%2==b) {
+  // 		  p = { x: pos.x+Math.floor(j/2), y: pos.y+i };
+  // 	      } else if (i%2!=b && j%2!=b) {
+  // 		  p = { x: pos.x+Math.floor(j/2), y: pos.y+i };
+  // 	      }
+  // 	      if (p!=null) {
+  // 		  if (ch=="#") {
+  // 		      const c = get_cell(p);
+  // 		      c.celltype = celltype;
+  // 		      c.food = food;		      
+  // 		  };
+  // 	      }
+  // 	  }
+  //     }
+  // }
+
+  
+  //draw
+  function color_cell(c) {
+      if (c.celltype==cell.rock) {
+	  return "#f734bd";
+      } if (c.celltype==cell.red_anthill) {
+	  return "red";
+      } if (c.celltype==cell.black_anthill) {
+	  return "#000";
+      } else { //grass
+	  return "#c7eaff";
+      };
+  }
+      
+  function draw_cell(p) {
+      const c = get_cell(p);
+      fillHex(p.x,p.y,color_cell(c));
+      if (c.ant!=null) {
+	  drawAnt(p.x,p.y,c.ant.direction,c.ant.color,c.ant.has_food);
+//	  if (c.ant.id==0) console.log(`ant in a cell with color ${color_cell(c)}`);
+      }
+      if (zoom>2 && c.red_markers>0) {
+	  textMark(p.x,p.y,c.red_markers,color.red);
+      }
+      if (zoom>2 && c.black_markers>0) {
+	  textMark(p.x,p.y,c.black_markers,color.black);
+      }
+      if (c.food>0) {
+	  textHex(p.x,p.y,c.food);
+      }
+  }
+  function draw_world() {
+      const size = world_size()
+      for (var i=0; i<size.width; i++) {
+	  for (var j=0; j<size.height; j++) {
+	      draw_cell({x:i, y:j});
+	  }
+      }
+  }
+  function refresh_world() {
+      for (var i=0; i<refresh.size; i++) {
+	  draw_cell(refresh.content[i]);
+      }
+  }
+
+  const anthill =
+      [
+	  "      # # # # # #     ",
+	  "     # # # # # # #    ",
+	  "    # # # # # # # #   ",
+	  "   # # # # # # # # #  ",
+	  "  # # # # # # # # # # ",
+	  " # # # # # # # # # # #",
+	  "  # # # # # # # # # # ",
+	  "   # # # # # # # # #  ",
+	  "    # # # # # # # #   ",
+	  "     # # # # # # #    ",
+	  "      # # # # # #     ",
+      ];
+
+  const food =
+      [
+	  "# # # #  ",
+	  " # # # # ",
+	  "  # # # #",
+      ]
+
+  function adjacent_ants(pos,col) {
+      var n = 0;
+      for (var d = 0; d<6; d++) {
+	  const cel = adjacent_cell(pos,d);
+          if (some_ant_is_at(cel) && ant_at(cel).color == col) n++
+      }
+      return n;
+  }
+
+  function check_for_surrounded_ant_at(pos) {
+      if (some_ant_is_at(pos)) {
+	  const a = ant_at(pos); 
+	  if (adjacent_ants(pos,other_color(a.color)) >= 5) {
+	      kill_ant_at(pos);
+              set_food_at(pos,food_at(pos) + 3);
+	      if (a.has_food) 
+		  set_food_at(pos,food_at(pos) + 1);
+	  }
+      }
+  }
+
+  function check_for_surrounded_ants(pos) {
+      check_for_surrounded_ant_at(pos);
+      for (var d = 0; d<6; d++) {
+	  check_for_surrounded_ant_at(adjacent_cell(pos,d));
+      }
+  }
+  
+  // markers
+  function set_marker_at(position,color,marker) {
+      const markers = markers_at(position,color);
+      set_markers_at(position,color,markers | (1 << marker));
+  }
+  function clear_marker_at(position,color,marker) {
+      const markers = markers_at(position,color);
+      set_markers_at(position,color,markers & (~ (1 << marker)));
+  }
+  function check_marker_at(position,color,marker) {
+      return (markers_at(position,color) & (1 << marker)) != 0;
+  }
+  function check_any_marker_at(position,color) {
+      return markers_at(position,color)!= 0;
+  }
+
+  function get_instruction(col,state) {
+      if (col==color.red) {
+	  return red_brain[state];
+      } else {
+	  return black_brain[state];
+      }
+  }
+  
+  class Goto {
+      constructor(st) {
+	  this.st = st;
+      }
+      compute(ant,pos) {
+	  ant.state = this.st;
+      }
+      toString() {
+	  return `Goto ${this.st}`;
+      }
+  }
+  
+  class Sense {
+      constructor(sensedir,st1,st2,cond) {
+	  this.sensedir = sensedir;
+	  this.st1 = st1;
+	  this.st2 = st2;
+	  this.cond = cond;
+      }
+      compute(ant,pos) {
+	  const sensed_pos = sensed_cell(pos,ant.direction,this.sensedir);
+	  if (this.cond.cell_matches(sensed_pos,ant.color)) {
+	      ant.state = this.st1;
+	  } else {
+	      ant.state = this.st2;
+	  }
+      }
+      toString() {
+	  return `Sense ${sensedir_to_string(this.sensedir)} ${this.st1} ${this.st2} ${this.cond}`;
+      }
+  }
+
+  class Mark {
+      constructor(mark) {
+	  this.mark = mark;
+      }
+      compute(ant,pos) {
+	  set_marker_at(pos,ant.color,this.mark);
+	  ant.state += 1;
+      }
+      toString() {
+	  return `Mark ${this.mark}`;
+      }
+  }
+
+  class Unmark {
+      constructor(mark) {
+	  this.mark = mark;
+      }
+      compute(ant,pos) {
+	  clear_marker_at(pos,ant.color,this.mark);
+	  ant.state += 1;
+      }
+      toString() {
+	  return `Unmark ${this.mark}`;
+      }
+  }
+
+  class PickUp {
+      constructor(st_fail) {
+	  this.st_fail = st_fail;
+      }
+      compute(ant,pos) {
+	  if (ant.has_food || food_at(pos)==0) ant.state = this.st_fail;
+	  else {
+	      set_food_at(pos,food_at(pos)-1);
+	      ant.has_food = true;
+	      ant.state += 1;
+	  }
+      }
+      toString() {
+	  return "PickUp";
+      }
+  }
+
+  class Drop {
+      constructor() {
+      }
+      compute(ant,pos) {
+	  if (ant.has_food) {
+	      set_food_at(pos,food_at(pos)+1);
+	      ant.has_food = false;
+	  }
+	  ant.state += 1;
+      }
+      toString() {
+	  return "Drop";
+      }
+  }
+
+  class Turn {
+      constructor(lr) {
+	  this.lr = lr;
+      }
+      toString() {
+	  if (this.lr=left_or_right.left) return "Turn Left";
+	  else return "Turn Right";
+      }
+      compute(ant,pos) {
+	  ant.direction = turn(this.lr,ant.direction);
+	  ant.state += 1;
+      }
+  }
+
+  class Move {
+      constructor(st_fail) {
+	  this.st_fail = st_fail;
+      }
+      toString() {
+	  return `Move ${this.st_fail}`;
+      }
+      compute(ant,pos) {
+	  const new_pos = adjacent_cell(pos,ant.direction);
+	  if (rocky(new_pos) || some_ant_is_at(new_pos)) {
+	      ant.state = this.st_fail;
+	  } else {
+	      clear_ant_at(pos);
+	      set_ant_at(new_pos,ant);
+	      ant.state += 1;
+	      ant.resting = 14;
+	      check_for_surrounded_ants(new_pos);
+	  }
+      }
+  }
+
+  class Flip {
+      constructor(p,st1,st2) {
+	  this.p = p;
+	  this.st1 = st1;
+	  this.st2 = st2;
+      }
+      compute(ant,pos) {
+	  const rand = Math.floor(Math.random() * this.p);
+	  if (rand==0) ant.state = this.st1;
+	  else ant.state = this.st2;
+      }
+      toString() {
+	  return `Flip ${this.p} ${this.st1} ${this.st2}`;
+      }
+  }
+
+  //	  const l = line.split(new RegExp(' +'));
+
+  function parse_label(s,linepos,labels) {
+      if (!(s in labels))
+	  throw `Parsing error at line ${linepos+1}: label ${s} not found`;
+      return labels[s];
+  }
+  
+  function require_args(line_length,required,linepos,after) {
+      if (line_length<=required)
+	  throw `Parsing error at line ${linepos+1}: ${required} arguments expected after ${after}`;
+  }
+
+
+  function parse_instruction(line,linepos,labels) {
+      var st1, st2;
+      if (line.length==0) return;
+      switch(line[0]) {
+      case 'Goto':
+	  require_args(line.length,1,linepos,'goto');
+	  st1 = parse_label(line[1],linepos,labels);
+	  return new Goto(st1);
+      case 'Sense':
+	  require_args(line.length,4,linepos,'Sense');
+	  const sensedir = parse_sensedir(line[1],linepos);
+	  st1 = parse_label(line[2],linepos,labels);
+	  st2 = parse_label(line[3],linepos,labels);
+	  const cond = parse_condition(line,4,linepos);
+	  return new Sense(sensedir,st1,st2,cond);
+      case 'Mark':
+	  return new Mark(parse_int(line,1,linepos,'after command Mark'));
+      case 'Unmark':
+	  return new Unmark(parse_int(line,1,linepos,'after command Unmark'));
+      case 'PickUp':
+	  require_args(line.length,1,linepos,'PickUp');
+	  return new PickUp(parse_label(line[1],linepos,labels));
+      case 'Drop':
+	  return new Drop();
+      case 'Turn':
+	  require_args(line.length,1,linepos,'Turn');
+	  switch(line[1]) {
+	  case 'Left': return new Turn(left_or_right.left);
+	  case 'Right': return new Turn(left_or_right.right);
+	  default:
+	      throw `Parsing error at line ${linepos+1}: Left or Right expected after Turn`;
+	  }
+      case 'Move':
+	  require_args(line.length,1,linepos,'Move');
+	  return new Move(parse_label(line[1],linepos,labels));
+      case 'Flip':
+	  require_args(line.length,3,linepos,'Flip');
+	  const p = parse_int(line,1,linepos,'after command Flip');
+	  st1 = parse_label(line[2],linepos,labels);
+	  st2 = parse_label(line[3],linepos,labels);
+	  return new Flip(p,st1,st2);
+      default:
+	  throw `Parsing error at line ${linepos+1}: instruction expected`;
+      }
+  }
+
+  function separate_line(line) {
+      const line_with_comment = line.split(";")[0]
+      const l = line_with_comment.split(new RegExp(' +'));
+      var i = 0;
+      var j = l.length
+      var sliced = false;
+      if (l.length==0) return null;      
+      if (l[0]=="") { i++; sliced = true; }
+      if (l[j-1]=="") { j--; sliced = true; }
+      if (sliced) return l.slice(i,j);
+      return l;
+  }
+  
+  
+  function step(id) {
+      //console.log(`is ant ${id} alive ?`);
+      if (ant_is_alive(id)) {
+	  const pos = find_ant(id);
+	  const ant = ant_at(pos);
+	  const cell = get_cell(pos);
+	  //console.log(`current celltype is ${cell.celltype}`);
+	  //console.log(`ant ${ant.id} at state ${ant.state}, pos(${pos.x},${pos.y})`);
+	  if (ant.resting > 0) {
+	      ant.resting -= 1;
+	  } else {
+	      const instr = get_instruction(ant.color,ant.state);
+	      //if (ant.id==0) console.log(`instruction is ${instr}`);
+	      instr.compute(ant,pos);
+	      const new_pos = find_ant(id);
+	      refresh.content[refresh.size] = pos;
+	      refresh.size++;
+	      if (new_pos!=pos && new_pos!=null) {
+		  refresh.content[refresh.size] = new_pos;
+		  refresh.size++;
+	      }
+	  }
+      }
+  }
+  
+  function init_world(str) {
+      ant_positions = new Array(2*nbmaxants);
+      var lines = str.split('\n');
+      zoom = parse_int(lines,0,1,'for world zoom factor');
+      size = 6 * zoom;
+      width = parse_int(lines,1,2,'for world width');
+      if (width<=0) throw "Parsing error at line 2: width should be strictly greater than zero";
+      height = parse_int(lines,2,3,'for world height');
+      if (height<=0) throw "Parsing error at line 3: height should be strictly greater than zero";
+      if (height>lines.length-3) throw "Parsing error: not enough lines";
+      world = mkWord(width,height);
+      for (var i = 0; i<height; i++) {
+	  var line = lines[i+3];
+	  var j = 0;
+	  if (2*width>line.length) throw `Parsing error: line ${i+4} is too short (${2*width}) character expected`;
+	  for (var k = 0; k<line.length; k++) {
+	      if (line[k]!=" ") {
+		  pos = {x:j, y:i};
+		  const cll = get_cell(pos);
+		  new_ant = set_cell_from_char(cll,line[k]);
+		  if (new_ant!=null) {
+		      nb_ants++;
+		      //new_ant.direction = (new_ant.direction+new_ant.id)%6;
+		      set_ant_at(pos,new_ant);
+		  }
+		  j++
+	      }
+	  }
+      }
+      refresh = { content: new Array(2*nb_ants), size:0 };
+  }
+
+  function compute_score() {
+      const size = world_size();
+      var score_red_team = 0;
+      var score_black_team = 0;
+      for (var i = 0; i<size.width; i++) {
+	  for (var j = 0; j<size.height; j++) {
+	      const pos = {x: i, y: j};
+	      if (anthill_at(pos,color.red))
+		  score_red_team += food_at(pos);
+	      else if (anthill_at(pos,color.black))
+		  score_black_team += food_at(pos);
+	  }
+      }
+      return {red: score_red_team, black: score_black_team}
+  }
+
+  var string_word;
+  var world;
+  var red_brain;
+  var black_brain;
+  
+  function load_world(str) {
+      string_word = str;
+      restart();
+  }
+
+  function valid_block_end(items) {
+      switch (items[0]) {
+      case 'Goto':
+      case 'Sense':
+      case 'Flip':
+	  return true;
+      default:
+	  return false;
+      }
+  }
+  
+  function load_brain(str) {
+      const lines = str.split('\n');
+      var k = 0;
+      var labels = new Object();
+      var last_command;
+      const code = new Array(lines.length);
+      for (var i=0; i<lines.length; i++) {
+	  const items = separate_line(lines[i]);
+	  if (i==lines.length-1
+	      && last_command!=null
+	      && !valid_block_end(last_command))
+	      throw `Parsing error at line ${i+1}: end of program should end with a Goto, Sense or Flip command`;
+	  if (lines[i].split(';')[0].includes(":")) {
+	      const label = items[0].split(':')[0];
+	      if (labels[label] != null)
+		  throw `Parsing error at line ${i+1}: label ${label} is defined twice`;
+	      labels[label] = k;
+	      if (last_command!=null && !valid_block_end(last_command))
+		  throw `Parsing error at line ${i+1}: previous block should end with a Goto, Sense or Flip command`;
+	  } else if (items.length>0) {
+	      code[k] = {items:items, line:i};
+	      k++;
+	      last_command = items;
+	  }
+      }
+      for (var i=0; i<k; i++) {
+	  code_i = code[i];
+	  code[i] = parse_instruction(code_i.items,code_i.line,labels);
+      }
+      // for (var i=0; i<k; i++) {
+      //	  console.log(`${i}: ${code[i]}`);
+      //    }
+      var brain = code;
+      brain.labels = labels;
+      return brain;
+  }
+
+  function load_red_brain(str) {
+      try {
+	  red_brain = load_brain(str);
+      } catch(err) {
+	  alert(err);
+	  document.getElementById("red_brain_name").textContent = "";
+	  red_brain = null;
+      }
+  }
+  
+  function load_black_brain(str) {
+      try {
+	  black_brain = load_brain(str);
+      } catch(err) {
+	  alert(err);
+	  document.getElementById("black_brain_name").textContent = "";
+	  black_brain = null;
+      }
+  }
+  
+  
+  canvas_elem.addEventListener('click', function(event) {
+      var x = Math.floor((event.clientX-canvas_elem.offsetLeft)/(2*size));
+      var y = Math.floor((event.clientY-canvas_elem.offsetTop)/size);
+      console.log(`x=${x} y=${y}`);
+  }, false);
+
+
+  var red_score=0;
+  var black_score=0;
+  var itv;
+  var count = 0;
+  function loop() {
+      if (count==100000) {
+      //if (count==1000) {
+	  const score = compute_score();
+	  console.log('red team final score = '+score.red);
+	  console.log('black team final score = '+score.black);
+	  clearTimeout(itv);
+	  if (score.red==score.black) 
+	      document.getElementById("results").textContent = "Game over: draw!"
+	  else if (score.red>score.black) 
+	      document.getElementById("results").textContent = "Game over: reds won!"
+	  else
+	      document.getElementById("results").textContent = "Game over: blacks won!"
+      } else {
+	  //console.log('step '+count);
+	  count++;
+	  for (var id=0; id<nb_ants; id++) step(id);
+	  //step(0);
+	  refresh_world();
+	  refresh.size=0;
+	  itv = setTimeout(loop, speed);
+      }
+  }
+
+  function restart() {
+      try {
+	  init_world(string_word);
+	  stop();
+	  draw_world();
+	  count = 0;
+      black_score = 0;
+      red_score   = 0;
+      document.getElementById("red_score").textContent = red_score;
+      document.getElementById("black_score").textContent = black_score;
+      document.getElementById("results").textContent = "";
+      } catch(err) {
+	  alert(err);
+	  document.getElementById("world_name").textContent = "";
+	  world = null;
+      }
+  }
+
+  
+  function start() {
+      if (world==null) {
+	  document.getElementById("world_name").textContent =
+	      "Load a world file first!";
+      }
+      if (red_brain==null) {
+	  document.getElementById("red_brain_name").textContent =
+	      "Load a red ants brain file first!";
+      }
+      if (world!=null && red_brain!=null) {
+	  document.getElementById("start").disabled = true;
+	  document.getElementById("stop").disabled = false;
+	  loop();
+      }
+  }
+  
+  function stop() {
+      document.getElementById("start").disabled = false;
+      document.getElementById("stop").disabled = true;
+      clearTimeout(itv);
+  }
+
+  function end() {
+      stop();
+      while (count<100000) {
+	  count++;
+	  for (var id=0; id<nb_ants; id++) step(id);
+      }
+      draw_world();
+      const score = compute_score();
+      console.log('red team final score = '+score.red);
+      console.log('black team final score = '+score.black);
+      if (score.red==score.black) 
+	  document.getElementById("results").textContent = "Game over: draw!"
+      else if (score.red>score.black) 
+	  document.getElementById("results").textContent = "Game over: reds won!"
+      else
+	  document.getElementById("results").textContent = "Game over: blacks won!"
+  }
+
+//  add_frontiers();
+//  
+//  add_zone({x:20, y:20},
+//	   cell.red_anthill,
+//	   0,
+//	   anthill);
+//  add_zone({x:70, y:70},
+//	   cell.black_anthill,
+//	   0,
+//	   anthill);
+//  add_zone({x:4, y:12},
+//	   cell.grass,
+//	   5,
+//	   food);
+//
+
+    
+</script>
+</html>

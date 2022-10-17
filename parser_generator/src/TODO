@@ -1,0 +1,9 @@
+- check non-emptyness of separators.
+ or handle them.
+
+- fix ambiguity detection.
+ iterations introduce ambiguity.
+
+- panic if two rules have the same constructor.
+
+- error messages !

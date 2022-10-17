@@ -1,0 +1,40 @@
+search:
+  Sense Ahead pick_food flip Food  ; Y a-t-il de la nourriture devant moi ?
+pick_food:
+  Move search                      ; OUI : avance et prend la nourriture
+  PickUp search                    ; repart au début si échec
+  Goto go_home 
+
+flip:
+  Flip 3 turn_left or              ; NON : tourne ou avance
+turn_left:
+  Turn Left                        ; tourne à gauche et continue la recherche 
+  Goto search
+or:
+  Flip 2 turn_right move           
+turn_right:
+  Turn Right                       ; tourne à droite et continue la recherche 
+  Goto search          
+move:
+  Move flip                        ; avance et continue la recherche
+  Goto search                      
+
+go_home:                           ; recherche la maison 
+  Sense Ahead home not_home Home   ; Est-ce que la cellule devant moi est la maison ?
+home:
+  Move go_home                     ; OUI : avance et dépose de la nourriture
+  Drop                             ; puis repart en recherche
+  Goto search
+not_home:
+  Flip 3 not_home_left not_home_or ; NON : tourne ou avance
+not_home_left:
+  Turn Left                        ; tourne à gauche et recherche la maison
+  Goto go_home                     
+not_home_or:
+  Flip 2 not_home_right not_home_move  
+not_home_right:
+  Turn Right                       ; tourne à droite et recherche la maison
+  Goto go_home                      
+not_home_move:
+  Move not_home                    ; avance et recherche la maison
+  Goto go_home
