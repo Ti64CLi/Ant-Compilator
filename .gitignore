@@ -1,0 +1,13 @@
+_build
+antsc
+*.install
+*.opam
+src/.merlin
+shell.nix
+src/ast.ml
+src/ast.mli
+src/parser.ml
+src/parser.mli
+src/lexer.ml
+src/lexer.mli
+parser_generator/simple-parser-gen
