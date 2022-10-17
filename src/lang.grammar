@@ -1,14 +1,36 @@
-type command =
+type expression =
+	| Expr		{<expression>}
+	| Var		<ident>
 	| Move		move
-	| Turn		turn <direction>
-	| Pickup	pickup
+	| Turn		turn <int>
+	| Pickup	pickup <ident>
 	| Drop		drop
-	| Label		<ident> : <command>
+	| Label		<ident> :
 	| Goto		goto <ident>
+	| Mark 		Mark <int>
+	| Unmark	Unmark <int>
+	| If 		If <cond> Is <direction> Then <expression> Else <expression>
+	| Flip		Flip <int> <Func> <Func>
+	| Func		Func <ident> {<expression>}
+	| Look		Look <direction> If <cond> Do <expression>
 
 type direction =
+	| Ahead		Ahead
 	| Left		left
 	| Right		right
+	| Here		Here
 
 type program =
 	| Program 		<command+;>
+
+type cond =
+	| Friend	Friend
+	| Foe		Foe
+	| FriendWithFood FriendWithFood
+	| FoeWithFood	FoeWithFood
+	| Food		Food
+	| Rock		Rock
+	| Marker	Marker <int>
+	| FoeMarker	FoeMarker
+	| Home		Home
+	| FoeHome	FoeHome
