@@ -1,0 +1,14 @@
+type command =
+	| Move		move
+	| Turn		turn <direction>
+	| Pickup	pickup
+	| Drop		drop
+	| Label		<ident> : <command>
+	| Goto		goto <ident>
+
+type direction =
+	| Left		left
+	| Right		right
+
+type program =
+	| Program 		<command+;>

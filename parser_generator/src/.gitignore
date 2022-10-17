@@ -1,0 +1,6 @@
+_build
+*.install
+*.opam
+lib/.merlin
+bin/.merlin
+test

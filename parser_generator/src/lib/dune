@@ -1,0 +1,5 @@
+(library
+  (name simpleParser)
+  (public_name simple-parser)
+  (libraries unicode code-map)
+)
