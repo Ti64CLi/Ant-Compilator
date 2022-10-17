@@ -13,6 +13,7 @@ type expression =
 	| Flip		Flip <int> <Func> <Func>
 	| Func		Func <ident> {<expression>}
 	| Look		Look <direction> If <cond> Do <expression>
+	| While 	While <condition> Do {<expression>} <ident>
 
 type direction =
 	| Ahead		Ahead

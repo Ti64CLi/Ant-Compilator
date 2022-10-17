@@ -61,8 +61,13 @@ Func check_food(dir) {
 		}
 }
 
-type expression = 
-	| Expr {<expression>}
-	| Var <ident>
-	| Func Func Var>(<ident*,>) <expression> 
-	| Look Look <direction> If <cond> Do <expression>
+
+
+
+Listes des informations que l'on aimerait bien contenir dans les bit(e)s d'une case:
+-s'il n'y a qu'une exploration
+-s'il y a de la nouriture (directions ?)
+-où est la maison (direction ?)
+-s'il y a des ennemis
+-s'il y a des murs
+-s'il n'y a plus de nourriture (moins de chance d'en trouver)
