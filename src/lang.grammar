@@ -26,11 +26,11 @@ type direction =
 	| Here		Here
 
 type program =
-	| Program 		<command+;>
+	| Program	<command+;>
 
 type cond =
-	| Or            <expression> || <expression>
-	| And           <expression> && <expression>
+	| Or        <cond> || <cond>
+	| And		<cond> && <cond>
 	| Friend	Friend
 	| Foe		Foe
 	| FriendWithFood FriendWithFood
