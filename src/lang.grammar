@@ -3,17 +3,21 @@ type expression =
 	| Var		<ident>
 	| Move		move
 	| Turn		turn <int>
-	| Pickup	pickup <ident>
+	| PickUp	PickUp <ident>
 	| Drop		drop
 	| Label		<ident> :
-	| Goto		goto <ident>
+	| Goto		Goto <ident>
 	| Mark 		Mark <int>
 	| Unmark	Unmark <int>
 	| If 		If <cond> Is <direction> Then <expression> Else <expression>
 	| Flip		Flip <int> <Func> <Func>
-	| Func		Func <ident> {<expression>}
+	| Func		Func <ident> Expr
 	| Look		Look <direction> If <cond> Do <expression>
-	| While 	While <condition> Do {<expression>} <ident>
+	| While 	While <condition> Do Expr <ident>
+	| For 		For <int> <expression>
+	
+type instruction =
+	|
 
 type direction =
 	| Ahead		Ahead
@@ -25,6 +29,8 @@ type program =
 	| Program 		<command+;>
 
 type cond =
+	| Or            <expression> || <expression>
+	| And           <expression> && <expression>
 	| Friend	Friend
 	| Foe		Foe
 	| FriendWithFood FriendWithFood
