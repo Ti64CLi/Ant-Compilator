@@ -160,7 +160,7 @@ def create_array_gui(map):
                     map[y_i][x_j] = i
                     update_cell(window, map, y_i, x_j)
                     draw_line(window)
-                    py.display.flip()            
+                    py.display.flip()
     py.quit()
 
 
@@ -170,4 +170,4 @@ print(map)
 A = input("ENREGISTRER ? Yes(Y) / No(N) ")
 if A == "Y":
     name = input("nom de la map creer : ")
-    write_map(name+".world", map)
+    write_map("worlds/" + name + ".world", map)
