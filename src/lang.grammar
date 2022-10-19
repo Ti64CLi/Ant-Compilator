@@ -15,8 +15,6 @@ type expression =
 	| Look		do {<expression>} if (<cond> is <direction>);
 	| While 	while(<cond>) {<expression>}
 	| Repeat	repeat(<int>) times {<expression>}
-	| Ifor		ifor (<cond>) (<cond>) Do {<expression>}
-	| Ifand		ifand (<cond>) (<cond>) Do {<expression>}
 
 type direction =
 	| Ahead				ahead
@@ -37,3 +35,5 @@ type cond =
 	| FoeMarker				foeMarker
 	| Home						home
 	| FoeHome					foeHome
+	| And 				&& (<cond>) (<cond>)
+	| Or				|| (<cond>) (<cond>)
