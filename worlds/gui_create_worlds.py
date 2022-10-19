@@ -5,10 +5,10 @@ from random import randint
 # zoom = int(input("zoom : "))
 # height = int(input("height : "))
 # length = int(input("lenght : "))
-zoom = 3
-length = 26
-height = 29
-square = 30
+zoom = 1
+length = 100
+height = 100
+square = 8
 
 # Numéro to print for FOOD number
 py.font.init()
@@ -20,15 +20,16 @@ map = [[0]*length for i in range(height)]
 
 
 class State:
-    def __init__(self, name, i, color, char):
+    def __init__(self, name, i, color, char, key):
         self.name = name
         self.integer = i
         self.color = color
         self.char = char
         self.char_render = my_font.render(self.char, False, (0, 0, 0))
+        self.key = key
 
     def blit(self, window, i, j):
-        #py.draw.polygon(window, (255, 0, 0),[[300, 300], [100, 400],[100, 300]])
+        # py.draw.polygon(window, (255, 0, 0),[[300, 300], [100, 400],[100, 300]])
         py.draw.rect(window, self.color, [square*j, square*i, square, square])
         window.blit(self.char_render, (square*j, square*i))
 
@@ -50,20 +51,20 @@ YELLOW = (255, 255, 0)
 
 # Different type of cells
 l_state = []
-l_state.append(State("EMPTY", 0, BLANC, " ."))
-l_state.append(State("ROCK", 1, VERT, " #"))
-l_state.append(State("TEAM_1", 2, ROUGE, " -"))
-l_state.append(State("TEAM_2", 3, NOIR, " +"))
-l_state.append(State("FOOD_0", 4, YELLOW, " 0"))
-l_state.append(State("FOOD_1", 6, YELLOW, " 1"))
-l_state.append(State("FOOD_2", 7, YELLOW, " 2"))
-l_state.append(State("FOOD_3", 8, YELLOW, " 3"))
-l_state.append(State("FOOD_4", 9, YELLOW, " 4"))
-l_state.append(State("FOOD_5", 10, YELLOW, " 5"))
-l_state.append(State("FOOD_6", 11, YELLOW, " 6"))
-l_state.append(State("FOOD_7", 12, YELLOW, " 7"))
-l_state.append(State("FOOD_8", 13, YELLOW, " 8"))
-l_state.append(State("FOOD_9", 13, YELLOW, " 9"))
+l_state.append(State("EMPTY", 0, BLANC, " .", py.K_a))
+l_state.append(State("ROCK", 1, VERT, " #", py.K_z))
+l_state.append(State("TEAM_1", 2, ROUGE, " -", py.K_e))
+l_state.append(State("TEAM_2", 3, NOIR, " +", py.K_r))
+l_state.append(State("FOOD_0", 4, YELLOW, " 0", py.K_t))
+l_state.append(State("FOOD_1", 6, YELLOW, " 1", py.K_q))
+l_state.append(State("FOOD_2", 7, YELLOW, " 2", py.K_s))
+l_state.append(State("FOOD_3", 8, YELLOW, " 3", py.K_d))
+l_state.append(State("FOOD_4", 9, YELLOW, " 4", py.K_f))
+l_state.append(State("FOOD_5", 10, YELLOW, " 5", py.K_g))
+l_state.append(State("FOOD_6", 11, YELLOW, " 6", py.K_w))
+l_state.append(State("FOOD_7", 12, YELLOW, " 7", py.K_x))
+l_state.append(State("FOOD_8", 13, YELLOW, " 8", py.K_c))
+l_state.append(State("FOOD_9", 14, YELLOW, " 9", py.K_v))
 
 
 def creat_hexagon(x, y):
@@ -89,7 +90,28 @@ def creat_hexagon(x, y):
 def draw_screen(window, t):
     for i in range(len(t)):
         for j in range(len(t[0])):
-            l_state[t[i][j]].blit(window, i, j)
+            update_cell(window, t, i, j)
+
+
+def update_cell(window, t, i, j):
+    l_state[t[i][j]].blit(window, i, j)
+
+
+def draw_line(window):
+    for p in range(height):
+        py.draw.line(window, NOIR, (0*square, p * square),
+                     ((height-1) * square, p * square), width=1)
+    for p in range(length):
+        py.draw.line(window, NOIR, (p*square, 0*square),
+                     (p*square, (height-1) * square), width=1)
+
+
+def draw_border(t):
+    for i in range(len(t)):
+        for j in range(len(t[0])):
+            if i == 0 or i == len(t)-1 or j == 0 or j == len(t[0])-1:
+                # ROCK on the borders
+                t[i][j] = 1
 
 
 def write_map(NomFich, t):
@@ -103,7 +125,7 @@ def write_map(NomFich, t):
             f.write(" ")
         for row in range(len(t[lgn])):
 
-            f.write(l_state(t[lgn][row]).char)
+            f.write(l_state[t[lgn][row]].char)
             f.write(" ")
             if row == len(t[lgn])-1:
                 if lgn != len(t)-1:
@@ -112,18 +134,15 @@ def write_map(NomFich, t):
 
 
 def create_array_gui(map):
+    draw_border(map)
     py.init()
-
-    # foret  = py.transform.scale(foret,(600,b2))
     window = py.display.set_mode((length*square, height*square), py.SHOWN)
-    # fenetre.blit(foret,(0,0))
-
-    py.draw.rect(window, VERT, [20, 20, 2, 2])
-    # py.key.set_repeat(10, 0)
+    draw_screen(window, map)
+    draw_line(window)
+    py.display.flip()
+    py.key.set_repeat(10, 10)
     Test = True
     while Test:
-        draw_screen(window, map)
-        py.display.flip()
         for event in py.event.get():
             # condition d'arrêt
             if event.type == py.QUIT:
@@ -133,25 +152,21 @@ def create_array_gui(map):
             if event.type == py.KEYDOWN and event.key == py.K_SPACE:
                 Test = False
 
-            if event.type == py.MOUSEBUTTONDOWN:
-                print("event.button = ", event.button)
-                x, y = event.pos
-                x_i = x // square
-                y_j = y // square
-                print("x_i = ", x_i, ", y_i = ", y_j)
-
-                if event.button == 3 and (map[y_j][x_i] >= offset_FOOD):
-                    # right click and on a FOOD cell -> increase the FOOD
-                    map[y_j][x_i] = ((map[y_j][x_i] - 4 + 1) % 10) + 4
-
-                if event.button == 1:
-                    # left click
-                    map[y_j][x_i] = (map[y_j][x_i] + 1) % (offset_FOOD+1)
-
+            for i in range(14):
+                if event.type == py.KEYDOWN and event.key == l_state[i].key:
+                    x, y = py.mouse.get_pos()
+                    x_j = x // square
+                    y_i = y // square
+                    map[y_i][x_j] = i
+                    update_cell(window, map, y_i, x_j)
+                    draw_line(window)
+                    py.display.flip()            
     py.quit()
 
 
 create_array_gui(map)
+print(map)
+
 A = input("ENREGISTRER ? Yes(Y) / No(N) ")
 if A == "Y":
     name = input("nom de la map creer : ")
