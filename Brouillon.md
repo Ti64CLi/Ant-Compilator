@@ -71,8 +71,10 @@ Listes des informations que l'on aimerait bien contenir dans les bit(e)s d'une c
 -s'il y a des ennemis (trace ?)				6 infos (*2 si distinctions)
 -s'il y a des murs							1 infos
 -s'il n'y a plus de nourriture (moins de chance d'en trouver) 6 infos
+-s'il y a de la nourriture et des ennemis  	6 infos
+-si on trouve la base ennemi				6 infos
 
-total au plus d'infos : 37
+total au plus d'infos : 47
 total max d'infos : 63
 
 
@@ -109,3 +111,86 @@ Il faudra essayer d'autre statégie qui ne marque pas toujours les directions, e
 Pour garder l'information de la direction, il est nécessaire qu'un mode "sortie" soit exécutée en premier, et uniquement en premier pour écrire sur la base jsute le temps de sortir. Il faut également optimiser ce passagepour sortir le plus efficacement.
 
 Une fois cette étape de faite, l'information "être dans la base" correspond à un bit supplémentaire, et permet donc d'encoder 64 informations différentes.
+
+Marquer les zones adjacentes aux murs permet de maintenir des chemins larges pour assurer des meilleurs croisements. Évidemment, s'il y a des chemins de 1 de larges, ce sont alors de coups de p***
+
+
+
+
+
+
+
+
+Liste des réactions possibles face à une situation pour déterminer les statégies possibles:
+
+*rôles:
+	-exploratrices
+	-gardes
+	-soldats
+	-uber
+	-messagère
+	-ménagère
+
+*Friend:
+	-contourner
+	-donner nourriture
+	-échanger informations
+
+*Foe:
+	-marquer
+	-fuir/prévenir
+	-attaquer (encercler)
+
+*FriendWithFood:
+	-contourner
+	-récupérer nourriture
+	-échanger information
+
+*FoeWithFood:
+	-marquer
+	-fuir/prévenir
+	-attacker
+
+*Food:
+	-récupérer
+	-marquer
+	-vérifier les quantités
+
+*Rock:
+	-marquer
+	-demi-tour
+	-longer
+	-marquer tout le contour
+
+*Marker:
+	-changer de modes
+	-suivre le direction
+	-sauter
+	-changer de direction
+	-changer de mode
+	-etc...
+	-> en fonction de l'indication:
+
+
+*FoeMarker:
+	-mark
+	-fuir/prévenir
+	-suirve
+	-protéger nourriture
+
+*Home:
+	-déposer nourriture 
+	-changer de rôle
+	-programmer etc...
+		-> une reine au centre, et des fourmis sur chaque couche, qui tournent en rond
+		-> en fonction de leur mode et dela valeur courante, elles écrivent à droite et à gauche
+		-> problème : lente exécution et très complexe à utiliser
+		-> mais intellectuellement super intéressant 
+	-protéger
+	-etc...
+
+*FoeHome:
+	-marke
+	-fuir/prévenir
+	-voler nouriture
+	-attaquer
