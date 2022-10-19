@@ -19,6 +19,7 @@ type control =
 	| Block			{<program>}
 
 type expression =
+<<<<<<< HEAD
 	| Num			<int>
 	| Move			move(<int>)
 	| Turn			turn(<int>)
@@ -45,12 +46,31 @@ type bool =
 type value =
 	| Var	<ident>
 	| Int	<int>
+=======
+	| Include	include(<ident>);
+	| Define	define(<ident> is <expression>);
+	| Move		move(<int>);
+	| Turn		turn(<int>);
+	| PickUp	pickup(<ident>);
+	| Drop		drop();
+	| Label		<ident>:
+	| Goto		goto <ident>;
+	| Mark 		mark(<int>);
+	| Unmark	unmark(<int>);
+	| IfThenElse 			if(<cond>) then {<expression>} else {<expression>}
+	| Flip		flip(<int>, <ident>, <ident>);
+	| Func		func <ident>(<ident>,*) {<expression>};
+	| Look		do {<expression>} if (<cond> is <direction>);
+	| While 	while(<cond>) {<expression>}
+	| Repeat	repeat(<int>) times {<expression>}
+>>>>>>> ff067f37bc7a8f06932caa1c6b1cd8795201effc
 
 type direction =
 	| Ahead				ahead
 	| Left				left
 	| Right				right
 	| Here				here
+<<<<<<< HEAD
 	| LeftAhead			leftAhead
 	| RightAhead		rightAhead
 
@@ -66,3 +86,21 @@ type category =
 	| Home					home
 	| FoeHome				foeHome
 	| RandInt				randint(<value>)
+=======
+	| LeftAhead		leftAhead
+	| RightAhead	rightAhead
+
+type cond =
+	| Friend					friend
+	| Foe							foe
+	| FriendWithFood	friendWithFood
+	| FoeWithFood			foeWithFood
+	| Food						food
+	| Rock						rock
+	| Marker					marker(<int>)
+	| FoeMarker				foeMarker
+	| Home						home
+	| FoeHome					foeHome
+	| And 				(<cond> && <cond>)
+	| Or				(<cond> || <cond>)
+>>>>>>> ff067f37bc7a8f06932caa1c6b1cd8795201effc
