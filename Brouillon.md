@@ -79,20 +79,22 @@ total max d'infos : 63
 
 	réfléxions:
 
-L'objectif est de considérer des phases où la fourmi est orienté dans le même sens ou dans le sens opposé à celle indiqué par la case. Ainsi, la fourmi sait à chaque instant que la direction dans laquelle elle regarde est soit la direction pointée, soit la direction oposée à celle pointé ( en fonction de son mode (rentrer à la maison par exemple))
-Pour rentrer à la maison, la fourmi est orientée selon la direction indiquée. Elle regarde la case de devant et compare la valeur de celle-ci à la sienne. En fonction, elle s'avance et se tourne d'une certaine manière. Ainsi fait, elle est de nouveau orientée vers la direction pointée par la case
+Il faut qu'avec une proba, les fourmis testent s'il y a des traces ennemis.
 
-Lors d'un croisement, la fourmi avec de la nouriture ou rentrant à la base est prioritaire. Sinon, les deux se décalent. Quand une fourmi se décale, elle contourne par le même côté (droite par exemple).
+L'orientation correspond à l'une des 6 copies du code, avec seul la donnée de l'orientation qui change. L'orientation de base est l'est, celle pointée à l'origine.
+
+Lors d'un croisement, la fourmi avec de la nouriture ou rentrant à la base est prioritaire. Sinon, les deux se décalent. Quand une fourmi se décale, elle contourne par le même côté (droite par exemple) pour se contourner.
 
 Pour avoir une certaine proportion de fourmis qui attaquent/défendent/cehrchent/récupère etc... Il suffit de leur faire tirer aléatoirement une fonction. Pour un nombre suffisaznt de fourmis, il y aura statistiquement une proportion correspondant à cette proba donnée.
 
-On peut crée un mod qui parcours le tour de la base etcherche dans quelle direction il y a de la nourriture/des ennemis etc... et aurait une certaine proba de la suivre (pour éviter d'envoyer toutes les fourmis dans cette direction)
+On peut crée un mod qui parcours le tour de la base et cherche dans quelle direction il y a de la nourriture/des ennemis etc... (grâce aux marquages) et aurait une certaine proba de la suivre (pour éviter d'envoyer toutes les fourmis dans cette direction)
+Une autre idée serait de considérer un ordre d'importance sur les informations (par ex, Friend < Food < FriendWithFood < Foe etc....). À l'intérieur de la base, si plusieurs cases pointent vers une même case, cette dernière aura pour valeur l'information prioritaire. Cela permet donc d'avoir une sorte d'arbre de dictionnaire, et rediriger les fourmis selon leur rôle et leur importance.
 
 	idée de réaction:
 
 S'il y a des fourmis ennemis, une certaine quantité de fourmis peuvent s'organiser pour former un mur, empêchant les fourmis ennemis de trop s'approcher, tout en contrôlant leur potentielle attaque (à caondistion d'avoir suffisemment de fourmis)
 
-La forme de la base étant connue, une fourmi à l'instant initial pointe vers l'est. Ainsi, une fourmi sur un des bords de la base peut marquer une direction donnée. De ce fait, une fourmi qui se retrouve sur le bord saurait la direction (le numéro de la case), et dans quelle direction pointe ce numéro (la donné de la frontière de la base). Ce la permet de créer un mémoire à l'intérieure de la base en abandonnant l'information de la direction (qui est donc retrouvée sur le bord)
+l'intérieur de la base est marquée, et agit donc comme une information supplémentaire. De ce fait, de nouvelles informations peuvent être encodées.
 
 
 
