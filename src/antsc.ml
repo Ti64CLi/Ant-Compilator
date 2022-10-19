@@ -16,7 +16,7 @@ let process_file filename =
   let file = open_in filename in
   let lexer = Lexer.of_channel file in
   (* Parse le fichier. *)
-  let (program, span) = Parser.parse_votre_initial lexer in
+  let (program, span) = Parser.parse_program lexer in
   printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program)
 
 (* Le point de départ du compilateur. *)

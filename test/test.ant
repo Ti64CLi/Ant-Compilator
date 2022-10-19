@@ -1,0 +1,26 @@
+define DIR as 3;
+define UP as 0;
+define RIGHT as 1;
+define LEFT as 2;
+
+func randomMove() {
+    if(is(food, here)) then {
+        pickup(noop);
+    } else {
+        nop;
+    }
+    noop:
+    switch(randint(DIR))
+    {
+        case UP: 
+            move(1);
+        case RIGHT: 
+            turn(1);
+            move(1);
+        case LEFT:
+            turn(5);
+            move(1);
+    }
+
+    call randomMove;
+}

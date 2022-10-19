@@ -1,0 +1,24 @@
+func main() {
+    if(is(food, here)) then { # test #
+        pickup(randomMove);
+    } else {
+        call randomMove; 
+    }
+
+    call main;
+}
+
+func randomMove() {
+    switch(randint(NDIR)) { # 2ème test #
+        case UP:
+            nop;
+        case LEFT:
+            turn(5);
+        case RIGHT:
+            turn(1);
+    }
+
+    move(1);
+
+    call main;
+}
