@@ -35,5 +35,5 @@ type cond =
 	| FoeMarker				foeMarker
 	| Home						home
 	| FoeHome					foeHome
-	| And 				&& (<cond>) (<cond>)
-	| Or				|| (<cond>) (<cond>)
+	| And 				(<cond> && <cond>)
+	| Or				(<cond> || <cond>)
