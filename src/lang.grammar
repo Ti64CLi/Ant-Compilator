@@ -1,43 +1,37 @@
 type expression =
-	| Expr		{<expression>}
-	| Var		<ident>
-	| Move		move
-	| Turn		turn <int>
-	| PickUp	PickUp <ident>
-	| Drop		drop
-	| Label		<ident> :
-	| Goto		Goto <ident>
-	| Mark 		Mark <int>
-	| Unmark	Unmark <int>
-	| If 		If <cond> Is <direction> Then <expression> Else <expression>
-	| Flip		Flip <int> <Func> <Func>
-	| Func		Func <ident> Expr
-	| Look		Look <direction> If <cond> Do <expression>
-	| While 	While <condition> Do Expr <ident>
-	| For 		For <int> <expression>
-	
-type instruction =
-	|
+	| Include include(<ident>);
+	| Define	define(<ident> is <expression>);
+	| Move		move(<int>);
+	| Turn		turn(<int>);
+	| PickUp	pickup(<ident>);
+	| Drop		drop();
+	| Label		<ident>:
+	| Goto		goto <ident>;
+	| Mark 		mark(<int>);
+	| Unmark	unmark(<int>);
+	| IfThenElse 			if(<cond>) then {<expression>} else {<expression>}
+	| Flip		flip(<int>, <ident>, <ident>);
+	| Func		func <ident>(<ident>,*) {<expression>};
+	| Look		do {<expression>} if (<cond> is <direction>);
+	| While 	while(<cond>) {<expression>}
+	| Repeat	repeat(<int>) times {<expression>}
 
 type direction =
-	| Ahead		Ahead
-	| Left		left
-	| Right		right
-	| Here		Here
-
-type program =
-	| Program	<command+;>
+	| Ahead				ahead
+	| Left				left
+	| Right				right
+	| Here				here
+	| LeftAhead		leftAhead
+	| RightAhead	rightAhead
 
 type cond =
-	| Or        <cond> || <cond>
-	| And		<cond> && <cond>
-	| Friend	Friend
-	| Foe		Foe
-	| FriendWithFood FriendWithFood
-	| FoeWithFood	FoeWithFood
-	| Food		Food
-	| Rock		Rock
-	| Marker	Marker <int>
-	| FoeMarker	FoeMarker
-	| Home		Home
-	| FoeHome	FoeHome
+	| Friend					friend
+	| Foe							foe
+	| FriendWithFood	friendWithFood
+	| FoeWithFood			foeWithFood
+	| Food						food
+	| Rock						rock
+	| Marker					marker(<int>)
+	| FoeMarker				foeMarker
+	| Home						home
+	| FoeHome					foeHome
