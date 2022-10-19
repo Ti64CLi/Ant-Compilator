@@ -86,9 +86,13 @@ Lors d'un croisement, la fourmi avec de la nouriture ou rentrant à la base est 
 
 Pour avoir une certaine proportion de fourmis qui attaquent/défendent/cehrchent/récupère etc... Il suffit de leur faire tirer aléatoirement une fonction. Pour un nombre suffisaznt de fourmis, il y aura statistiquement une proportion correspondant à cette proba donnée.
 
+On peut crée un mod qui parcours le tour de la base etcherche dans quelle direction il y a de la nourriture/des ennemis etc... et aurait une certaine proba de la suivre (pour éviter d'envoyer toutes les fourmis dans cette direction)
+
 	idée de réaction:
 
 S'il y a des fourmis ennemis, une certaine quantité de fourmis peuvent s'organiser pour former un mur, empêchant les fourmis ennemis de trop s'approcher, tout en contrôlant leur potentielle attaque (à caondistion d'avoir suffisemment de fourmis)
+
+La forme de la base étant connue, une fourmi à l'instant initial pointe vers l'est. Ainsi, une fourmi sur un des bords de la base peut marquer une direction donnée. De ce fait, une fourmi qui se retrouve sur le bord saurait la direction (le numéro de la case), et dans quelle direction pointe ce numéro (la donné de la frontière de la base). Ce la permet de créer un mémoire à l'intérieure de la base en abandonnant l'information de la direction (qui est donc retrouvée sur le bord)
 
 
 
@@ -99,3 +103,7 @@ Quelque soit le mode d'une fourmis, elle ne doit surtout pas oublier dans quelle
 À l'instant initial, chaque fourmi pointe vers la même direction, qui devient la direction de base.
 
 Il faudra essayer d'autre statégie qui ne marque pas toujours les directions, et ferait donc un parcours semi-aléatoire en suivant une direction marquée par exemple. Cela pourrait permettre de tester si des informations qu'on n'aurait pas pus mettre initialement sont plus ou moins importantes.
+
+Pour garder l'information de la direction, il est nécessaire qu'un mode "sortie" soit exécutée en premier, et uniquement en premier pour écrire sur la base jsute le temps de sortir. Il faut également optimiser ce passagepour sortir le plus efficacement.
+
+Une fois cette étape de faite, l'information "être dans la base" correspond à un bit supplémentaire, et permet donc d'encoder 64 informations différentes.
