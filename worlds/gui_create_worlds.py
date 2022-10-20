@@ -1,22 +1,20 @@
-from curses import KEY_SAVE
 import pygame as py
-from random import randint
 
 # hauteur de son écran
 HAUTEUR_SCREEN = 1600
 # CHOOSE THE SIZE OF THE WORLD
-#zoom = int(input("zoom : "))
-#height = int(input("height : "))
-#length = int(input("lenght : "))
-zoom = 1
-length = 10
-height = 10
-square = (HAUTEUR_SCREEN * 5) // (height * 10)
-square -= (square % 6)
+zoom = int(input("zoom : "))
+height = int(input("height : "))
+length = int(input("lenght : "))
+# zoom = 1
+# length = 10
+# height = 10
+square = (HAUTEUR_SCREEN * 45) // (height * 100)
+print("square = ", square)
+# square -= (square % 2)
 # symetry : "axial_x", "axial_y", "central", "diag"]
 symetry = "central"
 
-# Colors
 NOIR = (0, 0, 0)
 BLANC = (255, 255, 255)
 VERT = (0, 255, 0)
@@ -39,7 +37,6 @@ base = []
 # Numero to print for FOOD number
 py.font.init()
 my_font = py.font.SysFont('Comic Sans MS', int(square*2/3))
-num_font = [my_font.render(" " + str(i), False, (0, 0, 0)) for i in range(10)]
 # Init of the Map
 map = [[0]*length for i in range(height)]
 
@@ -47,46 +44,46 @@ map = [[0]*length for i in range(height)]
 
 
 class State:
-    def __init__(self, name, i, color, char, key_s, key_l):
+    def __init__(self, name, value, color, char, key_small, key_large):
         self.name = name
-        self.integer = i
+        self.value = value
         self.color = color
         self.char = char
         self.char_render = my_font.render(self.char, False, (0, 0, 0))
-        self.key_small = key_s
-        self.key_large = key_l
+        self.key_small = key_small
+        self.key_large = key_large
 
     def blit(self, window, pi, pj):
         py.draw.polygon(window, self.color, create_hexagon(pi, pj))
         # py.draw.rect(window, self.color, [square*j, square*i, square, square])
-        window.blit(self.char_render, [pi, pj])
+        if self.name == "FOOD_5" or self.name == "FOOD_9":
+            window.blit(self.char_render, [pi, pj])
 
 
 # Different type of cells
-
 l_state = []
-l_state.append(State("EMPTY", 0, BLANC, " .", py.K_a, py.K_z))
-l_state.append(State("ROCK", 1, VERT, " #", py.K_e, py.K_r))
-l_state.append(State("TEAM_1", 2, ROUGE, " -", py.K_t, py.K_y))
-l_state.append(State("TEAM_2", 3, NOIR, " +", py.K_q, py.K_s))
-l_state.append(State("FOOD_0", 4, YELLOW, " 0", py.K_p, py.K_p))
-l_state.append(State("FOOD_1", 5, YELLOW, " 1", py.K_p, py.K_p))
-l_state.append(State("FOOD_2", 6, YELLOW, " 2", py.K_p, py.K_p))
-l_state.append(State("FOOD_3", 7, YELLOW, " 3", py.K_p, py.K_p))
-l_state.append(State("FOOD_4", 8, YELLOW, " 4", py.K_p, py.K_p))
-l_state.append(State("FOOD_5", 9, YELLOW, " 5", py.K_w, py.K_x))
-l_state.append(State("FOOD_6", 10, YELLOW, " 6", py.K_p, py.K_p))
-l_state.append(State("FOOD_7", 11, YELLOW, " 7", py.K_p, py.K_p))
-l_state.append(State("FOOD_8", 12, YELLOW, " 8", py.K_p, py.K_p))
-l_state.append(State("FOOD_9", 13, YELLOW, " 9", py.K_c, py.K_v))
+l_state.append(State("EMPTY", 0, BLANC, ".", py.K_a, py.K_z))
+l_state.append(State("ROCK", 1, VERT, "#", py.K_e, py.K_r))
+l_state.append(State("TEAM_1", 2, ROUGE, "-", py.K_t, py.K_y))
+l_state.append(State("TEAM_2", 3, NOIR, "+", py.K_q, py.K_s))
+l_state.append(State("FOOD_0", 4, YELLOW, "0", py.K_p, py.K_p))
+l_state.append(State("FOOD_1", 5, YELLOW, "1", py.K_p, py.K_p))
+l_state.append(State("FOOD_2", 6, YELLOW, "2", py.K_p, py.K_p))
+l_state.append(State("FOOD_3", 7, YELLOW, "3", py.K_p, py.K_p))
+l_state.append(State("FOOD_4", 8, YELLOW, "4", py.K_p, py.K_p))
+l_state.append(State("FOOD_5", 9, YELLOW, "5", py.K_w, py.K_x))
+l_state.append(State("FOOD_6", 10, YELLOW, "6", py.K_p, py.K_p))
+l_state.append(State("FOOD_7", 11, YELLOW, "7", py.K_p, py.K_p))
+l_state.append(State("FOOD_8", 12, YELLOW, "8", py.K_p, py.K_p))
+l_state.append(State("FOOD_9", 13, YELLOW, "9", py.K_c, py.K_v))
 number_of_state = len(l_state)
 
 
 def symetrical(sym, i, j):
     if sym == "axial_x":
-        return (i, j)
+        return (height - 1 - i, j)
     if sym == "axial_y":
-        return (i, j)
+        return (i, length - 1 - j)
     if sym == "central":
         return (height - 1 - i, length - 1 - j)
     if sym == "diag":
@@ -162,7 +159,7 @@ def write_map(NomFich, t):
         if lgn % 2 == 1:
             f.write(" ")
         for row in range(len(t[lgn])):
-            f.write(l_state[t[lgn][row]].char)
+            f.write(l_state[t[row][lgn]].char)
             f.write(" ")
             if row == len(t[lgn])-1:
                 if lgn != len(t)-1:
@@ -170,15 +167,18 @@ def write_map(NomFich, t):
     f.close()
 
 
-def draw_case(window, val, i, j, shape):
+# list = []
+def draw_case(window, state, i, j, shape):
     si, sj = symetrical(symetry, i, j)
     for p in shape:
         pi, pj = p
-        map[i + pi][j + pj] = val
-        if l_state[val].name == "TEAM_1" or l_state[val].name == "TEAM_2":
-            map[si + pi][sj + pj] = 5 - val
+        map[i + pi][j + pj] = state.value
+        if state.name == "TEAM_1" or state.name == "TEAM_2":
+            # A ENLEVER
+            # list.append((i, j))
+            map[si + pi][sj + pj] = 5 - state.value
         else:
-            map[si + pi][sj + pj] = val
+            map[si + pi][sj + pj] = state.value
         update_cell(window, map, i + pi, j + pj)
         update_cell(window, map, si + pi, sj + pj)
 
@@ -205,21 +205,21 @@ def create_array_gui(map):
                 Test = False
 
             for val in range(number_of_state):
+                state = l_state[val]
                 x, y = py.mouse.get_pos()
                 i = x // square
                 j = y // square
                 si, sj = symetrical(symetry, i, j)
                 # small
-                if event.type == py.KEYDOWN and event.key == l_state[val].key_small:
-                    draw_case(window, val, i, j, [(0, 0)])
+                if event.type == py.KEYDOWN and event.key == state.key_small:
+                    draw_case(window, state, i, j, [(0, 0)])
                 # large
-                if event.type == py.KEYDOWN and event.key == l_state[val].key_large:
-                    draw_case(window, val, i, j, square_index)
+                if event.type == py.KEYDOWN and event.key == state.key_large:
+                    draw_case(window, state, i, j, square_index)
     py.quit()
 
 
 create_array_gui(map)
-print(map)
 
 A = input("ENREGISTRER ? Yes(Y) / No(N) ")
 if A == "Y":
