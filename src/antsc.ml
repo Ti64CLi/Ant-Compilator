@@ -11,20 +11,27 @@ let write_file filename = (* Ceci est un exemple. *)
   write_command "Goto start";
   close_out oc
 
+let write_label oc (msg : string) : unit =
+  fprintf oc "%s:\n" msg
+
+let write_command oc (msg : string) : unit =
+  fprintf oc "  %s\n" msg
+
 let process_file filename =
   (* Ouvre le fichier et créé un lexer. *)
   let file = open_in filename in
   let lexer = Lexer.of_channel file in
   (* Parse le fichier. *)
   let (program, span) = Parser.parse_program lexer in
-  printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program)
+  printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program);
+  write_file (filename ^ ".brain")
 
 (* Le point de départ du compilateur. *)
 let _ =
   (* On commence par lire le nom du fichier à compiler passé en paramètre. *)
   if Array.length Sys.argv <= 1 then begin
     (* Pas de fichier... *)
-    eprintf "no file provided.\n";
+    eprintf "An argument is missing\nUsage : %s <filename>\n" (Sys.argv.(0));
     exit 1
   end else begin
     try
