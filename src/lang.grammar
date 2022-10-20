@@ -51,7 +51,7 @@ type value =
 type direction =
 	| Ahead									ahead
 	| Left									left
-	| Right									right
+	|      Right									right
 	| Here									here
 
 type category =
