@@ -6,6 +6,7 @@ type program =
 type preprocessor =
 	| Include								include <ident>
 	| Define								define <ident> as <program>
+	| Org										.org <ident>
 
 type control =
 	| Label									<ident>:
@@ -14,10 +15,11 @@ type control =
 	| While									while(<bool>) {<program>}
 	| Repeat								repeat(<bool>) {<program>}
 	| Case									case <bool>: <program>
-	| Switch								switch(<bool>) {<program>}
+	| Switch								test(<bool>) in {<program>}
 
 type expression =
 	| Num										<int>
+	| Args									args[<int>]
 	| Move									move(<int>)
 	| Turn									turn(<int>)
 	| PickUp								pickup(<ident>)
@@ -51,8 +53,6 @@ type direction =
 	| Left									left
 	| Right									right
 	| Here									here
-	| LeftAhead							leftAhead
-	| RightAhead						rightAhead
 
 type category =
 	| Friend								friend
