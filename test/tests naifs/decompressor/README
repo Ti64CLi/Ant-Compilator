@@ -1,9 +1,0 @@
-Le code étant compressé, j'ai construit ce petit programme pour autommatiser sa décompression.
-Puisque l'objectif est de paralléliser les information, j'utilise 
-la syntaxe #SxxxName où S vaut A,B,C,D,E ou F et désigne la direction;
-xxx désigne le nuéro du label;
-Name le nom de la fonction/label (à faire sur toutes les fonction/label)
-
-Decompressor remplace #S par le S' correspondant en fonction de l'orientation courante. Six copies se retrouvent à la fin dans le code.
-
-Pour décompresser, il suffit de mettrre le code à décompresser dans ce dossier sous le nom de "code", puis d'exécuter "decompressor". On nouveau code est alors créé et pret à exécution

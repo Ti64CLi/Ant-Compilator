@@ -6,7 +6,7 @@ func #ASerachFood() {
         case left :
             turn(5);
             goto #F0;
-            #FA:
+            #A0:
         case right :
             turn(1);
             goto #B1;
