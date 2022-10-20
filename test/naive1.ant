@@ -1,17 +1,5 @@
 func SearchFood() {
 
-    do {
-        do {
-            call FoeIsHere;
-        }
-        if (
-            is(FoeMarker, here)
-        )
-    }
-    if (
-        eq(randint(20),0)
-    )
-
     mark(0);
 
     test(food) in {
@@ -37,7 +25,7 @@ func SearchFood() {
         move(1);
     }
     pickup(SearchFood);
-    turn(3;)
+    turn(3);
     call BackFood;
 
     test(randint(3)) in {
@@ -49,7 +37,7 @@ func SearchFood() {
         }
         move(1);
     }
-};
+}
 
 func BackFood {
     do {
@@ -60,7 +48,7 @@ func BackFood {
     if (
         is(home,here)
     )
-    test (bit(1)) in {
+    test (bit(0)) in {
         case ahead : {
             nop;
         }
