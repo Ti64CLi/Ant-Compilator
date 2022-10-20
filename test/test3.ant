@@ -1,0 +1,58 @@
+search_food:
+
+    mark(0)
+    
+    test(food) in {
+        case ahead : {
+            move(1)
+            pickup(search_food)
+            turn(3)
+            goto back_food
+        }
+        case left : {
+            turn(5)
+            move(1)
+            pickup(search_food)
+            turn(3)
+            goto back_food
+        }
+        case right : {
+            turn(1)
+            move(1)
+            pickup(search_food)
+            turn(3)
+            goto back_food
+        }
+    }
+
+    test(randint(3)) in {
+        case 1 : {
+            turn(5)
+        }
+        case 2 : {
+            turn(1)
+        }
+        move(1)
+    }
+
+    goto search_food
+
+back_food:
+    do {
+        drop()
+        turn(3)
+        goto search_food
+    }
+    if (
+        is(home,here)
+    )
+    test (bit(1)) in {
+        case right : {
+            turn(1)
+        }
+        case left : {
+            turn(5)
+        }
+    }
+    move(1)
+    goto back_food
