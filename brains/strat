@@ -1,0 +1,24 @@
+ESSAYER DE GARDER NOTRE DIRECTION EN MEMOIRE VIA DES LABELS
+
+"init" :
+repeat 5
+"mouvement aléatoire"
+mouvement aléatoire tant que l'on voit pas devant :
+
+- AMI -> alors on tourne à droite et "mouvement aléatoire"
+
+"recherche"
+on garde sa direction 3/4 tourner à droite 1/4 tant qu'on arrive pas sur :
+
+- un mur on tourne à droite et on continue
+- à manger on grab et "retour base"
+- un enemi on retourne à la base
+- un ami
+
+si on se trouve sur une case de base :
+
+- drop la bouffe
+- on tire aléatoirement notre comportement agressif 1/10 recherche 9/10
+
+"retour base" :
+si
