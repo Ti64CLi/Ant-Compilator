@@ -1,5 +1,5 @@
 func main() {
-    if(is(food, here)) then { # test #
+    if(is(food, here)) then {
         pickup(randomMove);
     } else {
         call randomMove; 
@@ -9,7 +9,7 @@ func main() {
 }
 
 func randomMove() {
-    switch(randint(NDIR)) { # 2ème test #
+    test (randint(NDIR)) in {
         case UP:
             nop;
         case LEFT:

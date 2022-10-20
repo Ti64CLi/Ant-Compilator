@@ -1,0 +1,3 @@
+start:
+  Drop
+  Goto start

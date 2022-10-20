@@ -11,6 +11,7 @@ type preprocessor =
 type control =
 	| Label									<ident>:
 	| IfThenElse						if(<bool>) then {<program>} else {<program>}
+	| IfThen								do {<program>} if(<bool>)
 	| Func									func <ident>(<ident*,>) {<program>}
 	| While									while(<bool>) {<program>}
 	| Repeat								repeat(<bool>) {<program>}
@@ -28,7 +29,6 @@ type expression =
 	| Mark 									mark(<int>)
 	| Unmark								unmark(<int>)
 	| Call									call <ident>
-	| IfThen								do {<program>} if(<bool>)
 	| Nop										nop
 	| Return								return
 	| Break									break
