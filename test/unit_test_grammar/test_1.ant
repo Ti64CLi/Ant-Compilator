@@ -4,8 +4,8 @@ func init(){
     repeat (Dix) {
         do {
             turn(3);
-            move(1)
+            move(1);
         } if (is(foe, ahead))
     }
-    call init()
+    call init;
 }
