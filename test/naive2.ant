@@ -1,0 +1,449 @@
+func SearchFood0() {
+
+    test(food) in {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto SF50
+            SF00:
+        case right :
+            turn(1);
+            goto SF11;
+            SF01:
+    }
+
+    mark(0);
+
+    if (
+        is(friend,ahead)
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(SearchFood);
+    turn(3);
+    goto SF32;
+    SF02:
+    call BackFood;
+
+    test(randint(3)) in {
+        case 1 : {
+            turn(5);
+            goto SF53;
+            SF03:
+        }
+        case 2 : {
+            turn(1);
+            goto SF14;
+            SF04:
+        }
+        move(1);
+    }
+}
+func BackFood0{
+    do {
+        drop();
+        turn(3);
+        goto SF35;
+        SF05:
+        call SearchFood;
+    }
+    if (
+        is(home,here)
+    )
+    if (
+        is(bit(3),ahead)
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto FS16;
+        FS06:
+    }
+}
+
+
+func SearchFood1() {
+
+    test(food) in {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto SF00;
+            SF10:
+        case right :
+            turn(1);
+            goto SF21S;
+            SF11:
+    }
+
+    mark(1);
+
+    if (
+        is(friend,ahead)
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(SearchFood);
+    turn(3);
+    goto SF42;
+    SF12:
+    call BackFood;
+
+    test(randint(3)) in {
+        case 1 : {
+            turn(5);
+            goto SF03;
+            SF13:
+        }
+        case 2 : {
+            turn(1);
+            goto SF24;
+            SF14:
+        }
+        move(1);
+    }
+}
+func BackFood1{
+    do {
+        drop();
+        turn(3);
+        goto SF45;
+        SF15:
+        call SearchFood;
+    }
+    if (
+        is(home,here)
+    )
+    if (
+        is(bit(4),ahead)
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto FS26;
+        FS16:
+    }
+}
+
+
+func SearchFood2() {
+
+    test(food) in {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto SF10;
+            SF20:
+        case right :
+            turn(1);
+            goto SF31;
+            SF21:
+    }
+
+    mark(2);
+
+    if (
+        is(friend,ahead)
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(SearchFood);
+    turn(3);
+    goto SF52;
+    SF22:
+    call BackFood;
+
+    test(randint(3)) in {
+        case 1 : {
+            turn(5);
+            goto SF13;
+            SF23:
+        }
+        case 2 : {
+            turn(1);
+            goto SF34;
+            SF24:
+        }
+        move(1);
+    }
+}
+func BackFood2{
+    do {
+        drop();
+        turn(3);
+        goto SF55;
+        SF25:
+        call SearchFood;
+    }
+    if (
+        is(home,here)
+    )
+    if (
+        is(bit(5),ahead)
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto FS36;
+        FS26:
+    }
+}
+
+
+func SearchFood3() {
+
+    test(food) in {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto SF20;
+            SF30:
+        case right :
+            turn(1);
+            goto SF41;
+            SF31:
+    }
+
+    mark(3);
+
+    if (
+        is(friend,ahead)
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(SearchFood);
+    turn(3);
+    goto SF02;
+    SF32:
+    call BackFood;
+
+    test(randint(3)) in {
+        case 1 : {
+            turn(5);
+            goto SF23;
+            SF33:
+        }
+        case 2 : {
+            turn(1);
+            goto SF44;
+            SF34:
+        }
+        move(1);
+    }
+}
+func BackFood3{
+    do {
+        drop();
+        turn(3);
+        goto SF05;
+        SF35:
+        call SearchFood;
+    }
+    if (
+        is(home,here)
+    )
+    if (
+        is(bit(0),ahead)
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto FS46;
+        FS36:
+    }
+}
+
+
+func SearchFood4() {
+
+    test(food) in {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto SF30;
+            SF40:
+        case right :
+            turn(1);
+            goto SF51;
+            SF41:
+    }
+
+    mark(4);
+
+    if (
+        is(friend,ahead)
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(SearchFood);
+    turn(3);
+    goto SF12;
+    SF42:
+    call BackFood;
+
+    test(randint(3)) in {
+        case 1 : {
+            turn(5);
+            goto SF33;
+            SF43:
+        }
+        case 2 : {
+            turn(1);
+            goto SF54;
+            SF44:
+        }
+        move(1);
+    }
+}
+func BackFood4{
+    do {
+        drop();
+        turn(3);
+        goto SF15;
+        SF45:
+        call SearchFood;
+    }
+    if (
+        is(home,here)
+    )
+    if (
+        is(bit(1),ahead)
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto FS56;
+        FS46:
+    }
+}
+
+
+func SearchFood5() {
+
+
+    test(food) in {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto SF40;
+            SF50:
+        case right :
+            turn(1);
+            goto SF01;
+            SF51:
+    }
+
+    mark(5);
+
+    if (
+        is(friend,ahead)
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(SearchFood);
+    turn(3);
+    goto SF22;
+    SF52:
+    call BackFood;
+
+    test(randint(3)) in {
+        case 1 : {
+            turn(5);
+            goto SF43;
+            SF53:
+        }
+        case 2 : {
+            turn(1);
+            goto SF04;
+            SF54:
+        }
+        move(1);
+    }
+}
+func BackFood5{
+    do {
+        drop();
+        turn(3);
+        goto SF25;
+        SF55:
+        call SearchFood;
+    }
+    if (
+        is(home,here)
+    )
+    if (
+        is(bit(2),ahead)
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto FS06;
+        FS56:
+    }
+}
