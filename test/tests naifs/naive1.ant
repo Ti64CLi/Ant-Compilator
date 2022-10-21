@@ -1,6 +1,6 @@
 func SearchFood() {
 
-    mark(1);
+    mark(0);
 
     if (
         food is left
@@ -10,7 +10,7 @@ func SearchFood() {
     }
     else {
         do {
-            turn(1);
+            turn(0);
         }
         if (
             food is right
@@ -63,7 +63,7 @@ func BackFood {
     )
     
     if (
-        bit(1) is here
+        bit(0) is here
     )
     then {
         turn(5);
@@ -73,7 +73,7 @@ func BackFood {
             turn(1);
         }
         if (
-            bit(1) is right
+            bit(0) is right
         )
     }
 

@@ -41,7 +41,7 @@ func #ASerachFood() {
    } *va là où il y a de la nouriture, s il y en a*
 
     if (
-        bit(!01) is here
+        bit(!00) is here
     )
     then {
         nop;
@@ -82,15 +82,7 @@ func #ASerachFood() {
                             nop;
                         }
                         else {   
-                            if (
-                                bit(!05) is here
-                            )
-                            then {
-                                nop;
-                            }
-                            else {   
-                                mark(!01);
-                            }
+                            mark(!01);
                         }
                     }
                 }
@@ -149,14 +141,14 @@ func #ABackFood{
     )
 
     if (
-        bit(!01) is here
+        bit(!00) is here
     )
     then {
         nop;
     }
     else {
         if (
-            bit(!02) is here
+            bit(!01) is here
         )
         then {
             turn(1);
@@ -165,7 +157,7 @@ func #ABackFood{
         }
         else {
             if (
-                bit(!03) is here
+                bit(!02) is here
             )
             then {
                 turn(2);
@@ -174,7 +166,7 @@ func #ABackFood{
             }
             else {
                 if (
-                    bit(!04) is here
+                    bit(!03) is here
                 )
                 then {
                     turn(3);
@@ -183,7 +175,7 @@ func #ABackFood{
                 }
                 else {
                     if (
-                        bit(!05) is here
+                        bit(!04) is here
                     )
                     then {
                         turn(4);
@@ -192,7 +184,7 @@ func #ABackFood{
                     }
                     else {
                         if (
-                            bit(!06) is here
+                            bit(!05) is here
                         )
                         then {
                             turn(5);
