@@ -1,33 +1,44 @@
-*17*
+*19*
 
 func #ASerachFood() {
 
-    test(randint(3)) in {
-        case 1 : {
+    if (
+        randint(3)
+    )
+    then {
+        turn(1);
+        goto #B18;
+        #A18:
+    }
+    else {
+        do {
             turn(5);
-            goto #F3;
-            #A3:
+            goto #F19;
+            #A19:
         }
-        case 2 : {
-            turn(1);
-            goto #B4;
-            #A4:
-        }
-        move(1);
+        if (
+            randint(2)
+        )
     } *choisis une direction aléatoirement*
- 
-    test(food) in { 
-        case ahead :
-            nop;
-        case left :
-            turn(5);
-            goto #F0;
-            #A0:
-        case right :
+
+    if (
+        is(food,left)
+    )
+    then {
+        turn(5);
+        goto #F0;
+        #A0:
+    }
+    else {
+        do {
             turn(1);
             goto #B1;
             #A1:
-    } *va là où il y a de la nouriture, s il y en a*
+        }
+        if (
+            is(food,right)
+        )
+   } *va là où il y a de la nouriture, s il y en a*
 
     if (
         or(
