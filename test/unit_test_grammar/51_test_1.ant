@@ -1,0 +1,11 @@
+define Dix as 10;
+
+func init(){
+    repeat (Dix) {
+        do {
+            turn(3);
+            move(1);
+        } if (is(foe, ahead))
+    }
+    call init;
+}
