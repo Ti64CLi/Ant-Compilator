@@ -41,6 +41,217 @@ func ASerachFood() {
    } 
 
     if (
+        bit(0) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(0) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(1) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(2) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(3) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(4) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            if (
+                                bit(4) is here
+                            )
+                            then {
+                                nop;
+                            }
+                            else {   
+                                mark(0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto B7;
+        A7:
+        move(1);
+        turn(5);
+        goto F8;
+        A8:
+        move(1);
+        turn(1);
+        goto B9;
+        A9;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto D10;
+            A10:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(ASerachFood); 
+    turn(3); 
+    goto D2;
+    A2:
+    call ABackFood; 
+
+}
+func ABackFood{
+    do {
+        drop();
+        turn(3);
+        goto D5;
+        A5:
+        call ASerachFood;
+    }
+    if (
+        home is here
+    )
+
+    if (
+        bit(0) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+            bit(1) is here
+        )
+        then {
+            turn(1);
+            goto B13;
+            A13:
+        }
+        else {
+            if (
+                bit(2) is here
+            )
+            then {
+                turn(2);
+                goto C14;
+                A14:
+            }
+            else {
+                if (
+                    bit(3) is here
+                )
+                then {
+                    turn(3);
+                    goto D15;
+                    A15:
+                }
+                else {
+                    if (
+                        bit(4) is here
+                    )
+                    then {
+                        turn(4);
+                        goto E16;
+                        A16:
+                    }
+                    else {
+                        if (
+                            bit(5) is here
+                        )
+                        then {
+                            turn(5);
+                            goto F17;
+                            A17:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func BSerachFood() {
+
+    if (
+        randint(3) is 0
+    )
+    then {
+        turn(1);
+        goto C18;
+        B18:
+    }
+    else {
+        do {
+            turn(5);
+            goto A19;
+            B19:
+        }
+        if (
+            randint(2) is 0
+        )
+    } 
+
+    if (
+        food is left
+    )
+    then {
+        turn(5);
+        goto A0;
+        B0:
+    }
+    else {
+        do {
+            turn(1);
+            goto C1;
+            B1:
+        }
+        if (
+            food is right
+        )
+   } 
+
+    if (
         bit(1) is here
     )
     then {
@@ -104,217 +315,6 @@ func ASerachFood() {
     )
     then {
         turn(1);
-        goto B7;
-        A7:
-        move(1);
-        turn(5);
-        goto F8;
-        A8:
-        move(1);
-        turn(1);
-        goto B9;
-        A9;
-    } 
-    else {
-        if (
-            rock is ahead
-        )
-        then {
-            turn(3);
-            goto D10;
-            A10:
-        }
-        else {
-            move(1);
-        }
-    } 
-
-    pickup(ASerachFood); 
-    turn(3); 
-    goto D2;
-    A2:
-    call ABackFood; 
-
-}
-func ABackFood{
-    do {
-        drop();
-        turn(3);
-        goto D5;
-        A5:
-        call ASerachFood;
-    }
-    if (
-        home is here
-    )
-
-    if (
-        bit(1) is here
-    )
-    then {
-        nop;
-    }
-    else {
-        if (
-            bit(2) is here
-        )
-        then {
-            turn(1);
-            goto B13;
-            A13:
-        }
-        else {
-            if (
-                bit(3) is here
-            )
-            then {
-                turn(2);
-                goto C14;
-                A14:
-            }
-            else {
-                if (
-                    bit(4) is here
-                )
-                then {
-                    turn(3);
-                    goto D15;
-                    A15:
-                }
-                else {
-                    if (
-                        bit(5) is here
-                    )
-                    then {
-                        turn(4);
-                        goto E16;
-                        A16:
-                    }
-                    else {
-                        if (
-                            bit(6) is here
-                        )
-                        then {
-                            turn(5);
-                            goto F17;
-                            A17:
-                        }
-                        else {
-                    
-                        }
-                    }
-                }
-            }
-        }
-    } 
-    
-    move(1);
-}
-
-func BSerachFood() {
-
-    if (
-        randint(3) is 0
-    )
-    then {
-        turn(1);
-        goto C18;
-        B18:
-    }
-    else {
-        do {
-            turn(5);
-            goto A19;
-            B19:
-        }
-        if (
-            randint(2) is 0
-        )
-    } 
-
-    if (
-        food is left
-    )
-    then {
-        turn(5);
-        goto A0;
-        B0:
-    }
-    else {
-        do {
-            turn(1);
-            goto C1;
-            B1:
-        }
-        if (
-            food is right
-        )
-   } 
-
-    if (
-        bit(2) is here
-    )
-    then {
-        nop;
-    }
-    else {
-        if (
-        bit(2) is here
-        )
-        then {
-            nop;
-        }
-        else {
-            if (
-                bit(3) is here
-            )
-            then {
-                nop;
-            }
-            else {   
-                if (
-                    bit(4) is here
-                )
-                then {
-                    nop;
-                }
-                else {   
-                    if (
-                        bit(5) is here
-                    )
-                    then {
-                        nop;
-                    }
-                    else {   
-                        if (
-                            bit(6) is here
-                        )
-                        then {
-                            nop;
-                        }
-                        else {   
-                            if (
-                                bit(6) is here
-                            )
-                            then {
-                                nop;
-                            }
-                            else {   
-                                mark(2);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    } 
-
-
-    if (
-        friendWithFood is ahead
-    )
-    then {
-        turn(1);
         goto C7;
         B7:
         move(1);
@@ -360,14 +360,14 @@ func BBackFood{
     )
 
     if (
-        bit(2) is here
+        bit(1) is here
     )
     then {
         nop;
     }
     else {
         if (
-            bit(3) is here
+            bit(2) is here
         )
         then {
             turn(1);
@@ -376,7 +376,7 @@ func BBackFood{
         }
         else {
             if (
-                bit(4) is here
+                bit(3) is here
             )
             then {
                 turn(2);
@@ -385,7 +385,7 @@ func BBackFood{
             }
             else {
                 if (
-                    bit(5) is here
+                    bit(4) is here
                 )
                 then {
                     turn(3);
@@ -394,7 +394,7 @@ func BBackFood{
                 }
                 else {
                     if (
-                        bit(6) is here
+                        bit(5) is here
                     )
                     then {
                         turn(4);
@@ -403,7 +403,7 @@ func BBackFood{
                     }
                     else {
                         if (
-                            bit(1) is here
+                            bit(0) is here
                         )
                         then {
                             turn(5);
@@ -463,55 +463,55 @@ func CSerachFood() {
    } 
 
     if (
-        bit(3) is here
+        bit(2) is here
     )
     then {
         nop;
     }
     else {
         if (
-        bit(3) is here
+        bit(2) is here
         )
         then {
             nop;
         }
         else {
             if (
-                bit(4) is here
+                bit(3) is here
             )
             then {
                 nop;
             }
             else {   
                 if (
-                    bit(5) is here
+                    bit(4) is here
                 )
                 then {
                     nop;
                 }
                 else {   
                     if (
-                        bit(6) is here
+                        bit(5) is here
                     )
                     then {
                         nop;
                     }
                     else {   
                         if (
-                            bit(1) is here
+                            bit(0) is here
                         )
                         then {
                             nop;
                         }
                         else {   
                             if (
-                                bit(1) is here
+                                bit(0) is here
                             )
                             then {
                                 nop;
                             }
                             else {   
-                                mark(3);
+                                mark(2);
                             }
                         }
                     }
@@ -571,14 +571,14 @@ func CBackFood{
     )
 
     if (
-        bit(3) is here
+        bit(2) is here
     )
     then {
         nop;
     }
     else {
         if (
-            bit(4) is here
+            bit(3) is here
         )
         then {
             turn(1);
@@ -587,7 +587,7 @@ func CBackFood{
         }
         else {
             if (
-                bit(5) is here
+                bit(4) is here
             )
             then {
                 turn(2);
@@ -596,7 +596,7 @@ func CBackFood{
             }
             else {
                 if (
-                    bit(6) is here
+                    bit(5) is here
                 )
                 then {
                     turn(3);
@@ -605,7 +605,7 @@ func CBackFood{
                 }
                 else {
                     if (
-                        bit(1) is here
+                        bit(0) is here
                     )
                     then {
                         turn(4);
@@ -614,7 +614,7 @@ func CBackFood{
                     }
                     else {
                         if (
-                            bit(2) is here
+                            bit(1) is here
                         )
                         then {
                             turn(5);
@@ -674,55 +674,55 @@ func DSerachFood() {
    } 
 
     if (
-        bit(4) is here
+        bit(3) is here
     )
     then {
         nop;
     }
     else {
         if (
-        bit(4) is here
+        bit(3) is here
         )
         then {
             nop;
         }
         else {
             if (
-                bit(5) is here
+                bit(4) is here
             )
             then {
                 nop;
             }
             else {   
                 if (
-                    bit(6) is here
+                    bit(5) is here
                 )
                 then {
                     nop;
                 }
                 else {   
                     if (
-                        bit(1) is here
+                        bit(0) is here
                     )
                     then {
                         nop;
                     }
                     else {   
                         if (
-                            bit(2) is here
+                            bit(1) is here
                         )
                         then {
                             nop;
                         }
                         else {   
                             if (
-                                bit(2) is here
+                                bit(1) is here
                             )
                             then {
                                 nop;
                             }
                             else {   
-                                mark(4);
+                                mark(3);
                             }
                         }
                     }
@@ -782,14 +782,14 @@ func DBackFood{
     )
 
     if (
-        bit(4) is here
+        bit(3) is here
     )
     then {
         nop;
     }
     else {
         if (
-            bit(5) is here
+            bit(4) is here
         )
         then {
             turn(1);
@@ -798,7 +798,7 @@ func DBackFood{
         }
         else {
             if (
-                bit(6) is here
+                bit(5) is here
             )
             then {
                 turn(2);
@@ -807,7 +807,7 @@ func DBackFood{
             }
             else {
                 if (
-                    bit(1) is here
+                    bit(0) is here
                 )
                 then {
                     turn(3);
@@ -816,7 +816,7 @@ func DBackFood{
                 }
                 else {
                     if (
-                        bit(2) is here
+                        bit(1) is here
                     )
                     then {
                         turn(4);
@@ -825,7 +825,7 @@ func DBackFood{
                     }
                     else {
                         if (
-                            bit(3) is here
+                            bit(2) is here
                         )
                         then {
                             turn(5);
@@ -885,55 +885,55 @@ func ESerachFood() {
    } 
 
     if (
-        bit(5) is here
+        bit(4) is here
     )
     then {
         nop;
     }
     else {
         if (
-        bit(5) is here
+        bit(4) is here
         )
         then {
             nop;
         }
         else {
             if (
-                bit(6) is here
+                bit(5) is here
             )
             then {
                 nop;
             }
             else {   
                 if (
-                    bit(1) is here
+                    bit(0) is here
                 )
                 then {
                     nop;
                 }
                 else {   
                     if (
-                        bit(2) is here
+                        bit(1) is here
                     )
                     then {
                         nop;
                     }
                     else {   
                         if (
-                            bit(3) is here
+                            bit(2) is here
                         )
                         then {
                             nop;
                         }
                         else {   
                             if (
-                                bit(3) is here
+                                bit(2) is here
                             )
                             then {
                                 nop;
                             }
                             else {   
-                                mark(5);
+                                mark(4);
                             }
                         }
                     }
@@ -993,14 +993,14 @@ func EBackFood{
     )
 
     if (
-        bit(5) is here
+        bit(4) is here
     )
     then {
         nop;
     }
     else {
         if (
-            bit(6) is here
+            bit(5) is here
         )
         then {
             turn(1);
@@ -1009,7 +1009,7 @@ func EBackFood{
         }
         else {
             if (
-                bit(1) is here
+                bit(0) is here
             )
             then {
                 turn(2);
@@ -1018,7 +1018,7 @@ func EBackFood{
             }
             else {
                 if (
-                    bit(2) is here
+                    bit(1) is here
                 )
                 then {
                     turn(3);
@@ -1027,7 +1027,7 @@ func EBackFood{
                 }
                 else {
                     if (
-                        bit(3) is here
+                        bit(2) is here
                     )
                     then {
                         turn(4);
@@ -1036,7 +1036,7 @@ func EBackFood{
                     }
                     else {
                         if (
-                            bit(4) is here
+                            bit(3) is here
                         )
                         then {
                             turn(5);
@@ -1096,55 +1096,55 @@ func FSerachFood() {
    } 
 
     if (
-        bit(6) is here
+        bit(5) is here
     )
     then {
         nop;
     }
     else {
         if (
-        bit(6) is here
+        bit(5) is here
         )
         then {
             nop;
         }
         else {
             if (
-                bit(1) is here
+                bit(0) is here
             )
             then {
                 nop;
             }
             else {   
                 if (
-                    bit(2) is here
+                    bit(1) is here
                 )
                 then {
                     nop;
                 }
                 else {   
                     if (
-                        bit(3) is here
+                        bit(2) is here
                     )
                     then {
                         nop;
                     }
                     else {   
                         if (
-                            bit(4) is here
+                            bit(3) is here
                         )
                         then {
                             nop;
                         }
                         else {   
                             if (
-                                bit(4) is here
+                                bit(3) is here
                             )
                             then {
                                 nop;
                             }
                             else {   
-                                mark(6);
+                                mark(5);
                             }
                         }
                     }
@@ -1204,14 +1204,14 @@ func FBackFood{
     )
 
     if (
-        bit(6) is here
+        bit(5) is here
     )
     then {
         nop;
     }
     else {
         if (
-            bit(1) is here
+            bit(0) is here
         )
         then {
             turn(1);
@@ -1220,7 +1220,7 @@ func FBackFood{
         }
         else {
             if (
-                bit(2) is here
+                bit(1) is here
             )
             then {
                 turn(2);
@@ -1229,7 +1229,7 @@ func FBackFood{
             }
             else {
                 if (
-                    bit(3) is here
+                    bit(2) is here
                 )
                 then {
                     turn(3);
@@ -1238,7 +1238,7 @@ func FBackFood{
                 }
                 else {
                     if (
-                        bit(4) is here
+                        bit(3) is here
                     )
                     then {
                         turn(4);
@@ -1247,7 +1247,7 @@ func FBackFood{
                     }
                     else {
                         if (
-                            bit(5) is here
+                            bit(4) is here
                         )
                         then {
                             turn(5);

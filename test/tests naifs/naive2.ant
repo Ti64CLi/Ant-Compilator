@@ -60,7 +60,7 @@ func ABackFood{
         home is here
     )
     if (
-        bit(3) is ahead
+        bit(2) is ahead
     )
     then{
         move(1);
@@ -132,7 +132,7 @@ func BBackFood{
         home is here
     )
     if (
-        bit(3) is ahead
+        bit(2) is ahead
     )
     then{
         move(1);
@@ -204,7 +204,7 @@ func CBackFood{
         home is here
     )
     if (
-        bit(3) is ahead
+        bit(2) is ahead
     )
     then{
         move(1);
@@ -276,7 +276,7 @@ func DBackFood{
         home is here
     )
     if (
-        bit(3) is ahead
+        bit(2) is ahead
     )
     then{
         move(1);
@@ -348,7 +348,7 @@ func EBackFood{
         home is here
     )
     if (
-        bit(3) is ahead
+        bit(2) is ahead
     )
     then{
         move(1);
@@ -420,7 +420,7 @@ func FBackFood{
         home is here
     )
     if (
-        bit(3) is ahead
+        bit(2) is ahead
     )
     then{
         move(1);
