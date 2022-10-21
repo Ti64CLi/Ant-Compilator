@@ -2,9 +2,7 @@
 
 func #ASerachFood() {
 
-    if (
-        randint(3) is 0
-    )
+    if (randint(3) is 0)
     then {
         turn(1);
         goto #B18;
@@ -16,14 +14,10 @@ func #ASerachFood() {
             goto #F19;
             #A19:
         }
-        if (
-            randint(2) is 0
-        )
+        if (randint(2) is 0)
     } *choisis une direction aléatoirement*
 
-    if (
-        food is left
-    )
+    if (food is left)
     then {
         turn(5);
         goto #F0;
@@ -35,49 +29,35 @@ func #ASerachFood() {
             goto #B1;
             #A1:
         }
-        if (
-            food is right
-        )
+        if (food is right)
    } *va là où il y a de la nouriture, s il y en a*
 
-    if (
-        bit(!00) is here
-    )
+    if (bit(!00) is here)
     then {
         nop;
     }
     else {
-        if (
-        bit(!01) is here
-        )
+        if (bit(!01) is here)
         then {
             nop;
         }
         else {
-            if (
-                bit(!02) is here
-            )
+            if (bit(!02) is here)
             then {
                 nop;
             }
             else {   
-                if (
-                    bit(!03) is here
-                )
+                if (bit(!03) is here)
                 then {
                     nop;
                 }
                 else {   
-                    if (
-                        bit(!04) is here
-                    )
+                    if (bit(!04) is here)
                     then {
                         nop;
                     }
                     else {   
-                        if (
-                            bit(!05) is here
-                        )
+                        if (bit(!05) is here)
                         then {
                             nop;
                         }
@@ -91,9 +71,7 @@ func #ASerachFood() {
     } *marque sa direction si le chemin n est pas déjà marqué*
 
 
-    if (
-        friendWithFood is ahead
-    )
+    if (friendWithFood is ahead)
     then {
         turn(1);
         goto #B7;
@@ -108,9 +86,7 @@ func #ASerachFood() {
         #A9;
     } *contourne un allié si il y en a un sur le passage*
     else {
-        if (
-            rock is ahead
-        )
+        if (rock is ahead)
         then {
             turn(3);
             goto #D10;
@@ -128,7 +104,7 @@ func #ASerachFood() {
     call #ABackFood; *essaye de prendre de la nouriture*
 
 }
-func #ABackFood{
+func #ABackFood(){
     do {
         drop();
         turn(3);
@@ -136,56 +112,42 @@ func #ABackFood{
         #A5:
         call #ASerachFood;
     }
-    if (
-        home is here
-    )
+    if (home is here)
 
-    if (
-        bit(!00) is here
-    )
+    if (bit(!00) is here)
     then {
         nop;
     }
     else {
-        if (
-            bit(!01) is here
-        )
+        if (bit(!01) is here)
         then {
             turn(1);
             goto #B13;
             #A13:
         }
         else {
-            if (
-                bit(!02) is here
-            )
+            if (bit(!02) is here)
             then {
                 turn(2);
                 goto #C14;
                 #A14:
             }
             else {
-                if (
-                    bit(!03) is here
-                )
+                if (bit(!03) is here)
                 then {
                     turn(3);
                     goto #D15;
                     #A15:
                 }
                 else {
-                    if (
-                        bit(!04) is here
-                    )
+                    if (bit(!04) is here)
                     then {
                         turn(4);
                         goto #E16;
                         #A16:
                     }
                     else {
-                        if (
-                            bit(!05) is here
-                        )
+                        if (bit(!05) is here)
                         then {
                             turn(5);
                             goto #F17;
