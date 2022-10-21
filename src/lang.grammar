@@ -1,57 +1,46 @@
 type program =
-	| PreprocessorProgram		<preprocessor> <program?>
-	| ControlProgram				<control> <program?>
-	| ExpressionProgram			<expression>; <program?>
+	| PreprocessorProgram					<preprocessor> <program?>
+	| ControlProgram						<control> <program?>
+	| ExpressionProgram						<expression>; <program?>
 
 type preprocessor =
 	| Include								include <ident>
-	| Define								define <ident> as <program>
-	| Org										.org <ident>
+	| Define								define <ident> as <int>
+	| Org									.org <ident>
 
 type control =
 	| Label									<ident>:
-	| IfThenElse						if(<bool>) then {<program>} else {<program>}
-	| IfThen								do {<program>} if(<bool>)
+	| IfThenElse							if(<category> is <direction> ) then {<program>} else {<program>}
+	| IfThen								do {<program>} if(<category> is <direction>)
 	| Func									func <ident>(<ident*,>) {<program>}
-	| While									while(<bool>) {<program>}
-	| Repeat								repeat(<bool>) {<program>}
-	| Case									case <bool>: <program>
-	| Switch								test(<bool>) in {<program>}
+	| While									while(<category> is <direction>) {<program>}
+	| Repeat								repeat(<value>) times {<program>}
+	| Case									case <direction>: <program>
+	| Switch								test(<category>) in {<program>}
 
 type expression =
-	| Num										<int>
-	| Args									args[<int>]
-	| Move									move(<int>)
-	| Turn									turn(<int>)
+	| Args									args[<value>]
+	| Move									move(<value>)
+	| Turn									turn(<value>)
 	| PickUp								pickup(<ident>)
 	| Drop									drop()
 	| Goto									goto <ident>
-	| Mark 									mark(<int>)
-	| Unmark								unmark(<int>)
+	| Mark 									mark(<value>)
+	| Unmark								unmark(<value>)
 	| Call									call <ident>
-	| Nop										nop
+	| Nop									nop
 	| Return								return
 	| Break									break
 
-type bool =
-	| Value									<value>
-	| Category							<category>
-	| Dir										<direction>
-	| Or										or(<bool>, <bool>)
-	| And										and(<bool>, <bool>)
-	| Equal 								eq(<bool>, <bool>)
-	| Not										not(<bool>)
-	| NotEqual							neq(<bool>, <bool>)
-	| Is										is(<category>, <direction>)
-
 type value =
-	| Var										<ident>
-	| Int										<int>
+	| Var									<ident>
+	| Int									<int>
 
 type direction =
+	| Value									<value>
 	| Ahead									ahead
 	| Left									left
-	|      Right									right
+	| Right									right
 	| Here									here
 
 type category =
@@ -66,3 +55,5 @@ type category =
 	| Home									home
 	| FoeHome								foeHome
 	| RandInt								randint(<value>)
+	| Or								or(<category>, <category>)
+	| And								and(<category>, <category>)
