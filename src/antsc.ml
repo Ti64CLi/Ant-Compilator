@@ -1,32 +1,96 @@
 open Printf
 
-let write_file filename = (* Ceci est un exemple. *)
-  let oc = open_out filename in (* Ouvre un fichier pour écrire dedans. *)
-  let write_label (msg:string) : unit = (* Écriture d'un label. *)
-    fprintf oc "%s:\n" msg in
-  let write_command (msg:string) : unit = (* Écriture d'autres commandes. *)
-    fprintf oc "  %s\n" msg in
-  write_label   "start";
-  write_command "Drop";
-  write_command "Goto start";
-  close_out oc
+let get_filename path =
+  let i = ref 0
+  and s = ref 0
+  and l = String.length path in
+  while !i < l do
+    if path.[!i] = '/' then
+      s := !i + 1;
+    
+    i := !i + 1
+  done;
+  String.sub path !s (l - !s)
 
-let compile_file filename program =
+let get_filename_without_ext filename =
+  let i = ref 0 in
+  while !i < String.length filename && filename.[!i] <> '.' do
+    i := !i + 1
+  done;
+  String.sub filename 0 (!i)
+
+let compile_file path program =
   let write_label oc msg =
     fprintf oc "%s:\n" msg in
   let write_command oc msg =
     fprintf oc "  %s\n" msg in
-  let oc = open_out (filename ^ ".brain") in
-  let labels = ref [] 
-  and currentLabel = ref 0 
-  and programLines = ref []
-  and nestedCalls = ref [] in
-  write_label oc filename;
+  let oc = open_out ((get_filename_without_ext path) ^ ".brain") in
+  let labels = ref []
+  and defines = ref []
+  and calls = ref []
+  and functions = ref []
+  and inFunction = ref false
+  and currentLabel = ref 0 in
+  write_label oc (get_filename_without_ext (get_filename path));
+  (* aux *)
+  let look_in_labels label = (* check whether a label exists or not *)
+    let rec aux l e =
+      match l with
+      | [] -> failwith ("Undeclared label '" ^ e ^ "'")
+      | h :: _ when h = e -> ()
+      | _ :: t -> aux t e in
+    aux !labels label
+  and look_in_defined define : int = (* check whether an identifier is linked to an int *)
+    let rec aux l e =
+      match l with
+      | [] -> failwith ("Undeclared identifier '" ^ e ^ "'")
+      | (d, v) :: _ when d = e -> v
+      | _ :: t -> aux t e in
+    aux !defines define in
+  let process_value value =
+    match value with
+    | Ast.Var (var, _) -> look_in_defined var
+    | Ast.Int (n, _) -> n in
+  let get_direction direction =
+    match direction with
+    | Ast.Value (value, _) -> string_of_int (process_value value)
+    | Ast.Ahead -> "Ahead"
+    | Ast.Here -> "Here"
+    | Ast.Left -> "LeftAhead"
+    | Ast.Right -> "RightAhead"
+  and get_condition category =
+    match category with
+    | Ast.Friend -> "Friend"
+    | Ast.Foe -> "Foe"
+    | Ast.FriendWithFood -> "FriendWithFood"
+    | Ast.FoeWithFood -> "FoeWithFood"
+    | Ast.Food -> "Food"
+    | Ast.Rock -> "Rock"
+    | Ast.Marker (value, _) -> 
+      begin
+        let bit = process_value value in
+        if bit > 5 || bit < 0 then
+          failwith "bit awaits for an integer between 0 and 5";
+        "Marker " ^ (string_of_int bit)
+      end
+    | Ast.FoeMarker -> "FoeMarker"
+    | Ast.Home -> "Home"
+    | Ast.FoeHome -> "FoeHome" 
+    | _ -> failwith "Pattern not supported for now" in
   (* aux *)
   let rec process_program program =
     match program with
     | Ast.PreprocessorProgram ((preprocessor, _), (prog, _)) -> 
       begin
+        match preprocessor with
+        | Ast.Define ((ident, _), (num, _)) -> 
+          begin
+            defines := (ident, num) :: !defines
+          end
+        | _ -> 
+          begin
+          end;
+
         match prog with
         | Some p -> process_program p
         | None -> ()
@@ -34,6 +98,7 @@ let compile_file filename program =
     | Ast.ControlProgram ((control, _), (prog, _)) ->
       begin
         process_control control;
+
         match prog with
         | Some p -> process_program p
         | None -> ()
@@ -41,6 +106,7 @@ let compile_file filename program =
     | Ast.ExpressionProgram ((expression, _), (prog, _)) ->
       begin
         process_expression expression;
+
         match prog with
         | Some p -> process_program p
         | None -> ()
@@ -50,37 +116,155 @@ let compile_file filename program =
     | Ast.Label (name, _) -> 
       begin
         labels := name :: !labels;
+
         write_label oc name
       end
-    | Ast.IfThenElse ((cond, _), (thenProgram, _), (elseProgram, _)) -> ()
-    | Ast.IfThen ((cond, _), (ifThenBody, _)) -> ()
+    | Ast.IfThenElse ((category, _), (direction, _), (thenBody, _), (elseBody, _)) -> 
+      begin
+        let label1 = "_label" ^ (string_of_int !currentLabel)
+        and label2 = "_label" ^ (string_of_int (!currentLabel + 1))
+        and label3 = "_label" ^ (string_of_int (!currentLabel + 2)) in
+        currentLabel := !currentLabel + 3;
+
+        match category with
+        | Ast.RandInt (value, _) ->
+          begin
+            let p = process_value value in
+            if p = 0 then
+              failwith "Argument in randint must be non-zero";
+            
+            match direction with
+            | Ast.Value (value, _) ->
+              begin
+                let n = process_value value in
+                if n <> 0 then
+                  failwith "Can only compare randint(p) to 0";
+                
+                write_command oc ("Flip " ^ (string_of_int p) ^ " " ^ label1 ^ " " ^ label2);
+                write_label oc label1;
+
+                process_program thenBody;
+
+                write_label oc label2;
+
+                process_program elseBody;
+
+                write_label oc label3
+              end
+            | _ -> failwith "Can only compare randint(p) to 0"
+          end
+        | _ ->
+          begin
+            write_command oc ("Sense " ^ (get_direction direction) ^ " " ^ label1 ^ " " ^ label2 ^ " " ^ (get_condition category));
+            write_label oc label1;
+
+            process_program thenBody;
+
+            write_label oc label2;
+
+            process_program elseBody;
+
+            write_label oc label3
+          end
+      end
+    | Ast.IfThen ((thenBody, _), (category, _), (direction, _)) -> 
+      begin
+        let label1 = "_label" ^ (string_of_int !currentLabel)
+        and label2 = "_label" ^ (string_of_int (!currentLabel + 1)) in
+        currentLabel := !currentLabel + 2;
+
+        match category with
+        | Ast.RandInt (value, _) ->
+          begin
+            let p = process_value value in
+            if p = 0 then
+              failwith "Argument in randint must be non-zero";
+            
+            match direction with
+            | Ast.Value (value, _) ->
+              begin
+                let n = process_value value in
+                if n <> 0 then
+                  failwith "Can only compare randint(p) to 0";
+                
+                write_command oc ("Flip " ^ (string_of_int p) ^ " " ^ label1 ^ " " ^ label2);
+                write_label oc label1;
+
+                process_program thenBody;
+
+                write_label oc label2
+              end
+            | _ -> failwith "Can only compare randint(p) to 0"
+          end
+        | _ ->
+          begin
+            write_command oc ("Sense " ^ (get_direction direction) ^ " " ^ label1 ^ " " ^ label2 ^ " " ^ (get_condition category));
+            write_label oc label1;
+
+            process_program thenBody;
+
+            write_label oc label2;
+          end
+      end
     | Ast.Func ((name, _), (args, _), (funcBody, _)) -> 
-      begin (* assume there is no args for now *)
+      begin (* assuming there is no args for now *)
+        let label = "_label" ^ (string_of_int !currentLabel) in
+
+        inFunction := true;
         labels := name :: !labels;
+        functions := name :: !functions;
+
+        if !inFunction then begin
+          write_command oc ("Goto " ^ label)
+        end;
+        
         write_label oc name;
         process_program funcBody;
-        write_command oc ("Goto " ^ name)
+        write_command oc ("Goto " ^ name);
+
+        if !inFunction then begin
+          write_label oc label;
+          currentLabel := !currentLabel + 1
+        end;
+        
+        functions := List.tl !functions;
+        inFunction := false
       end
-    | Ast.While ((cond, _), (whileBody, _)) -> ()
-    | Ast.Repeat ((cond, _), (repeatBody, _)) ->
-      begin (* for now assume cond is a number *)
-        match cond with
-        | Ast.Value (Ast.Int (num, _), _) -> (* it's a number *)
+    | Ast.While ((category, _), (direction, _), (whileBody, _)) ->
+      begin
+        let label1 = "_label" ^ (string_of_int !currentLabel)
+        and label2 = "_label" ^ (string_of_int (!currentLabel + 1))
+        and label3 = "_label" ^ (string_of_int (!currentLabel + 2)) in
+        match category with
+        | Ast.RandInt (value, _) -> 
           begin
-            for i = 1 to num do
-              process_program repeatBody
-            done
           end
-        | _ -> failwith "Repeat expects an argument of type <int>"
+        | _ ->
+          begin
+            write_label oc label1;
+            write_command oc ("Sense " ^ (get_direction direction) ^ " " ^ label2 ^ " " ^ label3 ^ (get_condition category));
+            write_label oc label2;
+
+            process_program whileBody;
+
+            write_label oc label3
+          end
       end
-    | Ast.Case ((case, _), (caseBody, _)) -> ()
-    | Ast.Switch ((cond, _), (switchBody, _)) -> ()
+    | Ast.Repeat ((value, _), (repeatBody, _)) ->
+      begin (* for now assume cond is a number *)
+        let num = process_value value in
+        for i = 1 to num do
+          process_program repeatBody
+        done
+      end
+    | Ast.Case ((direction, _), (caseBody, _)) -> ()
+    | Ast.Switch ((category, _), (switchBody, _)) -> ()
   and process_expression expression =
     match expression with
-    | Ast.Num (num, _) -> ()
-    | Ast.Args (index, _) -> ()
-    | Ast.Move (num, _) ->
+    | Ast.Args (value, _) -> ()
+    | Ast.Move (value, _) ->
       begin
+        let num = process_value value in
         let label = "_label" ^ (string_of_int (!currentLabel)) in
         for i = 1 to num do
           write_command oc ("Move " ^ label)
@@ -88,8 +272,9 @@ let compile_file filename program =
         write_label oc label;
         currentLabel := !currentLabel + 1
       end
-    | Ast.Turn (num, _) -> 
+    | Ast.Turn (value, _) -> 
       begin
+        let num = process_value value in
         let i = num mod 6 in
         let dir = [|"Right"; "Left"|] in
         for j = 1 to i - ((i / 4) * 3) do
@@ -108,16 +293,18 @@ let compile_file filename program =
       begin
         write_command oc ("Goto " ^ label)
       end
-    | Ast.Mark (num, _) -> 
+    | Ast.Mark (value, _) -> 
       begin
-        if num > 6 || num < 1 then
+        let num = process_value value in
+        if num > 5 || num < 0 then
           failwith "Mark expects a number between 1 and 6"
         else
           write_command oc ("Mark" ^ (string_of_int num))
       end
-    | Ast.Unmark (num, _) -> 
+    | Ast.Unmark (value, _) -> 
       begin
-        if num > 6 || num < 1 then
+        let num = process_value value in
+        if num > 5 || num < 0 then
           failwith "UnMark expects a number between 1 and 6"
         else
           write_command oc ("Unmark" ^ (string_of_int num))
@@ -125,32 +312,31 @@ let compile_file filename program =
     | Ast.Call (ident, _) -> 
       begin
         write_command oc ("Goto " ^ ident);
-        nestedCalls := ident :: !nestedCalls
+        (*calls := (ident, List.hd !functions) :: !calls*)
       end
     | Ast.Nop -> ()
-    | Ast.Return -> 
-      begin
-        if (List.length !nestedCalls) = 1 then
+    | Ast.Return -> ()
+      (*begin TODO
+        if (List.length !calls) = 0 then
           failwith "Return from non-called function"
-      end
+        else
+          begin
+            let label = look_in_calls List.hd  in
+            write_command oc ("Goto " ^ label);
+            calls := List.tl !calls
+          end
+      end*)
     | Ast.Break -> () in
   process_program program
 
-let get_filename_ext filename =
-  let i = ref 0 in
-  while !i < String.length filename && filename.[!i] <> '.' do
-    i := !i + 1
-  done;
-  String.sub filename 0 (!i)
-
-let process_file filename =
+let process_file path =
   (* Ouvre le fichier et créé un lexer. *)
-  let file = open_in filename in
+  let file = open_in path in
   let lexer = Lexer.of_channel file in
   (* Parse le fichier. *)
   let (program, span) = Parser.parse_program lexer in
   printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program);
-  compile_file (get_filename_ext filename) program
+  compile_file path program
 
 (* Le point de départ du compilateur. *)
 let _ =
