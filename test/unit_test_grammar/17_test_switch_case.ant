@@ -1,0 +1,7 @@
+test(food) in {
+    case ahead :
+        nop;
+    case left :
+        move(1);
+        turn(2);
+}

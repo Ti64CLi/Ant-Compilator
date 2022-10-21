@@ -1,0 +1,4 @@
+func function1() {
+    move(2);
+    goto function1();
+}

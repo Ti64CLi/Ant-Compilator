@@ -1,0 +1,2 @@
+define DIX as 10;
+move(DIX);
