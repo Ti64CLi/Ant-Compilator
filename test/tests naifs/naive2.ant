@@ -1,22 +1,22 @@
-func SearchFood0() {
+func ASerachFood() {
 
     test(food) in {
         case ahead :
             nop;
         case left :
             turn(5);
-            goto SF50
-            SF00:
+            goto F0;
+            A0:
         case right :
             turn(1);
-            goto SF11;
-            SF01:
+            goto B1;
+            A1:
     }
 
     mark(0);
 
     if (
-        is(friend,ahead)
+        friend is ahead
     )
     then {
         turn(1);
@@ -28,70 +28,67 @@ func SearchFood0() {
     else {
         move(1);
     }
-    pickup(SearchFood);
+    pickup(ASerachFood);
     turn(3);
-    goto SF32;
-    SF02:
-    call BackFood;
+    goto D2;
+    A2:
+    call ABackFood;
 
     test(randint(3)) in {
         case 1 : {
             turn(5);
-            goto SF53;
-            SF03:
+            goto F3;
+            A3:
         }
         case 2 : {
             turn(1);
-            goto SF14;
-            SF04:
+            goto B4;
+            A4:
         }
         move(1);
     }
 }
-func BackFood0{
+func ABackFood{
     do {
         drop();
         turn(3);
-        goto SF35;
-        SF05:
-        call SearchFood;
+        goto D5;
+        A5:
+        call ASerachFood;
     }
     if (
-        is(home,here)
+        home in here
     )
     if (
-        is(bit(3),ahead)
+        bit(3) is ahead
     )
     then{
         move(1);
     }
     else{
         turn(1);
-        goto FS16;
-        FS06:
+        goto B6;
+        A6:
     }
-}
-
-
-func SearchFood1() {
+}func BSerachFood() {
 
     test(food) in {
         case ahead :
             nop;
         case left :
             turn(5);
-            goto SF00;
-            SF10:
+            goto A0;
+            B0:
         case right :
             turn(1);
-            goto SF21S;
-            SF11:
+            goto C1;
+            B1:
     }
 
-    mark(1);
+    mark(0);
 
     if (
-        is(friend,ahead)
+        friend is ahead
     )
     then {
         turn(1);
@@ -103,70 +100,67 @@ func SearchFood1() {
     else {
         move(1);
     }
-    pickup(SearchFood);
+    pickup(BSerachFood);
     turn(3);
-    goto SF42;
-    SF12:
-    call BackFood;
+    goto E2;
+    B2:
+    call BBackFood;
 
     test(randint(3)) in {
         case 1 : {
             turn(5);
-            goto SF03;
-            SF13:
+            goto A3;
+            B3:
         }
         case 2 : {
             turn(1);
-            goto SF24;
-            SF14:
+            goto C4;
+            B4:
         }
         move(1);
     }
 }
-func BackFood1{
+func BBackFood{
     do {
         drop();
         turn(3);
-        goto SF45;
-        SF15:
-        call SearchFood;
+        goto E5;
+        B5:
+        call BSerachFood;
     }
     if (
-        is(home,here)
+        home in here
     )
     if (
-        is(bit(4),ahead)
+        bit(3) is ahead
     )
     then{
         move(1);
     }
     else{
         turn(1);
-        goto FS26;
-        FS16:
+        goto C6;
+        B6:
     }
-}
-
-
-func SearchFood2() {
+}func CSerachFood() {
 
     test(food) in {
         case ahead :
             nop;
         case left :
             turn(5);
-            goto SF10;
-            SF20:
+            goto B0;
+            C0:
         case right :
             turn(1);
-            goto SF31;
-            SF21:
+            goto D1;
+            C1:
     }
 
-    mark(2);
+    mark(0);
 
     if (
-        is(friend,ahead)
+        friend is ahead
     )
     then {
         turn(1);
@@ -178,70 +172,67 @@ func SearchFood2() {
     else {
         move(1);
     }
-    pickup(SearchFood);
+    pickup(CSerachFood);
     turn(3);
-    goto SF52;
-    SF22:
-    call BackFood;
+    goto F2;
+    C2:
+    call CBackFood;
 
     test(randint(3)) in {
         case 1 : {
             turn(5);
-            goto SF13;
-            SF23:
+            goto B3;
+            C3:
         }
         case 2 : {
             turn(1);
-            goto SF34;
-            SF24:
+            goto D4;
+            C4:
         }
         move(1);
     }
 }
-func BackFood2{
+func CBackFood{
     do {
         drop();
         turn(3);
-        goto SF55;
-        SF25:
-        call SearchFood;
+        goto F5;
+        C5:
+        call CSerachFood;
     }
     if (
-        is(home,here)
+        home in here
     )
     if (
-        is(bit(5),ahead)
+        bit(3) is ahead
     )
     then{
         move(1);
     }
     else{
         turn(1);
-        goto FS36;
-        FS26:
+        goto D6;
+        C6:
     }
-}
-
-
-func SearchFood3() {
+}func DSerachFood() {
 
     test(food) in {
         case ahead :
             nop;
         case left :
             turn(5);
-            goto SF20;
-            SF30:
+            goto C0;
+            D0:
         case right :
             turn(1);
-            goto SF41;
-            SF31:
+            goto E1;
+            D1:
     }
 
-    mark(3);
+    mark(0);
 
     if (
-        is(friend,ahead)
+        friend is ahead
     )
     then {
         turn(1);
@@ -253,70 +244,67 @@ func SearchFood3() {
     else {
         move(1);
     }
-    pickup(SearchFood);
+    pickup(DSerachFood);
     turn(3);
-    goto SF02;
-    SF32:
-    call BackFood;
+    goto A2;
+    D2:
+    call DBackFood;
 
     test(randint(3)) in {
         case 1 : {
             turn(5);
-            goto SF23;
-            SF33:
+            goto C3;
+            D3:
         }
         case 2 : {
             turn(1);
-            goto SF44;
-            SF34:
+            goto E4;
+            D4:
         }
         move(1);
     }
 }
-func BackFood3{
+func DBackFood{
     do {
         drop();
         turn(3);
-        goto SF05;
-        SF35:
-        call SearchFood;
+        goto A5;
+        D5:
+        call DSerachFood;
     }
     if (
-        is(home,here)
+        home in here
     )
     if (
-        is(bit(0),ahead)
+        bit(3) is ahead
     )
     then{
         move(1);
     }
     else{
         turn(1);
-        goto FS46;
-        FS36:
+        goto E6;
+        D6:
     }
-}
-
-
-func SearchFood4() {
+}func ESerachFood() {
 
     test(food) in {
         case ahead :
             nop;
         case left :
             turn(5);
-            goto SF30;
-            SF40:
+            goto D0;
+            E0:
         case right :
             turn(1);
-            goto SF51;
-            SF41:
+            goto F1;
+            E1:
     }
 
-    mark(4);
+    mark(0);
 
     if (
-        is(friend,ahead)
+        friend is ahead
     )
     then {
         turn(1);
@@ -328,71 +316,67 @@ func SearchFood4() {
     else {
         move(1);
     }
-    pickup(SearchFood);
+    pickup(ESerachFood);
     turn(3);
-    goto SF12;
-    SF42:
-    call BackFood;
+    goto B2;
+    E2:
+    call EBackFood;
 
     test(randint(3)) in {
         case 1 : {
             turn(5);
-            goto SF33;
-            SF43:
+            goto D3;
+            E3:
         }
         case 2 : {
             turn(1);
-            goto SF54;
-            SF44:
+            goto F4;
+            E4:
         }
         move(1);
     }
 }
-func BackFood4{
+func EBackFood{
     do {
         drop();
         turn(3);
-        goto SF15;
-        SF45:
-        call SearchFood;
+        goto B5;
+        E5:
+        call ESerachFood;
     }
     if (
-        is(home,here)
+        home in here
     )
     if (
-        is(bit(1),ahead)
+        bit(3) is ahead
     )
     then{
         move(1);
     }
     else{
         turn(1);
-        goto FS56;
-        FS46:
+        goto F6;
+        E6:
     }
-}
-
-
-func SearchFood5() {
-
+}func FSerachFood() {
 
     test(food) in {
         case ahead :
             nop;
         case left :
             turn(5);
-            goto SF40;
-            SF50:
+            goto E0;
+            F0:
         case right :
             turn(1);
-            goto SF01;
-            SF51:
+            goto A1;
+            F1:
     }
 
-    mark(5);
+    mark(0);
 
     if (
-        is(friend,ahead)
+        friend is ahead
     )
     then {
         turn(1);
@@ -404,46 +388,46 @@ func SearchFood5() {
     else {
         move(1);
     }
-    pickup(SearchFood);
+    pickup(FSerachFood);
     turn(3);
-    goto SF22;
-    SF52:
-    call BackFood;
+    goto C2;
+    F2:
+    call FBackFood;
 
     test(randint(3)) in {
         case 1 : {
             turn(5);
-            goto SF43;
-            SF53:
+            goto E3;
+            F3:
         }
         case 2 : {
             turn(1);
-            goto SF04;
-            SF54:
+            goto A4;
+            F4:
         }
         move(1);
     }
 }
-func BackFood5{
+func FBackFood{
     do {
         drop();
         turn(3);
-        goto SF25;
-        SF55:
-        call SearchFood;
+        goto C5;
+        F5:
+        call FSerachFood;
     }
     if (
-        is(home,here)
+        home in here
     )
     if (
-        is(bit(2),ahead)
+        bit(3) is ahead
     )
     then{
         move(1);
     }
     else{
         turn(1);
-        goto FS06;
-        FS56:
+        goto A6;
+        F6:
     }
 }

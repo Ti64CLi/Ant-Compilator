@@ -3,7 +3,7 @@
 func #ASerachFood() {
 
     if (
-        eq(randint(3),0)
+        randint(3) is 0
     )
     then {
         turn(1);
@@ -17,12 +17,12 @@ func #ASerachFood() {
             #A19:
         }
         if (
-            eq(randint(2),0)
+            randint(2) in 0
         )
     } *choisis une direction aléatoirement*
 
     if (
-        is(food,left)
+        food is left
     )
     then {
         turn(5);
@@ -36,40 +36,71 @@ func #ASerachFood() {
             #A1:
         }
         if (
-            is(food,right)
+            food in right
         )
    } *va là où il y a de la nouriture, s il y en a*
 
     if (
-        or(
-            is(bit(1),here),
-            or(
-                is(bit(2),here),
-                or(
-                    is(bit(3),here),
-                    or(
-                        is(bit(4),here),
-                        or(
-                            is(bit(5),here),
-                            is(bit(6),here)
-                        )
-                    )
-                )
-            )
-        )
+        bit(!01) is here
     )
     then {
         nop;
     }
     else {
-        mark(!01);
+        if (
+        bit(!01) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(!02) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(!03) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(!04) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(!05) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            if (
+                                bit(!05) is here
+                            )
+                            then {
+                                nop;
+                            }
+                            else {   
+                                mark(!01);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     } *marque sa direction si le chemin n est pas déjà marqué*
 
+
     if (
-        or(
-            is(friend,ahead),
-            is(friendWithFood,ahead)
-        )
+        friendWithFood is ahead
     )
     then {
         turn(1);
@@ -86,7 +117,7 @@ func #ASerachFood() {
     } *contourne un allié si il y en a un sur le passage*
     else {
         if (
-            is(rock,ahead)
+            rock is ahead
         )
         then {
             turn(3);
@@ -114,18 +145,18 @@ func #ABackFood{
         call #ASerachFood;
     }
     if (
-        is(home,here)
+        home in here
     )
 
     if (
-        is(bit(!01),here)
+        bit(!01) is here
     )
     then {
         nop;
     }
     else {
         if (
-            is(bit(!02),here)
+            bit(!02) is here
         )
         then {
             turn(1);
@@ -134,7 +165,7 @@ func #ABackFood{
         }
         else {
             if (
-                is(bit(!03),here)
+                bit(!03) is here
             )
             then {
                 turn(2);
@@ -143,7 +174,7 @@ func #ABackFood{
             }
             else {
                 if (
-                    is(bit(!04),here)
+                    bit(!04) is here
                 )
                 then {
                     turn(3);
@@ -152,7 +183,7 @@ func #ABackFood{
                 }
                 else {
                     if (
-                        is(bit(!05),here)
+                        bit(!05) is here
                     )
                     then {
                         turn(4);
@@ -161,7 +192,7 @@ func #ABackFood{
                     }
                     else {
                         if (
-                            is(bit(!06),here)
+                            bit(!06) is here
                         )
                         then {
                             turn(5);

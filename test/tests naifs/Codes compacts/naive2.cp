@@ -16,7 +16,7 @@ func #ASerachFood() {
     mark(0);
 
     if (
-        is(friend,ahead)
+        friend is ahead
     )
     then {
         turn(1);
@@ -57,10 +57,10 @@ func #ABackFood{
         call #ASerachFood;
     }
     if (
-        is(home,here)
+        home in here
     )
     if (
-        is(bit(3),ahead)
+        bit(3) is ahead
     )
     then{
         move(1);
