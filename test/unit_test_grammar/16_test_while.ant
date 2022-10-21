@@ -1,0 +1,8 @@
+func follow_marker() {
+    while (or(is(marker, left), is(marker, right))) {
+        move(1);
+    }
+    turn(1);
+    move(1);
+    call follow_marker();
+}

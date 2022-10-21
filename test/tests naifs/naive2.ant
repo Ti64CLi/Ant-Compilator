@@ -1,0 +1,433 @@
+func ASerachFood() {
+
+    test(food) is {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto F0;
+            A0:
+        case right :
+            turn(1);
+            goto B1;
+            A1:
+    }
+
+    mark(0);
+
+    if (
+        friend is ahead
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(ASerachFood);
+    turn(3);
+    goto D2;
+    A2:
+    call ABackFood;
+
+    test(randint(3)) is {
+        case 1 : {
+            turn(5);
+            goto F3;
+            A3:
+        }
+        case 2 : {
+            turn(1);
+            goto B4;
+            A4:
+        }
+        move(1);
+    }
+}
+func ABackFood{
+    do {
+        drop();
+        turn(3);
+        goto D5;
+        A5:
+        call ASerachFood;
+    }
+    if (
+        home is here
+    )
+    if (
+        bit(2) is ahead
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto B6;
+        A6:
+    }
+}func BSerachFood() {
+
+    test(food) is {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto A0;
+            B0:
+        case right :
+            turn(1);
+            goto C1;
+            B1:
+    }
+
+    mark(0);
+
+    if (
+        friend is ahead
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(BSerachFood);
+    turn(3);
+    goto E2;
+    B2:
+    call BBackFood;
+
+    test(randint(3)) is {
+        case 1 : {
+            turn(5);
+            goto A3;
+            B3:
+        }
+        case 2 : {
+            turn(1);
+            goto C4;
+            B4:
+        }
+        move(1);
+    }
+}
+func BBackFood{
+    do {
+        drop();
+        turn(3);
+        goto E5;
+        B5:
+        call BSerachFood;
+    }
+    if (
+        home is here
+    )
+    if (
+        bit(2) is ahead
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto C6;
+        B6:
+    }
+}func CSerachFood() {
+
+    test(food) is {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto B0;
+            C0:
+        case right :
+            turn(1);
+            goto D1;
+            C1:
+    }
+
+    mark(0);
+
+    if (
+        friend is ahead
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(CSerachFood);
+    turn(3);
+    goto F2;
+    C2:
+    call CBackFood;
+
+    test(randint(3)) is {
+        case 1 : {
+            turn(5);
+            goto B3;
+            C3:
+        }
+        case 2 : {
+            turn(1);
+            goto D4;
+            C4:
+        }
+        move(1);
+    }
+}
+func CBackFood{
+    do {
+        drop();
+        turn(3);
+        goto F5;
+        C5:
+        call CSerachFood;
+    }
+    if (
+        home is here
+    )
+    if (
+        bit(2) is ahead
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto D6;
+        C6:
+    }
+}func DSerachFood() {
+
+    test(food) is {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto C0;
+            D0:
+        case right :
+            turn(1);
+            goto E1;
+            D1:
+    }
+
+    mark(0);
+
+    if (
+        friend is ahead
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(DSerachFood);
+    turn(3);
+    goto A2;
+    D2:
+    call DBackFood;
+
+    test(randint(3)) is {
+        case 1 : {
+            turn(5);
+            goto C3;
+            D3:
+        }
+        case 2 : {
+            turn(1);
+            goto E4;
+            D4:
+        }
+        move(1);
+    }
+}
+func DBackFood{
+    do {
+        drop();
+        turn(3);
+        goto A5;
+        D5:
+        call DSerachFood;
+    }
+    if (
+        home is here
+    )
+    if (
+        bit(2) is ahead
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto E6;
+        D6:
+    }
+}func ESerachFood() {
+
+    test(food) is {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto D0;
+            E0:
+        case right :
+            turn(1);
+            goto F1;
+            E1:
+    }
+
+    mark(0);
+
+    if (
+        friend is ahead
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(ESerachFood);
+    turn(3);
+    goto B2;
+    E2:
+    call EBackFood;
+
+    test(randint(3)) is {
+        case 1 : {
+            turn(5);
+            goto D3;
+            E3:
+        }
+        case 2 : {
+            turn(1);
+            goto F4;
+            E4:
+        }
+        move(1);
+    }
+}
+func EBackFood{
+    do {
+        drop();
+        turn(3);
+        goto B5;
+        E5:
+        call ESerachFood;
+    }
+    if (
+        home is here
+    )
+    if (
+        bit(2) is ahead
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto F6;
+        E6:
+    }
+}func FSerachFood() {
+
+    test(food) is {
+        case ahead :
+            nop;
+        case left :
+            turn(5);
+            goto E0;
+            F0:
+        case right :
+            turn(1);
+            goto A1;
+            F1:
+    }
+
+    mark(0);
+
+    if (
+        friend is ahead
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+    pickup(FSerachFood);
+    turn(3);
+    goto C2;
+    F2:
+    call FBackFood;
+
+    test(randint(3)) is {
+        case 1 : {
+            turn(5);
+            goto E3;
+            F3:
+        }
+        case 2 : {
+            turn(1);
+            goto A4;
+            F4:
+        }
+        move(1);
+    }
+}
+func FBackFood{
+    do {
+        drop();
+        turn(3);
+        goto C5;
+        F5:
+        call FSerachFood;
+    }
+    if (
+        home is here
+    )
+    if (
+        bit(2) is ahead
+    )
+    then{
+        move(1);
+    }
+    else{
+        turn(1);
+        goto A6;
+        F6:
+    }
+}

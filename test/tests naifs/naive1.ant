@@ -1,0 +1,83 @@
+func SearchFood() {
+
+    mark(0);
+
+    if (
+        food is left
+    )
+    then {
+        turn(5);
+    }
+    else {
+        do {
+            turn(1);
+        }
+        if (
+            food is right
+        )
+    }
+
+
+    if (
+        friend is ahead
+    )
+    then {
+        turn(1);
+        move(1);
+        turn(5);
+        move(1);
+        turn(1);
+    }
+    else {
+        move(1);
+    }
+
+    pickup(SearchFood);
+    turn(3);
+    call BackFood;
+
+    if (
+        randint(3) is 0
+    )
+    then {
+        do {
+            turn(1);
+        }
+        if (
+            randint(2) is 0
+        )
+    }
+    else {
+        turn(5);
+    }
+}
+
+
+func BackFood {
+    do {
+        drop();
+        turn(3);
+        call SearchFood;
+    }
+    if (
+        home is here
+    )
+    
+    if (
+        bit(0) is here
+    )
+    then {
+        turn(5);
+    }
+    else {
+        do {
+            turn(1);
+        }
+        if (
+            bit(0) is right
+        )
+    }
+
+    move(1);
+    
+} 
