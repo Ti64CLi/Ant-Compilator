@@ -1,4 +1,4 @@
-*23*
+
 
 func #ASearchFood() {
 
@@ -31,7 +31,8 @@ func #ASearchFood() {
         }
    } *se tourne vers là où il y a de la nouriture, si il y en a et va en pickup dans ce cas*
 
-    
+    call #AVerifAhead;
+    #ALibre:
 
     if (
         bit(!00) is here
@@ -276,4 +277,148 @@ func #ABackFood{
     } *suivit du chemin de retour*
     *le numéro du bit à tester dépend de l orientation de la fourmi*
     move(1);
+}
+
+func #AVerifAhead() {
+    if (bit(!00) is ahead)
+    then {
+        call #AVerifRight;
+    }
+    else {
+        if (bit(!01) is ahead)
+        then {
+            call #AVerifRight;
+        }
+        else {
+            if (bit(!02) is ahead)
+            then {
+                call #AVerifRight;
+            }
+            else {   
+                if (bit(!03) is ahead)
+                then {
+                    call #AVerifRight;
+                }
+                else {   
+                    if (bit(!04) is ahead)
+                    then {
+                        call #AVerifRight;
+                    }
+                    else {   
+                        if (bit(!05) is ahead)
+                        then {
+                            call #AVerifRight;
+                        }
+                        else {   
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func #AVerifRight() {
+    if (bit(!00) is right)
+    then {
+        call #AVerifleft;
+    }
+    else {
+        if (bit(!01) is right)
+        then {
+            call #AVerifleft;
+        }
+        else {
+            if (bit(!02) is right)
+            then {
+                call #AVerifleft;
+            }
+            else {   
+                if (bit(!03) is right)
+                then {
+                    call #AVerifleft;
+                }
+                else {   
+                    if (bit(!04) is right)
+                    then {
+                        call #AVerifleft;
+                    }
+                    else {   
+                        if (bit(!05) is right)
+                        then {
+                            call #AVerifleft;
+                        }
+                        else {   
+                            turn(1);
+                            goto #B;
+                            #A:
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func #AVerifLeft() {
+    if (bit(!00) is left)
+    then {
+        call #ADirAlea;
+    }
+    else {
+        if (bit(!01) is left)
+        then {
+            call #ADirAlea;
+        }
+        else {
+            if (bit(!02) is left)
+            then {
+                call #ADirAlea;
+            }
+            else {   
+                if (bit(!03) is left)
+                then {
+                    call #ADirAlea;
+                }
+                else {   
+                    if (bit(!04) is left)
+                    then {
+                        call #ADirAlea;
+                    }
+                    else {   
+                        if (bit(!05) is left)
+                        then {
+                            call #ADirAlea;
+                        }
+                        else {
+                            turn(5);
+                            goto #F;
+                            #A:
+                            goto #ALibre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func #ADirAlea() {
+    do {
+        turn(1);
+        goto #B;
+        #A:
+        goto #ALibre;
+    }
+    if (randint(3) is 0)
+    do {
+        turn(5);
+        goto #F;
+        #A:
+        goto #ALibre;
+    }
+    if (randint(2) is 0)
+    goto #ALibre;
 }

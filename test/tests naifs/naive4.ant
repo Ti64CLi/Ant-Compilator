@@ -1,0 +1,2539 @@
+
+
+func ASearchFood() {
+
+    if (
+        food is left
+    )
+    then {
+        turn(5);
+        goto F1;
+        A1:
+        call APickUpFood;
+    }
+    else {
+        if (
+            food is right
+        )
+        then {
+            turn(1);
+            goto B2;
+            A2:
+            call APickUpFood;
+        }
+        else {
+            do {
+                call APickUpFood;
+            }
+            if (
+                food is ahead
+            )
+        }
+   } 
+
+    call AVerifAhead;
+    ALibre:
+
+    if (
+        bit(0) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(1) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(2) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(3) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(4) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(5) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(0);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto B3;
+        A3:
+        move(1);
+        turn(5);
+        goto F4;
+        A4:
+        move(1);
+        turn(1);
+        goto B5;
+        A5;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto D6;
+            A6:
+        }
+        else {
+            move(1);
+        }
+    } 
+}
+
+func APickUpFood {
+    if (
+        bit(0) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(1) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(2) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(3) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(4) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(5) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(1);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto B7;
+        A7:
+        move(1);
+        turn(5);
+        goto F8;
+        A8:
+        move(1);
+        turn(1);
+        goto B9;
+        A9;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto D10;
+            A10:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(ASerachFood); 
+    turn(3); 
+    goto D11;
+    A11:
+    call ABackFood; 
+}
+
+func ABackFood{
+    do {
+        drop();
+        turn(3);
+        goto D12;
+        A12:
+        call ASerachFood;
+    }
+    if (
+        home is here
+    )
+
+    if (
+        bit(0) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+            bit(1) is here
+        )
+        then {
+            turn(1);
+            goto B13;
+            A13:
+        }
+        else {
+            if (
+                bit(2) is here
+            )
+            then {
+                turn(2);
+                goto C14;
+                A14:
+            }
+            else {
+                if (
+                    bit(3) is here
+                )
+                then {
+                    turn(3);
+                    goto D15;
+                    A15:
+                }
+                else {
+                    if (
+                        bit(4) is here
+                    )
+                    then {
+                        turn(4);
+                        goto E16;
+                        A16:
+                    }
+                    else {
+                        if (
+                            bit(5) is here
+                        )
+                        then {
+                            turn(5);
+                            goto F17;
+                            A17:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func AVerifAhead() {
+    if (bit(0) is ahead)
+    then {
+        call AVerifRight;
+    }
+    else {
+        if (bit(1) is ahead)
+        then {
+            call AVerifRight;
+        }
+        else {
+            if (bit(2) is ahead)
+            then {
+                call AVerifRight;
+            }
+            else {   
+                if (bit(3) is ahead)
+                then {
+                    call AVerifRight;
+                }
+                else {   
+                    if (bit(4) is ahead)
+                    then {
+                        call AVerifRight;
+                    }
+                    else {   
+                        if (bit(5) is ahead)
+                        then {
+                            call AVerifRight;
+                        }
+                        else {   
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func AVerifRight() {
+    if (bit(0) is right)
+    then {
+        call AVerifleft;
+    }
+    else {
+        if (bit(1) is right)
+        then {
+            call AVerifleft;
+        }
+        else {
+            if (bit(2) is right)
+            then {
+                call AVerifleft;
+            }
+            else {   
+                if (bit(3) is right)
+                then {
+                    call AVerifleft;
+                }
+                else {   
+                    if (bit(4) is right)
+                    then {
+                        call AVerifleft;
+                    }
+                    else {   
+                        if (bit(5) is right)
+                        then {
+                            call AVerifleft;
+                        }
+                        else {   
+                            turn(1);
+                            goto B18;
+                            A18:
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func AVerifLeft() {
+    if (bit(0) is left)
+    then {
+        call ADirAlea;
+    }
+    else {
+        if (bit(1) is left)
+        then {
+            call ADirAlea;
+        }
+        else {
+            if (bit(2) is left)
+            then {
+                call ADirAlea;
+            }
+            else {   
+                if (bit(3) is left)
+                then {
+                    call ADirAlea;
+                }
+                else {   
+                    if (bit(4) is left)
+                    then {
+                        call ADirAlea;
+                    }
+                    else {   
+                        if (bit(5) is left)
+                        then {
+                            call ADirAlea;
+                        }
+                        else {
+                            turn(5);
+                            goto F19;
+                            A19:
+                            goto ALibre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func ADirAlea() {
+    do {
+        turn(1);
+        goto B20;
+        A20:
+        goto ALibre;
+    }
+    if (randint(3) is 0)
+    do {
+        turn(5);
+        goto F21;
+        A21:
+        goto ALibre;
+    }
+    if (randint(2) is 0)
+    goto ALibre;
+}
+
+func BSearchFood() {
+
+    if (
+        food is left
+    )
+    then {
+        turn(5);
+        goto A1;
+        B1:
+        call BPickUpFood;
+    }
+    else {
+        if (
+            food is right
+        )
+        then {
+            turn(1);
+            goto C2;
+            B2:
+            call BPickUpFood;
+        }
+        else {
+            do {
+                call BPickUpFood;
+            }
+            if (
+                food is ahead
+            )
+        }
+   } 
+
+    call BVerifAhead;
+    BLibre:
+
+    if (
+        bit(1) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(2) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(3) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(4) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(5) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(6) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(1);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto C3;
+        B3:
+        move(1);
+        turn(5);
+        goto A4;
+        B4:
+        move(1);
+        turn(1);
+        goto C5;
+        B5;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto E6;
+            B6:
+        }
+        else {
+            move(1);
+        }
+    } 
+}
+
+func BPickUpFood {
+    if (
+        bit(1) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(2) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(3) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(4) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(5) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(6) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(2);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto C7;
+        B7:
+        move(1);
+        turn(5);
+        goto A8;
+        B8:
+        move(1);
+        turn(1);
+        goto C9;
+        B9;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto E10;
+            B10:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(BSerachFood); 
+    turn(3); 
+    goto E11;
+    B11:
+    call BBackFood; 
+}
+
+func BBackFood{
+    do {
+        drop();
+        turn(3);
+        goto E12;
+        B12:
+        call BSerachFood;
+    }
+    if (
+        home is here
+    )
+
+    if (
+        bit(1) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+            bit(2) is here
+        )
+        then {
+            turn(1);
+            goto C13;
+            B13:
+        }
+        else {
+            if (
+                bit(3) is here
+            )
+            then {
+                turn(2);
+                goto D14;
+                B14:
+            }
+            else {
+                if (
+                    bit(4) is here
+                )
+                then {
+                    turn(3);
+                    goto E15;
+                    B15:
+                }
+                else {
+                    if (
+                        bit(5) is here
+                    )
+                    then {
+                        turn(4);
+                        goto F16;
+                        B16:
+                    }
+                    else {
+                        if (
+                            bit(6) is here
+                        )
+                        then {
+                            turn(5);
+                            goto A17;
+                            B17:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func BVerifAhead() {
+    if (bit(1) is ahead)
+    then {
+        call BVerifRight;
+    }
+    else {
+        if (bit(2) is ahead)
+        then {
+            call BVerifRight;
+        }
+        else {
+            if (bit(3) is ahead)
+            then {
+                call BVerifRight;
+            }
+            else {   
+                if (bit(4) is ahead)
+                then {
+                    call BVerifRight;
+                }
+                else {   
+                    if (bit(5) is ahead)
+                    then {
+                        call BVerifRight;
+                    }
+                    else {   
+                        if (bit(6) is ahead)
+                        then {
+                            call BVerifRight;
+                        }
+                        else {   
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func BVerifRight() {
+    if (bit(1) is right)
+    then {
+        call BVerifleft;
+    }
+    else {
+        if (bit(2) is right)
+        then {
+            call BVerifleft;
+        }
+        else {
+            if (bit(3) is right)
+            then {
+                call BVerifleft;
+            }
+            else {   
+                if (bit(4) is right)
+                then {
+                    call BVerifleft;
+                }
+                else {   
+                    if (bit(5) is right)
+                    then {
+                        call BVerifleft;
+                    }
+                    else {   
+                        if (bit(6) is right)
+                        then {
+                            call BVerifleft;
+                        }
+                        else {   
+                            turn(1);
+                            goto C18;
+                            B18:
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func BVerifLeft() {
+    if (bit(1) is left)
+    then {
+        call BDirAlea;
+    }
+    else {
+        if (bit(2) is left)
+        then {
+            call BDirAlea;
+        }
+        else {
+            if (bit(3) is left)
+            then {
+                call BDirAlea;
+            }
+            else {   
+                if (bit(4) is left)
+                then {
+                    call BDirAlea;
+                }
+                else {   
+                    if (bit(5) is left)
+                    then {
+                        call BDirAlea;
+                    }
+                    else {   
+                        if (bit(6) is left)
+                        then {
+                            call BDirAlea;
+                        }
+                        else {
+                            turn(5);
+                            goto A19;
+                            B19:
+                            goto BLibre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func BDirAlea() {
+    do {
+        turn(1);
+        goto C20;
+        B20:
+        goto BLibre;
+    }
+    if (randint(3) is 0)
+    do {
+        turn(5);
+        goto A21;
+        B21:
+        goto BLibre;
+    }
+    if (randint(2) is 0)
+    goto BLibre;
+}
+
+func CSearchFood() {
+
+    if (
+        food is left
+    )
+    then {
+        turn(5);
+        goto B1;
+        C1:
+        call CPickUpFood;
+    }
+    else {
+        if (
+            food is right
+        )
+        then {
+            turn(1);
+            goto D2;
+            C2:
+            call CPickUpFood;
+        }
+        else {
+            do {
+                call CPickUpFood;
+            }
+            if (
+                food is ahead
+            )
+        }
+   } 
+
+    call CVerifAhead;
+    CLibre:
+
+    if (
+        bit(2) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(3) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(4) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(5) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(6) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(1) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(2);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto D3;
+        C3:
+        move(1);
+        turn(5);
+        goto B4;
+        C4:
+        move(1);
+        turn(1);
+        goto D5;
+        C5;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto F6;
+            C6:
+        }
+        else {
+            move(1);
+        }
+    } 
+}
+
+func CPickUpFood {
+    if (
+        bit(2) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(3) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(4) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(5) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(6) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(1) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(3);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto D7;
+        C7:
+        move(1);
+        turn(5);
+        goto B8;
+        C8:
+        move(1);
+        turn(1);
+        goto D9;
+        C9;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto F10;
+            C10:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(CSerachFood); 
+    turn(3); 
+    goto F11;
+    C11:
+    call CBackFood; 
+}
+
+func CBackFood{
+    do {
+        drop();
+        turn(3);
+        goto F12;
+        C12:
+        call CSerachFood;
+    }
+    if (
+        home is here
+    )
+
+    if (
+        bit(2) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+            bit(3) is here
+        )
+        then {
+            turn(1);
+            goto D13;
+            C13:
+        }
+        else {
+            if (
+                bit(4) is here
+            )
+            then {
+                turn(2);
+                goto E14;
+                C14:
+            }
+            else {
+                if (
+                    bit(5) is here
+                )
+                then {
+                    turn(3);
+                    goto F15;
+                    C15:
+                }
+                else {
+                    if (
+                        bit(6) is here
+                    )
+                    then {
+                        turn(4);
+                        goto A16;
+                        C16:
+                    }
+                    else {
+                        if (
+                            bit(1) is here
+                        )
+                        then {
+                            turn(5);
+                            goto B17;
+                            C17:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func CVerifAhead() {
+    if (bit(2) is ahead)
+    then {
+        call CVerifRight;
+    }
+    else {
+        if (bit(3) is ahead)
+        then {
+            call CVerifRight;
+        }
+        else {
+            if (bit(4) is ahead)
+            then {
+                call CVerifRight;
+            }
+            else {   
+                if (bit(5) is ahead)
+                then {
+                    call CVerifRight;
+                }
+                else {   
+                    if (bit(6) is ahead)
+                    then {
+                        call CVerifRight;
+                    }
+                    else {   
+                        if (bit(1) is ahead)
+                        then {
+                            call CVerifRight;
+                        }
+                        else {   
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func CVerifRight() {
+    if (bit(2) is right)
+    then {
+        call CVerifleft;
+    }
+    else {
+        if (bit(3) is right)
+        then {
+            call CVerifleft;
+        }
+        else {
+            if (bit(4) is right)
+            then {
+                call CVerifleft;
+            }
+            else {   
+                if (bit(5) is right)
+                then {
+                    call CVerifleft;
+                }
+                else {   
+                    if (bit(6) is right)
+                    then {
+                        call CVerifleft;
+                    }
+                    else {   
+                        if (bit(1) is right)
+                        then {
+                            call CVerifleft;
+                        }
+                        else {   
+                            turn(1);
+                            goto D18;
+                            C18:
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func CVerifLeft() {
+    if (bit(2) is left)
+    then {
+        call CDirAlea;
+    }
+    else {
+        if (bit(3) is left)
+        then {
+            call CDirAlea;
+        }
+        else {
+            if (bit(4) is left)
+            then {
+                call CDirAlea;
+            }
+            else {   
+                if (bit(5) is left)
+                then {
+                    call CDirAlea;
+                }
+                else {   
+                    if (bit(6) is left)
+                    then {
+                        call CDirAlea;
+                    }
+                    else {   
+                        if (bit(1) is left)
+                        then {
+                            call CDirAlea;
+                        }
+                        else {
+                            turn(5);
+                            goto B19;
+                            C19:
+                            goto CLibre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func CDirAlea() {
+    do {
+        turn(1);
+        goto D20;
+        C20:
+        goto CLibre;
+    }
+    if (randint(3) is 0)
+    do {
+        turn(5);
+        goto B21;
+        C21:
+        goto CLibre;
+    }
+    if (randint(2) is 0)
+    goto CLibre;
+}
+
+func DSearchFood() {
+
+    if (
+        food is left
+    )
+    then {
+        turn(5);
+        goto C1;
+        D1:
+        call DPickUpFood;
+    }
+    else {
+        if (
+            food is right
+        )
+        then {
+            turn(1);
+            goto E2;
+            D2:
+            call DPickUpFood;
+        }
+        else {
+            do {
+                call DPickUpFood;
+            }
+            if (
+                food is ahead
+            )
+        }
+   } 
+
+    call DVerifAhead;
+    DLibre:
+
+    if (
+        bit(3) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(4) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(5) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(6) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(1) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(2) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(3);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto E3;
+        D3:
+        move(1);
+        turn(5);
+        goto C4;
+        D4:
+        move(1);
+        turn(1);
+        goto E5;
+        D5;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto A6;
+            D6:
+        }
+        else {
+            move(1);
+        }
+    } 
+}
+
+func DPickUpFood {
+    if (
+        bit(3) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(4) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(5) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(6) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(1) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(2) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(4);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto E7;
+        D7:
+        move(1);
+        turn(5);
+        goto C8;
+        D8:
+        move(1);
+        turn(1);
+        goto E9;
+        D9;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto A10;
+            D10:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(DSerachFood); 
+    turn(3); 
+    goto A11;
+    D11:
+    call DBackFood; 
+}
+
+func DBackFood{
+    do {
+        drop();
+        turn(3);
+        goto A12;
+        D12:
+        call DSerachFood;
+    }
+    if (
+        home is here
+    )
+
+    if (
+        bit(3) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+            bit(4) is here
+        )
+        then {
+            turn(1);
+            goto E13;
+            D13:
+        }
+        else {
+            if (
+                bit(5) is here
+            )
+            then {
+                turn(2);
+                goto F14;
+                D14:
+            }
+            else {
+                if (
+                    bit(6) is here
+                )
+                then {
+                    turn(3);
+                    goto A15;
+                    D15:
+                }
+                else {
+                    if (
+                        bit(1) is here
+                    )
+                    then {
+                        turn(4);
+                        goto B16;
+                        D16:
+                    }
+                    else {
+                        if (
+                            bit(2) is here
+                        )
+                        then {
+                            turn(5);
+                            goto C17;
+                            D17:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func DVerifAhead() {
+    if (bit(3) is ahead)
+    then {
+        call DVerifRight;
+    }
+    else {
+        if (bit(4) is ahead)
+        then {
+            call DVerifRight;
+        }
+        else {
+            if (bit(5) is ahead)
+            then {
+                call DVerifRight;
+            }
+            else {   
+                if (bit(6) is ahead)
+                then {
+                    call DVerifRight;
+                }
+                else {   
+                    if (bit(1) is ahead)
+                    then {
+                        call DVerifRight;
+                    }
+                    else {   
+                        if (bit(2) is ahead)
+                        then {
+                            call DVerifRight;
+                        }
+                        else {   
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func DVerifRight() {
+    if (bit(3) is right)
+    then {
+        call DVerifleft;
+    }
+    else {
+        if (bit(4) is right)
+        then {
+            call DVerifleft;
+        }
+        else {
+            if (bit(5) is right)
+            then {
+                call DVerifleft;
+            }
+            else {   
+                if (bit(6) is right)
+                then {
+                    call DVerifleft;
+                }
+                else {   
+                    if (bit(1) is right)
+                    then {
+                        call DVerifleft;
+                    }
+                    else {   
+                        if (bit(2) is right)
+                        then {
+                            call DVerifleft;
+                        }
+                        else {   
+                            turn(1);
+                            goto E18;
+                            D18:
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func DVerifLeft() {
+    if (bit(3) is left)
+    then {
+        call DDirAlea;
+    }
+    else {
+        if (bit(4) is left)
+        then {
+            call DDirAlea;
+        }
+        else {
+            if (bit(5) is left)
+            then {
+                call DDirAlea;
+            }
+            else {   
+                if (bit(6) is left)
+                then {
+                    call DDirAlea;
+                }
+                else {   
+                    if (bit(1) is left)
+                    then {
+                        call DDirAlea;
+                    }
+                    else {   
+                        if (bit(2) is left)
+                        then {
+                            call DDirAlea;
+                        }
+                        else {
+                            turn(5);
+                            goto C19;
+                            D19:
+                            goto DLibre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func DDirAlea() {
+    do {
+        turn(1);
+        goto E20;
+        D20:
+        goto DLibre;
+    }
+    if (randint(3) is 0)
+    do {
+        turn(5);
+        goto C21;
+        D21:
+        goto DLibre;
+    }
+    if (randint(2) is 0)
+    goto DLibre;
+}
+
+func ESearchFood() {
+
+    if (
+        food is left
+    )
+    then {
+        turn(5);
+        goto D1;
+        E1:
+        call EPickUpFood;
+    }
+    else {
+        if (
+            food is right
+        )
+        then {
+            turn(1);
+            goto F2;
+            E2:
+            call EPickUpFood;
+        }
+        else {
+            do {
+                call EPickUpFood;
+            }
+            if (
+                food is ahead
+            )
+        }
+   } 
+
+    call EVerifAhead;
+    ELibre:
+
+    if (
+        bit(4) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(5) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(6) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(1) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(2) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(3) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(4);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto F3;
+        E3:
+        move(1);
+        turn(5);
+        goto D4;
+        E4:
+        move(1);
+        turn(1);
+        goto F5;
+        E5;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto B6;
+            E6:
+        }
+        else {
+            move(1);
+        }
+    } 
+}
+
+func EPickUpFood {
+    if (
+        bit(4) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(5) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(6) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(1) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(2) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(3) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(5);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto F7;
+        E7:
+        move(1);
+        turn(5);
+        goto D8;
+        E8:
+        move(1);
+        turn(1);
+        goto F9;
+        E9;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto B10;
+            E10:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(ESerachFood); 
+    turn(3); 
+    goto B11;
+    E11:
+    call EBackFood; 
+}
+
+func EBackFood{
+    do {
+        drop();
+        turn(3);
+        goto B12;
+        E12:
+        call ESerachFood;
+    }
+    if (
+        home is here
+    )
+
+    if (
+        bit(4) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+            bit(5) is here
+        )
+        then {
+            turn(1);
+            goto F13;
+            E13:
+        }
+        else {
+            if (
+                bit(6) is here
+            )
+            then {
+                turn(2);
+                goto A14;
+                E14:
+            }
+            else {
+                if (
+                    bit(1) is here
+                )
+                then {
+                    turn(3);
+                    goto B15;
+                    E15:
+                }
+                else {
+                    if (
+                        bit(2) is here
+                    )
+                    then {
+                        turn(4);
+                        goto C16;
+                        E16:
+                    }
+                    else {
+                        if (
+                            bit(3) is here
+                        )
+                        then {
+                            turn(5);
+                            goto D17;
+                            E17:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func EVerifAhead() {
+    if (bit(4) is ahead)
+    then {
+        call EVerifRight;
+    }
+    else {
+        if (bit(5) is ahead)
+        then {
+            call EVerifRight;
+        }
+        else {
+            if (bit(6) is ahead)
+            then {
+                call EVerifRight;
+            }
+            else {   
+                if (bit(1) is ahead)
+                then {
+                    call EVerifRight;
+                }
+                else {   
+                    if (bit(2) is ahead)
+                    then {
+                        call EVerifRight;
+                    }
+                    else {   
+                        if (bit(3) is ahead)
+                        then {
+                            call EVerifRight;
+                        }
+                        else {   
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func EVerifRight() {
+    if (bit(4) is right)
+    then {
+        call EVerifleft;
+    }
+    else {
+        if (bit(5) is right)
+        then {
+            call EVerifleft;
+        }
+        else {
+            if (bit(6) is right)
+            then {
+                call EVerifleft;
+            }
+            else {   
+                if (bit(1) is right)
+                then {
+                    call EVerifleft;
+                }
+                else {   
+                    if (bit(2) is right)
+                    then {
+                        call EVerifleft;
+                    }
+                    else {   
+                        if (bit(3) is right)
+                        then {
+                            call EVerifleft;
+                        }
+                        else {   
+                            turn(1);
+                            goto F18;
+                            E18:
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func EVerifLeft() {
+    if (bit(4) is left)
+    then {
+        call EDirAlea;
+    }
+    else {
+        if (bit(5) is left)
+        then {
+            call EDirAlea;
+        }
+        else {
+            if (bit(6) is left)
+            then {
+                call EDirAlea;
+            }
+            else {   
+                if (bit(1) is left)
+                then {
+                    call EDirAlea;
+                }
+                else {   
+                    if (bit(2) is left)
+                    then {
+                        call EDirAlea;
+                    }
+                    else {   
+                        if (bit(3) is left)
+                        then {
+                            call EDirAlea;
+                        }
+                        else {
+                            turn(5);
+                            goto D19;
+                            E19:
+                            goto ELibre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func EDirAlea() {
+    do {
+        turn(1);
+        goto F20;
+        E20:
+        goto ELibre;
+    }
+    if (randint(3) is 0)
+    do {
+        turn(5);
+        goto D21;
+        E21:
+        goto ELibre;
+    }
+    if (randint(2) is 0)
+    goto ELibre;
+}
+
+func FSearchFood() {
+
+    if (
+        food is left
+    )
+    then {
+        turn(5);
+        goto E1;
+        F1:
+        call FPickUpFood;
+    }
+    else {
+        if (
+            food is right
+        )
+        then {
+            turn(1);
+            goto A2;
+            F2:
+            call FPickUpFood;
+        }
+        else {
+            do {
+                call FPickUpFood;
+            }
+            if (
+                food is ahead
+            )
+        }
+   } 
+
+    call FVerifAhead;
+    FLibre:
+
+    if (
+        bit(5) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(6) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(1) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(2) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(3) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(4) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(5);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto A3;
+        F3:
+        move(1);
+        turn(5);
+        goto E4;
+        F4:
+        move(1);
+        turn(1);
+        goto A5;
+        F5;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto C6;
+            F6:
+        }
+        else {
+            move(1);
+        }
+    } 
+}
+
+func FPickUpFood {
+    if (
+        bit(5) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(6) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(1) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(2) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(3) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(4) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(6);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto A7;
+        F7:
+        move(1);
+        turn(5);
+        goto E8;
+        F8:
+        move(1);
+        turn(1);
+        goto A9;
+        F9;
+    } 
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto C10;
+            F10:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(FSerachFood); 
+    turn(3); 
+    goto C11;
+    F11:
+    call FBackFood; 
+}
+
+func FBackFood{
+    do {
+        drop();
+        turn(3);
+        goto C12;
+        F12:
+        call FSerachFood;
+    }
+    if (
+        home is here
+    )
+
+    if (
+        bit(5) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+            bit(6) is here
+        )
+        then {
+            turn(1);
+            goto A13;
+            F13:
+        }
+        else {
+            if (
+                bit(1) is here
+            )
+            then {
+                turn(2);
+                goto B14;
+                F14:
+            }
+            else {
+                if (
+                    bit(2) is here
+                )
+                then {
+                    turn(3);
+                    goto C15;
+                    F15:
+                }
+                else {
+                    if (
+                        bit(3) is here
+                    )
+                    then {
+                        turn(4);
+                        goto D16;
+                        F16:
+                    }
+                    else {
+                        if (
+                            bit(4) is here
+                        )
+                        then {
+                            turn(5);
+                            goto E17;
+                            F17:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func FVerifAhead() {
+    if (bit(5) is ahead)
+    then {
+        call FVerifRight;
+    }
+    else {
+        if (bit(6) is ahead)
+        then {
+            call FVerifRight;
+        }
+        else {
+            if (bit(1) is ahead)
+            then {
+                call FVerifRight;
+            }
+            else {   
+                if (bit(2) is ahead)
+                then {
+                    call FVerifRight;
+                }
+                else {   
+                    if (bit(3) is ahead)
+                    then {
+                        call FVerifRight;
+                    }
+                    else {   
+                        if (bit(4) is ahead)
+                        then {
+                            call FVerifRight;
+                        }
+                        else {   
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func FVerifRight() {
+    if (bit(5) is right)
+    then {
+        call FVerifleft;
+    }
+    else {
+        if (bit(6) is right)
+        then {
+            call FVerifleft;
+        }
+        else {
+            if (bit(1) is right)
+            then {
+                call FVerifleft;
+            }
+            else {   
+                if (bit(2) is right)
+                then {
+                    call FVerifleft;
+                }
+                else {   
+                    if (bit(3) is right)
+                    then {
+                        call FVerifleft;
+                    }
+                    else {   
+                        if (bit(4) is right)
+                        then {
+                            call FVerifleft;
+                        }
+                        else {   
+                            turn(1);
+                            goto A18;
+                            F18:
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func FVerifLeft() {
+    if (bit(5) is left)
+    then {
+        call FDirAlea;
+    }
+    else {
+        if (bit(6) is left)
+        then {
+            call FDirAlea;
+        }
+        else {
+            if (bit(1) is left)
+            then {
+                call FDirAlea;
+            }
+            else {   
+                if (bit(2) is left)
+                then {
+                    call FDirAlea;
+                }
+                else {   
+                    if (bit(3) is left)
+                    then {
+                        call FDirAlea;
+                    }
+                    else {   
+                        if (bit(4) is left)
+                        then {
+                            call FDirAlea;
+                        }
+                        else {
+                            turn(5);
+                            goto E19;
+                            F19:
+                            goto FLibre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func FDirAlea() {
+    do {
+        turn(1);
+        goto A20;
+        F20:
+        goto FLibre;
+    }
+    if (randint(3) is 0)
+    do {
+        turn(5);
+        goto E21;
+        F21:
+        goto FLibre;
+    }
+    if (randint(2) is 0)
+    goto FLibre;
+}
