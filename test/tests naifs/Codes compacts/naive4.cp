@@ -3,7 +3,7 @@
 func #ASerachFood() {
 
     if (
-        eq(randint(3),0)
+        randint(3)
     )
     then {
         turn(1);
@@ -17,7 +17,7 @@ func #ASerachFood() {
             #A19:
         }
         if (
-            eq(randint(2),0)
+            randint(2)
         )
     } *choisis une direction aléatoirement*
 
@@ -42,16 +42,16 @@ func #ASerachFood() {
 
     if (
         or(
-            is(bit(1),here),
+            is(bit(0),here),
             or(
-                is(bit(2),here),
+                is(bit(1),here),
                 or(
-                    is(bit(3),here),
+                    is(bit(2),here),
                     or(
-                        is(bit(4),here),
+                        is(bit(3),here),
                         or(
-                            is(bit(5),here),
-                            is(bit(6),here)
+                            is(bit(4),here),
+                            is(bit(5),here)
                         )
                     )
                 )
@@ -62,7 +62,7 @@ func #ASerachFood() {
         nop;
     }
     else {
-        mark(!01);
+        mark(!00);
     } *marque sa direction si le chemin n est pas déjà marqué*
 
     if (
@@ -118,14 +118,14 @@ func #ABackFood{
     )
 
     if (
-        is(bit(!01),here)
+        is(bit(!00),here)
     )
     then {
         nop;
     }
     else {
         if (
-            is(bit(!02),here)
+            is(bit(!01),here)
         )
         then {
             turn(1);
@@ -134,7 +134,7 @@ func #ABackFood{
         }
         else {
             if (
-                is(bit(!03),here)
+                is(bit(!02),here)
             )
             then {
                 turn(2);
@@ -143,7 +143,7 @@ func #ABackFood{
             }
             else {
                 if (
-                    is(bit(!04),here)
+                    is(bit(!03),here)
                 )
                 then {
                     turn(3);
@@ -152,7 +152,7 @@ func #ABackFood{
                 }
                 else {
                     if (
-                        is(bit(!05),here)
+                        is(bit(!04),here)
                     )
                     then {
                         turn(4);
@@ -161,7 +161,7 @@ func #ABackFood{
                     }
                     else {
                         if (
-                            is(bit(!06),here)
+                            is(bit(!05),here)
                         )
                         then {
                             turn(5);
