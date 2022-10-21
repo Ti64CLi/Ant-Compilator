@@ -1,75 +1,99 @@
-*19*
+*23*
 
-func #ASerachFood() {
-
-    if (
-        randint(3)
-    )
-    then {
-        turn(1);
-        goto #B18;
-        #A18:
-    }
-    else {
-        do {
-            turn(5);
-            goto #F19;
-            #A19:
-        }
-        if (
-            randint(2)
-        )
-    } *choisis une direction aléatoirement*
+func #ASearchFood() {
 
     if (
-        is(food,left)
+        food is left
     )
     then {
         turn(5);
         goto #F0;
         #A0:
+        call #APickUpFood;
     }
     else {
-        do {
+        if (
+            food is right
+        )
+        then {
             turn(1);
             goto #B1;
             #A1:
+            call #APickUpFood;
         }
-        if (
-            is(food,right)
-        )
-   } *va là où il y a de la nouriture, s il y en a*
+        else {
+            do {
+                call #APickUpFood;
+            }
+            if (
+                food is ahead
+            )
+        }
+   } *se tourne vers là où il y a de la nouriture, si il y en a et va en pickup dans ce cas*
+
+    
 
     if (
-        or(
-            is(bit(0),here),
-            or(
-                is(bit(1),here),
-                or(
-                    is(bit(2),here),
-                    or(
-                        is(bit(3),here),
-                        or(
-                            is(bit(4),here),
-                            is(bit(5),here)
-                        )
-                    )
-                )
-            )
-        )
+        bit(!01) is here
     )
     then {
         nop;
     }
     else {
-        mark(!00);
+        if (
+        bit(!01) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(!02) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(!03) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(!04) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(!05) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            if (
+                                bit(!05) is here
+                            )
+                            then {
+                                nop;
+                            }
+                            else {   
+                                mark(!01);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     } *marque sa direction si le chemin n est pas déjà marqué*
 
+
     if (
-        or(
-            is(friend,ahead),
-            is(friendWithFood,ahead)
-        )
+        friendWithFood is ahead
     )
     then {
         turn(1);
@@ -86,12 +110,102 @@ func #ASerachFood() {
     } *contourne un allié si il y en a un sur le passage*
     else {
         if (
-            is(rock,ahead)
+            rock is ahead
         )
         then {
             turn(3);
             goto #D10;
             #A10:
+        }
+        else {
+            move(1);
+        }
+    } *fais demi-tour si il y a un rocher, avance sinon*
+}
+
+func #APickUpFood {
+    if (
+        bit(!01) is here
+    )
+    then {
+        nop;
+    }
+    else {
+        if (
+        bit(!01) is here
+        )
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(!02) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(!03) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(!04) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(!05) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            if (
+                                bit(!05) is here
+                            )
+                            then {
+                                nop;
+                            }
+                            else {   
+                                mark(!01);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } *marque sa direction si le chemin n est pas déjà marqué*
+
+    if (
+        friendWithFood is ahead
+    )
+    then {
+        turn(1);
+        goto #B20;
+        #A20:
+        move(1);
+        turn(5);
+        goto #F21;
+        #A21:
+        move(1);
+        turn(1);
+        goto #B22;
+        #A22;
+    } *contourne un allié si il y en a un sur le passage*
+    else {
+        if (
+            rock is ahead
+        )
+        then {
+            turn(3);
+            goto #D23;
+            #A23:
         }
         else {
             move(1);
@@ -103,8 +217,8 @@ func #ASerachFood() {
     goto #D2;
     #A2:
     call #ABackFood; *essaye de prendre de la nouriture*
-
 }
+
 func #ABackFood{
     do {
         drop();
@@ -114,18 +228,18 @@ func #ABackFood{
         call #ASerachFood;
     }
     if (
-        is(home,here)
+        home in here
     )
 
     if (
-        is(bit(!00),here)
+        bit(!01) is here
     )
     then {
         nop;
     }
     else {
         if (
-            is(bit(!01),here)
+            bit(!02) is here
         )
         then {
             turn(1);
@@ -134,7 +248,7 @@ func #ABackFood{
         }
         else {
             if (
-                is(bit(!02),here)
+                bit(!03) is here
             )
             then {
                 turn(2);
@@ -143,7 +257,7 @@ func #ABackFood{
             }
             else {
                 if (
-                    is(bit(!03),here)
+                    bit(!04) is here
                 )
                 then {
                     turn(3);
@@ -152,7 +266,7 @@ func #ABackFood{
                 }
                 else {
                     if (
-                        is(bit(!04),here)
+                        bit(!05) is here
                     )
                     then {
                         turn(4);
@@ -161,7 +275,7 @@ func #ABackFood{
                     }
                     else {
                         if (
-                            is(bit(!05),here)
+                            bit(!06) is here
                         )
                         then {
                             turn(5);

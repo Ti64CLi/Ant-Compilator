@@ -19,7 +19,7 @@ func SearchFood() {
 
 
     if (
-        is(friend,ahead)
+        friend is ahead
     )
     then {
         turn(1);
