@@ -83,7 +83,7 @@ func #ASerachFood() {
         move(1);
         turn(1);
         goto #B;
-        #A;
+        #A:
     } *contourne un allié si il y en a un sur le passage*
     else {
         if (rock is ahead)
@@ -154,7 +154,7 @@ func #ABackFood(){
                             #A:
                         }
                         else {
-                    
+                            nop;
                         }
                     }
                 }

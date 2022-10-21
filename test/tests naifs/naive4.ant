@@ -99,7 +99,7 @@ func ASearchFood() {
         move(1);
         turn(1);
         goto B5;
-        A5;
+        A5:
     } 
     else {
         if (
@@ -116,7 +116,7 @@ func ASearchFood() {
     } 
 }
 
-func APickUpFood {
+func APickUpFood (){
     if (
         bit(0) is here
     )
@@ -181,7 +181,7 @@ func APickUpFood {
         move(1);
         turn(1);
         goto B9;
-        A9;
+        A9:
     } 
     else {
         if (
@@ -204,7 +204,7 @@ func APickUpFood {
     call ABackFood; 
 }
 
-func ABackFood{
+func ABackFood () {
     do {
         drop();
         turn(3);
@@ -268,7 +268,7 @@ func ABackFood{
                             A17:
                         }
                         else {
-                    
+                            nop;
                         }
                     }
                 }
@@ -493,7 +493,7 @@ func BSearchFood() {
                     }
                     else {   
                         if (
-                            bit(6) is here
+                            bit(0) is here
                         )
                         then {
                             nop;
@@ -522,7 +522,7 @@ func BSearchFood() {
         move(1);
         turn(1);
         goto C5;
-        B5;
+        B5:
     } 
     else {
         if (
@@ -539,7 +539,7 @@ func BSearchFood() {
     } 
 }
 
-func BPickUpFood {
+func BPickUpFood (){
     if (
         bit(1) is here
     )
@@ -576,7 +576,7 @@ func BPickUpFood {
                     }
                     else {   
                         if (
-                            bit(6) is here
+                            bit(0) is here
                         )
                         then {
                             nop;
@@ -604,7 +604,7 @@ func BPickUpFood {
         move(1);
         turn(1);
         goto C9;
-        B9;
+        B9:
     } 
     else {
         if (
@@ -627,7 +627,7 @@ func BPickUpFood {
     call BBackFood; 
 }
 
-func BBackFood{
+func BBackFood () {
     do {
         drop();
         turn(3);
@@ -683,7 +683,7 @@ func BBackFood{
                     }
                     else {
                         if (
-                            bit(6) is here
+                            bit(0) is here
                         )
                         then {
                             turn(5);
@@ -691,7 +691,7 @@ func BBackFood{
                             B17:
                         }
                         else {
-                    
+                            nop;
                         }
                     }
                 }
@@ -728,7 +728,7 @@ func BVerifAhead() {
                         call BVerifRight;
                     }
                     else {   
-                        if (bit(6) is ahead)
+                        if (bit(0) is ahead)
                         then {
                             call BVerifRight;
                         }
@@ -768,7 +768,7 @@ func BVerifRight() {
                         call BVerifleft;
                     }
                     else {   
-                        if (bit(6) is right)
+                        if (bit(0) is right)
                         then {
                             call BVerifleft;
                         }
@@ -811,7 +811,7 @@ func BVerifLeft() {
                         call BDirAlea;
                     }
                     else {   
-                        if (bit(6) is left)
+                        if (bit(0) is left)
                         then {
                             call BDirAlea;
                         }
@@ -909,7 +909,7 @@ func CSearchFood() {
                 }
                 else {   
                     if (
-                        bit(6) is here
+                        bit(0) is here
                     )
                     then {
                         nop;
@@ -945,7 +945,7 @@ func CSearchFood() {
         move(1);
         turn(1);
         goto D5;
-        C5;
+        C5:
     } 
     else {
         if (
@@ -962,7 +962,7 @@ func CSearchFood() {
     } 
 }
 
-func CPickUpFood {
+func CPickUpFood (){
     if (
         bit(2) is here
     )
@@ -992,7 +992,7 @@ func CPickUpFood {
                 }
                 else {   
                     if (
-                        bit(6) is here
+                        bit(0) is here
                     )
                     then {
                         nop;
@@ -1027,7 +1027,7 @@ func CPickUpFood {
         move(1);
         turn(1);
         goto D9;
-        C9;
+        C9:
     } 
     else {
         if (
@@ -1050,7 +1050,7 @@ func CPickUpFood {
     call CBackFood; 
 }
 
-func CBackFood{
+func CBackFood () {
     do {
         drop();
         turn(3);
@@ -1097,7 +1097,7 @@ func CBackFood{
                 }
                 else {
                     if (
-                        bit(6) is here
+                        bit(0) is here
                     )
                     then {
                         turn(4);
@@ -1114,7 +1114,7 @@ func CBackFood{
                             C17:
                         }
                         else {
-                    
+                            nop;
                         }
                     }
                 }
@@ -1146,7 +1146,7 @@ func CVerifAhead() {
                     call CVerifRight;
                 }
                 else {   
-                    if (bit(6) is ahead)
+                    if (bit(0) is ahead)
                     then {
                         call CVerifRight;
                     }
@@ -1186,7 +1186,7 @@ func CVerifRight() {
                     call CVerifleft;
                 }
                 else {   
-                    if (bit(6) is right)
+                    if (bit(0) is right)
                     then {
                         call CVerifleft;
                     }
@@ -1229,7 +1229,7 @@ func CVerifLeft() {
                     call CDirAlea;
                 }
                 else {   
-                    if (bit(6) is left)
+                    if (bit(0) is left)
                     then {
                         call CDirAlea;
                     }
@@ -1325,7 +1325,7 @@ func DSearchFood() {
             }
             else {   
                 if (
-                    bit(6) is here
+                    bit(0) is here
                 )
                 then {
                     nop;
@@ -1368,7 +1368,7 @@ func DSearchFood() {
         move(1);
         turn(1);
         goto E5;
-        D5;
+        D5:
     } 
     else {
         if (
@@ -1385,7 +1385,7 @@ func DSearchFood() {
     } 
 }
 
-func DPickUpFood {
+func DPickUpFood (){
     if (
         bit(3) is here
     )
@@ -1408,7 +1408,7 @@ func DPickUpFood {
             }
             else {   
                 if (
-                    bit(6) is here
+                    bit(0) is here
                 )
                 then {
                     nop;
@@ -1450,7 +1450,7 @@ func DPickUpFood {
         move(1);
         turn(1);
         goto E9;
-        D9;
+        D9:
     } 
     else {
         if (
@@ -1473,7 +1473,7 @@ func DPickUpFood {
     call DBackFood; 
 }
 
-func DBackFood{
+func DBackFood () {
     do {
         drop();
         turn(3);
@@ -1511,7 +1511,7 @@ func DBackFood{
             }
             else {
                 if (
-                    bit(6) is here
+                    bit(0) is here
                 )
                 then {
                     turn(3);
@@ -1537,7 +1537,7 @@ func DBackFood{
                             D17:
                         }
                         else {
-                    
+                            nop;
                         }
                     }
                 }
@@ -1564,7 +1564,7 @@ func DVerifAhead() {
                 call DVerifRight;
             }
             else {   
-                if (bit(6) is ahead)
+                if (bit(0) is ahead)
                 then {
                     call DVerifRight;
                 }
@@ -1604,7 +1604,7 @@ func DVerifRight() {
                 call DVerifleft;
             }
             else {   
-                if (bit(6) is right)
+                if (bit(0) is right)
                 then {
                     call DVerifleft;
                 }
@@ -1647,7 +1647,7 @@ func DVerifLeft() {
                 call DDirAlea;
             }
             else {   
-                if (bit(6) is left)
+                if (bit(0) is left)
                 then {
                     call DDirAlea;
                 }
@@ -1741,7 +1741,7 @@ func ESearchFood() {
         }
         else {
             if (
-                bit(6) is here
+                bit(0) is here
             )
             then {
                 nop;
@@ -1791,7 +1791,7 @@ func ESearchFood() {
         move(1);
         turn(1);
         goto F5;
-        E5;
+        E5:
     } 
     else {
         if (
@@ -1808,7 +1808,7 @@ func ESearchFood() {
     } 
 }
 
-func EPickUpFood {
+func EPickUpFood (){
     if (
         bit(4) is here
     )
@@ -1824,7 +1824,7 @@ func EPickUpFood {
         }
         else {
             if (
-                bit(6) is here
+                bit(0) is here
             )
             then {
                 nop;
@@ -1873,7 +1873,7 @@ func EPickUpFood {
         move(1);
         turn(1);
         goto F9;
-        E9;
+        E9:
     } 
     else {
         if (
@@ -1896,7 +1896,7 @@ func EPickUpFood {
     call EBackFood; 
 }
 
-func EBackFood{
+func EBackFood () {
     do {
         drop();
         turn(3);
@@ -1925,7 +1925,7 @@ func EBackFood{
         }
         else {
             if (
-                bit(6) is here
+                bit(0) is here
             )
             then {
                 turn(2);
@@ -1960,7 +1960,7 @@ func EBackFood{
                             E17:
                         }
                         else {
-                    
+                            nop;
                         }
                     }
                 }
@@ -1982,7 +1982,7 @@ func EVerifAhead() {
             call EVerifRight;
         }
         else {
-            if (bit(6) is ahead)
+            if (bit(0) is ahead)
             then {
                 call EVerifRight;
             }
@@ -2022,7 +2022,7 @@ func EVerifRight() {
             call EVerifleft;
         }
         else {
-            if (bit(6) is right)
+            if (bit(0) is right)
             then {
                 call EVerifleft;
             }
@@ -2065,7 +2065,7 @@ func EVerifLeft() {
             call EDirAlea;
         }
         else {
-            if (bit(6) is left)
+            if (bit(0) is left)
             then {
                 call EDirAlea;
             }
@@ -2157,7 +2157,7 @@ func FSearchFood() {
     }
     else {
         if (
-        bit(6) is here
+        bit(0) is here
         )
         then {
             nop;
@@ -2214,7 +2214,7 @@ func FSearchFood() {
         move(1);
         turn(1);
         goto A5;
-        F5;
+        F5:
     } 
     else {
         if (
@@ -2231,7 +2231,7 @@ func FSearchFood() {
     } 
 }
 
-func FPickUpFood {
+func FPickUpFood (){
     if (
         bit(5) is here
     )
@@ -2240,7 +2240,7 @@ func FPickUpFood {
     }
     else {
         if (
-        bit(6) is here
+        bit(0) is here
         )
         then {
             nop;
@@ -2274,7 +2274,7 @@ func FPickUpFood {
                             nop;
                         }
                         else {   
-                            mark(6);
+                            mark(0);
                         }
                     }
                 }
@@ -2296,7 +2296,7 @@ func FPickUpFood {
         move(1);
         turn(1);
         goto A9;
-        F9;
+        F9:
     } 
     else {
         if (
@@ -2319,7 +2319,7 @@ func FPickUpFood {
     call FBackFood; 
 }
 
-func FBackFood{
+func FBackFood () {
     do {
         drop();
         turn(3);
@@ -2339,7 +2339,7 @@ func FBackFood{
     }
     else {
         if (
-            bit(6) is here
+            bit(0) is here
         )
         then {
             turn(1);
@@ -2383,7 +2383,7 @@ func FBackFood{
                             F17:
                         }
                         else {
-                    
+                            nop;
                         }
                     }
                 }
@@ -2400,7 +2400,7 @@ func FVerifAhead() {
         call FVerifRight;
     }
     else {
-        if (bit(6) is ahead)
+        if (bit(0) is ahead)
         then {
             call FVerifRight;
         }
@@ -2440,7 +2440,7 @@ func FVerifRight() {
         call FVerifleft;
     }
     else {
-        if (bit(6) is right)
+        if (bit(0) is right)
         then {
             call FVerifleft;
         }
@@ -2483,7 +2483,7 @@ func FVerifLeft() {
         call FDirAlea;
     }
     else {
-        if (bit(6) is left)
+        if (bit(0) is left)
         then {
             call FDirAlea;
         }

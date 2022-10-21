@@ -2,9 +2,7 @@
 
 func #ASearchFood() {
 
-    if (
-        food is left
-    )
+    if (food is left)
     then {
         turn(5);
         goto #F;
@@ -12,9 +10,7 @@ func #ASearchFood() {
         call #APickUpFood;
     }
     else {
-        if (
-            food is right
-        )
+        if (food is right)
         then {
             turn(1);
             goto #B;
@@ -25,53 +21,39 @@ func #ASearchFood() {
             do {
                 call #APickUpFood;
             }
-            if (
-                food is ahead
-            )
+            if (food is ahead)
         }
    } *se tourne vers là où il y a de la nouriture, si il y en a et va en pickup dans ce cas*
 
     call #AVerifAhead;
     #ALibre:
 
-    if (
-        bit(!00) is here
-    )
+    if (bit(!00) is here)
     then {
         nop;
     }
     else {
-        if (
-        bit(!01) is here
-        )
+        if (bit(!01) is here)
         then {
             nop;
         }
         else {
-            if (
-                bit(!02) is here
-            )
+            if (bit(!02) is here)
             then {
                 nop;
             }
             else {   
-                if (
-                    bit(!03) is here
-                )
+                if (bit(!03) is here)
                 then {
                     nop;
                 }
                 else {   
-                    if (
-                        bit(!04) is here
-                    )
+                    if (bit(!04) is here)
                     then {
                         nop;
                     }
                     else {   
-                        if (
-                            bit(!05) is here
-                        )
+                        if (bit(!05) is here)
                         then {
                             nop;
                         }
@@ -85,9 +67,7 @@ func #ASearchFood() {
     } *marque sa direction si le chemin n est pas déjà marqué*
 
 
-    if (
-        friendWithFood is ahead
-    )
+    if (friendWithFood is ahead)
     then {
         turn(1);
         goto #B;
@@ -99,12 +79,10 @@ func #ASearchFood() {
         move(1);
         turn(1);
         goto #B;
-        #A;
+        #A:
     } *contourne un allié si il y en a un sur le passage*
     else {
-        if (
-            rock is ahead
-        )
+        if (rock is ahead)
         then {
             turn(3);
             goto #D;
@@ -116,17 +94,13 @@ func #ASearchFood() {
     } *fais demi-tour si il y a un rocher, avance sinon*
 }
 
-func #APickUpFood {
-    if (
-        bit(!00) is here
-    )
+func #APickUpFood (){
+    if (bit(!00) is here)
     then {
         nop;
     }
     else {
-        if (
-        bit(!01) is here
-        )
+        if (bit(!01) is here)
         then {
             nop;
         }
@@ -167,9 +141,7 @@ func #APickUpFood {
         }
     } *marque sa direction si le chemin n est pas déjà marqué*
 
-    if (
-        friendWithFood is ahead
-    )
+    if (friendWithFood is ahead)
     then {
         turn(1);
         goto #B;
@@ -181,12 +153,10 @@ func #APickUpFood {
         move(1);
         turn(1);
         goto #B;
-        #A;
+        #A:
     } *contourne un allié si il y en a un sur le passage*
     else {
-        if (
-            rock is ahead
-        )
+        if (rock is ahead)
         then {
             turn(3);
             goto #D;
@@ -204,7 +174,7 @@ func #APickUpFood {
     call #ABackFood; *essaye de prendre de la nouriture*
 }
 
-func #ABackFood{
+func #ABackFood () {
     do {
         drop();
         turn(3);
@@ -212,63 +182,49 @@ func #ABackFood{
         #A:
         call #ASerachFood;
     }
-    if (
-        home is here
-    )
+    if (home is here)
 
-    if (
-        bit(!00) is here
-    )
+    if (bit(!00) is here)
     then {
         nop;
     }
     else {
-        if (
-            bit(!01) is here
-        )
+        if (bit(!01) is here)
         then {
             turn(1);
             goto #B;
             #A:
         }
         else {
-            if (
-                bit(!02) is here
-            )
+            if (bit(!02) is here)
             then {
                 turn(2);
                 goto #C;
                 #A:
             }
             else {
-                if (
-                    bit(!03) is here
-                )
+                if (bit(!03) is here)
                 then {
                     turn(3);
                     goto #D;
                     #A:
                 }
                 else {
-                    if (
-                        bit(!04) is here
-                    )
+                    if (bit(!04) is here)
                     then {
                         turn(4);
                         goto #E;
                         #A:
                     }
                     else {
-                        if (
-                            bit(!05) is here
-                        )
+                        if (bit(!05) is here)
                         then {
                             turn(5);
                             goto #F;
                             #A:
                         }
                         else {
-                    
+                            nop;
                         }
                     }
                 }
