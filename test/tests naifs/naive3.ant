@@ -17,7 +17,7 @@ func ASerachFood() {
             A19:
         }
         if (
-            randint(2) in 0
+            randint(2) is 0
         )
     } 
 
@@ -36,7 +36,7 @@ func ASerachFood() {
             A1:
         }
         if (
-            food in right
+            food is right
         )
    } 
 
@@ -145,7 +145,7 @@ func ABackFood{
         call ASerachFood;
     }
     if (
-        home in here
+        home is here
     )
 
     if (
@@ -228,7 +228,7 @@ func BSerachFood() {
             B19:
         }
         if (
-            randint(2) in 0
+            randint(2) is 0
         )
     } 
 
@@ -247,7 +247,7 @@ func BSerachFood() {
             B1:
         }
         if (
-            food in right
+            food is right
         )
    } 
 
@@ -356,7 +356,7 @@ func BBackFood{
         call BSerachFood;
     }
     if (
-        home in here
+        home is here
     )
 
     if (
@@ -439,7 +439,7 @@ func CSerachFood() {
             C19:
         }
         if (
-            randint(2) in 0
+            randint(2) is 0
         )
     } 
 
@@ -458,7 +458,7 @@ func CSerachFood() {
             C1:
         }
         if (
-            food in right
+            food is right
         )
    } 
 
@@ -567,7 +567,7 @@ func CBackFood{
         call CSerachFood;
     }
     if (
-        home in here
+        home is here
     )
 
     if (
@@ -650,7 +650,7 @@ func DSerachFood() {
             D19:
         }
         if (
-            randint(2) in 0
+            randint(2) is 0
         )
     } 
 
@@ -669,7 +669,7 @@ func DSerachFood() {
             D1:
         }
         if (
-            food in right
+            food is right
         )
    } 
 
@@ -778,7 +778,7 @@ func DBackFood{
         call DSerachFood;
     }
     if (
-        home in here
+        home is here
     )
 
     if (
@@ -861,7 +861,7 @@ func ESerachFood() {
             E19:
         }
         if (
-            randint(2) in 0
+            randint(2) is 0
         )
     } 
 
@@ -880,7 +880,7 @@ func ESerachFood() {
             E1:
         }
         if (
-            food in right
+            food is right
         )
    } 
 
@@ -989,7 +989,7 @@ func EBackFood{
         call ESerachFood;
     }
     if (
-        home in here
+        home is here
     )
 
     if (
@@ -1072,7 +1072,7 @@ func FSerachFood() {
             F19:
         }
         if (
-            randint(2) in 0
+            randint(2) is 0
         )
     } 
 
@@ -1091,7 +1091,7 @@ func FSerachFood() {
             F1:
         }
         if (
-            food in right
+            food is right
         )
    } 
 
@@ -1200,7 +1200,7 @@ func FBackFood{
         call FSerachFood;
     }
     if (
-        home in here
+        home is here
     )
 
     if (

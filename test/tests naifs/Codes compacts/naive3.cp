@@ -17,7 +17,7 @@ func #ASerachFood() {
             #A19:
         }
         if (
-            randint(2) in 0
+            randint(2) is 0
         )
     } *choisis une direction aléatoirement*
 
@@ -36,7 +36,7 @@ func #ASerachFood() {
             #A1:
         }
         if (
-            food in right
+            food is right
         )
    } *va là où il y a de la nouriture, s il y en a*
 
@@ -145,7 +145,7 @@ func #ABackFood{
         call #ASerachFood;
     }
     if (
-        home in here
+        home is here
     )
 
     if (

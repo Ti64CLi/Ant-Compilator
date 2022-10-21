@@ -228,7 +228,7 @@ func #ABackFood{
         call #ASerachFood;
     }
     if (
-        home in here
+        home is here
     )
 
     if (

@@ -1,6 +1,6 @@
 func ASerachFood() {
 
-    test(food) in {
+    test(food) is {
         case ahead :
             nop;
         case left :
@@ -34,7 +34,7 @@ func ASerachFood() {
     A2:
     call ABackFood;
 
-    test(randint(3)) in {
+    test(randint(3)) is {
         case 1 : {
             turn(5);
             goto F3;
@@ -57,7 +57,7 @@ func ABackFood{
         call ASerachFood;
     }
     if (
-        home in here
+        home is here
     )
     if (
         bit(3) is ahead
@@ -72,7 +72,7 @@ func ABackFood{
     }
 }func BSerachFood() {
 
-    test(food) in {
+    test(food) is {
         case ahead :
             nop;
         case left :
@@ -106,7 +106,7 @@ func ABackFood{
     B2:
     call BBackFood;
 
-    test(randint(3)) in {
+    test(randint(3)) is {
         case 1 : {
             turn(5);
             goto A3;
@@ -129,7 +129,7 @@ func BBackFood{
         call BSerachFood;
     }
     if (
-        home in here
+        home is here
     )
     if (
         bit(3) is ahead
@@ -144,7 +144,7 @@ func BBackFood{
     }
 }func CSerachFood() {
 
-    test(food) in {
+    test(food) is {
         case ahead :
             nop;
         case left :
@@ -178,7 +178,7 @@ func BBackFood{
     C2:
     call CBackFood;
 
-    test(randint(3)) in {
+    test(randint(3)) is {
         case 1 : {
             turn(5);
             goto B3;
@@ -201,7 +201,7 @@ func CBackFood{
         call CSerachFood;
     }
     if (
-        home in here
+        home is here
     )
     if (
         bit(3) is ahead
@@ -216,7 +216,7 @@ func CBackFood{
     }
 }func DSerachFood() {
 
-    test(food) in {
+    test(food) is {
         case ahead :
             nop;
         case left :
@@ -250,7 +250,7 @@ func CBackFood{
     D2:
     call DBackFood;
 
-    test(randint(3)) in {
+    test(randint(3)) is {
         case 1 : {
             turn(5);
             goto C3;
@@ -273,7 +273,7 @@ func DBackFood{
         call DSerachFood;
     }
     if (
-        home in here
+        home is here
     )
     if (
         bit(3) is ahead
@@ -288,7 +288,7 @@ func DBackFood{
     }
 }func ESerachFood() {
 
-    test(food) in {
+    test(food) is {
         case ahead :
             nop;
         case left :
@@ -322,7 +322,7 @@ func DBackFood{
     E2:
     call EBackFood;
 
-    test(randint(3)) in {
+    test(randint(3)) is {
         case 1 : {
             turn(5);
             goto D3;
@@ -345,7 +345,7 @@ func EBackFood{
         call ESerachFood;
     }
     if (
-        home in here
+        home is here
     )
     if (
         bit(3) is ahead
@@ -360,7 +360,7 @@ func EBackFood{
     }
 }func FSerachFood() {
 
-    test(food) in {
+    test(food) is {
         case ahead :
             nop;
         case left :
@@ -394,7 +394,7 @@ func EBackFood{
     F2:
     call FBackFood;
 
-    test(randint(3)) in {
+    test(randint(3)) is {
         case 1 : {
             turn(5);
             goto E3;
@@ -417,7 +417,7 @@ func FBackFood{
         call FSerachFood;
     }
     if (
-        home in here
+        home is here
     )
     if (
         bit(3) is ahead
