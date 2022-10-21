@@ -3,7 +3,7 @@ func SearchFood() {
     mark(1);
 
     if (
-        is(food, left)
+        food is left
     )
     then {
         turn(5);
@@ -13,7 +13,7 @@ func SearchFood() {
             turn(1);
         }
         if (
-            is(food,right)
+            food in right
         )
     }
 
@@ -37,14 +37,14 @@ func SearchFood() {
     call BackFood;
 
     if (
-        eq(randint(3),0)
+        randint(3) is 0
     )
     then {
         do {
             turn(1);
         }
         if (
-            eq(randint(2),0)
+            randint(2) in 0
         )
     }
     else {
@@ -59,11 +59,11 @@ func BackFood {
         call SearchFood;
     }
     if (
-        is(home,here)
+        home in here
     )
     
     if (
-        is(bit(1),left)
+        bit(1) is here
     )
     then {
         turn(5);
@@ -73,7 +73,7 @@ func BackFood {
             turn(1);
         }
         if (
-            is(bit(1),right)
+            bit(1) in right
         )
     }
 
