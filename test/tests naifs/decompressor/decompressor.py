@@ -12,6 +12,7 @@ for d in [A,B,C,D,E,F]:
     fichier = open("code","r")
     c = " "
     commit = False
+    n = 1
 
     while c:
         c = fichier.read(1)
@@ -25,6 +26,7 @@ for d in [A,B,C,D,E,F]:
             if c == '#':
                 c = fichier.read(1)
                 dfichier.write(d[c])
+                dfichier.write(str(n))
             else :
                 dfichier.write(c)
 

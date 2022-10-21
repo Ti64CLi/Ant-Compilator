@@ -1,10 +1,7 @@
 func SearchFood() {
-
     mark(0);
 
-    if (
-        food is left
-    )
+    if (food is left)
     then {
         turn(5);
     }
@@ -12,15 +9,11 @@ func SearchFood() {
         do {
             turn(1);
         }
-        if (
-            food is right
-        )
+        if (food is right)
     }
 
 
-    if (
-        friend is ahead
-    )
+    if (friend is ahead)
     then {
         turn(1);
         move(1);
@@ -36,35 +29,27 @@ func SearchFood() {
     turn(3);
     call BackFood;
 
-    if (
-        randint(3) is 0
-    )
+    if (randint(3) is 0)
     then {
         do {
             turn(1);
         }
-        if (
-            randint(2) is 0
-        )
+        if (randint(2) is 0)
     }
     else {
         turn(5);
     }
+}
 
-
-func BackFood {
+func BackFood () {
     do {
         drop();
         turn(3);
         call SearchFood;
     }
-    if (
-        home is here
-    )
+    if (home is here)
     
-    if (
-        bit(0) is here
-    )
+    if (bit(0) is here)
     then {
         turn(5);
     }
@@ -72,9 +57,7 @@ func BackFood {
         do {
             turn(1);
         }
-        if (
-            bit(0) is right
-        )
+        if (bit(0) is right)
     }
 
     move(1);

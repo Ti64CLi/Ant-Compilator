@@ -1,96 +1,68 @@
 
 
-func ASerachFood() {
+func A1SerachFood() {
 
-    if (
-        randint(3) is 0
-    )
+    if (randint(3) is 0)
     then {
         turn(1);
-        goto B18;
-        A18:
+        goto B118;
+        A118:
     }
     else {
         do {
             turn(5);
-            goto F19;
-            A19:
+            goto F119;
+            A119:
         }
-        if (
-            randint(2) is 0
-        )
+        if (randint(2) is 0)
     } 
 
-    if (
-        food is left
-    )
+    if (food is left)
     then {
         turn(5);
-        goto F0;
-        A0:
+        goto F10;
+        A10:
     }
     else {
         do {
             turn(1);
-            goto B1;
-            A1:
+            goto B11;
+            A11:
         }
-        if (
-            food is right
-        )
+        if (food is right)
    } 
 
-    if (
-        bit(0) is here
-    )
+    if (bit(0) is here)
     then {
         nop;
     }
     else {
-        if (
-        bit(0) is here
-        )
+        if (bit(1) is here)
         then {
             nop;
         }
         else {
-            if (
-                bit(1) is here
-            )
+            if (bit(2) is here)
             then {
                 nop;
             }
             else {   
-                if (
-                    bit(2) is here
-                )
+                if (bit(3) is here)
                 then {
                     nop;
                 }
                 else {   
-                    if (
-                        bit(3) is here
-                    )
+                    if (bit(4) is here)
                     then {
                         nop;
                     }
                     else {   
-                        if (
-                            bit(4) is here
-                        )
+                        if (bit(5) is here)
                         then {
                             nop;
                         }
                         else {   
-                            if (
-                                bit(4) is here
-                            )
-                            then {
-                                nop;
-                            }
-                            else {   
-                                mark(0);
-                            }
+                            mark(1);
                         }
                     }
                 }
@@ -99,949 +71,87 @@ func ASerachFood() {
     } 
 
 
-    if (
-        friendWithFood is ahead
-    )
+    if (friendWithFood is ahead)
     then {
         turn(1);
-        goto B7;
-        A7:
+        goto B17;
+        A17:
         move(1);
         turn(5);
-        goto F8;
-        A8:
-        move(1);
-        turn(1);
-        goto B9;
-        A9;
-    } 
-    else {
-        if (
-            rock is ahead
-        )
-        then {
-            turn(3);
-            goto D10;
-            A10:
-        }
-        else {
-            move(1);
-        }
-    } 
-
-    pickup(ASerachFood); 
-    turn(3); 
-    goto D2;
-    A2:
-    call ABackFood; 
-
-}
-func ABackFood{
-    do {
-        drop();
-        turn(3);
-        goto D5;
-        A5:
-        call ASerachFood;
-    }
-    if (
-        home is here
-    )
-
-    if (
-        bit(0) is here
-    )
-    then {
-        nop;
-    }
-    else {
-        if (
-            bit(1) is here
-        )
-        then {
-            turn(1);
-            goto B13;
-            A13:
-        }
-        else {
-            if (
-                bit(2) is here
-            )
-            then {
-                turn(2);
-                goto C14;
-                A14:
-            }
-            else {
-                if (
-                    bit(3) is here
-                )
-                then {
-                    turn(3);
-                    goto D15;
-                    A15:
-                }
-                else {
-                    if (
-                        bit(4) is here
-                    )
-                    then {
-                        turn(4);
-                        goto E16;
-                        A16:
-                    }
-                    else {
-                        if (
-                            bit(5) is here
-                        )
-                        then {
-                            turn(5);
-                            goto F17;
-                            A17:
-                        }
-                        else {
-                    
-                        }
-                    }
-                }
-            }
-        }
-    } 
-    
-    move(1);
-}
-
-func BSerachFood() {
-
-    if (
-        randint(3) is 0
-    )
-    then {
-        turn(1);
-        goto C18;
-        B18:
-    }
-    else {
-        do {
-            turn(5);
-            goto A19;
-            B19:
-        }
-        if (
-            randint(2) is 0
-        )
-    } 
-
-    if (
-        food is left
-    )
-    then {
-        turn(5);
-        goto A0;
-        B0:
-    }
-    else {
-        do {
-            turn(1);
-            goto C1;
-            B1:
-        }
-        if (
-            food is right
-        )
-   } 
-
-    if (
-        bit(1) is here
-    )
-    then {
-        nop;
-    }
-    else {
-        if (
-        bit(1) is here
-        )
-        then {
-            nop;
-        }
-        else {
-            if (
-                bit(2) is here
-            )
-            then {
-                nop;
-            }
-            else {   
-                if (
-                    bit(3) is here
-                )
-                then {
-                    nop;
-                }
-                else {   
-                    if (
-                        bit(4) is here
-                    )
-                    then {
-                        nop;
-                    }
-                    else {   
-                        if (
-                            bit(5) is here
-                        )
-                        then {
-                            nop;
-                        }
-                        else {   
-                            if (
-                                bit(5) is here
-                            )
-                            then {
-                                nop;
-                            }
-                            else {   
-                                mark(1);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    } 
-
-
-    if (
-        friendWithFood is ahead
-    )
-    then {
-        turn(1);
-        goto C7;
-        B7:
-        move(1);
-        turn(5);
-        goto A8;
-        B8:
-        move(1);
-        turn(1);
-        goto C9;
-        B9;
-    } 
-    else {
-        if (
-            rock is ahead
-        )
-        then {
-            turn(3);
-            goto E10;
-            B10:
-        }
-        else {
-            move(1);
-        }
-    } 
-
-    pickup(BSerachFood); 
-    turn(3); 
-    goto E2;
-    B2:
-    call BBackFood; 
-
-}
-func BBackFood{
-    do {
-        drop();
-        turn(3);
-        goto E5;
-        B5:
-        call BSerachFood;
-    }
-    if (
-        home is here
-    )
-
-    if (
-        bit(1) is here
-    )
-    then {
-        nop;
-    }
-    else {
-        if (
-            bit(2) is here
-        )
-        then {
-            turn(1);
-            goto C13;
-            A13:
-        }
-        else {
-            if (
-                bit(3) is here
-            )
-            then {
-                turn(2);
-                goto D14;
-                A14:
-            }
-            else {
-                if (
-                    bit(4) is here
-                )
-                then {
-                    turn(3);
-                    goto E15;
-                    A15:
-                }
-                else {
-                    if (
-                        bit(5) is here
-                    )
-                    then {
-                        turn(4);
-                        goto F16;
-                        A16:
-                    }
-                    else {
-                        if (
-                            bit(0) is here
-                        )
-                        then {
-                            turn(5);
-                            goto A17;
-                            A17:
-                        }
-                        else {
-                    
-                        }
-                    }
-                }
-            }
-        }
-    } 
-    
-    move(1);
-}
-
-func CSerachFood() {
-
-    if (
-        randint(3) is 0
-    )
-    then {
-        turn(1);
-        goto D18;
-        C18:
-    }
-    else {
-        do {
-            turn(5);
-            goto B19;
-            C19:
-        }
-        if (
-            randint(2) is 0
-        )
-    } 
-
-    if (
-        food is left
-    )
-    then {
-        turn(5);
-        goto B0;
-        C0:
-    }
-    else {
-        do {
-            turn(1);
-            goto D1;
-            C1:
-        }
-        if (
-            food is right
-        )
-   } 
-
-    if (
-        bit(2) is here
-    )
-    then {
-        nop;
-    }
-    else {
-        if (
-        bit(2) is here
-        )
-        then {
-            nop;
-        }
-        else {
-            if (
-                bit(3) is here
-            )
-            then {
-                nop;
-            }
-            else {   
-                if (
-                    bit(4) is here
-                )
-                then {
-                    nop;
-                }
-                else {   
-                    if (
-                        bit(5) is here
-                    )
-                    then {
-                        nop;
-                    }
-                    else {   
-                        if (
-                            bit(0) is here
-                        )
-                        then {
-                            nop;
-                        }
-                        else {   
-                            if (
-                                bit(0) is here
-                            )
-                            then {
-                                nop;
-                            }
-                            else {   
-                                mark(2);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    } 
-
-
-    if (
-        friendWithFood is ahead
-    )
-    then {
-        turn(1);
-        goto D7;
-        C7:
-        move(1);
-        turn(5);
-        goto B8;
-        C8:
-        move(1);
-        turn(1);
-        goto D9;
-        C9;
-    } 
-    else {
-        if (
-            rock is ahead
-        )
-        then {
-            turn(3);
-            goto F10;
-            C10:
-        }
-        else {
-            move(1);
-        }
-    } 
-
-    pickup(CSerachFood); 
-    turn(3); 
-    goto F2;
-    C2:
-    call CBackFood; 
-
-}
-func CBackFood{
-    do {
-        drop();
-        turn(3);
-        goto F5;
-        C5:
-        call CSerachFood;
-    }
-    if (
-        home is here
-    )
-
-    if (
-        bit(2) is here
-    )
-    then {
-        nop;
-    }
-    else {
-        if (
-            bit(3) is here
-        )
-        then {
-            turn(1);
-            goto D13;
-            A13:
-        }
-        else {
-            if (
-                bit(4) is here
-            )
-            then {
-                turn(2);
-                goto E14;
-                A14:
-            }
-            else {
-                if (
-                    bit(5) is here
-                )
-                then {
-                    turn(3);
-                    goto F15;
-                    A15:
-                }
-                else {
-                    if (
-                        bit(0) is here
-                    )
-                    then {
-                        turn(4);
-                        goto A16;
-                        A16:
-                    }
-                    else {
-                        if (
-                            bit(1) is here
-                        )
-                        then {
-                            turn(5);
-                            goto B17;
-                            A17:
-                        }
-                        else {
-                    
-                        }
-                    }
-                }
-            }
-        }
-    } 
-    
-    move(1);
-}
-
-func DSerachFood() {
-
-    if (
-        randint(3) is 0
-    )
-    then {
-        turn(1);
-        goto E18;
-        D18:
-    }
-    else {
-        do {
-            turn(5);
-            goto C19;
-            D19:
-        }
-        if (
-            randint(2) is 0
-        )
-    } 
-
-    if (
-        food is left
-    )
-    then {
-        turn(5);
-        goto C0;
-        D0:
-    }
-    else {
-        do {
-            turn(1);
-            goto E1;
-            D1:
-        }
-        if (
-            food is right
-        )
-   } 
-
-    if (
-        bit(3) is here
-    )
-    then {
-        nop;
-    }
-    else {
-        if (
-        bit(3) is here
-        )
-        then {
-            nop;
-        }
-        else {
-            if (
-                bit(4) is here
-            )
-            then {
-                nop;
-            }
-            else {   
-                if (
-                    bit(5) is here
-                )
-                then {
-                    nop;
-                }
-                else {   
-                    if (
-                        bit(0) is here
-                    )
-                    then {
-                        nop;
-                    }
-                    else {   
-                        if (
-                            bit(1) is here
-                        )
-                        then {
-                            nop;
-                        }
-                        else {   
-                            if (
-                                bit(1) is here
-                            )
-                            then {
-                                nop;
-                            }
-                            else {   
-                                mark(3);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    } 
-
-
-    if (
-        friendWithFood is ahead
-    )
-    then {
-        turn(1);
-        goto E7;
-        D7:
-        move(1);
-        turn(5);
-        goto C8;
-        D8:
-        move(1);
-        turn(1);
-        goto E9;
-        D9;
-    } 
-    else {
-        if (
-            rock is ahead
-        )
-        then {
-            turn(3);
-            goto A10;
-            D10:
-        }
-        else {
-            move(1);
-        }
-    } 
-
-    pickup(DSerachFood); 
-    turn(3); 
-    goto A2;
-    D2:
-    call DBackFood; 
-
-}
-func DBackFood{
-    do {
-        drop();
-        turn(3);
-        goto A5;
-        D5:
-        call DSerachFood;
-    }
-    if (
-        home is here
-    )
-
-    if (
-        bit(3) is here
-    )
-    then {
-        nop;
-    }
-    else {
-        if (
-            bit(4) is here
-        )
-        then {
-            turn(1);
-            goto E13;
-            A13:
-        }
-        else {
-            if (
-                bit(5) is here
-            )
-            then {
-                turn(2);
-                goto F14;
-                A14:
-            }
-            else {
-                if (
-                    bit(0) is here
-                )
-                then {
-                    turn(3);
-                    goto A15;
-                    A15:
-                }
-                else {
-                    if (
-                        bit(1) is here
-                    )
-                    then {
-                        turn(4);
-                        goto B16;
-                        A16:
-                    }
-                    else {
-                        if (
-                            bit(2) is here
-                        )
-                        then {
-                            turn(5);
-                            goto C17;
-                            A17:
-                        }
-                        else {
-                    
-                        }
-                    }
-                }
-            }
-        }
-    } 
-    
-    move(1);
-}
-
-func ESerachFood() {
-
-    if (
-        randint(3) is 0
-    )
-    then {
-        turn(1);
         goto F18;
-        E18:
-    }
-    else {
-        do {
-            turn(5);
-            goto D19;
-            E19:
-        }
-        if (
-            randint(2) is 0
-        )
-    } 
-
-    if (
-        food is left
-    )
-    then {
-        turn(5);
-        goto D0;
-        E0:
-    }
-    else {
-        do {
-            turn(1);
-            goto F1;
-            E1:
-        }
-        if (
-            food is right
-        )
-   } 
-
-    if (
-        bit(4) is here
-    )
-    then {
-        nop;
-    }
-    else {
-        if (
-        bit(4) is here
-        )
-        then {
-            nop;
-        }
-        else {
-            if (
-                bit(5) is here
-            )
-            then {
-                nop;
-            }
-            else {   
-                if (
-                    bit(0) is here
-                )
-                then {
-                    nop;
-                }
-                else {   
-                    if (
-                        bit(1) is here
-                    )
-                    then {
-                        nop;
-                    }
-                    else {   
-                        if (
-                            bit(2) is here
-                        )
-                        then {
-                            nop;
-                        }
-                        else {   
-                            if (
-                                bit(2) is here
-                            )
-                            then {
-                                nop;
-                            }
-                            else {   
-                                mark(4);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    } 
-
-
-    if (
-        friendWithFood is ahead
-    )
-    then {
-        turn(1);
-        goto F7;
-        E7:
-        move(1);
-        turn(5);
-        goto D8;
-        E8:
+        A18:
         move(1);
         turn(1);
-        goto F9;
-        E9;
+        goto B19;
+        A19;
     } 
     else {
-        if (
-            rock is ahead
-        )
+        if (rock is ahead)
         then {
             turn(3);
-            goto B10;
-            E10:
+            goto D110;
+            A110:
         }
         else {
             move(1);
         }
     } 
 
-    pickup(ESerachFood); 
+    pickup(A1SerachFood); 
     turn(3); 
-    goto B2;
-    E2:
-    call EBackFood; 
+    goto D12;
+    A12:
+    call A1BackFood; 
 
 }
-func EBackFood{
+func A1BackFood(){
     do {
         drop();
         turn(3);
-        goto B5;
-        E5:
-        call ESerachFood;
+        goto D15;
+        A15:
+        call A1SerachFood;
     }
-    if (
-        home is here
-    )
+    if (home is here)
 
-    if (
-        bit(4) is here
-    )
+    if (bit(0) is here)
     then {
         nop;
     }
     else {
-        if (
-            bit(5) is here
-        )
+        if (bit(1) is here)
         then {
             turn(1);
-            goto F13;
-            A13:
+            goto B113;
+            A113:
         }
         else {
-            if (
-                bit(0) is here
-            )
+            if (bit(2) is here)
             then {
                 turn(2);
-                goto A14;
-                A14:
+                goto C114;
+                A114:
             }
             else {
-                if (
-                    bit(1) is here
-                )
+                if (bit(3) is here)
                 then {
                     turn(3);
-                    goto B15;
-                    A15:
+                    goto D115;
+                    A115:
                 }
                 else {
-                    if (
-                        bit(2) is here
-                    )
+                    if (bit(4) is here)
                     then {
                         turn(4);
-                        goto C16;
-                        A16:
+                        goto E116;
+                        A116:
                     }
                     else {
-                        if (
-                            bit(3) is here
-                        )
+                        if (bit(5) is here)
                         then {
                             turn(5);
-                            goto D17;
-                            A17:
+                            goto F117;
+                            A117:
                         }
                         else {
                     
@@ -1055,97 +165,69 @@ func EBackFood{
     move(1);
 }
 
-func FSerachFood() {
+func B1SerachFood() {
 
-    if (
-        randint(3) is 0
-    )
+    if (randint(3) is 0)
     then {
         turn(1);
-        goto A18;
-        F18:
+        goto C118;
+        B118:
     }
     else {
         do {
             turn(5);
-            goto E19;
-            F19:
+            goto A119;
+            B119:
         }
-        if (
-            randint(2) is 0
-        )
+        if (randint(2) is 0)
     } 
 
-    if (
-        food is left
-    )
+    if (food is left)
     then {
         turn(5);
-        goto E0;
-        F0:
+        goto A10;
+        B10:
     }
     else {
         do {
             turn(1);
-            goto A1;
-            F1:
+            goto C11;
+            B11:
         }
-        if (
-            food is right
-        )
+        if (food is right)
    } 
 
-    if (
-        bit(5) is here
-    )
+    if (bit(1) is here)
     then {
         nop;
     }
     else {
-        if (
-        bit(5) is here
-        )
+        if (bit(2) is here)
         then {
             nop;
         }
         else {
-            if (
-                bit(0) is here
-            )
+            if (bit(3) is here)
             then {
                 nop;
             }
             else {   
-                if (
-                    bit(1) is here
-                )
+                if (bit(4) is here)
                 then {
                     nop;
                 }
                 else {   
-                    if (
-                        bit(2) is here
-                    )
+                    if (bit(5) is here)
                     then {
                         nop;
                     }
                     else {   
-                        if (
-                            bit(3) is here
-                        )
+                        if (bit(6) is here)
                         then {
                             nop;
                         }
                         else {   
-                            if (
-                                bit(3) is here
-                            )
-                            then {
-                                nop;
-                            }
-                            else {   
-                                mark(5);
-                            }
+                            mark(2);
                         }
                     }
                 }
@@ -1154,105 +236,747 @@ func FSerachFood() {
     } 
 
 
-    if (
-        friendWithFood is ahead
-    )
+    if (friendWithFood is ahead)
     then {
         turn(1);
-        goto A7;
-        F7:
+        goto C17;
+        B17:
         move(1);
         turn(5);
-        goto E8;
-        F8:
+        goto A18;
+        B18:
         move(1);
         turn(1);
-        goto A9;
-        F9;
+        goto C19;
+        B19;
     } 
     else {
-        if (
-            rock is ahead
-        )
+        if (rock is ahead)
         then {
             turn(3);
-            goto C10;
-            F10:
+            goto E110;
+            B110:
         }
         else {
             move(1);
         }
     } 
 
-    pickup(FSerachFood); 
+    pickup(B1SerachFood); 
     turn(3); 
-    goto C2;
-    F2:
-    call FBackFood; 
+    goto E12;
+    B12:
+    call B1BackFood; 
 
 }
-func FBackFood{
+func B1BackFood(){
     do {
         drop();
         turn(3);
-        goto C5;
-        F5:
-        call FSerachFood;
+        goto E15;
+        B15:
+        call B1SerachFood;
     }
-    if (
-        home is here
-    )
+    if (home is here)
 
-    if (
-        bit(5) is here
-    )
+    if (bit(1) is here)
     then {
         nop;
     }
     else {
-        if (
-            bit(0) is here
-        )
+        if (bit(2) is here)
         then {
             turn(1);
-            goto A13;
-            A13:
+            goto C113;
+            B113:
         }
         else {
-            if (
-                bit(1) is here
-            )
+            if (bit(3) is here)
             then {
                 turn(2);
-                goto B14;
-                A14:
+                goto D114;
+                B114:
             }
             else {
-                if (
-                    bit(2) is here
-                )
+                if (bit(4) is here)
                 then {
                     turn(3);
-                    goto C15;
-                    A15:
+                    goto E115;
+                    B115:
                 }
                 else {
-                    if (
-                        bit(3) is here
-                    )
+                    if (bit(5) is here)
                     then {
                         turn(4);
-                        goto D16;
-                        A16:
+                        goto F116;
+                        B116:
                     }
                     else {
-                        if (
-                            bit(4) is here
-                        )
+                        if (bit(6) is here)
                         then {
                             turn(5);
-                            goto E17;
-                            A17:
+                            goto A117;
+                            B117:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func C1SerachFood() {
+
+    if (randint(3) is 0)
+    then {
+        turn(1);
+        goto D118;
+        C118:
+    }
+    else {
+        do {
+            turn(5);
+            goto B119;
+            C119:
+        }
+        if (randint(2) is 0)
+    } 
+
+    if (food is left)
+    then {
+        turn(5);
+        goto B10;
+        C10:
+    }
+    else {
+        do {
+            turn(1);
+            goto D11;
+            C11:
+        }
+        if (food is right)
+   } 
+
+    if (bit(2) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(3) is here)
+        then {
+            nop;
+        }
+        else {
+            if (bit(4) is here)
+            then {
+                nop;
+            }
+            else {   
+                if (bit(5) is here)
+                then {
+                    nop;
+                }
+                else {   
+                    if (bit(6) is here)
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (bit(1) is here)
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(3);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (friendWithFood is ahead)
+    then {
+        turn(1);
+        goto D17;
+        C17:
+        move(1);
+        turn(5);
+        goto B18;
+        C18:
+        move(1);
+        turn(1);
+        goto D19;
+        C19;
+    } 
+    else {
+        if (rock is ahead)
+        then {
+            turn(3);
+            goto F110;
+            C110:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(C1SerachFood); 
+    turn(3); 
+    goto F12;
+    C12:
+    call C1BackFood; 
+
+}
+func C1BackFood(){
+    do {
+        drop();
+        turn(3);
+        goto F15;
+        C15:
+        call C1SerachFood;
+    }
+    if (home is here)
+
+    if (bit(2) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(3) is here)
+        then {
+            turn(1);
+            goto D113;
+            C113:
+        }
+        else {
+            if (bit(4) is here)
+            then {
+                turn(2);
+                goto E114;
+                C114:
+            }
+            else {
+                if (bit(5) is here)
+                then {
+                    turn(3);
+                    goto F115;
+                    C115:
+                }
+                else {
+                    if (bit(6) is here)
+                    then {
+                        turn(4);
+                        goto A116;
+                        C116:
+                    }
+                    else {
+                        if (bit(1) is here)
+                        then {
+                            turn(5);
+                            goto B117;
+                            C117:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func D1SerachFood() {
+
+    if (randint(3) is 0)
+    then {
+        turn(1);
+        goto E118;
+        D118:
+    }
+    else {
+        do {
+            turn(5);
+            goto C119;
+            D119:
+        }
+        if (randint(2) is 0)
+    } 
+
+    if (food is left)
+    then {
+        turn(5);
+        goto C10;
+        D10:
+    }
+    else {
+        do {
+            turn(1);
+            goto E11;
+            D11:
+        }
+        if (food is right)
+   } 
+
+    if (bit(3) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(4) is here)
+        then {
+            nop;
+        }
+        else {
+            if (bit(5) is here)
+            then {
+                nop;
+            }
+            else {   
+                if (bit(6) is here)
+                then {
+                    nop;
+                }
+                else {   
+                    if (bit(1) is here)
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (bit(2) is here)
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(4);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (friendWithFood is ahead)
+    then {
+        turn(1);
+        goto E17;
+        D17:
+        move(1);
+        turn(5);
+        goto C18;
+        D18:
+        move(1);
+        turn(1);
+        goto E19;
+        D19;
+    } 
+    else {
+        if (rock is ahead)
+        then {
+            turn(3);
+            goto A110;
+            D110:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(D1SerachFood); 
+    turn(3); 
+    goto A12;
+    D12:
+    call D1BackFood; 
+
+}
+func D1BackFood(){
+    do {
+        drop();
+        turn(3);
+        goto A15;
+        D15:
+        call D1SerachFood;
+    }
+    if (home is here)
+
+    if (bit(3) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(4) is here)
+        then {
+            turn(1);
+            goto E113;
+            D113:
+        }
+        else {
+            if (bit(5) is here)
+            then {
+                turn(2);
+                goto F114;
+                D114:
+            }
+            else {
+                if (bit(6) is here)
+                then {
+                    turn(3);
+                    goto A115;
+                    D115:
+                }
+                else {
+                    if (bit(1) is here)
+                    then {
+                        turn(4);
+                        goto B116;
+                        D116:
+                    }
+                    else {
+                        if (bit(2) is here)
+                        then {
+                            turn(5);
+                            goto C117;
+                            D117:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func E1SerachFood() {
+
+    if (randint(3) is 0)
+    then {
+        turn(1);
+        goto F118;
+        E118:
+    }
+    else {
+        do {
+            turn(5);
+            goto D119;
+            E119:
+        }
+        if (randint(2) is 0)
+    } 
+
+    if (food is left)
+    then {
+        turn(5);
+        goto D10;
+        E10:
+    }
+    else {
+        do {
+            turn(1);
+            goto F11;
+            E11:
+        }
+        if (food is right)
+   } 
+
+    if (bit(4) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(5) is here)
+        then {
+            nop;
+        }
+        else {
+            if (bit(6) is here)
+            then {
+                nop;
+            }
+            else {   
+                if (bit(1) is here)
+                then {
+                    nop;
+                }
+                else {   
+                    if (bit(2) is here)
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (bit(3) is here)
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(5);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (friendWithFood is ahead)
+    then {
+        turn(1);
+        goto F17;
+        E17:
+        move(1);
+        turn(5);
+        goto D18;
+        E18:
+        move(1);
+        turn(1);
+        goto F19;
+        E19;
+    } 
+    else {
+        if (rock is ahead)
+        then {
+            turn(3);
+            goto B110;
+            E110:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(E1SerachFood); 
+    turn(3); 
+    goto B12;
+    E12:
+    call E1BackFood; 
+
+}
+func E1BackFood(){
+    do {
+        drop();
+        turn(3);
+        goto B15;
+        E15:
+        call E1SerachFood;
+    }
+    if (home is here)
+
+    if (bit(4) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(5) is here)
+        then {
+            turn(1);
+            goto F113;
+            E113:
+        }
+        else {
+            if (bit(6) is here)
+            then {
+                turn(2);
+                goto A114;
+                E114:
+            }
+            else {
+                if (bit(1) is here)
+                then {
+                    turn(3);
+                    goto B115;
+                    E115:
+                }
+                else {
+                    if (bit(2) is here)
+                    then {
+                        turn(4);
+                        goto C116;
+                        E116:
+                    }
+                    else {
+                        if (bit(3) is here)
+                        then {
+                            turn(5);
+                            goto D117;
+                            E117:
+                        }
+                        else {
+                    
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    
+    move(1);
+}
+
+func F1SerachFood() {
+
+    if (randint(3) is 0)
+    then {
+        turn(1);
+        goto A118;
+        F118:
+    }
+    else {
+        do {
+            turn(5);
+            goto E119;
+            F119:
+        }
+        if (randint(2) is 0)
+    } 
+
+    if (food is left)
+    then {
+        turn(5);
+        goto E10;
+        F10:
+    }
+    else {
+        do {
+            turn(1);
+            goto A11;
+            F11:
+        }
+        if (food is right)
+   } 
+
+    if (bit(5) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(6) is here)
+        then {
+            nop;
+        }
+        else {
+            if (bit(1) is here)
+            then {
+                nop;
+            }
+            else {   
+                if (bit(2) is here)
+                then {
+                    nop;
+                }
+                else {   
+                    if (bit(3) is here)
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (bit(4) is here)
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(6);
+                        }
+                    }
+                }
+            }
+        }
+    } 
+
+
+    if (friendWithFood is ahead)
+    then {
+        turn(1);
+        goto A17;
+        F17:
+        move(1);
+        turn(5);
+        goto E18;
+        F18:
+        move(1);
+        turn(1);
+        goto A19;
+        F19;
+    } 
+    else {
+        if (rock is ahead)
+        then {
+            turn(3);
+            goto C110;
+            F110:
+        }
+        else {
+            move(1);
+        }
+    } 
+
+    pickup(F1SerachFood); 
+    turn(3); 
+    goto C12;
+    F12:
+    call F1BackFood; 
+
+}
+func F1BackFood(){
+    do {
+        drop();
+        turn(3);
+        goto C15;
+        F15:
+        call F1SerachFood;
+    }
+    if (home is here)
+
+    if (bit(5) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(6) is here)
+        then {
+            turn(1);
+            goto A113;
+            F113:
+        }
+        else {
+            if (bit(1) is here)
+            then {
+                turn(2);
+                goto B114;
+                F114:
+            }
+            else {
+                if (bit(2) is here)
+                then {
+                    turn(3);
+                    goto C115;
+                    F115:
+                }
+                else {
+                    if (bit(3) is here)
+                    then {
+                        turn(4);
+                        goto D116;
+                        F116:
+                    }
+                    else {
+                        if (bit(4) is here)
+                        then {
+                            turn(5);
+                            goto E117;
+                            F117:
                         }
                         else {
                     
