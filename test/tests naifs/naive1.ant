@@ -50,6 +50,7 @@ func SearchFood() {
     else {
         turn(5);
     }
+}
 
 
 func BackFood {
