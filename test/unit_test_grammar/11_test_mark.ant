@@ -1,0 +1,6 @@
+func init() {
+    pickup();
+    mark(1);
+    move(5);
+    drop();
+}

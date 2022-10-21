@@ -1,0 +1,8 @@
+func init1() {
+    move(1);
+    call init2();
+}
+
+func init2() {
+    nop;
+}

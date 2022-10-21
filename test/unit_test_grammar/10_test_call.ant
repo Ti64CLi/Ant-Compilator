@@ -1,0 +1,4 @@
+func DropFood() {
+    move(1);
+    call DropFood();
+}
