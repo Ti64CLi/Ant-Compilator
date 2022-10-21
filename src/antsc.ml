@@ -267,7 +267,8 @@ let compile_file path program =
         let num = process_value value in
         let label = "_label" ^ (string_of_int (!currentLabel)) in
         for i = 1 to num do
-          write_command oc ("Move " ^ label)
+          write_command oc ("Move " ^ label);
+          write_command oc ("Goto " ^ label)
         done;
         write_label oc label;
         currentLabel := !currentLabel + 1
@@ -277,7 +278,7 @@ let compile_file path program =
         let num = process_value value in
         let i = num mod 6 in
         let dir = [|"Right"; "Left"|] in
-        for j = 1 to i - ((i / 4) * 3) do
+        for j = 1 to i - 2*(i/4)*(i-3) do
             write_command oc ("Turn " ^ dir.(i / 4))
         done
       end
@@ -299,7 +300,7 @@ let compile_file path program =
         if num > 5 || num < 0 then
           failwith "Mark expects a number between 1 and 6"
         else
-          write_command oc ("Mark" ^ (string_of_int num))
+          write_command oc ("Mark " ^ (string_of_int num))
       end
     | Ast.Unmark (value, _) -> 
       begin
@@ -307,7 +308,7 @@ let compile_file path program =
         if num > 5 || num < 0 then
           failwith "UnMark expects a number between 1 and 6"
         else
-          write_command oc ("Unmark" ^ (string_of_int num))
+          write_command oc ("Unmark " ^ (string_of_int num))
       end
     | Ast.Call (ident, _) -> 
       begin
