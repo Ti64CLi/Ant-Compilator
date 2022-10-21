@@ -1,18 +1,37 @@
 open Printf
 
-let compile_file filename program =
+let get_filename path =
+  let i = ref 0
+  and s = ref 0
+  and l = String.length path in
+  while !i < l do
+    if path.[!i] = '/' then
+      s := !i + 1;
+    
+    i := !i + 1
+  done;
+  String.sub path !s (l - !s)
+
+let get_filename_without_ext filename =
+  let i = ref 0 in
+  while !i < String.length filename && filename.[!i] <> '.' do
+    i := !i + 1
+  done;
+  String.sub filename 0 (!i)
+
+let compile_file path program =
   let write_label oc msg =
     fprintf oc "%s:\n" msg in
   let write_command oc msg =
     fprintf oc "  %s\n" msg in
-  let oc = open_out (filename ^ ".brain") in
+  let oc = open_out ((get_filename_without_ext path) ^ ".brain") in
   let labels = ref []
   and defines = ref []
   and calls = ref []
   and functions = ref []
   and inFunction = ref false
   and currentLabel = ref 0 in
-  write_label oc filename;
+  write_label oc (get_filename_without_ext (get_filename path));
   (* aux *)
   let look_in_labels label = (* check whether a label exists or not *)
     let rec aux l e =
@@ -71,7 +90,7 @@ let compile_file filename program =
         | _ -> 
           begin
           end;
-          
+
         match prog with
         | Some p -> process_program p
         | None -> ()
@@ -264,7 +283,6 @@ let compile_file filename program =
       end
     | Ast.PickUp (onError, _) ->
       begin
-        look_in_labels onError;
         write_command oc ("PickUp " ^ onError)
       end
     | Ast.Drop -> 
@@ -273,7 +291,6 @@ let compile_file filename program =
       end
     | Ast.Goto (label, _) -> 
       begin
-        look_in_labels label;
         write_command oc ("Goto " ^ label)
       end
     | Ast.Mark (value, _) -> 
@@ -294,7 +311,6 @@ let compile_file filename program =
       end
     | Ast.Call (ident, _) -> 
       begin
-        look_in_labels ident;
         write_command oc ("Goto " ^ ident);
         (*calls := (ident, List.hd !functions) :: !calls*)
       end
@@ -313,21 +329,14 @@ let compile_file filename program =
     | Ast.Break -> () in
   process_program program
 
-let get_filename_ext filename =
-  let i = ref 0 in
-  while !i < String.length filename && filename.[!i] <> '.' do
-    i := !i + 1
-  done;
-  String.sub filename 0 (!i)
-
-let process_file filename =
+let process_file path =
   (* Ouvre le fichier et créé un lexer. *)
-  let file = open_in filename in
+  let file = open_in path in
   let lexer = Lexer.of_channel file in
   (* Parse le fichier. *)
   let (program, span) = Parser.parse_program lexer in
   printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program);
-  compile_file (get_filename_ext filename) program
+  compile_file path program
 
 (* Le point de départ du compilateur. *)
 let _ =

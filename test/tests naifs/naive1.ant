@@ -53,7 +53,7 @@ func SearchFood() {
 }
 
 
-func BackFood {
+func BackFood() {
     do {
         drop();
         turn(3);
