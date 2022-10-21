@@ -1,0 +1,6 @@
+func function1() {
+    move(4);
+}
+func function2() { 
+    move(2);
+}

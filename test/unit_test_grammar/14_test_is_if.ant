@@ -1,0 +1,5 @@
+func PickupFood() {
+    do {
+        pickup()
+    } if (is (food,here))
+}

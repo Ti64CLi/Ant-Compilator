@@ -1,9 +1,0 @@
-func search(){
-    test(food) in {
-        case ahead :
-            move(1);
-            call search;
-        }
-        case left : {
-            call search;
-        }

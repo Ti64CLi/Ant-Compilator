@@ -1,0 +1,11 @@
+func rock_dodge() {
+    if (is(rock, ahead)) 
+    then {
+        turn(1);
+        call rock_test();
+    } 
+    else {
+        move(1);
+        call rock_test();
+    }
+}
