@@ -7,8 +7,8 @@ func #ASearchFood() {
     )
     then {
         turn(5);
-        goto #F0;
-        #A0:
+        goto #F;
+        #A:
         call #APickUpFood;
     }
     else {
@@ -17,8 +17,8 @@ func #ASearchFood() {
         )
         then {
             turn(1);
-            goto #B1;
-            #A1:
+            goto #B;
+            #A:
             call #APickUpFood;
         }
         else {
@@ -89,16 +89,16 @@ func #ASearchFood() {
     )
     then {
         turn(1);
-        goto #B7;
-        #A7:
+        goto #B;
+        #A:
         move(1);
         turn(5);
-        goto #F8;
-        #A8:
+        goto #F;
+        #A:
         move(1);
         turn(1);
-        goto #B9;
-        #A9;
+        goto #B;
+        #A;
     } *contourne un allié si il y en a un sur le passage*
     else {
         if (
@@ -106,8 +106,8 @@ func #ASearchFood() {
         )
         then {
             turn(3);
-            goto #D10;
-            #A10:
+            goto #D;
+            #A:
         }
         else {
             move(1);
@@ -171,16 +171,16 @@ func #APickUpFood {
     )
     then {
         turn(1);
-        goto #B20;
-        #A20:
+        goto #B;
+        #A:
         move(1);
         turn(5);
-        goto #F21;
-        #A21:
+        goto #F;
+        #A:
         move(1);
         turn(1);
-        goto #B22;
-        #A22;
+        goto #B;
+        #A;
     } *contourne un allié si il y en a un sur le passage*
     else {
         if (
@@ -188,8 +188,8 @@ func #APickUpFood {
         )
         then {
             turn(3);
-            goto #D23;
-            #A23:
+            goto #D;
+            #A:
         }
         else {
             move(1);
@@ -198,8 +198,8 @@ func #APickUpFood {
 
     pickup(#ASerachFood); *si pas de nouriture, refais une recherche*
     turn(3); *sinon, fais demi-tour et rammene la nouriture*
-    goto #D2;
-    #A2:
+    goto #D;
+    #A:
     call #ABackFood; *essaye de prendre de la nouriture*
 }
 
@@ -207,8 +207,8 @@ func #ABackFood{
     do {
         drop();
         turn(3);
-        goto #D5;
-        #A5:
+        goto #D;
+        #A:
         call #ASerachFood;
     }
     if (
@@ -227,8 +227,8 @@ func #ABackFood{
         )
         then {
             turn(1);
-            goto #B13;
-            #A13:
+            goto #B;
+            #A:
         }
         else {
             if (
@@ -236,8 +236,8 @@ func #ABackFood{
             )
             then {
                 turn(2);
-                goto #C14;
-                #A14:
+                goto #C;
+                #A:
             }
             else {
                 if (
@@ -245,8 +245,8 @@ func #ABackFood{
                 )
                 then {
                     turn(3);
-                    goto #D15;
-                    #A15:
+                    goto #D;
+                    #A:
                 }
                 else {
                     if (
@@ -254,8 +254,8 @@ func #ABackFood{
                     )
                     then {
                         turn(4);
-                        goto #E16;
-                        #A16:
+                        goto #E;
+                        #A:
                     }
                     else {
                         if (
@@ -263,8 +263,8 @@ func #ABackFood{
                         )
                         then {
                             turn(5);
-                            goto #F17;
-                            #A17:
+                            goto #F;
+                            #A:
                         }
                         else {
                     

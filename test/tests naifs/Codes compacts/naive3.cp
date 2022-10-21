@@ -1,18 +1,18 @@
-*19*
+
 
 func #ASerachFood() {
 
     if (randint(3) is 0)
     then {
         turn(1);
-        goto #B18;
-        #A18:
+        goto #B;
+        #A:
     }
     else {
         do {
             turn(5);
-            goto #F19;
-            #A19:
+            goto #F;
+            #A:
         }
         if (randint(2) is 0)
     } *choisis une direction aléatoirement*
@@ -20,14 +20,14 @@ func #ASerachFood() {
     if (food is left)
     then {
         turn(5);
-        goto #F0;
-        #A0:
+        goto #F;
+        #A:
     }
     else {
         do {
             turn(1);
-            goto #B1;
-            #A1:
+            goto #B;
+            #A:
         }
         if (food is right)
    } *va là où il y a de la nouriture, s il y en a*
@@ -74,23 +74,23 @@ func #ASerachFood() {
     if (friendWithFood is ahead)
     then {
         turn(1);
-        goto #B7;
-        #A7:
+        goto #B;
+        #A:
         move(1);
         turn(5);
-        goto #F8;
-        #A8:
+        goto #F;
+        #A:
         move(1);
         turn(1);
-        goto #B9;
-        #A9;
+        goto #B;
+        #A;
     } *contourne un allié si il y en a un sur le passage*
     else {
         if (rock is ahead)
         then {
             turn(3);
-            goto #D10;
-            #A10:
+            goto #D;
+            #A:
         }
         else {
             move(1);
@@ -99,8 +99,8 @@ func #ASerachFood() {
 
     pickup(#ASerachFood); *si pas de nouriture, refais une recherche*
     turn(3); *sinon, fais demi-tour et rammene la nouriture*
-    goto #D2;
-    #A2:
+    goto #D;
+    #A:
     call #ABackFood; *essaye de prendre de la nouriture*
 
 }
@@ -108,8 +108,8 @@ func #ABackFood(){
     do {
         drop();
         turn(3);
-        goto #D5;
-        #A5:
+        goto #D;
+        #A:
         call #ASerachFood;
     }
     if (home is here)
@@ -122,36 +122,36 @@ func #ABackFood(){
         if (bit(!01) is here)
         then {
             turn(1);
-            goto #B13;
-            #A13:
+            goto #B;
+            #A:
         }
         else {
             if (bit(!02) is here)
             then {
                 turn(2);
-                goto #C14;
-                #A14:
+                goto #C;
+                #A:
             }
             else {
                 if (bit(!03) is here)
                 then {
                     turn(3);
-                    goto #D15;
-                    #A15:
+                    goto #D;
+                    #A:
                 }
                 else {
                     if (bit(!04) is here)
                     then {
                         turn(4);
-                        goto #E16;
-                        #A16:
+                        goto #E;
+                        #A:
                     }
                     else {
                         if (bit(!05) is here)
                         then {
                             turn(5);
-                            goto #F17;
-                            #A17:
+                            goto #F;
+                            #A:
                         }
                         else {
                     

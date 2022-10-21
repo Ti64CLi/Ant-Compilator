@@ -13,6 +13,7 @@ for d in [A,B,C,D,E,F]:
     c = " "
     commit = False
     n = 1
+    couple = False
 
     while c:
         c = fichier.read(1)
@@ -25,8 +26,14 @@ for d in [A,B,C,D,E,F]:
         elif not commit and c != '*':
             if c == '#':
                 c = fichier.read(1)
+                c2 = fichier.read(1)
                 dfichier.write(d[c])
-                dfichier.write(str(n))
+                if c2 == ';' or c2 == ':':
+                    dfichier.write(str(n))
+                    if couple:
+                        n += 1
+                    couple = not couple
+                dfichier.write(c2)
             else :
                 dfichier.write(c)
 
