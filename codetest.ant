@@ -1,0 +1,6 @@
+func hello() {
+    do {
+        mark(0);
+    }
+    if (food is here)
+}
