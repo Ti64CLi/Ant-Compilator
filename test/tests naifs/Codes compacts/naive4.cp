@@ -228,7 +228,7 @@ func #ABackFood{
         then {
             turn(1);
             goto #B13;
-            A13:
+            #A13:
         }
         else {
             if (
@@ -237,7 +237,7 @@ func #ABackFood{
             then {
                 turn(2);
                 goto #C14;
-                A14:
+                #A14:
             }
             else {
                 if (
@@ -246,7 +246,7 @@ func #ABackFood{
                 then {
                     turn(3);
                     goto #D15;
-                    A15:
+                    #A15:
                 }
                 else {
                     if (
@@ -255,7 +255,7 @@ func #ABackFood{
                     then {
                         turn(4);
                         goto #E16;
-                        A16:
+                        #A16:
                     }
                     else {
                         if (
@@ -264,7 +264,7 @@ func #ABackFood{
                         then {
                             turn(5);
                             goto #F17;
-                            A17:
+                            #A17:
                         }
                         else {
                     
