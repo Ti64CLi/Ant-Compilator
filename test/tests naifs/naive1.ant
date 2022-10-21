@@ -1,6 +1,6 @@
 func SearchFood() {
 
-    mark(0);
+    mark(1);
 
     if (
         is(food, left)
@@ -37,14 +37,14 @@ func SearchFood() {
     call BackFood;
 
     if (
-        randint(3)
+        eq(randint(3),0)
     )
     then {
         do {
             turn(1);
         }
         if (
-            randint(2)
+            eq(randint(2),0)
         )
     }
     else {
@@ -63,7 +63,7 @@ func BackFood {
     )
     
     if (
-        is(mark(0),left)
+        is(bit(1),left)
     )
     then {
         turn(5);
@@ -73,9 +73,10 @@ func BackFood {
             turn(1);
         }
         if (
-            is(mark(0),right)
+            is(bit(1),right)
         )
     }
 
     move(1);
-}
+    
+} 
