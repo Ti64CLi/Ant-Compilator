@@ -1,9 +1,0 @@
-codetest:
-  Goto _label0
-hello:
-  Sense Here _label0 _label1 Food
-_label0:
-  Mark 0
-_label1:
-  Goto hello
-_label0:
