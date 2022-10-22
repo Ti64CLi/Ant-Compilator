@@ -117,6 +117,7 @@ let compile_file path program =
       begin
         labels := name :: !labels;
 
+        write_command oc ("Goto " ^ name);
         write_label oc name
       end
     | Ast.IfThenElse ((category, _), (direction, _), (thenBody, _), (elseBody, _)) -> 
@@ -282,7 +283,7 @@ let compile_file path program =
 
         write_command oc ("Goto "^ label);
         write_label oc label;
-        
+
         currentLabel := !currentLabel + 1
       end
     | Ast.Turn (value, _) -> 
