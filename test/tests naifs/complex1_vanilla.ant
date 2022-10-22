@@ -1067,95 +1067,53 @@ func SearchFood() {
     } 
     # marque sa direction de home si le chemin n est pas déjà marqué
 
-    if (food is left)
+    if(home is here) 
+    #vérifie si elle n'est pas déjà à la maison
     then {
-        turn(5);
-        var if compass == 0 
-        then {
-            var compass = 5 ;
-        }
-        else {
-            nop;
-        }
-        var if compass == 1
-        then {
-            var compass = 0 ;
-        }
-        else {
-            nop;
-        }
-        var if compass == 2
-        then {
-            var compass = 1 ;
-        }
-        else {
-            nop;
-        }
-        var if compass == 3
-        then {
-            var compass = 2 ;
-        }
-        else {
-            nop;
-        }
-        var if compass == 4
-        then {
-            var compass = 3 ;
-        }
-        else {
-            nop;
-        }
-        var if compass == 5
-        then {
-            var compass = 4 ;
-        }
-        else {
-            nop;
-        }
-        call PickUpFood;
+        nop;
     }
-    else {
-        if (food is right)
+    else{
+        if (food is left)
         then {
-            turn(1);
+            turn(5);
             var if compass == 0 
-            then {
-                var compass = 1 ;
-            }
-            else {
-                nop;
-            }
-            var if compass == 1 
-            then {
-                var compass = 2 ;
-            }
-            else {
-                nop;
-            }
-            var if compass == 2 
-            then {
-                var compass = 3 ;
-            }
-            else {
-                nop;
-            }
-            var if compass == 3 
-            then {
-                var compass = 4 ;
-            }
-            else {
-                nop;
-            }
-            var if compass == 4
             then {
                 var compass = 5 ;
             }
             else {
                 nop;
             }
-            var if compass == 5 
+            var if compass == 1
             then {
                 var compass = 0 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 2
+            then {
+                var compass = 1 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 3
+            then {
+                var compass = 2 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 4
+            then {
+                var compass = 3 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 5
+            then {
+                var compass = 4 ;
             }
             else {
                 nop;
@@ -1163,12 +1121,61 @@ func SearchFood() {
             call PickUpFood;
         }
         else {
-            do {
+            if (food is right)
+            then {
+                turn(1);
+                var if compass == 0 
+                then {
+                    var compass = 1 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1 
+                then {
+                    var compass = 2 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2 
+                then {
+                    var compass = 3 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 3 
+                then {
+                    var compass = 4 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    var compass = 5 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5 
+                then {
+                    var compass = 0 ;
+                }
+                else {
+                    nop;
+                }
                 call PickUpFood;
             }
-            if (food is ahead)
+            else {
+                do {
+                    call PickUpFood;
+                }
+                if (food is ahead)
+            }
         }
-   } 
+    }
    # se tourne vers là où il y a de la nouriture, si il y en a et va en pickup dans ce cas
 
     call VerifAhead; 
