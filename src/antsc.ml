@@ -53,12 +53,11 @@ let compile_file path program =
     | Ast.Int (n, _) -> n in
   let get_direction direction =
     match direction with
-    | Ast.Value (value, _) -> string_of_int (process_value value)
     | Ast.Ahead -> "Ahead"
     | Ast.Here -> "Here"
     | Ast.Left -> "LeftAhead"
     | Ast.Right -> "RightAhead"
-  and get_condition category =
+  and get_category category =
     match category with
     | Ast.Friend -> "Friend"
     | Ast.Foe -> "Foe"
@@ -82,14 +81,7 @@ let compile_file path program =
     match program with
     | Ast.PreprocessorProgram ((preprocessor, _), (prog, _)) -> 
       begin
-        match preprocessor with
-        | Ast.Define ((ident, _), (num, _)) -> 
-          begin
-            defines := (ident, num) :: !defines
-          end
-        | _ -> 
-          begin
-          end;
+        process_preprocessor preprocessor;
 
         match prog with
         | Some p -> process_program p
@@ -111,6 +103,89 @@ let compile_file path program =
         | Some p -> process_program p
         | None -> ()
       end
+  and process_preprocessor preprocessor =
+    match preprocessor with
+    | Ast.Define ((ident, _), (num, _)) -> 
+      begin
+        print_string ("Defined " ^ ident ^ " as " ^ (string_of_int num) ^ "\n");
+        defines := (ident, num) :: !defines
+      end
+    | Ast.Include (ident, _) -> ()
+    | Ast.Org (ident, _) -> ()
+  and process_condition condition =
+    match condition with
+    | Ast.Is ((category, _), (direction, _)) ->
+      begin
+        let condLabel = "_label" ^ (string_of_int !currentLabel) in
+        write_command oc ("Goto " ^ condLabel);
+        write_label oc condLabel;
+
+        currentLabel := !currentLabel + 1;
+
+        let rec process_category category =
+          match category with
+          | Ast.Not (nestedCategory, _) ->
+            begin
+              let (_, thenLabel, elseLabel) = process_category nestedCategory in
+              (condLabel, elseLabel, thenLabel)
+            end
+          | Ast.Or ((nestedCategory1, _), (nestedCategory2, _)) ->
+            begin
+              let (_, thenLabel1, elseLabel1) = process_category nestedCategory1 in
+              write_command oc ("Goto " ^ elseLabel1);
+              write_label oc elseLabel1;
+              let (_, thenLabel2, elseLabel2) = process_category nestedCategory2 in
+              write_command oc ("Goto " ^ thenLabel2);
+              write_label oc thenLabel2;
+
+              (condLabel, thenLabel1, elseLabel2)
+            end
+          | Ast.And ((nestedCategory1, _), (nestedCategory2, _)) ->
+            begin
+              let (_, thenLabel1, elseLabel1) = process_category nestedCategory1 in
+              write_command oc ("Goto " ^ thenLabel1);
+              write_label oc thenLabel1;
+              let (_, thenLabel2, elseLabel2) = process_category nestedCategory2 in
+              write_command oc ("Goto " ^ elseLabel2);
+              write_label oc elseLabel2;
+              write_command oc ("Goto " ^ elseLabel1);
+              write_label oc thenLabel2;
+
+              (condLabel, thenLabel1, elseLabel1)
+            end
+          | _ -> 
+            begin
+              let condLabel' = "_label" ^ (string_of_int !currentLabel)
+              and thenLabel = "_label" ^ (string_of_int (!currentLabel + 1))
+              and elseLabel = "_label" ^ (string_of_int (!currentLabel + 2)) in
+              write_command oc ("Goto " ^ condLabel');
+              write_label oc condLabel';
+              write_command oc ("Sense " ^ (get_direction direction) ^ " " ^ thenLabel ^ " " ^ elseLabel ^ " " ^ (get_category category));
+
+              currentLabel := !currentLabel + 3;
+              (condLabel, thenLabel, elseLabel)
+            end in
+        process_category category;
+      end
+    | Ast.RandInt ((value, _), (n, _)) -> 
+      begin
+        let p = process_value value in
+        if p = 0 then
+          failwith "Argument in randint must be non-zero";
+        
+        if n >= p then
+          failwith "Randint(p) can only be compared with a number between 0 and p - 1";
+        
+        let condLabel = "_label" ^ (string_of_int !currentLabel)
+        and thenLabel = "_label" ^ (string_of_int (!currentLabel + 1)) 
+        and elseLabel = "_label" ^ (string_of_int (!currentLabel + 2)) in
+        write_command oc ("Goto " ^ condLabel);
+        write_label oc condLabel;
+        write_command oc ("Flip " ^ (string_of_int p) ^ " " ^ thenLabel ^ " " ^ elseLabel);
+
+        currentLabel := !currentLabel + 3;
+        (condLabel, thenLabel, elseLabel)
+      end
   and process_control control =
     match control with
     | Ast.Label (name, _) -> 
@@ -120,98 +195,35 @@ let compile_file path program =
         write_command oc ("Goto " ^ name);
         write_label oc name
       end
-    | Ast.IfThenElse ((category, _), (direction, _), (thenBody, _), (elseBody, _)) -> 
+    | Ast.IfThenElse ((condition, _), (thenBody, _), (elseBody, _)) -> 
       begin
-        let label1 = "_label" ^ (string_of_int !currentLabel)
-        and label2 = "_label" ^ (string_of_int (!currentLabel + 1))
-        and label3 = "_label" ^ (string_of_int (!currentLabel + 2)) in
-        currentLabel := !currentLabel + 3;
+        let (_, thenLabel, elseLabel) = process_condition condition
+        and label3 = "_label" ^ (string_of_int (!currentLabel)) in
+        currentLabel := !currentLabel + 1;
 
-        match category with
-        | Ast.RandInt (value, _) ->
-          begin
-            let p = process_value value in
-            if p = 0 then
-              failwith "Argument in randint must be non-zero";
-            
-            match direction with
-            | Ast.Value (value, _) ->
-              begin
-                let n = process_value value in
-                if n <> 0 then
-                  failwith "Can only compare randint(p) to 0";
-                
-                write_command oc ("Flip " ^ (string_of_int p) ^ " " ^ label1 ^ " " ^ label2);
-                write_label oc label1;
+        write_command oc ("Goto " ^ thenLabel);
+        write_label oc thenLabel;
+        
+        process_program thenBody;
 
-                process_program thenBody;
+        write_command oc ("Goto " ^ label3);
+        write_label oc elseLabel;
 
-                write_command oc ("Goto " ^ label3);
-                write_label oc label2;
+        process_program elseBody;
 
-                process_program elseBody;
-
-                write_command oc ("Goto " ^ label3);
-                write_label oc label3
-              end
-            | _ -> failwith "Can only compare randint(p) to 0"
-          end
-        | _ ->
-          begin
-            write_command oc ("Sense " ^ (get_direction direction) ^ " " ^ label1 ^ " " ^ label2 ^ " " ^ (get_condition category));
-            write_label oc label1;
-
-            process_program thenBody;
-
-            write_command oc ("Goto " ^ label3);
-            write_label oc label2;
-
-            process_program elseBody;
-
-            write_command oc ("Goto " ^ label3);
-            write_label oc label3
-          end
+        write_command oc ("Goto " ^ label3);
+        write_label oc label3
       end
-    | Ast.IfThen ((thenBody, _), (category, _), (direction, _)) -> 
+    | Ast.IfThen ((thenBody, _), (condition, _)) -> 
       begin
-        let label1 = "_label" ^ (string_of_int !currentLabel)
-        and label2 = "_label" ^ (string_of_int (!currentLabel + 1)) in
-        currentLabel := !currentLabel + 2;
+        let (_, thenLabel, elseLabel) = process_condition condition in
+        write_command oc ("Goto " ^ thenLabel);
+        write_label oc thenLabel;
+        
+        process_program thenBody;
 
-        match category with
-        | Ast.RandInt (value, _) ->
-          begin
-            let p = process_value value in
-            if p = 0 then
-              failwith "Argument in randint must be non-zero";
-            
-            match direction with
-            | Ast.Value (value, _) ->
-              begin
-                let n = process_value value in
-                if n <> 0 then
-                  failwith "Can only compare randint(p) to 0";
-                
-                write_command oc ("Flip " ^ (string_of_int p) ^ " " ^ label1 ^ " " ^ label2);
-                write_label oc label1;
-
-                process_program thenBody;
-                
-                write_command oc ("Goto " ^ label2);
-                write_label oc label2
-              end
-            | _ -> failwith "Can only compare randint(p) to 0"
-          end
-        | _ ->
-          begin
-            write_command oc ("Sense " ^ (get_direction direction) ^ " " ^ label1 ^ " " ^ label2 ^ " " ^ (get_condition category));
-            write_label oc label1;
-
-            process_program thenBody;
-
-            write_command oc ("Goto " ^ label2);
-            write_label oc label2;
-          end
+        write_command oc ("Goto " ^ elseLabel);
+        write_label oc elseLabel
       end
     | Ast.Func ((name, _), (args, _), (funcBody, _)) -> 
       begin (* assuming there is no args for now *)
@@ -227,7 +239,8 @@ let compile_file path program =
         end;
         
         inFunction := true;
-
+        
+        write_command oc ("Goto " ^ name);
         write_label oc name;
         process_program funcBody;
         write_command oc ("Goto " ^ name);
@@ -239,27 +252,16 @@ let compile_file path program =
         functions := List.tl !functions;
         inFunction := false
       end
-    | Ast.While ((category, _), (direction, _), (whileBody, _)) ->
+    | Ast.While ((condition, _), (whileBody, _)) ->
       begin
-        let label1 = "_label" ^ (string_of_int !currentLabel)
-        and label2 = "_label" ^ (string_of_int (!currentLabel + 1))
-        and label3 = "_label" ^ (string_of_int (!currentLabel + 2)) in
-        match category with
-        | Ast.RandInt (value, _) -> 
-          begin
-          end
-        | _ ->
-          begin
-            write_command oc ("Goto " ^ label1);
-            write_label oc label1;
-            write_command oc ("Sense " ^ (get_direction direction) ^ " " ^ label2 ^ " " ^ label3 ^ (get_condition category));
-            write_label oc label2;
+        let (whileLabel, thenLabel, elseLabel) = process_condition condition in
+        write_command oc ("Goto " ^ thenLabel);
+        write_label oc thenLabel;
+        
+        process_program whileBody;
 
-            process_program whileBody;
-            
-            write_command oc ("Goto " ^ label1);
-            write_label oc label3
-          end
+        write_command oc ("Goto " ^ whileLabel);
+        write_label oc elseLabel
       end
     | Ast.Repeat ((value, _), (repeatBody, _)) ->
       begin (* for now assume cond is a number *)
@@ -273,18 +275,23 @@ let compile_file path program =
   and process_expression expression =
     match expression with
     | Ast.Args (value, _) -> ()
-    | Ast.Move (value, _) ->
+    | Ast.Move ((value, _), (onErrorOption, _)) ->
       begin
         let num = process_value value in
         let label = "_label" ^ (string_of_int (!currentLabel)) in
+        let labelOnError = 
+          match onErrorOption with
+          | Some l -> l
+          | None -> label in
+
         for i = 1 to num do
-          write_command oc ("Move " ^ label) 
+          write_command oc ("Move " ^ labelOnError) 
         done;
 
-        write_command oc ("Goto "^ label);
-        write_label oc label;
+        currentLabel := !currentLabel + 1;
 
-        currentLabel := !currentLabel + 1
+        write_command oc ("Goto " ^ label);
+        write_label oc label
       end
     | Ast.Turn (value, _) -> 
       begin

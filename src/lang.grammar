@@ -10,17 +10,17 @@ type preprocessor =
 
 type control =
 	| Label									<ident>:
-	| IfThenElse							if(<category> is <direction> ) then {<program>} else {<program>}
-	| IfThen								do {<program>} if(<category> is <direction>)
+	| IfThenElse							if(<condition>) then {<program>} else {<program>}
+	| IfThen								do {<program>} if(<condition>)
 	| Func									func <ident>(<ident*,>) {<program>}
-	| While									while(<category> is <direction>) {<program>}
+	| While									while(<condition>) {<program>}
 	| Repeat								repeat(<value>) times {<program>}
 	| Case									case <direction>: <program>
 	| Switch								test(<category>) in {<program>}
 
 type expression =
 	| Args									args[<value>]
-	| Move									move(<value>)
+	| Move									move(<value>, <ident?>)
 	| Turn									turn(<value>)
 	| PickUp								pickup(<ident>)
 	| Drop									drop()
@@ -36,8 +36,11 @@ type value =
 	| Var									<ident>
 	| Int									<int>
 
+type condition =
+	| Is									<category> is <direction>
+	| RandInt								randint(<value>) is <int>
+
 type direction =
-	| Value									<value>
 	| Ahead									ahead
 	| Left									left
 	| Right									right
@@ -45,15 +48,15 @@ type direction =
 
 type category =
 	| Friend								friend
-	| Foe										foe
-	| FriendWithFood				friendWithFood
-	| FoeWithFood						foeWithFood
+	| Foe									foe
+	| FriendWithFood						friendWithFood
+	| FoeWithFood							foeWithFood
 	| Food									food
 	| Rock									rock
 	| Marker								bit(<value>)
-	| FoeMarker							foeMarker
+	| FoeMarker								foeMarker
 	| Home									home
 	| FoeHome								foeHome
-	| RandInt								randint(<value>)
-	| Or								or(<category>, <category>)
-	| And								and(<category>, <category>)
+	| Or									or(<category>, <category>)
+	| And									and(<category>, <category>)
+	| Not									not(<category>)
