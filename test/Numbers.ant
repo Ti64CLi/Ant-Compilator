@@ -70,449 +70,387 @@ define SixFour as 64;
 
 
 
-func ReadNumber(label0,label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15,label16,label17,label18,label19,label20,label21,label22,label23,label24,label25,label26,label27,label28,label29,label30,label31,label32,label33,label34,label35,label36,label37,label38,label39,label40,label41,label42,label43,label44,label45,label46,label47,label48,label49,label50,label51,label52,label53,label54,label55,label56,label57,label58,label59,label60,label61,label61,label62,label63,){
-    test (is(bit(0),here)) in {
-        case 0 :{
-            test (is(bit(1),here)) in {
-                case 0 :{
-                    test (is(bit(2),here)) in {
-                        case 0 :{
-                            test (is(bit(3),here)) in {
-                                case 0 :{
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label0
-                                                }
-                                                case 1 : {
-                                                    goto label32
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label16
-                                                }
-                                                case 1 : {
-                                                    goto label48
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                case 1 : {
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label8
-                                                }
-                                                case 1 : {
-                                                    goto label40
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label24
-                                                }
-                                                case 1 : {
-                                                    goto label56
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+func ReadNumber() {
+    if (bit(5) is 0)
+    then {
+        if (bit(4) is 0)
+        then {
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &0
                         }
-                        case 1 : {
-                            test (is(bit(3),here)) in {
-                                case 0 :{
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label4
-                                                }
-                                                case 1 : {
-                                                    goto label36
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label20
-                                                }
-                                                case 1 : {
-                                                    goto label52
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                case 1 : {
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label12
-                                                }
-                                                case 1 : {
-                                                    goto label44
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label28
-                                                }
-                                                case 1 : {
-                                                    goto label60
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                        else {  
+                            &1
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &2
+                        }
+                        else {  
+                            &3
                         }
                     }
                 }
-                case 1 : {
-                    test (is(bit(2),here)) in {
-                        case 0 :{
-                            test (is(bit(3),here)) in {
-                                case 0 :{
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label2
-                                                }
-                                                case 1 : {
-                                                    goto label34
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label18
-                                                }
-                                                case 1 : {
-                                                    goto label50
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                case 1 : {
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label10
-                                                }
-                                                case 1 : {
-                                                    goto label42
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label26
-                                                }
-                                                case 1 : {
-                                                    goto label58
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &4
                         }
-                        case 1 : {
-                            test (is(bit(3),here)) in {
-                                case 0 :{
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label6
-                                                }
-                                                case 1 : {
-                                                    goto label38
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label22
-                                                }
-                                                case 1 : {
-                                                    goto label54
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                case 1 : {
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label14
-                                                }
-                                                case 1 : {
-                                                    goto label46
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                                    goto label30
-                                                }
-                                                case 1 : {
-                                                    goto label62
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                        else {  
+                            &5
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &6
+                        }
+                        else {  
+                            &7
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &8
+                        }
+                        else {  
+                            &9
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &10
+                        }
+                        else {  
+                            &11
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &12
+                        }
+                        else {  
+                            &13
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &14
+                        }
+                        else {  
+                            &15
                         }
                     }
                 }
             }
         }
-        case 1 : {
-            test (is(bit(1),here)) in {
-                case 0 :{
-                    test (is(bit(2),here)) in {
-                        case 0 :{
-                            test (is(bit(3),here)) in {
-                                case 0 :{
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                case 1 : {
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+        else {  
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &16
                         }
-                        case 1 : {
-                            test (is(bit(3),here)) in {
-                                case 0 :{
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                case 1 : {
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                        else {  
+                            &17
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &18
+                        }
+                        else {  
+                            &19
                         }
                     }
                 }
-                case 1 : {
-                    test (is(bit(2),here)) in {
-                        case 0 :{
-                            test (is(bit(3),here)) in {
-                                case 0 :{
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                case 1 : {
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &20
                         }
-                        case 1 : {
-                            test (is(bit(3),here)) in {
-                                case 0 :{
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                case 1 : {
-                                    test (is(bit(4),here)) in {
-                                        case 0 :{
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                        case 1 : {
-                                            test (is(bit(5),here)) in {
-                                                case 0 :{
-                                
-                                                }
-                                                case 1 : {
-                                            
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                        else {  
+                            &21
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &22
+                        }
+                        else {  
+                            &23
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &24
+                        }
+                        else {  
+                            &25
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &26
+                        }
+                        else {  
+                            &27
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &28
+                        }
+                        else {  
+                            &29
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &30
+                        }
+                        else {  
+                            &31
                         }
                     }
                 }
             }
         }
     }
+    else {
+        if (bit(4) is 0)
+        then {
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &32
+                        }
+                        else {  
+                            &33
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &34
+                        }
+                        else {  
+                            &35
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &36
+                        }
+                        else {  
+                            &37
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &38
+                        }
+                        else {  
+                            &39
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &40
+                        }
+                        else {  
+                            &41
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &42
+                        }
+                        else {  
+                            &43
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &44
+                        }
+                        else {  
+                            &45
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &46
+                        }
+                        else {  
+                            &47
+                        }
+                    }
+                }
+            }
+        }
+        else {  
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &48
+                        }
+                        else {  
+                            &49
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &50
+                        }
+                        else {  
+                            &51
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &52
+                        }
+                        else {  
+                            &53
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &54
+                        }
+                        else {  
+                            &55
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &56
+                        }
+                        else {  
+                            &57
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &58
+                        }
+                        else {  
+                            &59
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            &60
+                        }
+                        else {  
+                            &61
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            &62
+                        }
+                        else {  
+                            &63
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return;
 }
 
 
@@ -679,120 +617,120 @@ func Write17() {
 }
 
 func Write18() {
-    mark(0)
+    unmark(0)
     mark(1)
-    mark(2)
-    mark(3)
+    unmark(2)
+    unmark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write19() {
     mark(0)
     mark(1)
-    mark(2)
-    mark(3)
+    unmark(2)
+    unmark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write20() {
-    mark(0)
-    mark(1)
+    unmark(0)
+    unmark(1)
     mark(2)
-    mark(3)
+    unmark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write21() {
     mark(0)
-    mark(1)
+    unmark(1)
     mark(2)
-    mark(3)
+    unmark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write22() {
-    mark(0)
+    unmark(0)
     mark(1)
     mark(2)
-    mark(3)
+    unmark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write23() {
     mark(0)
     mark(1)
     mark(2)
-    mark(3)
+    unmark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write24() {
-    mark(0)
-    mark(1)
-    mark(2)
+    unmark(0)
+    unmark(1)
+    unmark(2)
     mark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write25() {
     mark(0)
-    mark(1)
-    mark(2)
+    unmark(1)
+    unmark(2)
     mark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write26() {
-    mark(0)
+    unmark(0)
     mark(1)
-    mark(2)
+    unmark(2)
     mark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write27() {
     mark(0)
     mark(1)
-    mark(2)
+    unmark(2)
     mark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write28() {
-    mark(0)
-    mark(1)
+    unmark(0)
+    unmark(1)
     mark(2)
     mark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write29() {
     mark(0)
-    mark(1)
+    unmark(1)
     mark(2)
     mark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write30() {
-    mark(0)
+    unmark(0)
     mark(1)
     mark(2)
     mark(3)
     mark(4)
-    mark(5)
+    unmark(5)
 }
 
 func Write31() {
@@ -801,11 +739,281 @@ func Write31() {
     mark(2)
     mark(3)
     mark(4)
+    unmark(5)
+}
+
+func Write0() {
+    unmark(0)
+    unmark(1)
+    unmark(2)
+    unmark(3)
+    unmark(4)
+nmark(5)
+}
+
+func Write1() {
+    mark(0)
+    unmark(1)
+    unmark(2)
+    unmark(3)
+    unmark(4)
+nmark(5)
+}
+
+func Write2() {
+    unmark(0)
+    mark(1)
+    unmark(2)
+    unmark(3)
+    unmark(4)
+nmark(5)
+}
+
+func Write3() {
+    mark(0)
+    mark(1)
+    unmark(2)
+    unmark(3)
+    unmark(4)
+nmark(5)
+}
+
+func Write4() {
+    unmark(0)
+    unmark(1)
+    mark(2)
+    unmark(3)
+    unmark(4)
+nmark(5)
+}
+
+func Write5() {
+    mark(0)
+    unmark(1)
+    mark(2)
+    unmark(3)
+    unmark(4)
+nmark(5)
+}
+
+func Write6() {
+    unmark(0)
+    mark(1)
+    mark(2)
+    unmark(3)
+    unmark(4)
+nmark(5)
+}
+
+func Write7() {
+    mark(0)
+    mark(1)
+    mark(2)
+    unmark(3)
+    unmark(4)
+nmark(5)
+}
+
+func Write8() {
+    unmark(0)
+    unmark(1)
+    unmark(2)
+    mark(3)
+    unmark(4)
+nmark(5)
+}
+
+func Write9() {
+    mark(0)
+    unmark(1)
+    unmark(2)
+    mark(3)
+    unmark(4)
+nmark(5)
+}
+
+func Write10() {
+    unmark(0)
+    mark(1)
+    unmark(2)
+    mark(3)
+    unmark(4)
     mark(5)
 }
 
-func Write32() {
+func Write11() {
     mark(0)
+    mark(1)
+    unmark(2)
+    mark(3)
+    unmark(4)
+    mark(5)
+}
+
+func Write12() {
+    unmark(0)
+    unmark(1)
+    mark(2)
+    mark(3)
+    unmark(4)
+    mark(5)
+}
+
+func Write13() {
+    mark(0)
+    unmark(1)
+    mark(2)
+    mark(3)
+    unmark(4)
+    mark(5)
+}
+
+func Write14() {
+    unmark(0)
+    mark(1)
+    mark(2)
+    mark(3)
+    unmark(4)
+    mark(5)
+}
+
+func Write15() {
+    mark(0)
+    mark(1)
+    mark(2)
+    mark(3)
+    unmark(4)
+    mark(5)
+}
+
+func Write16() {
+    munark(0)
+    unmark(1)
+    unmark(2)
+    unmark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write17() {
+    mark(0)
+    unmark(1)
+    unmark(2)
+    unmark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write18() {
+    unmark(0)
+    mark(1)
+    unmark(2)
+    unmark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write19() {
+    mark(0)
+    mark(1)
+    unmark(2)
+    unmark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write20() {
+    unmark(0)
+    unmark(1)
+    mark(2)
+    unmark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write21() {
+    mark(0)
+    unmark(1)
+    mark(2)
+    unmark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write22() {
+    unmark(0)
+    mark(1)
+    mark(2)
+    unmark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write23() {
+    mark(0)
+    mark(1)
+    mark(2)
+    unmark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write24() {
+    unmark(0)
+    unmark(1)
+    unmark(2)
+    mark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write25() {
+    mark(0)
+    unmark(1)
+    unmark(2)
+    mark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write26() {
+    unmark(0)
+    mark(1)
+    unmark(2)
+    mark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write27() {
+    mark(0)
+    mark(1)
+    unmark(2)
+    mark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write28() {
+    unmark(0)
+    unmark(1)
+    mark(2)
+    mark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write29() {
+    mark(0)
+    unmark(1)
+    mark(2)
+    mark(3)
+    mark(4)
+    mark(5)
+}
+
+func Write30() {
+    unmark(0)
     mark(1)
     mark(2)
     mark(3)
@@ -813,277 +1021,7 @@ func Write32() {
     mark(5)
 }
 
-func Write33() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write34() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write35() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write36() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write37() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write38() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write39() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write40() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write41() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write42() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write43() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write44() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write45() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write46() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write47() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write48() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write49() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write50() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write51() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write52() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write53() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write54() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write55() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write56() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write57() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write58() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write59() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write60() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write61() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write62() {
-    mark(0)
-    mark(1)
-    mark(2)
-    mark(3)
-    mark(4)
-    mark(5)
-}
-
-func Write63() {
+func Write31() {
     mark(0)
     mark(1)
     mark(2)
