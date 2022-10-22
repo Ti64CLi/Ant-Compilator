@@ -1,5 +1,6 @@
 include Numbers.ants
-
+var compass = 0 in 0 1 2 3 4 5 ;
+ 
 func SearchFood() {
 
     if (food is left)
@@ -21,7 +22,7 @@ func SearchFood() {
             }
             if (food is ahead)
         }
-   } *se tourne vers là où il y a de la nouriture, si il y en a et va en pickup dans ce cas*
+   } #se tourne vers là où il y a de la nouriture, si il y en a et va en pickup dans ce cas
 
     call VerifAhead;
     Libre:
@@ -62,7 +63,7 @@ func SearchFood() {
                 }
             }
         }
-    } *marque sa direction si le chemin n est pas déjà marqué*
+    } #marque sa direction si le chemin n est pas déjà marqué
 
 
     if (friendWithFood is ahead)
@@ -75,7 +76,7 @@ func SearchFood() {
         move(1);
         call turn1;
         
-    } *contourne un allié si il y en a un sur le passage*
+    } #contourne un allié si il y en a un sur le passage
     else {
         if (rock is ahead)
         then {
@@ -85,7 +86,7 @@ func SearchFood() {
         else {
             move(1);
         }
-    } *fais demi-tour si il y a un rocher, avance sinon*
+    } #fais demi-tour si il y a un rocher, avance sinon
 }
 
 func PickUpFood (){
@@ -133,7 +134,7 @@ func PickUpFood (){
                 }
             }
         }
-    } *marque sa direction si le chemin n est pas déjà marqué*
+    } #marque sa direction si le chemin n est pas déjà marqué
 
     if (friendWithFood is ahead)
     then {
@@ -145,7 +146,7 @@ func PickUpFood (){
         move(1);
         call turn1;
         
-    } *contourne un allié si il y en a un sur le passage*
+    } #contourne un allié si il y en a un sur le passage
     else {
         if (rock is ahead)
         then {
@@ -155,12 +156,12 @@ func PickUpFood (){
         else {
             move(1);
         }
-    } *fais demi-tour si il y a un rocher, avance sinon*
+    } #fais demi-tour si il y a un rocher, avance sinon
 
-    pickup(SerachFood); *si pas de nouriture, refais une recherche*
-    call turn3; *sinon, fais demi-tour et rammene la nouriture*
+    pickup(SerachFood); #si pas de nouriture, refais une recherche
+    call turn3; #sinon, fais demi-tour et rammene la nouriture
     
-    call BackFood; *essaye de prendre de la nouriture*
+    call BackFood; #essaye de prendre de la nouriture
 }
 
 func BackFood () {
@@ -213,8 +214,8 @@ func BackFood () {
                 }
             }
         }
-    } *suivit du chemin de retour*
-    *le numéro du bit à tester dépend de l orientation de la fourmi*
+    } #suivit du chemin de retour
+    #le numéro du bit à tester dépend de l orientation de la fourmi
     move(1);
 }
 
@@ -360,32 +361,32 @@ func DirAlea() {
 
 func turn1 () {
     turn(1);
-    varif (compass is 0 )
+    var if  x == 0
     then {
-        compass = 1;
+        var compass = 1 ;
     }
     else {
-        varif (compass is 1)
+        var if  compass == 1
         then {
-            compass = 2;
+            var compass = 2 ;
         }
         else {
-            varif (compass is 2)
+            var if  compass == 2
             then {
-                compass = 3;
+                var compass = 3 ;
             }
             else {
-                varif (compass is 3)
+                var if  compass == 3
                 then {
-                    compass = 4;
+                    var compass = 4 ; 
                 }
                 else {
-                    varif (compass is 4)
+                    var if  compass == 4
                     then {
-                        compass = 5;
+                        var compass = 5 ;
                     }
                     else {
-                        compass = 0;
+                        var compass = 0 ;
                     }
                 }   
             }
@@ -396,32 +397,32 @@ func turn1 () {
 
 func turn2 () {
     turn(2);
-    varif (compass is 0 )
+    var if compass == 0 
     then {
-        compass = 2;
+        var compass = 2 ;
     }
     else {
-        varif (compass is 1)
+        var if compass == 1
         then {
-            compass = 3;
+            var compass = 3 ;
         }
         else {
-            varif (compass is 2)
+            var if compass == 2
             then {
-                compass = 4;
+                var compass = 4 ;
             }
             else {
-                varif (compass is 3)
+                var if compass == 3
                 then {
-                    compass = 5;
+                    var compass = 5 ;
                 }
                 else {
-                    varif (compass is 4)
+                    var if compass == 4
                     then {
-                        compass = 0;
+                        var compass = 0 ;
                     }
                     else {
-                        compass = 1;
+                        var compass = 1 ;
                     }
                 }   
             }
@@ -431,32 +432,32 @@ func turn2 () {
 
 func turn3 () {
     turn(3);
-    varif (compass is 0 )
+    var if compass == 0 
     then {
-        compass = 3;
+        var compass = 3 ;
     }
     else {
-        varif (compass is 1)
+        var if compass == 1
         then {
-            compass = 4;
+            var compass = 4 ;
         }
         else {
-            varif (compass is 2)
+            var if compass == 2
             then {
-                compass = 5;
+                var compass = 5 ;
             }
             else {
-                varif (compass is 3)
+                var if compass == 3
                 then {
-                    compass = 0;
+                    var compass = 0 ;
                 }
                 else {
-                    varif (compass is 4)
+                    var if compass == 4
                     then {
-                        compass = 1;
+                        var compass = 1 ;
                     }
                     else {
-                        compass = 2;
+                        var compass = 2 ;
                     }
                 }   
             }
@@ -466,32 +467,32 @@ func turn3 () {
 
 func turn4 () {
     turn(4);
-    varif (compass is 0 )
+    var if compass == 0 
     then {
-        compass = 4;
+        var compass = 4 ;
     }
     else {
-        varif (compass is 1)
+        var if compass == 1
         then {
-            compass = 5;
+            var compass = 5 ;
         }
         else {
-            varif (compass is 2)
+            var if compass == 2
             then {
                 compass =0;
             }
             else {
-                varif (compass is 3)
+                var if compass == 3
                 then {
-                    compass = 1;
+                    var compass = 1 ;
                 }
                 else {
-                    varif (compass is 4)
+                    var if compass == 4
                     then {
-                        compass = 2;
+                        var compass = 2 ;
                     }
                     else {
-                        compass = 3;
+                        var compass = 3 ;
                     }
                 }   
             }
@@ -501,36 +502,35 @@ func turn4 () {
 
 func turn5 () {
     turn(5);
-    varif (compass is 0 )
+    var if compass == 0 
     then {
-        compass = 5;
+        var compass = 5 ;
     }
     else {
-        varif (compass is 1)
+        var if compass == 1
         then {
-            compass = 0;
+            var compass = 0 ;
         }
         else {
-            varif (compass is 2)
+            var if compass == 2
             then {
-                compass = 1;
+                var compass = 1 ;
             }
             else {
-                varif (compass is 3)
+                var if compass == 3
                 then {
-                    compass = 2;
+                    var compass = 2 ;
                 }
                 else {
-                    varif (compass is 4)
+                    var if compass == 4
                     then {
-                        compass = 3;
+                        var compass = 3 ;
                     }
                     else {
-                        compass = 4;
+                        var compass = 4 ;
                     }
                 }   
             }
         }
     }
-}
-
+} 
