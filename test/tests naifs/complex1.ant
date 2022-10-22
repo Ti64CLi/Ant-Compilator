@@ -1,32 +1,30 @@
+include Numbers.ants
 
-
-func #ASearchFood() {
+func SearchFood() {
 
     if (food is left)
     then {
-        turn(5);
-        goto #F;
-        #A:
-        call #APickUpFood;
+        call turn5;
+        
+        call PickUpFood;
     }
     else {
         if (food is right)
         then {
-            turn(1);
-            goto #B;
-            #A:
-            call #APickUpFood;
+            call turn1;
+            
+            call PickUpFood;
         }
         else {
             do {
-                call #APickUpFood;
+                call PickUpFood;
             }
             if (food is ahead)
         }
    } *se tourne vers là où il y a de la nouriture, si il y en a et va en pickup dans ce cas*
 
-    call #AVerifAhead;
-    #ALibre:
+    call VerifAhead;
+    Libre:
 
     if (bit(!00) is here)
     then {
@@ -69,24 +67,20 @@ func #ASearchFood() {
 
     if (friendWithFood is ahead)
     then {
-        turn(1);
-        goto #B;
-        #A:
+        call turn1;
+        
         move(1);
-        turn(5);
-        goto #F;
-        #A:
+        call turn5;
+        
         move(1);
-        turn(1);
-        goto #B;
-        #A:
+        call turn1;
+        
     } *contourne un allié si il y en a un sur le passage*
     else {
         if (rock is ahead)
         then {
-            turn(3);
-            goto #D;
-            #A:
+            call turn3;
+            
         }
         else {
             move(1);
@@ -94,7 +88,7 @@ func #ASearchFood() {
     } *fais demi-tour si il y a un rocher, avance sinon*
 }
 
-func #APickUpFood (){
+func PickUpFood (){
     if (bit(!00) is here)
     then {
         nop;
@@ -143,44 +137,38 @@ func #APickUpFood (){
 
     if (friendWithFood is ahead)
     then {
-        turn(1);
-        goto #B;
-        #A:
+        call turn1;
+        
         move(1);
-        turn(5);
-        goto #F;
-        #A:
+        call turn5;
+        
         move(1);
-        turn(1);
-        goto #B;
-        #A:
+        call turn1;
+        
     } *contourne un allié si il y en a un sur le passage*
     else {
         if (rock is ahead)
         then {
-            turn(3);
-            goto #D;
-            #A:
+            call turn3;
+            
         }
         else {
             move(1);
         }
     } *fais demi-tour si il y a un rocher, avance sinon*
 
-    pickup(#ASerachFood); *si pas de nouriture, refais une recherche*
-    turn(3); *sinon, fais demi-tour et rammene la nouriture*
-    goto #D;
-    #A:
-    call #ABackFood; *essaye de prendre de la nouriture*
+    pickup(SerachFood); *si pas de nouriture, refais une recherche*
+    call turn3; *sinon, fais demi-tour et rammene la nouriture*
+    
+    call BackFood; *essaye de prendre de la nouriture*
 }
 
-func #ABackFood () {
+func BackFood () {
     do {
         drop();
-        turn(3);
-        goto #D;
-        #A:
-        call #ASerachFood;
+        call turn3;
+        
+        call SerachFood;
     }
     if (home is here)
 
@@ -191,37 +179,32 @@ func #ABackFood () {
     else {
         if (bit(!01) is here)
         then {
-            turn(1);
-            goto #B;
-            #A:
+            call turn1;
+            
         }
         else {
             if (bit(!02) is here)
             then {
-                turn(2);
-                goto #C;
-                #A:
+                call turn2;
+                
             }
             else {
                 if (bit(!03) is here)
                 then {
-                    turn(3);
-                    goto #D;
-                    #A:
+                    call turn3;
+                    
                 }
                 else {
                     if (bit(!04) is here)
                     then {
-                        turn(4);
-                        goto #E;
-                        #A:
+                        call turn4;
+                        
                     }
                     else {
                         if (bit(!05) is here)
                         then {
-                            turn(5);
-                            goto #F;
-                            #A:
+                            call turn5;
+                            
                         }
                         else {
                             nop;
@@ -235,35 +218,35 @@ func #ABackFood () {
     move(1);
 }
 
-func #AVerifAhead() {
+func VerifAhead() {
     if (bit(!00) is ahead)
     then {
-        call #AVerifRight;
+        call VerifRight;
     }
     else {
         if (bit(!01) is ahead)
         then {
-            call #AVerifRight;
+            call VerifRight;
         }
         else {
             if (bit(!02) is ahead)
             then {
-                call #AVerifRight;
+                call VerifRight;
             }
             else {   
                 if (bit(!03) is ahead)
                 then {
-                    call #AVerifRight;
+                    call VerifRight;
                 }
                 else {   
                     if (bit(!04) is ahead)
                     then {
-                        call #AVerifRight;
+                        call VerifRight;
                     }
                     else {   
                         if (bit(!05) is ahead)
                         then {
-                            call #AVerifRight;
+                            call VerifRight;
                         }
                         else {   
                             goto libre;
@@ -275,40 +258,39 @@ func #AVerifAhead() {
     }
 }
 
-func #AVerifRight() {
+func VerifRight() {
     if (bit(!00) is right)
     then {
-        call #AVerifleft;
+        call Verifleft;
     }
     else {
         if (bit(!01) is right)
         then {
-            call #AVerifleft;
+            call Verifleft;
         }
         else {
             if (bit(!02) is right)
             then {
-                call #AVerifleft;
+                call Verifleft;
             }
             else {   
                 if (bit(!03) is right)
                 then {
-                    call #AVerifleft;
+                    call Verifleft;
                 }
                 else {   
                     if (bit(!04) is right)
                     then {
-                        call #AVerifleft;
+                        call Verifleft;
                     }
                     else {   
                         if (bit(!05) is right)
                         then {
-                            call #AVerifleft;
+                            call Verifleft;
                         }
                         else {   
-                            turn(1);
-                            goto #B;
-                            #A:
+                            call turn1;
+                            
                             goto libre;
                         }
                     }
@@ -318,41 +300,40 @@ func #AVerifRight() {
     }
 }
 
-func #AVerifLeft() {
+func VerifLeft() {
     if (bit(!00) is left)
     then {
-        call #ADirAlea;
+        call DirAlea;
     }
     else {
         if (bit(!01) is left)
         then {
-            call #ADirAlea;
+            call DirAlea;
         }
         else {
             if (bit(!02) is left)
             then {
-                call #ADirAlea;
+                call DirAlea;
             }
             else {   
                 if (bit(!03) is left)
                 then {
-                    call #ADirAlea;
+                    call DirAlea;
                 }
                 else {   
                     if (bit(!04) is left)
                     then {
-                        call #ADirAlea;
+                        call DirAlea;
                     }
                     else {   
                         if (bit(!05) is left)
                         then {
-                            call #ADirAlea;
+                            call DirAlea;
                         }
                         else {
-                            turn(5);
-                            goto #F;
-                            #A:
-                            goto #ALibre;
+                            call turn5;
+                            
+                            goto Libre;
                         }
                     }
                 }
@@ -361,20 +342,195 @@ func #AVerifLeft() {
     }
 }
 
-func #ADirAlea() {
+func DirAlea() {
     do {
-        turn(1);
-        goto #B;
-        #A:
-        goto #ALibre;
+        call turn1;
+        
+        goto Libre;
     }
     if (randint(3) is 0)
     do {
-        turn(5);
-        goto #F;
-        #A:
-        goto #ALibre;
+        call turn5;
+        
+        goto Libre;
     }
     if (randint(2) is 0)
-    goto #ALibre;
+    goto Libre;
 }
+
+func turn1 () {
+    turn(1);
+    varif (compass is 0 )
+    then {
+        compass = 1;
+    }
+    else {
+        varif (compass is 1)
+        then {
+            compass = 2;
+        }
+        else {
+            varif (compass is 2)
+            then {
+                compass = 3;
+            }
+            else {
+                varif (compass is 3)
+                then {
+                    compass = 4;
+                }
+                else {
+                    varif (compass is 4)
+                    then {
+                        compass = 5;
+                    }
+                    else {
+                        compass = 0;
+                    }
+                }   
+            }
+        }
+    }
+    return;
+}
+
+func turn2 () {
+    turn(2);
+    varif (compass is 0 )
+    then {
+        compass = 2;
+    }
+    else {
+        varif (compass is 1)
+        then {
+            compass = 3;
+        }
+        else {
+            varif (compass is 2)
+            then {
+                compass = 4;
+            }
+            else {
+                varif (compass is 3)
+                then {
+                    compass = 5;
+                }
+                else {
+                    varif (compass is 4)
+                    then {
+                        compass = 0;
+                    }
+                    else {
+                        compass = 1;
+                    }
+                }   
+            }
+        }
+    }
+}
+
+func turn3 () {
+    turn(3);
+    varif (compass is 0 )
+    then {
+        compass = 3;
+    }
+    else {
+        varif (compass is 1)
+        then {
+            compass = 4;
+        }
+        else {
+            varif (compass is 2)
+            then {
+                compass = 5;
+            }
+            else {
+                varif (compass is 3)
+                then {
+                    compass = 0;
+                }
+                else {
+                    varif (compass is 4)
+                    then {
+                        compass = 1;
+                    }
+                    else {
+                        compass = 2;
+                    }
+                }   
+            }
+        }
+    }
+}
+
+func turn4 () {
+    turn(4);
+    varif (compass is 0 )
+    then {
+        compass = 4;
+    }
+    else {
+        varif (compass is 1)
+        then {
+            compass = 5;
+        }
+        else {
+            varif (compass is 2)
+            then {
+                compass =0;
+            }
+            else {
+                varif (compass is 3)
+                then {
+                    compass = 1;
+                }
+                else {
+                    varif (compass is 4)
+                    then {
+                        compass = 2;
+                    }
+                    else {
+                        compass = 3;
+                    }
+                }   
+            }
+        }
+    }
+}
+
+func turn5 () {
+    turn(5);
+    varif (compass is 0 )
+    then {
+        compass = 5;
+    }
+    else {
+        varif (compass is 1)
+        then {
+            compass = 0;
+        }
+        else {
+            varif (compass is 2)
+            then {
+                compass = 1;
+            }
+            else {
+                varif (compass is 3)
+                then {
+                    compass = 2;
+                }
+                else {
+                    varif (compass is 4)
+                    then {
+                        compass = 3;
+                    }
+                    else {
+                        compass = 4;
+                    }
+                }   
+            }
+        }
+    }
+}
+

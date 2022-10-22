@@ -41,12 +41,7 @@ func SearchFood() {
     }
 }
 
-<<<<<<< HEAD
-
-func BackFood() {
-=======
 func BackFood () {
->>>>>>> 587613796a13c75323d955768a7974b36f1dd28f
     do {
         drop();
         turn(3);
