@@ -68,7 +68,7 @@ define SixFour as 64;
 
 
 
-
+var n = 0 in 0 1 2 3 4 5 6 7 8 9 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 ;
 
 func ReadNumber() {
     if (bit(5) is 0)
@@ -83,19 +83,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &0
+                            var n = 0 ;
                         }
                         else {  
-                            &1
+                            var n = 1 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &2
+                            var n = 2 ;
                         }
                         else {  
-                            &3
+                            var n = 3 ;
                         }
                     }
                 }
@@ -104,19 +104,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &4
+                            var n = 4 ;
                         }
                         else {  
-                            &5
+                            var n = 5 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &6
+                            var n = 6 ;
                         }
                         else {  
-                            &7
+                            var n = 7 ;
                         }
                     }
                 }
@@ -128,19 +128,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &8
+                            var n = 8 ;
                         }
                         else {  
-                            &9
+                            var n = 9 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &10
+                            var n = 10 ;
                         }
                         else {  
-                            &11
+                            var n = 11 ;
                         }
                     }
                 }
@@ -149,19 +149,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &12
+                            var n = 12 ;
                         }
                         else {  
-                            &13
+                            var n = 13 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &14
+                            var n = 14 ;
                         }
                         else {  
-                            &15
+                            var n = 15 ;
                         }
                     }
                 }
@@ -176,19 +176,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &16
+                            var n = 16 ;
                         }
                         else {  
-                            &17
+                            var n = 17 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &18
+                            var n = 18 ;
                         }
                         else {  
-                            &19
+                            var n = 19 ;
                         }
                     }
                 }
@@ -197,19 +197,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &20
+                            var n = 20 ;
                         }
                         else {  
-                            &21
+                            var n = 21 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &22
+                            var n = 22 ;
                         }
                         else {  
-                            &23
+                            var n = 23 ;
                         }
                     }
                 }
@@ -221,19 +221,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &24
+                            var n = 24 ;
                         }
                         else {  
-                            &25
+                            var n = 25 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &26
+                            var n = 26 ;
                         }
                         else {  
-                            &27
+                            var n = 27 ;
                         }
                     }
                 }
@@ -242,19 +242,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &28
+                            var n = 28 ;
                         }
                         else {  
-                            &29
+                            var n = 29 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &30
+                            var n = 30 ;
                         }
                         else {  
-                            &31
+                            var n = 31 ;
                         }
                     }
                 }
@@ -272,19 +272,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &32
+                            var n = 32 ;
                         }
                         else {  
-                            &33
+                            var n = 33 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &34
+                            var n = 34 ;
                         }
                         else {  
-                            &35
+                            var n = 35 ;
                         }
                     }
                 }
@@ -293,19 +293,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &36
+                            var n = 36 ;
                         }
                         else {  
-                            &37
+                            var n = 37 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &38
+                            var n = 38 ;
                         }
                         else {  
-                            &39
+                            var n = 39 ;
                         }
                     }
                 }
@@ -317,19 +317,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &40
+                            var n = 40 ;
                         }
                         else {  
-                            &41
+                            var n = 41 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &42
+                            var n = 42 ;
                         }
                         else {  
-                            &43
+                            var n = 43 ;
                         }
                     }
                 }
@@ -338,19 +338,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &44
+                            var n = 44 ;
                         }
                         else {  
-                            &45
+                            var n = 45 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &46
+                            var n = 46 ;
                         }
                         else {  
-                            &47
+                            var n = 47 ;
                         }
                     }
                 }
@@ -365,19 +365,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &48
+                            var n = 48 ;
                         }
                         else {  
-                            &49
+                            var n = 49 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &50
+                            var n = 50 ;
                         }
                         else {  
-                            &51
+                            var n = 51 ;
                         }
                     }
                 }
@@ -386,19 +386,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &52
+                            var n = 52 ;
                         }
                         else {  
-                            &53
+                            var n = 53 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &54
+                            var n = 54 ;
                         }
                         else {  
-                            &55
+                            var n = 55 ;
                         }
                     }
                 }
@@ -410,19 +410,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &56
+                            var n = 56 ;
                         }
                         else {  
-                            &57
+                            var n = 57 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &58
+                            var n = 58 ;
                         }
                         else {  
-                            &59
+                            var n = 59 ;
                         }
                     }
                 }
@@ -431,19 +431,19 @@ func ReadNumber() {
                     then {
                         if (bit(0) is 0)
                         then {
-                            &60
+                            var n = 60 ;
                         }
                         else {  
-                            &61
+                            var n = 61 ;
                         }
                     }
                     else {  
                         if (bit(0) is 0)
                         then {
-                            &62
+                            var n = 62 ;
                         }
                         else {  
-                            &63
+                            var n = 63 ;
                         }
                     }
                 }
