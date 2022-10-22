@@ -1,31 +1,34 @@
 test/tests naifs/naive1:
   Goto _label0
 SearchFood:
-  Mark0
+  Mark 0
   Sense LeftAhead _label0 _label1 Food
 _label0:
   Turn Left
-  Turn Left
+  Goto _label2
 _label1:
   Sense RightAhead _label3 _label4 Food
 _label3:
   Turn Right
+  Goto _label2
 _label4:
 _label2:
   Sense Ahead _label5 _label6 Friend
 _label5:
   Turn Right
   Move _label8
+  Goto _label8
 _label8:
   Turn Left
-  Turn Left
   Move _label9
+  Goto _label9
 _label9:
   Turn Right
+  Goto _label10
 _label6:
   Move _label10
+  Goto _label10
 _label10:
-_label7:
   PickUp SearchFood
   Turn Right
   Turn Right
@@ -36,14 +39,14 @@ _label11:
   Flip 2 _label14 _label15
 _label14:
   Turn Right
+  Goto _label13
 _label15:
+  Goto _label13
 _label12:
   Turn Left
-  Turn Left
+  Goto _label13
 _label13:
   Goto SearchFood
-_label0:
-  Goto _label17
 BackFood:
   Sense Here _label17 _label18 Home
 _label17:
@@ -56,14 +59,14 @@ _label18:
   Sense Here _label19 _label20 Marker 0
 _label19:
   Turn Left
-  Turn Left
+  Goto _label24
 _label20:
   Sense RightAhead _label22 _label23 Marker 0
 _label22:
   Turn Right
+  Goto _label24
 _label23:
-_label21:
   Move _label24
+  Goto _label24
 _label24:
   Goto BackFood
-_label17:

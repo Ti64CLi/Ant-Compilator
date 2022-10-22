@@ -1,0 +1,4105 @@
+codetest:
+  Goto ASearchFood
+ASearchFood:
+  Goto _label0
+_label0:
+  Goto _label1
+_label1:
+  Sense Here _label2 _label3 Marker 0
+  Goto _label2
+_label2:
+  Goto _label4
+_label3:
+  Goto _label5
+_label5:
+  Goto _label6
+_label6:
+  Sense Here _label7 _label8 Marker 1
+  Goto _label7
+_label7:
+  Goto _label9
+_label8:
+  Goto _label10
+_label10:
+  Goto _label11
+_label11:
+  Sense Here _label12 _label13 Marker 2
+  Goto _label12
+_label12:
+  Goto _label14
+_label13:
+  Goto _label15
+_label15:
+  Goto _label16
+_label16:
+  Sense Here _label17 _label18 Marker 3
+  Goto _label17
+_label17:
+  Goto _label19
+_label18:
+  Goto _label20
+_label20:
+  Goto _label21
+_label21:
+  Sense Here _label22 _label23 Marker 4
+  Goto _label22
+_label22:
+  Goto _label24
+_label23:
+  Goto _label25
+_label25:
+  Goto _label26
+_label26:
+  Sense Here _label27 _label28 Marker 5
+  Goto _label27
+_label27:
+  Goto _label29
+_label28:
+  Mark 0
+  Goto _label29
+_label29:
+  Goto _label24
+_label24:
+  Goto _label19
+_label19:
+  Goto _label14
+_label14:
+  Goto _label9
+_label9:
+  Goto _label4
+_label4:
+  Goto _label30
+_label30:
+  Goto _label31
+_label31:
+  Sense LeftAhead _label32 _label33 Food
+  Goto _label32
+_label32:
+  Turn Left
+  Goto F1
+  Goto A1
+A1:
+  Goto APickUpFood
+  Goto _label34
+_label33:
+  Goto _label35
+_label35:
+  Goto _label36
+_label36:
+  Sense RightAhead _label37 _label38 Food
+  Goto _label37
+_label37:
+  Turn Right
+  Goto B2
+  Goto A2
+A2:
+  Goto APickUpFood
+  Goto _label39
+_label38:
+  Goto _label40
+_label40:
+  Goto _label41
+_label41:
+  Sense Ahead _label42 _label43 Food
+  Goto _label42
+_label42:
+  Goto APickUpFood
+  Goto _label43
+_label43:
+  Goto _label39
+_label39:
+  Goto _label34
+_label34:
+  Goto AVerifAhead
+  Goto ALibre
+ALibre:
+  Goto _label44
+_label44:
+  Goto _label45
+_label45:
+  Sense Ahead _label46 _label47 FriendWithFood
+  Goto _label46
+_label46:
+  Goto APickUpFood
+  Goto _label48
+_label47:
+  Goto _label49
+_label49:
+  Goto _label50
+_label50:
+  Sense Ahead _label51 _label52 Rock
+  Goto _label51
+_label51:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto D3
+  Goto A3
+A3:
+  Move _label54
+  Goto _label54
+_label54:
+  Goto _label53
+_label52:
+  Move _label55
+  Goto _label55
+_label55:
+  Goto _label53
+_label53:
+  Goto _label48
+_label48:
+  Goto ASearchFood
+  Goto APickUpFood
+APickUpFood:
+  Goto _label56
+_label56:
+  Goto _label57
+_label57:
+  Sense Here _label58 _label59 Marker 0
+  Goto _label58
+_label58:
+  Goto _label60
+_label59:
+  Goto _label61
+_label61:
+  Goto _label62
+_label62:
+  Sense Here _label63 _label64 Marker 1
+  Goto _label63
+_label63:
+  Goto _label65
+_label64:
+  Goto _label66
+_label66:
+  Goto _label67
+_label67:
+  Sense Here _label68 _label69 Marker 2
+  Goto _label68
+_label68:
+  Goto _label70
+_label69:
+  Goto _label71
+_label71:
+  Goto _label72
+_label72:
+  Sense Here _label73 _label74 Marker 3
+  Goto _label73
+_label73:
+  Goto _label75
+_label74:
+  Goto _label76
+_label76:
+  Goto _label77
+_label77:
+  Sense Here _label78 _label79 Marker 4
+  Goto _label78
+_label78:
+  Goto _label80
+_label79:
+  Goto _label81
+_label81:
+  Goto _label82
+_label82:
+  Sense Here _label83 _label84 Marker 5
+  Goto _label83
+_label83:
+  Goto _label85
+_label84:
+  Mark 3
+  Goto _label85
+_label85:
+  Goto _label80
+_label80:
+  Goto _label75
+_label75:
+  Goto _label70
+_label70:
+  Goto _label65
+_label65:
+  Goto _label60
+_label60:
+  Goto _label86
+_label86:
+  Goto _label87
+_label87:
+  Sense Ahead _label88 _label89 FriendWithFood
+  Goto _label88
+_label88:
+  Turn Right
+  Goto B4
+  Goto A4
+A4:
+  Move _label90
+  Goto _label90
+_label90:
+  Turn Left
+  Goto F5
+  Goto A5
+A5:
+  Move _label91
+  Goto _label91
+_label91:
+  Turn Right
+  Goto B6
+  Goto A6
+A6:
+  Goto _label89
+_label89:
+  Goto _label92
+_label92:
+  Goto _label93
+_label93:
+  Sense Ahead _label94 _label95 Friend
+  Goto _label94
+_label94:
+  Turn Right
+  Goto B7
+  Goto A7
+A7:
+  Move _label97
+  Goto _label97
+_label97:
+  Turn Left
+  Goto F8
+  Goto A8
+A8:
+  Move _label98
+  Goto _label98
+_label98:
+  Turn Right
+  Goto B9
+  Goto A9
+A9:
+  Goto _label96
+_label95:
+  Goto _label99
+_label99:
+  Goto _label100
+_label100:
+  Sense Ahead _label101 _label102 Rock
+  Goto _label101
+_label101:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto D10
+  Goto A10
+A10:
+  Move _label104
+  Goto _label104
+_label104:
+  Goto _label103
+_label102:
+  Move _label105
+  Goto _label105
+_label105:
+  Goto _label103
+_label103:
+  Goto _label96
+_label96:
+  PickUp ASearchFood
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto D11
+  Goto A11
+A11:
+  Goto ABackFood
+  Goto APickUpFood
+  Goto ABackFood
+ABackFood:
+  Goto _label106
+_label106:
+  Goto _label107
+_label107:
+  Sense Here _label108 _label109 Home
+  Goto _label108
+_label108:
+  Drop
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto D12
+  Goto A12
+A12:
+  Goto ASearchFood
+  Goto _label109
+_label109:
+  Goto _label110
+_label110:
+  Goto _label111
+_label111:
+  Sense Here _label112 _label113 Marker 3
+  Goto _label112
+_label112:
+  Goto _label114
+_label113:
+  Goto _label115
+_label115:
+  Goto _label116
+_label116:
+  Sense Here _label117 _label118 Marker 4
+  Goto _label117
+_label117:
+  Turn Right
+  Goto B13
+  Goto A13
+A13:
+  Goto _label119
+_label118:
+  Goto _label120
+_label120:
+  Goto _label121
+_label121:
+  Sense Here _label122 _label123 Marker 5
+  Goto _label122
+_label122:
+  Turn Right
+  Turn Right
+  Goto C14
+  Goto A14
+A14:
+  Goto _label124
+_label123:
+  Goto _label125
+_label125:
+  Goto _label126
+_label126:
+  Sense Here _label127 _label128 Marker 0
+  Goto _label127
+_label127:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto D15
+  Goto A15
+A15:
+  Goto _label129
+_label128:
+  Goto _label130
+_label130:
+  Goto _label131
+_label131:
+  Sense Here _label132 _label133 Marker 1
+  Goto _label132
+_label132:
+  Turn Left
+  Turn Left
+  Goto E16
+  Goto A16
+A16:
+  Goto _label134
+_label133:
+  Goto _label135
+_label135:
+  Goto _label136
+_label136:
+  Sense Here _label137 _label138 Marker 2
+  Goto _label137
+_label137:
+  Turn Left
+  Goto F17
+  Goto A17
+A17:
+  Goto _label139
+_label138:
+  Goto _label139
+_label139:
+  Goto _label134
+_label134:
+  Goto _label129
+_label129:
+  Goto _label124
+_label124:
+  Goto _label119
+_label119:
+  Goto _label114
+_label114:
+  Move _label140
+  Goto _label140
+_label140:
+  Goto ABackFood
+  Goto AVerifAhead
+AVerifAhead:
+  Goto _label141
+_label141:
+  Goto _label142
+_label142:
+  Sense Ahead _label143 _label144 Marker 0
+  Goto _label143
+_label143:
+  Goto AVerifRight
+  Goto _label145
+_label144:
+  Goto _label146
+_label146:
+  Goto _label147
+_label147:
+  Sense Ahead _label148 _label149 Marker 1
+  Goto _label148
+_label148:
+  Goto AVerifRight
+  Goto _label150
+_label149:
+  Goto _label151
+_label151:
+  Goto _label152
+_label152:
+  Sense Ahead _label153 _label154 Marker 2
+  Goto _label153
+_label153:
+  Goto AVerifRight
+  Goto _label155
+_label154:
+  Goto _label156
+_label156:
+  Goto _label157
+_label157:
+  Sense Ahead _label158 _label159 Marker 3
+  Goto _label158
+_label158:
+  Goto AVerifRight
+  Goto _label160
+_label159:
+  Goto _label161
+_label161:
+  Goto _label162
+_label162:
+  Sense Ahead _label163 _label164 Marker 4
+  Goto _label163
+_label163:
+  Goto AVerifRight
+  Goto _label165
+_label164:
+  Goto _label166
+_label166:
+  Goto _label167
+_label167:
+  Sense Ahead _label168 _label169 Marker 5
+  Goto _label168
+_label168:
+  Goto AVerifRight
+  Goto _label170
+_label169:
+  Goto ALibre
+  Goto _label170
+_label170:
+  Goto _label165
+_label165:
+  Goto _label160
+_label160:
+  Goto _label155
+_label155:
+  Goto _label150
+_label150:
+  Goto _label145
+_label145:
+  Goto AVerifAhead
+  Goto AVerifRight
+AVerifRight:
+  Goto _label171
+_label171:
+  Goto _label172
+_label172:
+  Sense RightAhead _label173 _label174 Marker 0
+  Goto _label173
+_label173:
+  Goto AVerifLeft
+  Goto _label175
+_label174:
+  Goto _label176
+_label176:
+  Goto _label177
+_label177:
+  Sense RightAhead _label178 _label179 Marker 1
+  Goto _label178
+_label178:
+  Goto AVerifLeft
+  Goto _label180
+_label179:
+  Goto _label181
+_label181:
+  Goto _label182
+_label182:
+  Sense RightAhead _label183 _label184 Marker 2
+  Goto _label183
+_label183:
+  Goto AVerifLeft
+  Goto _label185
+_label184:
+  Goto _label186
+_label186:
+  Goto _label187
+_label187:
+  Sense RightAhead _label188 _label189 Marker 3
+  Goto _label188
+_label188:
+  Goto AVerifLeft
+  Goto _label190
+_label189:
+  Goto _label191
+_label191:
+  Goto _label192
+_label192:
+  Sense RightAhead _label193 _label194 Marker 4
+  Goto _label193
+_label193:
+  Goto AVerifLeft
+  Goto _label195
+_label194:
+  Goto _label196
+_label196:
+  Goto _label197
+_label197:
+  Sense RightAhead _label198 _label199 Marker 5
+  Goto _label198
+_label198:
+  Goto AVerifLeft
+  Goto _label200
+_label199:
+  Turn Right
+  Goto B18
+  Goto A18
+A18:
+  Goto ALibre
+  Goto _label200
+_label200:
+  Goto _label195
+_label195:
+  Goto _label190
+_label190:
+  Goto _label185
+_label185:
+  Goto _label180
+_label180:
+  Goto _label175
+_label175:
+  Goto AVerifRight
+  Goto AVerifLeft
+AVerifLeft:
+  Goto _label201
+_label201:
+  Goto _label202
+_label202:
+  Sense LeftAhead _label203 _label204 Marker 0
+  Goto _label203
+_label203:
+  Goto ADirAlea
+  Goto _label205
+_label204:
+  Goto _label206
+_label206:
+  Goto _label207
+_label207:
+  Sense LeftAhead _label208 _label209 Marker 1
+  Goto _label208
+_label208:
+  Goto ADirAlea
+  Goto _label210
+_label209:
+  Goto _label211
+_label211:
+  Goto _label212
+_label212:
+  Sense LeftAhead _label213 _label214 Marker 2
+  Goto _label213
+_label213:
+  Goto ADirAlea
+  Goto _label215
+_label214:
+  Goto _label216
+_label216:
+  Goto _label217
+_label217:
+  Sense LeftAhead _label218 _label219 Marker 3
+  Goto _label218
+_label218:
+  Goto ADirAlea
+  Goto _label220
+_label219:
+  Goto _label221
+_label221:
+  Goto _label222
+_label222:
+  Sense LeftAhead _label223 _label224 Marker 4
+  Goto _label223
+_label223:
+  Goto ADirAlea
+  Goto _label225
+_label224:
+  Goto _label226
+_label226:
+  Goto _label227
+_label227:
+  Sense LeftAhead _label228 _label229 Marker 5
+  Goto _label228
+_label228:
+  Goto ADirAlea
+  Goto _label230
+_label229:
+  Turn Left
+  Goto F19
+  Goto A19
+A19:
+  Goto ALibre
+  Goto _label230
+_label230:
+  Goto _label225
+_label225:
+  Goto _label220
+_label220:
+  Goto _label215
+_label215:
+  Goto _label210
+_label210:
+  Goto _label205
+_label205:
+  Goto AVerifLeft
+  Goto ADirAlea
+ADirAlea:
+  Goto _label231
+_label231:
+  Flip 3 _label232 _label233
+  Goto _label232
+_label232:
+  Turn Right
+  Goto B20
+  Goto A20
+A20:
+  Goto ALibre
+  Goto _label233
+_label233:
+  Goto _label234
+_label234:
+  Flip 2 _label235 _label236
+  Goto _label235
+_label235:
+  Turn Left
+  Goto F21
+  Goto A21
+A21:
+  Goto ALibre
+  Goto _label236
+_label236:
+  Goto ALibre
+  Goto ADirAlea
+  Goto BSearchFood
+BSearchFood:
+  Goto _label237
+_label237:
+  Goto _label238
+_label238:
+  Sense Here _label239 _label240 Marker 1
+  Goto _label239
+_label239:
+  Goto _label241
+_label240:
+  Goto _label242
+_label242:
+  Goto _label243
+_label243:
+  Sense Here _label244 _label245 Marker 2
+  Goto _label244
+_label244:
+  Goto _label246
+_label245:
+  Goto _label247
+_label247:
+  Goto _label248
+_label248:
+  Sense Here _label249 _label250 Marker 3
+  Goto _label249
+_label249:
+  Goto _label251
+_label250:
+  Goto _label252
+_label252:
+  Goto _label253
+_label253:
+  Sense Here _label254 _label255 Marker 4
+  Goto _label254
+_label254:
+  Goto _label256
+_label255:
+  Goto _label257
+_label257:
+  Goto _label258
+_label258:
+  Sense Here _label259 _label260 Marker 5
+  Goto _label259
+_label259:
+  Goto _label261
+_label260:
+  Goto _label262
+_label262:
+  Goto _label263
+_label263:
+  Sense Here _label264 _label265 Marker 0
+  Goto _label264
+_label264:
+  Goto _label266
+_label265:
+  Mark 1
+  Goto _label266
+_label266:
+  Goto _label261
+_label261:
+  Goto _label256
+_label256:
+  Goto _label251
+_label251:
+  Goto _label246
+_label246:
+  Goto _label241
+_label241:
+  Goto _label267
+_label267:
+  Goto _label268
+_label268:
+  Sense LeftAhead _label269 _label270 Food
+  Goto _label269
+_label269:
+  Turn Left
+  Goto A1
+  Goto B1
+B1:
+  Goto BPickUpFood
+  Goto _label271
+_label270:
+  Goto _label272
+_label272:
+  Goto _label273
+_label273:
+  Sense RightAhead _label274 _label275 Food
+  Goto _label274
+_label274:
+  Turn Right
+  Goto C2
+  Goto B2
+B2:
+  Goto BPickUpFood
+  Goto _label276
+_label275:
+  Goto _label277
+_label277:
+  Goto _label278
+_label278:
+  Sense Ahead _label279 _label280 Food
+  Goto _label279
+_label279:
+  Goto BPickUpFood
+  Goto _label280
+_label280:
+  Goto _label276
+_label276:
+  Goto _label271
+_label271:
+  Goto BVerifAhead
+  Goto BLibre
+BLibre:
+  Goto _label281
+_label281:
+  Goto _label282
+_label282:
+  Sense Ahead _label283 _label284 FriendWithFood
+  Goto _label283
+_label283:
+  Goto BPickUpFood
+  Goto _label285
+_label284:
+  Goto _label286
+_label286:
+  Goto _label287
+_label287:
+  Sense Ahead _label288 _label289 Rock
+  Goto _label288
+_label288:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto E3
+  Goto B3
+B3:
+  Move _label291
+  Goto _label291
+_label291:
+  Goto _label290
+_label289:
+  Move _label292
+  Goto _label292
+_label292:
+  Goto _label290
+_label290:
+  Goto _label285
+_label285:
+  Goto BSearchFood
+  Goto BPickUpFood
+BPickUpFood:
+  Goto _label293
+_label293:
+  Goto _label294
+_label294:
+  Sense Here _label295 _label296 Marker 1
+  Goto _label295
+_label295:
+  Goto _label297
+_label296:
+  Goto _label298
+_label298:
+  Goto _label299
+_label299:
+  Sense Here _label300 _label301 Marker 2
+  Goto _label300
+_label300:
+  Goto _label302
+_label301:
+  Goto _label303
+_label303:
+  Goto _label304
+_label304:
+  Sense Here _label305 _label306 Marker 3
+  Goto _label305
+_label305:
+  Goto _label307
+_label306:
+  Goto _label308
+_label308:
+  Goto _label309
+_label309:
+  Sense Here _label310 _label311 Marker 4
+  Goto _label310
+_label310:
+  Goto _label312
+_label311:
+  Goto _label313
+_label313:
+  Goto _label314
+_label314:
+  Sense Here _label315 _label316 Marker 5
+  Goto _label315
+_label315:
+  Goto _label317
+_label316:
+  Goto _label318
+_label318:
+  Goto _label319
+_label319:
+  Sense Here _label320 _label321 Marker 0
+  Goto _label320
+_label320:
+  Goto _label322
+_label321:
+  Mark 4
+  Goto _label322
+_label322:
+  Goto _label317
+_label317:
+  Goto _label312
+_label312:
+  Goto _label307
+_label307:
+  Goto _label302
+_label302:
+  Goto _label297
+_label297:
+  Goto _label323
+_label323:
+  Goto _label324
+_label324:
+  Sense Ahead _label325 _label326 FriendWithFood
+  Goto _label325
+_label325:
+  Turn Right
+  Goto C4
+  Goto B4
+B4:
+  Move _label327
+  Goto _label327
+_label327:
+  Turn Left
+  Goto A5
+  Goto B5
+B5:
+  Move _label328
+  Goto _label328
+_label328:
+  Turn Right
+  Goto C6
+  Goto B6
+B6:
+  Goto _label326
+_label326:
+  Goto _label329
+_label329:
+  Goto _label330
+_label330:
+  Sense Ahead _label331 _label332 Friend
+  Goto _label331
+_label331:
+  Turn Right
+  Goto C7
+  Goto B7
+B7:
+  Move _label334
+  Goto _label334
+_label334:
+  Turn Left
+  Goto A8
+  Goto B8
+B8:
+  Move _label335
+  Goto _label335
+_label335:
+  Turn Right
+  Goto C9
+  Goto B9
+B9:
+  Goto _label333
+_label332:
+  Goto _label336
+_label336:
+  Goto _label337
+_label337:
+  Sense Ahead _label338 _label339 Rock
+  Goto _label338
+_label338:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto E10
+  Goto B10
+B10:
+  Move _label341
+  Goto _label341
+_label341:
+  Goto _label340
+_label339:
+  Move _label342
+  Goto _label342
+_label342:
+  Goto _label340
+_label340:
+  Goto _label333
+_label333:
+  PickUp BSearchFood
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto E11
+  Goto B11
+B11:
+  Goto BBackFood
+  Goto BPickUpFood
+  Goto BBackFood
+BBackFood:
+  Goto _label343
+_label343:
+  Goto _label344
+_label344:
+  Sense Here _label345 _label346 Home
+  Goto _label345
+_label345:
+  Drop
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto E12
+  Goto B12
+B12:
+  Goto BSearchFood
+  Goto _label346
+_label346:
+  Goto _label347
+_label347:
+  Goto _label348
+_label348:
+  Sense Here _label349 _label350 Marker 4
+  Goto _label349
+_label349:
+  Goto _label351
+_label350:
+  Goto _label352
+_label352:
+  Goto _label353
+_label353:
+  Sense Here _label354 _label355 Marker 5
+  Goto _label354
+_label354:
+  Turn Right
+  Goto C13
+  Goto B13
+B13:
+  Goto _label356
+_label355:
+  Goto _label357
+_label357:
+  Goto _label358
+_label358:
+  Sense Here _label359 _label360 Marker 0
+  Goto _label359
+_label359:
+  Turn Right
+  Turn Right
+  Goto D14
+  Goto B14
+B14:
+  Goto _label361
+_label360:
+  Goto _label362
+_label362:
+  Goto _label363
+_label363:
+  Sense Here _label364 _label365 Marker 1
+  Goto _label364
+_label364:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto E15
+  Goto B15
+B15:
+  Goto _label366
+_label365:
+  Goto _label367
+_label367:
+  Goto _label368
+_label368:
+  Sense Here _label369 _label370 Marker 2
+  Goto _label369
+_label369:
+  Turn Left
+  Turn Left
+  Goto F16
+  Goto B16
+B16:
+  Goto _label371
+_label370:
+  Goto _label372
+_label372:
+  Goto _label373
+_label373:
+  Sense Here _label374 _label375 Marker 3
+  Goto _label374
+_label374:
+  Turn Left
+  Goto A17
+  Goto B17
+B17:
+  Goto _label376
+_label375:
+  Goto _label376
+_label376:
+  Goto _label371
+_label371:
+  Goto _label366
+_label366:
+  Goto _label361
+_label361:
+  Goto _label356
+_label356:
+  Goto _label351
+_label351:
+  Move _label377
+  Goto _label377
+_label377:
+  Goto BBackFood
+  Goto BVerifAhead
+BVerifAhead:
+  Goto _label378
+_label378:
+  Goto _label379
+_label379:
+  Sense Ahead _label380 _label381 Marker 1
+  Goto _label380
+_label380:
+  Goto BVerifRight
+  Goto _label382
+_label381:
+  Goto _label383
+_label383:
+  Goto _label384
+_label384:
+  Sense Ahead _label385 _label386 Marker 2
+  Goto _label385
+_label385:
+  Goto BVerifRight
+  Goto _label387
+_label386:
+  Goto _label388
+_label388:
+  Goto _label389
+_label389:
+  Sense Ahead _label390 _label391 Marker 3
+  Goto _label390
+_label390:
+  Goto BVerifRight
+  Goto _label392
+_label391:
+  Goto _label393
+_label393:
+  Goto _label394
+_label394:
+  Sense Ahead _label395 _label396 Marker 4
+  Goto _label395
+_label395:
+  Goto BVerifRight
+  Goto _label397
+_label396:
+  Goto _label398
+_label398:
+  Goto _label399
+_label399:
+  Sense Ahead _label400 _label401 Marker 5
+  Goto _label400
+_label400:
+  Goto BVerifRight
+  Goto _label402
+_label401:
+  Goto _label403
+_label403:
+  Goto _label404
+_label404:
+  Sense Ahead _label405 _label406 Marker 0
+  Goto _label405
+_label405:
+  Goto BVerifRight
+  Goto _label407
+_label406:
+  Goto BLibre
+  Goto _label407
+_label407:
+  Goto _label402
+_label402:
+  Goto _label397
+_label397:
+  Goto _label392
+_label392:
+  Goto _label387
+_label387:
+  Goto _label382
+_label382:
+  Goto BVerifAhead
+  Goto BVerifRight
+BVerifRight:
+  Goto _label408
+_label408:
+  Goto _label409
+_label409:
+  Sense RightAhead _label410 _label411 Marker 1
+  Goto _label410
+_label410:
+  Goto BVerifLeft
+  Goto _label412
+_label411:
+  Goto _label413
+_label413:
+  Goto _label414
+_label414:
+  Sense RightAhead _label415 _label416 Marker 2
+  Goto _label415
+_label415:
+  Goto BVerifLeft
+  Goto _label417
+_label416:
+  Goto _label418
+_label418:
+  Goto _label419
+_label419:
+  Sense RightAhead _label420 _label421 Marker 3
+  Goto _label420
+_label420:
+  Goto BVerifLeft
+  Goto _label422
+_label421:
+  Goto _label423
+_label423:
+  Goto _label424
+_label424:
+  Sense RightAhead _label425 _label426 Marker 4
+  Goto _label425
+_label425:
+  Goto BVerifLeft
+  Goto _label427
+_label426:
+  Goto _label428
+_label428:
+  Goto _label429
+_label429:
+  Sense RightAhead _label430 _label431 Marker 5
+  Goto _label430
+_label430:
+  Goto BVerifLeft
+  Goto _label432
+_label431:
+  Goto _label433
+_label433:
+  Goto _label434
+_label434:
+  Sense RightAhead _label435 _label436 Marker 0
+  Goto _label435
+_label435:
+  Goto BVerifLeft
+  Goto _label437
+_label436:
+  Turn Right
+  Goto C18
+  Goto B18
+B18:
+  Goto BLibre
+  Goto _label437
+_label437:
+  Goto _label432
+_label432:
+  Goto _label427
+_label427:
+  Goto _label422
+_label422:
+  Goto _label417
+_label417:
+  Goto _label412
+_label412:
+  Goto BVerifRight
+  Goto BVerifLeft
+BVerifLeft:
+  Goto _label438
+_label438:
+  Goto _label439
+_label439:
+  Sense LeftAhead _label440 _label441 Marker 1
+  Goto _label440
+_label440:
+  Goto BDirAlea
+  Goto _label442
+_label441:
+  Goto _label443
+_label443:
+  Goto _label444
+_label444:
+  Sense LeftAhead _label445 _label446 Marker 2
+  Goto _label445
+_label445:
+  Goto BDirAlea
+  Goto _label447
+_label446:
+  Goto _label448
+_label448:
+  Goto _label449
+_label449:
+  Sense LeftAhead _label450 _label451 Marker 3
+  Goto _label450
+_label450:
+  Goto BDirAlea
+  Goto _label452
+_label451:
+  Goto _label453
+_label453:
+  Goto _label454
+_label454:
+  Sense LeftAhead _label455 _label456 Marker 4
+  Goto _label455
+_label455:
+  Goto BDirAlea
+  Goto _label457
+_label456:
+  Goto _label458
+_label458:
+  Goto _label459
+_label459:
+  Sense LeftAhead _label460 _label461 Marker 5
+  Goto _label460
+_label460:
+  Goto BDirAlea
+  Goto _label462
+_label461:
+  Goto _label463
+_label463:
+  Goto _label464
+_label464:
+  Sense LeftAhead _label465 _label466 Marker 0
+  Goto _label465
+_label465:
+  Goto BDirAlea
+  Goto _label467
+_label466:
+  Turn Left
+  Goto A19
+  Goto B19
+B19:
+  Goto BLibre
+  Goto _label467
+_label467:
+  Goto _label462
+_label462:
+  Goto _label457
+_label457:
+  Goto _label452
+_label452:
+  Goto _label447
+_label447:
+  Goto _label442
+_label442:
+  Goto BVerifLeft
+  Goto BDirAlea
+BDirAlea:
+  Goto _label468
+_label468:
+  Flip 3 _label469 _label470
+  Goto _label469
+_label469:
+  Turn Right
+  Goto C20
+  Goto B20
+B20:
+  Goto BLibre
+  Goto _label470
+_label470:
+  Goto _label471
+_label471:
+  Flip 2 _label472 _label473
+  Goto _label472
+_label472:
+  Turn Left
+  Goto A21
+  Goto B21
+B21:
+  Goto BLibre
+  Goto _label473
+_label473:
+  Goto BLibre
+  Goto BDirAlea
+  Goto CSearchFood
+CSearchFood:
+  Goto _label474
+_label474:
+  Goto _label475
+_label475:
+  Sense Here _label476 _label477 Marker 2
+  Goto _label476
+_label476:
+  Goto _label478
+_label477:
+  Goto _label479
+_label479:
+  Goto _label480
+_label480:
+  Sense Here _label481 _label482 Marker 3
+  Goto _label481
+_label481:
+  Goto _label483
+_label482:
+  Goto _label484
+_label484:
+  Goto _label485
+_label485:
+  Sense Here _label486 _label487 Marker 4
+  Goto _label486
+_label486:
+  Goto _label488
+_label487:
+  Goto _label489
+_label489:
+  Goto _label490
+_label490:
+  Sense Here _label491 _label492 Marker 5
+  Goto _label491
+_label491:
+  Goto _label493
+_label492:
+  Goto _label494
+_label494:
+  Goto _label495
+_label495:
+  Sense Here _label496 _label497 Marker 0
+  Goto _label496
+_label496:
+  Goto _label498
+_label497:
+  Goto _label499
+_label499:
+  Goto _label500
+_label500:
+  Sense Here _label501 _label502 Marker 1
+  Goto _label501
+_label501:
+  Goto _label503
+_label502:
+  Mark 2
+  Goto _label503
+_label503:
+  Goto _label498
+_label498:
+  Goto _label493
+_label493:
+  Goto _label488
+_label488:
+  Goto _label483
+_label483:
+  Goto _label478
+_label478:
+  Goto _label504
+_label504:
+  Goto _label505
+_label505:
+  Sense LeftAhead _label506 _label507 Food
+  Goto _label506
+_label506:
+  Turn Left
+  Goto B1
+  Goto C1
+C1:
+  Goto CPickUpFood
+  Goto _label508
+_label507:
+  Goto _label509
+_label509:
+  Goto _label510
+_label510:
+  Sense RightAhead _label511 _label512 Food
+  Goto _label511
+_label511:
+  Turn Right
+  Goto D2
+  Goto C2
+C2:
+  Goto CPickUpFood
+  Goto _label513
+_label512:
+  Goto _label514
+_label514:
+  Goto _label515
+_label515:
+  Sense Ahead _label516 _label517 Food
+  Goto _label516
+_label516:
+  Goto CPickUpFood
+  Goto _label517
+_label517:
+  Goto _label513
+_label513:
+  Goto _label508
+_label508:
+  Goto CVerifAhead
+  Goto CLibre
+CLibre:
+  Goto _label518
+_label518:
+  Goto _label519
+_label519:
+  Sense Ahead _label520 _label521 FriendWithFood
+  Goto _label520
+_label520:
+  Goto CPickUpFood
+  Goto _label522
+_label521:
+  Goto _label523
+_label523:
+  Goto _label524
+_label524:
+  Sense Ahead _label525 _label526 Rock
+  Goto _label525
+_label525:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto F3
+  Goto C3
+C3:
+  Move _label528
+  Goto _label528
+_label528:
+  Goto _label527
+_label526:
+  Move _label529
+  Goto _label529
+_label529:
+  Goto _label527
+_label527:
+  Goto _label522
+_label522:
+  Goto CSearchFood
+  Goto CPickUpFood
+CPickUpFood:
+  Goto _label530
+_label530:
+  Goto _label531
+_label531:
+  Sense Here _label532 _label533 Marker 2
+  Goto _label532
+_label532:
+  Goto _label534
+_label533:
+  Goto _label535
+_label535:
+  Goto _label536
+_label536:
+  Sense Here _label537 _label538 Marker 3
+  Goto _label537
+_label537:
+  Goto _label539
+_label538:
+  Goto _label540
+_label540:
+  Goto _label541
+_label541:
+  Sense Here _label542 _label543 Marker 4
+  Goto _label542
+_label542:
+  Goto _label544
+_label543:
+  Goto _label545
+_label545:
+  Goto _label546
+_label546:
+  Sense Here _label547 _label548 Marker 5
+  Goto _label547
+_label547:
+  Goto _label549
+_label548:
+  Goto _label550
+_label550:
+  Goto _label551
+_label551:
+  Sense Here _label552 _label553 Marker 0
+  Goto _label552
+_label552:
+  Goto _label554
+_label553:
+  Goto _label555
+_label555:
+  Goto _label556
+_label556:
+  Sense Here _label557 _label558 Marker 1
+  Goto _label557
+_label557:
+  Goto _label559
+_label558:
+  Mark 5
+  Goto _label559
+_label559:
+  Goto _label554
+_label554:
+  Goto _label549
+_label549:
+  Goto _label544
+_label544:
+  Goto _label539
+_label539:
+  Goto _label534
+_label534:
+  Goto _label560
+_label560:
+  Goto _label561
+_label561:
+  Sense Ahead _label562 _label563 FriendWithFood
+  Goto _label562
+_label562:
+  Turn Right
+  Goto D4
+  Goto C4
+C4:
+  Move _label564
+  Goto _label564
+_label564:
+  Turn Left
+  Goto B5
+  Goto C5
+C5:
+  Move _label565
+  Goto _label565
+_label565:
+  Turn Right
+  Goto D6
+  Goto C6
+C6:
+  Goto _label563
+_label563:
+  Goto _label566
+_label566:
+  Goto _label567
+_label567:
+  Sense Ahead _label568 _label569 Friend
+  Goto _label568
+_label568:
+  Turn Right
+  Goto D7
+  Goto C7
+C7:
+  Move _label571
+  Goto _label571
+_label571:
+  Turn Left
+  Goto B8
+  Goto C8
+C8:
+  Move _label572
+  Goto _label572
+_label572:
+  Turn Right
+  Goto D9
+  Goto C9
+C9:
+  Goto _label570
+_label569:
+  Goto _label573
+_label573:
+  Goto _label574
+_label574:
+  Sense Ahead _label575 _label576 Rock
+  Goto _label575
+_label575:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto F10
+  Goto C10
+C10:
+  Move _label578
+  Goto _label578
+_label578:
+  Goto _label577
+_label576:
+  Move _label579
+  Goto _label579
+_label579:
+  Goto _label577
+_label577:
+  Goto _label570
+_label570:
+  PickUp CSearchFood
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto F11
+  Goto C11
+C11:
+  Goto CBackFood
+  Goto CPickUpFood
+  Goto CBackFood
+CBackFood:
+  Goto _label580
+_label580:
+  Goto _label581
+_label581:
+  Sense Here _label582 _label583 Home
+  Goto _label582
+_label582:
+  Drop
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto F12
+  Goto C12
+C12:
+  Goto CSearchFood
+  Goto _label583
+_label583:
+  Goto _label584
+_label584:
+  Goto _label585
+_label585:
+  Sense Here _label586 _label587 Marker 5
+  Goto _label586
+_label586:
+  Goto _label588
+_label587:
+  Goto _label589
+_label589:
+  Goto _label590
+_label590:
+  Sense Here _label591 _label592 Marker 0
+  Goto _label591
+_label591:
+  Turn Right
+  Goto D13
+  Goto C13
+C13:
+  Goto _label593
+_label592:
+  Goto _label594
+_label594:
+  Goto _label595
+_label595:
+  Sense Here _label596 _label597 Marker 1
+  Goto _label596
+_label596:
+  Turn Right
+  Turn Right
+  Goto E14
+  Goto C14
+C14:
+  Goto _label598
+_label597:
+  Goto _label599
+_label599:
+  Goto _label600
+_label600:
+  Sense Here _label601 _label602 Marker 2
+  Goto _label601
+_label601:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto F15
+  Goto C15
+C15:
+  Goto _label603
+_label602:
+  Goto _label604
+_label604:
+  Goto _label605
+_label605:
+  Sense Here _label606 _label607 Marker 3
+  Goto _label606
+_label606:
+  Turn Left
+  Turn Left
+  Goto A16
+  Goto C16
+C16:
+  Goto _label608
+_label607:
+  Goto _label609
+_label609:
+  Goto _label610
+_label610:
+  Sense Here _label611 _label612 Marker 4
+  Goto _label611
+_label611:
+  Turn Left
+  Goto B17
+  Goto C17
+C17:
+  Goto _label613
+_label612:
+  Goto _label613
+_label613:
+  Goto _label608
+_label608:
+  Goto _label603
+_label603:
+  Goto _label598
+_label598:
+  Goto _label593
+_label593:
+  Goto _label588
+_label588:
+  Move _label614
+  Goto _label614
+_label614:
+  Goto CBackFood
+  Goto CVerifAhead
+CVerifAhead:
+  Goto _label615
+_label615:
+  Goto _label616
+_label616:
+  Sense Ahead _label617 _label618 Marker 2
+  Goto _label617
+_label617:
+  Goto CVerifRight
+  Goto _label619
+_label618:
+  Goto _label620
+_label620:
+  Goto _label621
+_label621:
+  Sense Ahead _label622 _label623 Marker 3
+  Goto _label622
+_label622:
+  Goto CVerifRight
+  Goto _label624
+_label623:
+  Goto _label625
+_label625:
+  Goto _label626
+_label626:
+  Sense Ahead _label627 _label628 Marker 4
+  Goto _label627
+_label627:
+  Goto CVerifRight
+  Goto _label629
+_label628:
+  Goto _label630
+_label630:
+  Goto _label631
+_label631:
+  Sense Ahead _label632 _label633 Marker 5
+  Goto _label632
+_label632:
+  Goto CVerifRight
+  Goto _label634
+_label633:
+  Goto _label635
+_label635:
+  Goto _label636
+_label636:
+  Sense Ahead _label637 _label638 Marker 0
+  Goto _label637
+_label637:
+  Goto CVerifRight
+  Goto _label639
+_label638:
+  Goto _label640
+_label640:
+  Goto _label641
+_label641:
+  Sense Ahead _label642 _label643 Marker 1
+  Goto _label642
+_label642:
+  Goto CVerifRight
+  Goto _label644
+_label643:
+  Goto CLibre
+  Goto _label644
+_label644:
+  Goto _label639
+_label639:
+  Goto _label634
+_label634:
+  Goto _label629
+_label629:
+  Goto _label624
+_label624:
+  Goto _label619
+_label619:
+  Goto CVerifAhead
+  Goto CVerifRight
+CVerifRight:
+  Goto _label645
+_label645:
+  Goto _label646
+_label646:
+  Sense RightAhead _label647 _label648 Marker 2
+  Goto _label647
+_label647:
+  Goto CVerifLeft
+  Goto _label649
+_label648:
+  Goto _label650
+_label650:
+  Goto _label651
+_label651:
+  Sense RightAhead _label652 _label653 Marker 3
+  Goto _label652
+_label652:
+  Goto CVerifLeft
+  Goto _label654
+_label653:
+  Goto _label655
+_label655:
+  Goto _label656
+_label656:
+  Sense RightAhead _label657 _label658 Marker 4
+  Goto _label657
+_label657:
+  Goto CVerifLeft
+  Goto _label659
+_label658:
+  Goto _label660
+_label660:
+  Goto _label661
+_label661:
+  Sense RightAhead _label662 _label663 Marker 5
+  Goto _label662
+_label662:
+  Goto CVerifLeft
+  Goto _label664
+_label663:
+  Goto _label665
+_label665:
+  Goto _label666
+_label666:
+  Sense RightAhead _label667 _label668 Marker 0
+  Goto _label667
+_label667:
+  Goto CVerifLeft
+  Goto _label669
+_label668:
+  Goto _label670
+_label670:
+  Goto _label671
+_label671:
+  Sense RightAhead _label672 _label673 Marker 1
+  Goto _label672
+_label672:
+  Goto CVerifLeft
+  Goto _label674
+_label673:
+  Turn Right
+  Goto D18
+  Goto C18
+C18:
+  Goto CLibre
+  Goto _label674
+_label674:
+  Goto _label669
+_label669:
+  Goto _label664
+_label664:
+  Goto _label659
+_label659:
+  Goto _label654
+_label654:
+  Goto _label649
+_label649:
+  Goto CVerifRight
+  Goto CVerifLeft
+CVerifLeft:
+  Goto _label675
+_label675:
+  Goto _label676
+_label676:
+  Sense LeftAhead _label677 _label678 Marker 2
+  Goto _label677
+_label677:
+  Goto CDirAlea
+  Goto _label679
+_label678:
+  Goto _label680
+_label680:
+  Goto _label681
+_label681:
+  Sense LeftAhead _label682 _label683 Marker 3
+  Goto _label682
+_label682:
+  Goto CDirAlea
+  Goto _label684
+_label683:
+  Goto _label685
+_label685:
+  Goto _label686
+_label686:
+  Sense LeftAhead _label687 _label688 Marker 4
+  Goto _label687
+_label687:
+  Goto CDirAlea
+  Goto _label689
+_label688:
+  Goto _label690
+_label690:
+  Goto _label691
+_label691:
+  Sense LeftAhead _label692 _label693 Marker 5
+  Goto _label692
+_label692:
+  Goto CDirAlea
+  Goto _label694
+_label693:
+  Goto _label695
+_label695:
+  Goto _label696
+_label696:
+  Sense LeftAhead _label697 _label698 Marker 0
+  Goto _label697
+_label697:
+  Goto CDirAlea
+  Goto _label699
+_label698:
+  Goto _label700
+_label700:
+  Goto _label701
+_label701:
+  Sense LeftAhead _label702 _label703 Marker 1
+  Goto _label702
+_label702:
+  Goto CDirAlea
+  Goto _label704
+_label703:
+  Turn Left
+  Goto B19
+  Goto C19
+C19:
+  Goto CLibre
+  Goto _label704
+_label704:
+  Goto _label699
+_label699:
+  Goto _label694
+_label694:
+  Goto _label689
+_label689:
+  Goto _label684
+_label684:
+  Goto _label679
+_label679:
+  Goto CVerifLeft
+  Goto CDirAlea
+CDirAlea:
+  Goto _label705
+_label705:
+  Flip 3 _label706 _label707
+  Goto _label706
+_label706:
+  Turn Right
+  Goto D20
+  Goto C20
+C20:
+  Goto CLibre
+  Goto _label707
+_label707:
+  Goto _label708
+_label708:
+  Flip 2 _label709 _label710
+  Goto _label709
+_label709:
+  Turn Left
+  Goto B21
+  Goto C21
+C21:
+  Goto CLibre
+  Goto _label710
+_label710:
+  Goto CLibre
+  Goto CDirAlea
+  Goto DSearchFood
+DSearchFood:
+  Goto _label711
+_label711:
+  Goto _label712
+_label712:
+  Sense Here _label713 _label714 Marker 3
+  Goto _label713
+_label713:
+  Goto _label715
+_label714:
+  Goto _label716
+_label716:
+  Goto _label717
+_label717:
+  Sense Here _label718 _label719 Marker 4
+  Goto _label718
+_label718:
+  Goto _label720
+_label719:
+  Goto _label721
+_label721:
+  Goto _label722
+_label722:
+  Sense Here _label723 _label724 Marker 5
+  Goto _label723
+_label723:
+  Goto _label725
+_label724:
+  Goto _label726
+_label726:
+  Goto _label727
+_label727:
+  Sense Here _label728 _label729 Marker 0
+  Goto _label728
+_label728:
+  Goto _label730
+_label729:
+  Goto _label731
+_label731:
+  Goto _label732
+_label732:
+  Sense Here _label733 _label734 Marker 1
+  Goto _label733
+_label733:
+  Goto _label735
+_label734:
+  Goto _label736
+_label736:
+  Goto _label737
+_label737:
+  Sense Here _label738 _label739 Marker 2
+  Goto _label738
+_label738:
+  Goto _label740
+_label739:
+  Mark 3
+  Goto _label740
+_label740:
+  Goto _label735
+_label735:
+  Goto _label730
+_label730:
+  Goto _label725
+_label725:
+  Goto _label720
+_label720:
+  Goto _label715
+_label715:
+  Goto _label741
+_label741:
+  Goto _label742
+_label742:
+  Sense LeftAhead _label743 _label744 Food
+  Goto _label743
+_label743:
+  Turn Left
+  Goto C1
+  Goto D1
+D1:
+  Goto DPickUpFood
+  Goto _label745
+_label744:
+  Goto _label746
+_label746:
+  Goto _label747
+_label747:
+  Sense RightAhead _label748 _label749 Food
+  Goto _label748
+_label748:
+  Turn Right
+  Goto E2
+  Goto D2
+D2:
+  Goto DPickUpFood
+  Goto _label750
+_label749:
+  Goto _label751
+_label751:
+  Goto _label752
+_label752:
+  Sense Ahead _label753 _label754 Food
+  Goto _label753
+_label753:
+  Goto DPickUpFood
+  Goto _label754
+_label754:
+  Goto _label750
+_label750:
+  Goto _label745
+_label745:
+  Goto DVerifAhead
+  Goto DLibre
+DLibre:
+  Goto _label755
+_label755:
+  Goto _label756
+_label756:
+  Sense Ahead _label757 _label758 FriendWithFood
+  Goto _label757
+_label757:
+  Goto DPickUpFood
+  Goto _label759
+_label758:
+  Goto _label760
+_label760:
+  Goto _label761
+_label761:
+  Sense Ahead _label762 _label763 Rock
+  Goto _label762
+_label762:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto A3
+  Goto D3
+D3:
+  Move _label765
+  Goto _label765
+_label765:
+  Goto _label764
+_label763:
+  Move _label766
+  Goto _label766
+_label766:
+  Goto _label764
+_label764:
+  Goto _label759
+_label759:
+  Goto DSearchFood
+  Goto DPickUpFood
+DPickUpFood:
+  Goto _label767
+_label767:
+  Goto _label768
+_label768:
+  Sense Here _label769 _label770 Marker 3
+  Goto _label769
+_label769:
+  Goto _label771
+_label770:
+  Goto _label772
+_label772:
+  Goto _label773
+_label773:
+  Sense Here _label774 _label775 Marker 4
+  Goto _label774
+_label774:
+  Goto _label776
+_label775:
+  Goto _label777
+_label777:
+  Goto _label778
+_label778:
+  Sense Here _label779 _label780 Marker 5
+  Goto _label779
+_label779:
+  Goto _label781
+_label780:
+  Goto _label782
+_label782:
+  Goto _label783
+_label783:
+  Sense Here _label784 _label785 Marker 0
+  Goto _label784
+_label784:
+  Goto _label786
+_label785:
+  Goto _label787
+_label787:
+  Goto _label788
+_label788:
+  Sense Here _label789 _label790 Marker 1
+  Goto _label789
+_label789:
+  Goto _label791
+_label790:
+  Goto _label792
+_label792:
+  Goto _label793
+_label793:
+  Sense Here _label794 _label795 Marker 2
+  Goto _label794
+_label794:
+  Goto _label796
+_label795:
+  Mark 0
+  Goto _label796
+_label796:
+  Goto _label791
+_label791:
+  Goto _label786
+_label786:
+  Goto _label781
+_label781:
+  Goto _label776
+_label776:
+  Goto _label771
+_label771:
+  Goto _label797
+_label797:
+  Goto _label798
+_label798:
+  Sense Ahead _label799 _label800 FriendWithFood
+  Goto _label799
+_label799:
+  Turn Right
+  Goto E4
+  Goto D4
+D4:
+  Move _label801
+  Goto _label801
+_label801:
+  Turn Left
+  Goto C5
+  Goto D5
+D5:
+  Move _label802
+  Goto _label802
+_label802:
+  Turn Right
+  Goto E6
+  Goto D6
+D6:
+  Goto _label800
+_label800:
+  Goto _label803
+_label803:
+  Goto _label804
+_label804:
+  Sense Ahead _label805 _label806 Friend
+  Goto _label805
+_label805:
+  Turn Right
+  Goto E7
+  Goto D7
+D7:
+  Move _label808
+  Goto _label808
+_label808:
+  Turn Left
+  Goto C8
+  Goto D8
+D8:
+  Move _label809
+  Goto _label809
+_label809:
+  Turn Right
+  Goto E9
+  Goto D9
+D9:
+  Goto _label807
+_label806:
+  Goto _label810
+_label810:
+  Goto _label811
+_label811:
+  Sense Ahead _label812 _label813 Rock
+  Goto _label812
+_label812:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto A10
+  Goto D10
+D10:
+  Move _label815
+  Goto _label815
+_label815:
+  Goto _label814
+_label813:
+  Move _label816
+  Goto _label816
+_label816:
+  Goto _label814
+_label814:
+  Goto _label807
+_label807:
+  PickUp DSearchFood
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto A11
+  Goto D11
+D11:
+  Goto DBackFood
+  Goto DPickUpFood
+  Goto DBackFood
+DBackFood:
+  Goto _label817
+_label817:
+  Goto _label818
+_label818:
+  Sense Here _label819 _label820 Home
+  Goto _label819
+_label819:
+  Drop
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto A12
+  Goto D12
+D12:
+  Goto DSearchFood
+  Goto _label820
+_label820:
+  Goto _label821
+_label821:
+  Goto _label822
+_label822:
+  Sense Here _label823 _label824 Marker 0
+  Goto _label823
+_label823:
+  Goto _label825
+_label824:
+  Goto _label826
+_label826:
+  Goto _label827
+_label827:
+  Sense Here _label828 _label829 Marker 1
+  Goto _label828
+_label828:
+  Turn Right
+  Goto E13
+  Goto D13
+D13:
+  Goto _label830
+_label829:
+  Goto _label831
+_label831:
+  Goto _label832
+_label832:
+  Sense Here _label833 _label834 Marker 2
+  Goto _label833
+_label833:
+  Turn Right
+  Turn Right
+  Goto F14
+  Goto D14
+D14:
+  Goto _label835
+_label834:
+  Goto _label836
+_label836:
+  Goto _label837
+_label837:
+  Sense Here _label838 _label839 Marker 3
+  Goto _label838
+_label838:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto A15
+  Goto D15
+D15:
+  Goto _label840
+_label839:
+  Goto _label841
+_label841:
+  Goto _label842
+_label842:
+  Sense Here _label843 _label844 Marker 4
+  Goto _label843
+_label843:
+  Turn Left
+  Turn Left
+  Goto B16
+  Goto D16
+D16:
+  Goto _label845
+_label844:
+  Goto _label846
+_label846:
+  Goto _label847
+_label847:
+  Sense Here _label848 _label849 Marker 5
+  Goto _label848
+_label848:
+  Turn Left
+  Goto C17
+  Goto D17
+D17:
+  Goto _label850
+_label849:
+  Goto _label850
+_label850:
+  Goto _label845
+_label845:
+  Goto _label840
+_label840:
+  Goto _label835
+_label835:
+  Goto _label830
+_label830:
+  Goto _label825
+_label825:
+  Move _label851
+  Goto _label851
+_label851:
+  Goto DBackFood
+  Goto DVerifAhead
+DVerifAhead:
+  Goto _label852
+_label852:
+  Goto _label853
+_label853:
+  Sense Ahead _label854 _label855 Marker 3
+  Goto _label854
+_label854:
+  Goto DVerifRight
+  Goto _label856
+_label855:
+  Goto _label857
+_label857:
+  Goto _label858
+_label858:
+  Sense Ahead _label859 _label860 Marker 4
+  Goto _label859
+_label859:
+  Goto DVerifRight
+  Goto _label861
+_label860:
+  Goto _label862
+_label862:
+  Goto _label863
+_label863:
+  Sense Ahead _label864 _label865 Marker 5
+  Goto _label864
+_label864:
+  Goto DVerifRight
+  Goto _label866
+_label865:
+  Goto _label867
+_label867:
+  Goto _label868
+_label868:
+  Sense Ahead _label869 _label870 Marker 0
+  Goto _label869
+_label869:
+  Goto DVerifRight
+  Goto _label871
+_label870:
+  Goto _label872
+_label872:
+  Goto _label873
+_label873:
+  Sense Ahead _label874 _label875 Marker 1
+  Goto _label874
+_label874:
+  Goto DVerifRight
+  Goto _label876
+_label875:
+  Goto _label877
+_label877:
+  Goto _label878
+_label878:
+  Sense Ahead _label879 _label880 Marker 2
+  Goto _label879
+_label879:
+  Goto DVerifRight
+  Goto _label881
+_label880:
+  Goto DLibre
+  Goto _label881
+_label881:
+  Goto _label876
+_label876:
+  Goto _label871
+_label871:
+  Goto _label866
+_label866:
+  Goto _label861
+_label861:
+  Goto _label856
+_label856:
+  Goto DVerifAhead
+  Goto DVerifRight
+DVerifRight:
+  Goto _label882
+_label882:
+  Goto _label883
+_label883:
+  Sense RightAhead _label884 _label885 Marker 3
+  Goto _label884
+_label884:
+  Goto DVerifLeft
+  Goto _label886
+_label885:
+  Goto _label887
+_label887:
+  Goto _label888
+_label888:
+  Sense RightAhead _label889 _label890 Marker 4
+  Goto _label889
+_label889:
+  Goto DVerifLeft
+  Goto _label891
+_label890:
+  Goto _label892
+_label892:
+  Goto _label893
+_label893:
+  Sense RightAhead _label894 _label895 Marker 5
+  Goto _label894
+_label894:
+  Goto DVerifLeft
+  Goto _label896
+_label895:
+  Goto _label897
+_label897:
+  Goto _label898
+_label898:
+  Sense RightAhead _label899 _label900 Marker 0
+  Goto _label899
+_label899:
+  Goto DVerifLeft
+  Goto _label901
+_label900:
+  Goto _label902
+_label902:
+  Goto _label903
+_label903:
+  Sense RightAhead _label904 _label905 Marker 1
+  Goto _label904
+_label904:
+  Goto DVerifLeft
+  Goto _label906
+_label905:
+  Goto _label907
+_label907:
+  Goto _label908
+_label908:
+  Sense RightAhead _label909 _label910 Marker 2
+  Goto _label909
+_label909:
+  Goto DVerifLeft
+  Goto _label911
+_label910:
+  Turn Right
+  Goto E18
+  Goto D18
+D18:
+  Goto DLibre
+  Goto _label911
+_label911:
+  Goto _label906
+_label906:
+  Goto _label901
+_label901:
+  Goto _label896
+_label896:
+  Goto _label891
+_label891:
+  Goto _label886
+_label886:
+  Goto DVerifRight
+  Goto DVerifLeft
+DVerifLeft:
+  Goto _label912
+_label912:
+  Goto _label913
+_label913:
+  Sense LeftAhead _label914 _label915 Marker 3
+  Goto _label914
+_label914:
+  Goto DDirAlea
+  Goto _label916
+_label915:
+  Goto _label917
+_label917:
+  Goto _label918
+_label918:
+  Sense LeftAhead _label919 _label920 Marker 4
+  Goto _label919
+_label919:
+  Goto DDirAlea
+  Goto _label921
+_label920:
+  Goto _label922
+_label922:
+  Goto _label923
+_label923:
+  Sense LeftAhead _label924 _label925 Marker 5
+  Goto _label924
+_label924:
+  Goto DDirAlea
+  Goto _label926
+_label925:
+  Goto _label927
+_label927:
+  Goto _label928
+_label928:
+  Sense LeftAhead _label929 _label930 Marker 0
+  Goto _label929
+_label929:
+  Goto DDirAlea
+  Goto _label931
+_label930:
+  Goto _label932
+_label932:
+  Goto _label933
+_label933:
+  Sense LeftAhead _label934 _label935 Marker 1
+  Goto _label934
+_label934:
+  Goto DDirAlea
+  Goto _label936
+_label935:
+  Goto _label937
+_label937:
+  Goto _label938
+_label938:
+  Sense LeftAhead _label939 _label940 Marker 2
+  Goto _label939
+_label939:
+  Goto DDirAlea
+  Goto _label941
+_label940:
+  Turn Left
+  Goto C19
+  Goto D19
+D19:
+  Goto DLibre
+  Goto _label941
+_label941:
+  Goto _label936
+_label936:
+  Goto _label931
+_label931:
+  Goto _label926
+_label926:
+  Goto _label921
+_label921:
+  Goto _label916
+_label916:
+  Goto DVerifLeft
+  Goto DDirAlea
+DDirAlea:
+  Goto _label942
+_label942:
+  Flip 3 _label943 _label944
+  Goto _label943
+_label943:
+  Turn Right
+  Goto E20
+  Goto D20
+D20:
+  Goto DLibre
+  Goto _label944
+_label944:
+  Goto _label945
+_label945:
+  Flip 2 _label946 _label947
+  Goto _label946
+_label946:
+  Turn Left
+  Goto C21
+  Goto D21
+D21:
+  Goto DLibre
+  Goto _label947
+_label947:
+  Goto DLibre
+  Goto DDirAlea
+  Goto ESearchFood
+ESearchFood:
+  Goto _label948
+_label948:
+  Goto _label949
+_label949:
+  Sense Here _label950 _label951 Marker 4
+  Goto _label950
+_label950:
+  Goto _label952
+_label951:
+  Goto _label953
+_label953:
+  Goto _label954
+_label954:
+  Sense Here _label955 _label956 Marker 5
+  Goto _label955
+_label955:
+  Goto _label957
+_label956:
+  Goto _label958
+_label958:
+  Goto _label959
+_label959:
+  Sense Here _label960 _label961 Marker 0
+  Goto _label960
+_label960:
+  Goto _label962
+_label961:
+  Goto _label963
+_label963:
+  Goto _label964
+_label964:
+  Sense Here _label965 _label966 Marker 1
+  Goto _label965
+_label965:
+  Goto _label967
+_label966:
+  Goto _label968
+_label968:
+  Goto _label969
+_label969:
+  Sense Here _label970 _label971 Marker 2
+  Goto _label970
+_label970:
+  Goto _label972
+_label971:
+  Goto _label973
+_label973:
+  Goto _label974
+_label974:
+  Sense Here _label975 _label976 Marker 3
+  Goto _label975
+_label975:
+  Goto _label977
+_label976:
+  Mark 4
+  Goto _label977
+_label977:
+  Goto _label972
+_label972:
+  Goto _label967
+_label967:
+  Goto _label962
+_label962:
+  Goto _label957
+_label957:
+  Goto _label952
+_label952:
+  Goto _label978
+_label978:
+  Goto _label979
+_label979:
+  Sense LeftAhead _label980 _label981 Food
+  Goto _label980
+_label980:
+  Turn Left
+  Goto D1
+  Goto E1
+E1:
+  Goto EPickUpFood
+  Goto _label982
+_label981:
+  Goto _label983
+_label983:
+  Goto _label984
+_label984:
+  Sense RightAhead _label985 _label986 Food
+  Goto _label985
+_label985:
+  Turn Right
+  Goto F2
+  Goto E2
+E2:
+  Goto EPickUpFood
+  Goto _label987
+_label986:
+  Goto _label988
+_label988:
+  Goto _label989
+_label989:
+  Sense Ahead _label990 _label991 Food
+  Goto _label990
+_label990:
+  Goto EPickUpFood
+  Goto _label991
+_label991:
+  Goto _label987
+_label987:
+  Goto _label982
+_label982:
+  Goto EVerifAhead
+  Goto ELibre
+ELibre:
+  Goto _label992
+_label992:
+  Goto _label993
+_label993:
+  Sense Ahead _label994 _label995 FriendWithFood
+  Goto _label994
+_label994:
+  Goto EPickUpFood
+  Goto _label996
+_label995:
+  Goto _label997
+_label997:
+  Goto _label998
+_label998:
+  Sense Ahead _label999 _label1000 Rock
+  Goto _label999
+_label999:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto B3
+  Goto E3
+E3:
+  Move _label1002
+  Goto _label1002
+_label1002:
+  Goto _label1001
+_label1000:
+  Move _label1003
+  Goto _label1003
+_label1003:
+  Goto _label1001
+_label1001:
+  Goto _label996
+_label996:
+  Goto ESearchFood
+  Goto EPickUpFood
+EPickUpFood:
+  Goto _label1004
+_label1004:
+  Goto _label1005
+_label1005:
+  Sense Here _label1006 _label1007 Marker 4
+  Goto _label1006
+_label1006:
+  Goto _label1008
+_label1007:
+  Goto _label1009
+_label1009:
+  Goto _label1010
+_label1010:
+  Sense Here _label1011 _label1012 Marker 5
+  Goto _label1011
+_label1011:
+  Goto _label1013
+_label1012:
+  Goto _label1014
+_label1014:
+  Goto _label1015
+_label1015:
+  Sense Here _label1016 _label1017 Marker 0
+  Goto _label1016
+_label1016:
+  Goto _label1018
+_label1017:
+  Goto _label1019
+_label1019:
+  Goto _label1020
+_label1020:
+  Sense Here _label1021 _label1022 Marker 1
+  Goto _label1021
+_label1021:
+  Goto _label1023
+_label1022:
+  Goto _label1024
+_label1024:
+  Goto _label1025
+_label1025:
+  Sense Here _label1026 _label1027 Marker 2
+  Goto _label1026
+_label1026:
+  Goto _label1028
+_label1027:
+  Goto _label1029
+_label1029:
+  Goto _label1030
+_label1030:
+  Sense Here _label1031 _label1032 Marker 3
+  Goto _label1031
+_label1031:
+  Goto _label1033
+_label1032:
+  Mark 1
+  Goto _label1033
+_label1033:
+  Goto _label1028
+_label1028:
+  Goto _label1023
+_label1023:
+  Goto _label1018
+_label1018:
+  Goto _label1013
+_label1013:
+  Goto _label1008
+_label1008:
+  Goto _label1034
+_label1034:
+  Goto _label1035
+_label1035:
+  Sense Ahead _label1036 _label1037 FriendWithFood
+  Goto _label1036
+_label1036:
+  Turn Right
+  Goto F4
+  Goto E4
+E4:
+  Move _label1038
+  Goto _label1038
+_label1038:
+  Turn Left
+  Goto D5
+  Goto E5
+E5:
+  Move _label1039
+  Goto _label1039
+_label1039:
+  Turn Right
+  Goto F6
+  Goto E6
+E6:
+  Goto _label1037
+_label1037:
+  Goto _label1040
+_label1040:
+  Goto _label1041
+_label1041:
+  Sense Ahead _label1042 _label1043 Friend
+  Goto _label1042
+_label1042:
+  Turn Right
+  Goto F7
+  Goto E7
+E7:
+  Move _label1045
+  Goto _label1045
+_label1045:
+  Turn Left
+  Goto D8
+  Goto E8
+E8:
+  Move _label1046
+  Goto _label1046
+_label1046:
+  Turn Right
+  Goto F9
+  Goto E9
+E9:
+  Goto _label1044
+_label1043:
+  Goto _label1047
+_label1047:
+  Goto _label1048
+_label1048:
+  Sense Ahead _label1049 _label1050 Rock
+  Goto _label1049
+_label1049:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto B10
+  Goto E10
+E10:
+  Move _label1052
+  Goto _label1052
+_label1052:
+  Goto _label1051
+_label1050:
+  Move _label1053
+  Goto _label1053
+_label1053:
+  Goto _label1051
+_label1051:
+  Goto _label1044
+_label1044:
+  PickUp ESearchFood
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto B11
+  Goto E11
+E11:
+  Goto EBackFood
+  Goto EPickUpFood
+  Goto EBackFood
+EBackFood:
+  Goto _label1054
+_label1054:
+  Goto _label1055
+_label1055:
+  Sense Here _label1056 _label1057 Home
+  Goto _label1056
+_label1056:
+  Drop
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto B12
+  Goto E12
+E12:
+  Goto ESearchFood
+  Goto _label1057
+_label1057:
+  Goto _label1058
+_label1058:
+  Goto _label1059
+_label1059:
+  Sense Here _label1060 _label1061 Marker 1
+  Goto _label1060
+_label1060:
+  Goto _label1062
+_label1061:
+  Goto _label1063
+_label1063:
+  Goto _label1064
+_label1064:
+  Sense Here _label1065 _label1066 Marker 2
+  Goto _label1065
+_label1065:
+  Turn Right
+  Goto F13
+  Goto E13
+E13:
+  Goto _label1067
+_label1066:
+  Goto _label1068
+_label1068:
+  Goto _label1069
+_label1069:
+  Sense Here _label1070 _label1071 Marker 3
+  Goto _label1070
+_label1070:
+  Turn Right
+  Turn Right
+  Goto A14
+  Goto E14
+E14:
+  Goto _label1072
+_label1071:
+  Goto _label1073
+_label1073:
+  Goto _label1074
+_label1074:
+  Sense Here _label1075 _label1076 Marker 4
+  Goto _label1075
+_label1075:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto B15
+  Goto E15
+E15:
+  Goto _label1077
+_label1076:
+  Goto _label1078
+_label1078:
+  Goto _label1079
+_label1079:
+  Sense Here _label1080 _label1081 Marker 5
+  Goto _label1080
+_label1080:
+  Turn Left
+  Turn Left
+  Goto C16
+  Goto E16
+E16:
+  Goto _label1082
+_label1081:
+  Goto _label1083
+_label1083:
+  Goto _label1084
+_label1084:
+  Sense Here _label1085 _label1086 Marker 0
+  Goto _label1085
+_label1085:
+  Turn Left
+  Goto D17
+  Goto E17
+E17:
+  Goto _label1087
+_label1086:
+  Goto _label1087
+_label1087:
+  Goto _label1082
+_label1082:
+  Goto _label1077
+_label1077:
+  Goto _label1072
+_label1072:
+  Goto _label1067
+_label1067:
+  Goto _label1062
+_label1062:
+  Move _label1088
+  Goto _label1088
+_label1088:
+  Goto EBackFood
+  Goto EVerifAhead
+EVerifAhead:
+  Goto _label1089
+_label1089:
+  Goto _label1090
+_label1090:
+  Sense Ahead _label1091 _label1092 Marker 4
+  Goto _label1091
+_label1091:
+  Goto EVerifRight
+  Goto _label1093
+_label1092:
+  Goto _label1094
+_label1094:
+  Goto _label1095
+_label1095:
+  Sense Ahead _label1096 _label1097 Marker 5
+  Goto _label1096
+_label1096:
+  Goto EVerifRight
+  Goto _label1098
+_label1097:
+  Goto _label1099
+_label1099:
+  Goto _label1100
+_label1100:
+  Sense Ahead _label1101 _label1102 Marker 0
+  Goto _label1101
+_label1101:
+  Goto EVerifRight
+  Goto _label1103
+_label1102:
+  Goto _label1104
+_label1104:
+  Goto _label1105
+_label1105:
+  Sense Ahead _label1106 _label1107 Marker 1
+  Goto _label1106
+_label1106:
+  Goto EVerifRight
+  Goto _label1108
+_label1107:
+  Goto _label1109
+_label1109:
+  Goto _label1110
+_label1110:
+  Sense Ahead _label1111 _label1112 Marker 2
+  Goto _label1111
+_label1111:
+  Goto EVerifRight
+  Goto _label1113
+_label1112:
+  Goto _label1114
+_label1114:
+  Goto _label1115
+_label1115:
+  Sense Ahead _label1116 _label1117 Marker 3
+  Goto _label1116
+_label1116:
+  Goto EVerifRight
+  Goto _label1118
+_label1117:
+  Goto ELibre
+  Goto _label1118
+_label1118:
+  Goto _label1113
+_label1113:
+  Goto _label1108
+_label1108:
+  Goto _label1103
+_label1103:
+  Goto _label1098
+_label1098:
+  Goto _label1093
+_label1093:
+  Goto EVerifAhead
+  Goto EVerifRight
+EVerifRight:
+  Goto _label1119
+_label1119:
+  Goto _label1120
+_label1120:
+  Sense RightAhead _label1121 _label1122 Marker 4
+  Goto _label1121
+_label1121:
+  Goto EVerifLeft
+  Goto _label1123
+_label1122:
+  Goto _label1124
+_label1124:
+  Goto _label1125
+_label1125:
+  Sense RightAhead _label1126 _label1127 Marker 5
+  Goto _label1126
+_label1126:
+  Goto EVerifLeft
+  Goto _label1128
+_label1127:
+  Goto _label1129
+_label1129:
+  Goto _label1130
+_label1130:
+  Sense RightAhead _label1131 _label1132 Marker 0
+  Goto _label1131
+_label1131:
+  Goto EVerifLeft
+  Goto _label1133
+_label1132:
+  Goto _label1134
+_label1134:
+  Goto _label1135
+_label1135:
+  Sense RightAhead _label1136 _label1137 Marker 1
+  Goto _label1136
+_label1136:
+  Goto EVerifLeft
+  Goto _label1138
+_label1137:
+  Goto _label1139
+_label1139:
+  Goto _label1140
+_label1140:
+  Sense RightAhead _label1141 _label1142 Marker 2
+  Goto _label1141
+_label1141:
+  Goto EVerifLeft
+  Goto _label1143
+_label1142:
+  Goto _label1144
+_label1144:
+  Goto _label1145
+_label1145:
+  Sense RightAhead _label1146 _label1147 Marker 3
+  Goto _label1146
+_label1146:
+  Goto EVerifLeft
+  Goto _label1148
+_label1147:
+  Turn Right
+  Goto F18
+  Goto E18
+E18:
+  Goto ELibre
+  Goto _label1148
+_label1148:
+  Goto _label1143
+_label1143:
+  Goto _label1138
+_label1138:
+  Goto _label1133
+_label1133:
+  Goto _label1128
+_label1128:
+  Goto _label1123
+_label1123:
+  Goto EVerifRight
+  Goto EVerifLeft
+EVerifLeft:
+  Goto _label1149
+_label1149:
+  Goto _label1150
+_label1150:
+  Sense LeftAhead _label1151 _label1152 Marker 4
+  Goto _label1151
+_label1151:
+  Goto EDirAlea
+  Goto _label1153
+_label1152:
+  Goto _label1154
+_label1154:
+  Goto _label1155
+_label1155:
+  Sense LeftAhead _label1156 _label1157 Marker 5
+  Goto _label1156
+_label1156:
+  Goto EDirAlea
+  Goto _label1158
+_label1157:
+  Goto _label1159
+_label1159:
+  Goto _label1160
+_label1160:
+  Sense LeftAhead _label1161 _label1162 Marker 0
+  Goto _label1161
+_label1161:
+  Goto EDirAlea
+  Goto _label1163
+_label1162:
+  Goto _label1164
+_label1164:
+  Goto _label1165
+_label1165:
+  Sense LeftAhead _label1166 _label1167 Marker 1
+  Goto _label1166
+_label1166:
+  Goto EDirAlea
+  Goto _label1168
+_label1167:
+  Goto _label1169
+_label1169:
+  Goto _label1170
+_label1170:
+  Sense LeftAhead _label1171 _label1172 Marker 2
+  Goto _label1171
+_label1171:
+  Goto EDirAlea
+  Goto _label1173
+_label1172:
+  Goto _label1174
+_label1174:
+  Goto _label1175
+_label1175:
+  Sense LeftAhead _label1176 _label1177 Marker 3
+  Goto _label1176
+_label1176:
+  Goto EDirAlea
+  Goto _label1178
+_label1177:
+  Turn Left
+  Goto D19
+  Goto E19
+E19:
+  Goto ELibre
+  Goto _label1178
+_label1178:
+  Goto _label1173
+_label1173:
+  Goto _label1168
+_label1168:
+  Goto _label1163
+_label1163:
+  Goto _label1158
+_label1158:
+  Goto _label1153
+_label1153:
+  Goto EVerifLeft
+  Goto EDirAlea
+EDirAlea:
+  Goto _label1179
+_label1179:
+  Flip 3 _label1180 _label1181
+  Goto _label1180
+_label1180:
+  Turn Right
+  Goto F20
+  Goto E20
+E20:
+  Goto ELibre
+  Goto _label1181
+_label1181:
+  Goto _label1182
+_label1182:
+  Flip 2 _label1183 _label1184
+  Goto _label1183
+_label1183:
+  Turn Left
+  Goto D21
+  Goto E21
+E21:
+  Goto ELibre
+  Goto _label1184
+_label1184:
+  Goto ELibre
+  Goto EDirAlea
+  Goto FSearchFood
+FSearchFood:
+  Goto _label1185
+_label1185:
+  Goto _label1186
+_label1186:
+  Sense Here _label1187 _label1188 Marker 5
+  Goto _label1187
+_label1187:
+  Goto _label1189
+_label1188:
+  Goto _label1190
+_label1190:
+  Goto _label1191
+_label1191:
+  Sense Here _label1192 _label1193 Marker 0
+  Goto _label1192
+_label1192:
+  Goto _label1194
+_label1193:
+  Goto _label1195
+_label1195:
+  Goto _label1196
+_label1196:
+  Sense Here _label1197 _label1198 Marker 1
+  Goto _label1197
+_label1197:
+  Goto _label1199
+_label1198:
+  Goto _label1200
+_label1200:
+  Goto _label1201
+_label1201:
+  Sense Here _label1202 _label1203 Marker 2
+  Goto _label1202
+_label1202:
+  Goto _label1204
+_label1203:
+  Goto _label1205
+_label1205:
+  Goto _label1206
+_label1206:
+  Sense Here _label1207 _label1208 Marker 3
+  Goto _label1207
+_label1207:
+  Goto _label1209
+_label1208:
+  Goto _label1210
+_label1210:
+  Goto _label1211
+_label1211:
+  Sense Here _label1212 _label1213 Marker 4
+  Goto _label1212
+_label1212:
+  Goto _label1214
+_label1213:
+  Mark 5
+  Goto _label1214
+_label1214:
+  Goto _label1209
+_label1209:
+  Goto _label1204
+_label1204:
+  Goto _label1199
+_label1199:
+  Goto _label1194
+_label1194:
+  Goto _label1189
+_label1189:
+  Goto _label1215
+_label1215:
+  Goto _label1216
+_label1216:
+  Sense LeftAhead _label1217 _label1218 Food
+  Goto _label1217
+_label1217:
+  Turn Left
+  Goto E1
+  Goto F1
+F1:
+  Goto FPickUpFood
+  Goto _label1219
+_label1218:
+  Goto _label1220
+_label1220:
+  Goto _label1221
+_label1221:
+  Sense RightAhead _label1222 _label1223 Food
+  Goto _label1222
+_label1222:
+  Turn Right
+  Goto A2
+  Goto F2
+F2:
+  Goto FPickUpFood
+  Goto _label1224
+_label1223:
+  Goto _label1225
+_label1225:
+  Goto _label1226
+_label1226:
+  Sense Ahead _label1227 _label1228 Food
+  Goto _label1227
+_label1227:
+  Goto FPickUpFood
+  Goto _label1228
+_label1228:
+  Goto _label1224
+_label1224:
+  Goto _label1219
+_label1219:
+  Goto FVerifAhead
+  Goto FLibre
+FLibre:
+  Goto _label1229
+_label1229:
+  Goto _label1230
+_label1230:
+  Sense Ahead _label1231 _label1232 FriendWithFood
+  Goto _label1231
+_label1231:
+  Goto FPickUpFood
+  Goto _label1233
+_label1232:
+  Goto _label1234
+_label1234:
+  Goto _label1235
+_label1235:
+  Sense Ahead _label1236 _label1237 Rock
+  Goto _label1236
+_label1236:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto C3
+  Goto F3
+F3:
+  Move _label1239
+  Goto _label1239
+_label1239:
+  Goto _label1238
+_label1237:
+  Move _label1240
+  Goto _label1240
+_label1240:
+  Goto _label1238
+_label1238:
+  Goto _label1233
+_label1233:
+  Goto FSearchFood
+  Goto FPickUpFood
+FPickUpFood:
+  Goto _label1241
+_label1241:
+  Goto _label1242
+_label1242:
+  Sense Here _label1243 _label1244 Marker 5
+  Goto _label1243
+_label1243:
+  Goto _label1245
+_label1244:
+  Goto _label1246
+_label1246:
+  Goto _label1247
+_label1247:
+  Sense Here _label1248 _label1249 Marker 0
+  Goto _label1248
+_label1248:
+  Goto _label1250
+_label1249:
+  Goto _label1251
+_label1251:
+  Goto _label1252
+_label1252:
+  Sense Here _label1253 _label1254 Marker 1
+  Goto _label1253
+_label1253:
+  Goto _label1255
+_label1254:
+  Goto _label1256
+_label1256:
+  Goto _label1257
+_label1257:
+  Sense Here _label1258 _label1259 Marker 2
+  Goto _label1258
+_label1258:
+  Goto _label1260
+_label1259:
+  Goto _label1261
+_label1261:
+  Goto _label1262
+_label1262:
+  Sense Here _label1263 _label1264 Marker 3
+  Goto _label1263
+_label1263:
+  Goto _label1265
+_label1264:
+  Goto _label1266
+_label1266:
+  Goto _label1267
+_label1267:
+  Sense Here _label1268 _label1269 Marker 4
+  Goto _label1268
+_label1268:
+  Goto _label1270
+_label1269:
+  Mark 2
+  Goto _label1270
+_label1270:
+  Goto _label1265
+_label1265:
+  Goto _label1260
+_label1260:
+  Goto _label1255
+_label1255:
+  Goto _label1250
+_label1250:
+  Goto _label1245
+_label1245:
+  Goto _label1271
+_label1271:
+  Goto _label1272
+_label1272:
+  Sense Ahead _label1273 _label1274 FriendWithFood
+  Goto _label1273
+_label1273:
+  Turn Right
+  Goto A4
+  Goto F4
+F4:
+  Move _label1275
+  Goto _label1275
+_label1275:
+  Turn Left
+  Goto E5
+  Goto F5
+F5:
+  Move _label1276
+  Goto _label1276
+_label1276:
+  Turn Right
+  Goto A6
+  Goto F6
+F6:
+  Goto _label1274
+_label1274:
+  Goto _label1277
+_label1277:
+  Goto _label1278
+_label1278:
+  Sense Ahead _label1279 _label1280 Friend
+  Goto _label1279
+_label1279:
+  Turn Right
+  Goto A7
+  Goto F7
+F7:
+  Move _label1282
+  Goto _label1282
+_label1282:
+  Turn Left
+  Goto E8
+  Goto F8
+F8:
+  Move _label1283
+  Goto _label1283
+_label1283:
+  Turn Right
+  Goto A9
+  Goto F9
+F9:
+  Goto _label1281
+_label1280:
+  Goto _label1284
+_label1284:
+  Goto _label1285
+_label1285:
+  Sense Ahead _label1286 _label1287 Rock
+  Goto _label1286
+_label1286:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto C10
+  Goto F10
+F10:
+  Move _label1289
+  Goto _label1289
+_label1289:
+  Goto _label1288
+_label1287:
+  Move _label1290
+  Goto _label1290
+_label1290:
+  Goto _label1288
+_label1288:
+  Goto _label1281
+_label1281:
+  PickUp FSearchFood
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto C11
+  Goto F11
+F11:
+  Goto FBackFood
+  Goto FPickUpFood
+  Goto FBackFood
+FBackFood:
+  Goto _label1291
+_label1291:
+  Goto _label1292
+_label1292:
+  Sense Here _label1293 _label1294 Home
+  Goto _label1293
+_label1293:
+  Drop
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto C12
+  Goto F12
+F12:
+  Goto FSearchFood
+  Goto _label1294
+_label1294:
+  Goto _label1295
+_label1295:
+  Goto _label1296
+_label1296:
+  Sense Here _label1297 _label1298 Marker 2
+  Goto _label1297
+_label1297:
+  Goto _label1299
+_label1298:
+  Goto _label1300
+_label1300:
+  Goto _label1301
+_label1301:
+  Sense Here _label1302 _label1303 Marker 3
+  Goto _label1302
+_label1302:
+  Turn Right
+  Goto A13
+  Goto F13
+F13:
+  Goto _label1304
+_label1303:
+  Goto _label1305
+_label1305:
+  Goto _label1306
+_label1306:
+  Sense Here _label1307 _label1308 Marker 4
+  Goto _label1307
+_label1307:
+  Turn Right
+  Turn Right
+  Goto B14
+  Goto F14
+F14:
+  Goto _label1309
+_label1308:
+  Goto _label1310
+_label1310:
+  Goto _label1311
+_label1311:
+  Sense Here _label1312 _label1313 Marker 5
+  Goto _label1312
+_label1312:
+  Turn Right
+  Turn Right
+  Turn Right
+  Goto C15
+  Goto F15
+F15:
+  Goto _label1314
+_label1313:
+  Goto _label1315
+_label1315:
+  Goto _label1316
+_label1316:
+  Sense Here _label1317 _label1318 Marker 0
+  Goto _label1317
+_label1317:
+  Turn Left
+  Turn Left
+  Goto D16
+  Goto F16
+F16:
+  Goto _label1319
+_label1318:
+  Goto _label1320
+_label1320:
+  Goto _label1321
+_label1321:
+  Sense Here _label1322 _label1323 Marker 1
+  Goto _label1322
+_label1322:
+  Turn Left
+  Goto E17
+  Goto F17
+F17:
+  Goto _label1324
+_label1323:
+  Goto _label1324
+_label1324:
+  Goto _label1319
+_label1319:
+  Goto _label1314
+_label1314:
+  Goto _label1309
+_label1309:
+  Goto _label1304
+_label1304:
+  Goto _label1299
+_label1299:
+  Move _label1325
+  Goto _label1325
+_label1325:
+  Goto FBackFood
+  Goto FVerifAhead
+FVerifAhead:
+  Goto _label1326
+_label1326:
+  Goto _label1327
+_label1327:
+  Sense Ahead _label1328 _label1329 Marker 5
+  Goto _label1328
+_label1328:
+  Goto FVerifRight
+  Goto _label1330
+_label1329:
+  Goto _label1331
+_label1331:
+  Goto _label1332
+_label1332:
+  Sense Ahead _label1333 _label1334 Marker 0
+  Goto _label1333
+_label1333:
+  Goto FVerifRight
+  Goto _label1335
+_label1334:
+  Goto _label1336
+_label1336:
+  Goto _label1337
+_label1337:
+  Sense Ahead _label1338 _label1339 Marker 1
+  Goto _label1338
+_label1338:
+  Goto FVerifRight
+  Goto _label1340
+_label1339:
+  Goto _label1341
+_label1341:
+  Goto _label1342
+_label1342:
+  Sense Ahead _label1343 _label1344 Marker 2
+  Goto _label1343
+_label1343:
+  Goto FVerifRight
+  Goto _label1345
+_label1344:
+  Goto _label1346
+_label1346:
+  Goto _label1347
+_label1347:
+  Sense Ahead _label1348 _label1349 Marker 3
+  Goto _label1348
+_label1348:
+  Goto FVerifRight
+  Goto _label1350
+_label1349:
+  Goto _label1351
+_label1351:
+  Goto _label1352
+_label1352:
+  Sense Ahead _label1353 _label1354 Marker 4
+  Goto _label1353
+_label1353:
+  Goto FVerifRight
+  Goto _label1355
+_label1354:
+  Goto FLibre
+  Goto _label1355
+_label1355:
+  Goto _label1350
+_label1350:
+  Goto _label1345
+_label1345:
+  Goto _label1340
+_label1340:
+  Goto _label1335
+_label1335:
+  Goto _label1330
+_label1330:
+  Goto FVerifAhead
+  Goto FVerifRight
+FVerifRight:
+  Goto _label1356
+_label1356:
+  Goto _label1357
+_label1357:
+  Sense RightAhead _label1358 _label1359 Marker 5
+  Goto _label1358
+_label1358:
+  Goto FVerifLeft
+  Goto _label1360
+_label1359:
+  Goto _label1361
+_label1361:
+  Goto _label1362
+_label1362:
+  Sense RightAhead _label1363 _label1364 Marker 0
+  Goto _label1363
+_label1363:
+  Goto FVerifLeft
+  Goto _label1365
+_label1364:
+  Goto _label1366
+_label1366:
+  Goto _label1367
+_label1367:
+  Sense RightAhead _label1368 _label1369 Marker 1
+  Goto _label1368
+_label1368:
+  Goto FVerifLeft
+  Goto _label1370
+_label1369:
+  Goto _label1371
+_label1371:
+  Goto _label1372
+_label1372:
+  Sense RightAhead _label1373 _label1374 Marker 2
+  Goto _label1373
+_label1373:
+  Goto FVerifLeft
+  Goto _label1375
+_label1374:
+  Goto _label1376
+_label1376:
+  Goto _label1377
+_label1377:
+  Sense RightAhead _label1378 _label1379 Marker 3
+  Goto _label1378
+_label1378:
+  Goto FVerifLeft
+  Goto _label1380
+_label1379:
+  Goto _label1381
+_label1381:
+  Goto _label1382
+_label1382:
+  Sense RightAhead _label1383 _label1384 Marker 4
+  Goto _label1383
+_label1383:
+  Goto FVerifLeft
+  Goto _label1385
+_label1384:
+  Turn Right
+  Goto A18
+  Goto F18
+F18:
+  Goto FLibre
+  Goto _label1385
+_label1385:
+  Goto _label1380
+_label1380:
+  Goto _label1375
+_label1375:
+  Goto _label1370
+_label1370:
+  Goto _label1365
+_label1365:
+  Goto _label1360
+_label1360:
+  Goto FVerifRight
+  Goto FVerifLeft
+FVerifLeft:
+  Goto _label1386
+_label1386:
+  Goto _label1387
+_label1387:
+  Sense LeftAhead _label1388 _label1389 Marker 5
+  Goto _label1388
+_label1388:
+  Goto FDirAlea
+  Goto _label1390
+_label1389:
+  Goto _label1391
+_label1391:
+  Goto _label1392
+_label1392:
+  Sense LeftAhead _label1393 _label1394 Marker 0
+  Goto _label1393
+_label1393:
+  Goto FDirAlea
+  Goto _label1395
+_label1394:
+  Goto _label1396
+_label1396:
+  Goto _label1397
+_label1397:
+  Sense LeftAhead _label1398 _label1399 Marker 1
+  Goto _label1398
+_label1398:
+  Goto FDirAlea
+  Goto _label1400
+_label1399:
+  Goto _label1401
+_label1401:
+  Goto _label1402
+_label1402:
+  Sense LeftAhead _label1403 _label1404 Marker 2
+  Goto _label1403
+_label1403:
+  Goto FDirAlea
+  Goto _label1405
+_label1404:
+  Goto _label1406
+_label1406:
+  Goto _label1407
+_label1407:
+  Sense LeftAhead _label1408 _label1409 Marker 3
+  Goto _label1408
+_label1408:
+  Goto FDirAlea
+  Goto _label1410
+_label1409:
+  Goto _label1411
+_label1411:
+  Goto _label1412
+_label1412:
+  Sense LeftAhead _label1413 _label1414 Marker 4
+  Goto _label1413
+_label1413:
+  Goto FDirAlea
+  Goto _label1415
+_label1414:
+  Turn Left
+  Goto E19
+  Goto F19
+F19:
+  Goto FLibre
+  Goto _label1415
+_label1415:
+  Goto _label1410
+_label1410:
+  Goto _label1405
+_label1405:
+  Goto _label1400
+_label1400:
+  Goto _label1395
+_label1395:
+  Goto _label1390
+_label1390:
+  Goto FVerifLeft
+  Goto FDirAlea
+FDirAlea:
+  Goto _label1416
+_label1416:
+  Flip 3 _label1417 _label1418
+  Goto _label1417
+_label1417:
+  Turn Right
+  Goto A20
+  Goto F20
+F20:
+  Goto FLibre
+  Goto _label1418
+_label1418:
+  Goto _label1419
+_label1419:
+  Flip 2 _label1420 _label1421
+  Goto _label1420
+_label1420:
+  Turn Left
+  Goto E21
+  Goto F21
+F21:
+  Goto FLibre
+  Goto _label1421
+_label1421:
+  Goto FLibre
+  Goto FDirAlea
