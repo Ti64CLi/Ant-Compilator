@@ -20,7 +20,7 @@ type control =
 
 type expression =
 	| Args									args[<value>]
-	| Move									move(<value>)
+	| Move									move(<value>, <ident?>)
 	| Turn									turn(<value>)
 	| PickUp								pickup(<ident>)
 	| Drop									drop()
@@ -38,7 +38,7 @@ type value =
 
 type condition =
 	| Is									<category> is <direction>
-	| RandInt								randint(<value>) is 0
+	| RandInt								randint(<value>) is <int>
 
 type direction =
 	| Ahead									ahead
