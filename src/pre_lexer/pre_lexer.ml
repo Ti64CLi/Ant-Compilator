@@ -1,12 +1,10 @@
 (* Pre lexer pour implémenter des variables *)
-let file = open_in "0_test_pre_lexer.ant" in
-let line = input_line file in
 
 (* définition de fonctions *)
-
+Printf.printf "Entrée définition des fonctions \n";
 let rec is_in a l =
   match l with
-  | h::t -> if h = a then true else is_in a t 
+  | h::t -> if h = a then true else is_in a t
   | [] -> false in
 
 let rec _browse_line_init l i var_current val_init val_possible =
@@ -19,9 +17,7 @@ match (l,i) with
 let browse_line_init l =
   _browse_line_init l 0 [] [] [] in
 
-let rec browse_line_assignment line =
-  ()
-in
+(* let rec browse_line_assignment line = () in *)
 
 (* convert the index in the the complete_file to values of each variable *)
 let _values_of_index var i nb_var prod =
@@ -35,17 +31,13 @@ let _values_of_index var i nb_var prod =
 let values_of_index var i nb_var =
   _values_of_index var i nb_var 1 in
 
-let index_of_values var = () 
-
-in
+(* let index_of_values var = () in *)
 
 let rec string_of_values values =
   match values with
   | (var, values)::q -> var ^ "_" ^ values ^ "_" ^ (string_of_values q)
   | [] -> "end"
 in
-
-
 
 let add t len_arr s =
   for i = 0 to len_arr-1 do
@@ -66,9 +58,6 @@ let add_value_related t l_t var nb_var var_name new_value =
     else (let s = string_of_values (change_value values var_name new_value) in t.(i) <- t.(i)^s;);
   done; in
 
-let var_name_label var_name values = () in
-
-
 let write_file final_file l_final_file file_name var nb_var header = 
   let file = open_out file_name in
   output_string file header;
@@ -80,16 +69,23 @@ let write_file final_file l_final_file file_name var nb_var header =
     output_string file final_file.(i);
   done;  
 in 
+Printf.printf "Sortie définition des fonctions \n";
 
 let test = ref true in
 
 (* lecture des définitions de variables au début du programme *)
 (* let nb_var = ref 0 in *)
+Printf.printf "\n Début du programme \n";
+Printf.printf "\n Ouverture du fichier \n";
+let file = open_in "src/pre_lexer/0_test_pre_lexer.ant" in
+let line = input_line file in
 
 let var_list = ref [] in
 let values_init = ref [] in
 let nb_var = ref 0 in
 let l_final_file = ref 0 in
+
+Printf.printf "\n Début de l'initialisation \n";
 while ((line.[0] = 'v') && (line.[1] = 'a') && (line.[2] = 'r')) do
   nb_var := !nb_var + 1;
   let line_sep = line
@@ -102,6 +98,8 @@ while ((line.[0] = 'v') && (line.[1] = 'a') && (line.[2] = 'r')) do
   var_list := (List.hd var_current,  array_val_possible, Array.length array_val_possible) :: !var_list;
   values_init := (List.hd var_current, List.hd val_init) :: !values_init;
 done;
+Printf.printf "Fin de l'initialisation \n";
+
 
 (* var contient toutes les informations de l'initialisation *)
 let var = Array.of_list !var_list in
@@ -110,6 +108,7 @@ let final_file = Array.make !l_final_file "" in
 let time = ref 0 in
 let header = Printf.sprintf "goto label_%s :" (string_of_values !values_init)  in
 
+Printf.printf "Début lecture de ligne hors init \n";
 while (!test) do
 let line = try input_line file with End_of_file -> test := false; "" in
 let line_trim = String.trim line in
@@ -163,6 +162,8 @@ else (
 done;
 
 
-let () = print_string "file name : " in
-let new_file_name = read_line () in
-write_file final_file !l_final_file new_file_name var !nb_var header;
+(* let () = print_string "file name : " in
+let new_file_name = read_line () in *)
+Printf.printf "\nDébut écriture fichier \n";
+write_file final_file !l_final_file "src/pre_lexer/0_test_pre_compil.ant" var !nb_var header;
+Printf.printf "Fin écriture fichier \n";
