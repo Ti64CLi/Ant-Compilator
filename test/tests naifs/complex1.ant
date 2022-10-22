@@ -1,0 +1,359 @@
+
+
+func SearchFood() {
+
+    if (food is left)
+    then {
+        turn(5);
+        &
+        call PickUpFood;
+    }
+    else {
+        if (food is right)
+        then {
+            turn(1);
+            &
+            call PickUpFood;
+        }
+        else {
+            do {
+                call PickUpFood;
+            }
+            if (food is ahead)
+        }
+   } *se tourne vers là où il y a de la nouriture, si il y en a et va en pickup dans ce cas*
+
+    call VerifAhead;
+    Libre:
+
+    if (bit(!00) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(!01) is here)
+        then {
+            nop;
+        }
+        else {
+            if (bit(!02) is here)
+            then {
+                nop;
+            }
+            else {   
+                if (bit(!03) is here)
+                then {
+                    nop;
+                }
+                else {   
+                    if (bit(!04) is here)
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (bit(!05) is here)
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(!00);
+                        }
+                    }
+                }
+            }
+        }
+    } *marque sa direction si le chemin n est pas déjà marqué*
+
+
+    if (friendWithFood is ahead)
+    then {
+        turn(1);
+        &
+        move(1);
+        turn(5);
+        &
+        move(1);
+        turn(1);
+        &
+    } *contourne un allié si il y en a un sur le passage*
+    else {
+        if (rock is ahead)
+        then {
+            turn(3);
+            &
+        }
+        else {
+            move(1);
+        }
+    } *fais demi-tour si il y a un rocher, avance sinon*
+}
+
+func PickUpFood (){
+    if (bit(!00) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(!01) is here)
+        then {
+            nop;
+        }
+        else {
+            if (
+                bit(!02) is here
+            )
+            then {
+                nop;
+            }
+            else {   
+                if (
+                    bit(!03) is here
+                )
+                then {
+                    nop;
+                }
+                else {   
+                    if (
+                        bit(!04) is here
+                    )
+                    then {
+                        nop;
+                    }
+                    else {   
+                        if (
+                            bit(!05) is here
+                        )
+                        then {
+                            nop;
+                        }
+                        else {   
+                            mark(!01);
+                        }
+                    }
+                }
+            }
+        }
+    } *marque sa direction si le chemin n est pas déjà marqué*
+
+    if (friendWithFood is ahead)
+    then {
+        turn(1);
+        &
+        move(1);
+        turn(5);
+        &
+        move(1);
+        turn(1);
+        &
+    } *contourne un allié si il y en a un sur le passage*
+    else {
+        if (rock is ahead)
+        then {
+            turn(3);
+            &
+        }
+        else {
+            move(1);
+        }
+    } *fais demi-tour si il y a un rocher, avance sinon*
+
+    pickup(SerachFood); *si pas de nouriture, refais une recherche*
+    turn(3); *sinon, fais demi-tour et rammene la nouriture*
+    &
+    call BackFood; *essaye de prendre de la nouriture*
+}
+
+func BackFood () {
+    do {
+        drop();
+        turn(3);
+        &
+        call SerachFood;
+    }
+    if (home is here)
+
+    if (bit(!00) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(!01) is here)
+        then {
+            turn(1);
+            &
+        }
+        else {
+            if (bit(!02) is here)
+            then {
+                turn(2);
+                &
+            }
+            else {
+                if (bit(!03) is here)
+                then {
+                    turn(3);
+                    &
+                }
+                else {
+                    if (bit(!04) is here)
+                    then {
+                        turn(4);
+                        &
+                    }
+                    else {
+                        if (bit(!05) is here)
+                        then {
+                            turn(5);
+                            &
+                        }
+                        else {
+                            nop;
+                        }
+                    }
+                }
+            }
+        }
+    } *suivit du chemin de retour*
+    *le numéro du bit à tester dépend de l orientation de la fourmi*
+    move(1);
+}
+
+func VerifAhead() {
+    if (bit(!00) is ahead)
+    then {
+        call VerifRight;
+    }
+    else {
+        if (bit(!01) is ahead)
+        then {
+            call VerifRight;
+        }
+        else {
+            if (bit(!02) is ahead)
+            then {
+                call VerifRight;
+            }
+            else {   
+                if (bit(!03) is ahead)
+                then {
+                    call VerifRight;
+                }
+                else {   
+                    if (bit(!04) is ahead)
+                    then {
+                        call VerifRight;
+                    }
+                    else {   
+                        if (bit(!05) is ahead)
+                        then {
+                            call VerifRight;
+                        }
+                        else {   
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func VerifRight() {
+    if (bit(!00) is right)
+    then {
+        call Verifleft;
+    }
+    else {
+        if (bit(!01) is right)
+        then {
+            call Verifleft;
+        }
+        else {
+            if (bit(!02) is right)
+            then {
+                call Verifleft;
+            }
+            else {   
+                if (bit(!03) is right)
+                then {
+                    call Verifleft;
+                }
+                else {   
+                    if (bit(!04) is right)
+                    then {
+                        call Verifleft;
+                    }
+                    else {   
+                        if (bit(!05) is right)
+                        then {
+                            call Verifleft;
+                        }
+                        else {   
+                            turn(1);
+                            &
+                            goto libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func VerifLeft() {
+    if (bit(!00) is left)
+    then {
+        call DirAlea;
+    }
+    else {
+        if (bit(!01) is left)
+        then {
+            call DirAlea;
+        }
+        else {
+            if (bit(!02) is left)
+            then {
+                call DirAlea;
+            }
+            else {   
+                if (bit(!03) is left)
+                then {
+                    call DirAlea;
+                }
+                else {   
+                    if (bit(!04) is left)
+                    then {
+                        call DirAlea;
+                    }
+                    else {   
+                        if (bit(!05) is left)
+                        then {
+                            call DirAlea;
+                        }
+                        else {
+                            turn(5);
+                            &
+                            goto Libre;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func DirAlea() {
+    do {
+        turn(1);
+        &
+        goto Libre;
+    }
+    if (randint(3) is 0)
+    do {
+        turn(5);
+        &
+        goto Libre;
+    }
+    if (randint(2) is 0)
+    goto Libre;
+}
