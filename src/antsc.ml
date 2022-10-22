@@ -145,10 +145,12 @@ let compile_file path program =
 
                 process_program thenBody;
 
+                write_command oc ("Goto " ^ label3);
                 write_label oc label2;
 
                 process_program elseBody;
 
+                write_command oc ("Goto " ^ label3);
                 write_label oc label3
               end
             | _ -> failwith "Can only compare randint(p) to 0"
@@ -160,10 +162,12 @@ let compile_file path program =
 
             process_program thenBody;
 
+            write_command oc ("Goto " ^ label3);
             write_label oc label2;
 
             process_program elseBody;
 
+            write_command oc ("Goto " ^ label3);
             write_label oc label3
           end
       end
@@ -191,7 +195,8 @@ let compile_file path program =
                 write_label oc label1;
 
                 process_program thenBody;
-
+                
+                write_command oc ("Goto " ^ label2);
                 write_label oc label2
               end
             | _ -> failwith "Can only compare randint(p) to 0"
@@ -203,6 +208,7 @@ let compile_file path program =
 
             process_program thenBody;
 
+            write_command oc ("Goto " ^ label2);
             write_label oc label2;
           end
       end
@@ -210,21 +216,23 @@ let compile_file path program =
       begin (* assuming there is no args for now *)
         let label = "_label" ^ (string_of_int !currentLabel) in
 
-        inFunction := true;
         labels := name :: !labels;
         functions := name :: !functions;
+        let addLabel = if !inFunction then true else false in
 
-        if !inFunction then begin
-          write_command oc ("Goto " ^ label)
+        if addLabel then begin
+          write_command oc ("Goto " ^ label);
+          currentLabel := !currentLabel + 1
         end;
         
+        inFunction := true;
+
         write_label oc name;
         process_program funcBody;
         write_command oc ("Goto " ^ name);
 
-        if !inFunction then begin
-          write_label oc label;
-          currentLabel := !currentLabel + 1
+        if addLabel then begin
+          write_label oc label
         end;
         
         functions := List.tl !functions;
@@ -241,12 +249,14 @@ let compile_file path program =
           end
         | _ ->
           begin
+            write_command oc ("Goto " ^ label1);
             write_label oc label1;
             write_command oc ("Sense " ^ (get_direction direction) ^ " " ^ label2 ^ " " ^ label3 ^ (get_condition category));
             write_label oc label2;
 
             process_program whileBody;
-
+            
+            write_command oc ("Goto " ^ label1);
             write_label oc label3
           end
       end
@@ -269,7 +279,10 @@ let compile_file path program =
         for i = 1 to num do
           write_command oc ("Move " ^ label) 
         done;
+
+        write_command oc ("Goto "^ label);
         write_label oc label;
+        
         currentLabel := !currentLabel + 1
       end
     | Ast.Turn (value, _) -> 
@@ -297,7 +310,7 @@ let compile_file path program =
       begin
         let num = process_value value in
         if num > 5 || num < 0 then
-          failwith "Mark expects a number between 1 and 6"
+          failwith "Mark expects a number between 0 and 5"
         else
           write_command oc ("Mark " ^ (string_of_int num))
       end
@@ -305,7 +318,7 @@ let compile_file path program =
       begin
         let num = process_value value in
         if num > 5 || num < 0 then
-          failwith "UnMark expects a number between 1 and 6"
+          failwith "UnMark expects a number between 0 and 5"
         else
           write_command oc ("Unmark " ^ (string_of_int num))
       end
