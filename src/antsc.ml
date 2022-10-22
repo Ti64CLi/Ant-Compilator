@@ -82,14 +82,7 @@ let compile_file path program =
     match program with
     | Ast.PreprocessorProgram ((preprocessor, _), (prog, _)) -> 
       begin
-        match preprocessor with
-        | Ast.Define ((ident, _), (num, _)) -> 
-          begin
-            defines := (ident, num) :: !defines
-          end
-        | _ -> 
-          begin
-          end;
+        process_preprocessor preprocessor;
 
         match prog with
         | Some p -> process_program p
@@ -111,6 +104,14 @@ let compile_file path program =
         | Some p -> process_program p
         | None -> ()
       end
+  and process_preprocessor preprocessor =
+    match preprocessor with
+    | Ast.Define ((ident, _), (num, _)) -> 
+      begin
+        print_string ("Defined " ^ ident ^ " as " ^ (string_of_int num) ^ "\n");
+        defines := (ident, num) :: !defines
+      end
+    | _ -> ()
   and process_control control =
     match control with
     | Ast.Label (name, _) -> 
