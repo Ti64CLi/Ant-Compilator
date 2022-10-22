@@ -1,2 +1,2 @@
-define DIX as 10;
+define DIX as 10
 move(DIX);
