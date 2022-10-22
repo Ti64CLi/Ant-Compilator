@@ -267,7 +267,7 @@ let compile_file path program =
         let num = process_value value in
         let label = "_label" ^ (string_of_int (!currentLabel)) in
         for i = 1 to num do
-          write_command oc ("Move " ^ label)
+          write_command oc ("Move " ^ label) 
         done;
         write_label oc label;
         currentLabel := !currentLabel + 1
