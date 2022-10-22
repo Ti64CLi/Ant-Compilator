@@ -1,13 +1,5 @@
-var x = 3 in 0 1 2 3 ;
-var y = 0 in 0 1 ;
+var x = 2 in 0 1 2 ;
 
-var y = 1 ;
-var y = 1 ;
+# test
 
-varif x = 2
-then {
-    move(1);
-}
-else {
-    turn(2);
-}
+var x = 0 ;
