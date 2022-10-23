@@ -78,7 +78,8 @@ if (condition)
 éxécute code1 si condition est vérifié, code2 sinon
 
 -
-``` do {
+``` 
+do {
         code
     }
     if (condition)
@@ -86,21 +87,24 @@ if (condition)
 éxécute code si condition
 
 -
-``` while (condition) {
+``` 
+while (condition) {
         code
     }
 ``` 
 éxécute code tant que la condition est vérifiée
 
 -
-``` repeate(n) times {
+``` 
+repeate(n) times {
         code
     }
 ``` 
 éxécute n fois le code
 
 -
-```test(information) in {
+```
+test(information) in {
         case direction1 :
             code1
         end
@@ -109,52 +113,50 @@ if (condition)
         end
         ...
         case directionp :
-            codeP
+            codep
     }
 ``` 
 vérifie pour chaque cas (information is direction*), et éxécute le code si c'est vérifié. Remarque : il n'y a pas de end final
 
-
-
-## TO DO
-
-> ##### Voici les idées d'implémentation de fonctionnalités dans notre language que nous n'avons pas eu le temps de faire.
->
 > implémenter les **variables** dans notre language
 
-- pour utiliser des variables, on pensait à dupliquer des labels en assembleur pour stocker des informations dans les fourmis
+## Utilisation des variables
 
-exemple de syntaxe pour implémenter une variable :
+- Tous les "var" en début de programme définissent des nouvelles variables. Il faut indiquer les valeurs possible de la varialble qui sont des chaines de caractères quelconque et la valeur initiale de la variable.
+
+Remarque : il faut mettre des espaces avant les points virgules
+```
+var x = 0 in 0 1 2 3 ;
+var y = nord in sud ouest nord est ;
+```
+Ici, x est initialement égale à 0 et peut valoir 0, 1, 2 ou 3 et y est initialement égale à "nord" et peut valoir "sud", "ouest", "nord" ou "est".
+
+La création de variable ne compte aucune opération en assembleur, cependant est très couteux en espace du progamme finale compilé. le nombre de ligne du progamme est multiplié par un O(nb_valeurs_possible variable) et ceci pour chaque variable.
+
+On peut changer la valeur d'une variable avec cette instruction
+
 
 ```
-var x in 0 1 2 ;
-var y in 0 1 ;
-
-# on définit x et y et on donne les valeurs qu'ils peuvent prendre dans le programme
-# une varible DOIT être définit en début de programme
-
-# on change la valeur de x
-var x = 2;
-turn(2)
-varif y 1
-then
-{
-    move(1);
-}
-else
-{
-    turn(2);
-}
+var nom_variable = nouvelle_valeur ;
 ```
+Remarque : il faut mettre des espaces avant les points virgules
 
-devrait donner en assembleur
+Remarque : une assignation fait 1 opération en assembleur
+
+Pour utiliser ces variables on a des test sur ces valeurs. On ne peut faire que des tests simples (aucune opération logique implémenté) cependant on peut imbriquer les tests entre eux.
+Voici la syntaxe :
 
 
-- On se déplace vers le label où x vaut 2 (sans changer la valeur de y) pour traduire la commande x = 2
+```
+var if x == 0 
+beginthen {
+    instruction0 ;
+    ...
+} endthen
+beginelse {
+    instruction1 ;
+    ...
+} endelse
+```
+Remarque : ce test ne prend aucune opération en assembleur
 
-- pour attérie au "même endroit" dans tous les labels lors d'une assignation, on crée les labels "time-int..." qui vaut 0 pour la première assignation du fichier, 1 pour la deuxième. 
-
-- on a mis move(1) que lorsque on était dans un label où y = 0
-- on a mis turn(2) que lorsque on était dans un label où y =1
-
-Sur le principe se comportement devrait être implémenté par le 
