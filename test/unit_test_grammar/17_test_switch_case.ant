@@ -1,7 +1,11 @@
-test(food) in {
-    case ahead :
+test(ahead) {
+    case friend :
         nop;
-    case left :
-        move(1);
-        turn(2);
+    case foe :
+        turn(5);
+    case friendWithFood :
+        move(2)
+    case foeWithFood :
+        pickup()
+
 }

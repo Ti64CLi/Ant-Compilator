@@ -2,14 +2,12 @@
 
 Explication de notre grammaire :
 
-On nomme "language assembleur" pour 
+On nomme "language assembleur" pour le language des fourmis qui nous a été donné. 
 
 ---
 
 > ## **Type program** 
 ce type définit la structure global du programme :
-- Preprocessor Program :
-- ControlProgram :
 - ExpressionProgram : définit le type expression qui se finit par un ";" pour enchainer sur le reste du programme
 
 ```
@@ -58,7 +56,8 @@ type control =
 On définit toutes les expressions utiles dans les programmes
 - Num pour les entiers 
 - Args pour les arguments(constants traités par le compilo) de fonctions
-- Move, Turn, Pickup, Drop, Goto, Mark, Unmark : même que les commandes en assembleur
+- Move(p) : essaye d'avancer p fois de suite
+- Turn, Pickup, Drop, Goto, Mark, Unmark : même que les commandes en assembleur
 - Call : appelle une fonction
 - IfThen : classique if then (pas d'ambiguité car écrit do{}if{})
 - Nop : traduit par un vide en assembleur, action vide

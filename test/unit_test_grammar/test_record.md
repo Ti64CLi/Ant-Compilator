@@ -135,16 +135,16 @@ type direction =
 
 type category =
 	| Friend 				friend
-	%% test_.ant %%
+	DONE %% 17_test_switch_case.ant %%
 
     | Foe					foe
-    %% test_.ant %%
+    DONE %% 17_test_switch_case.ant %%
 
     | FriendWithFood		friendWithFood
-    %% test_.ant %%
+    DONE %% 17_test_switch_case.ant %%
 
     | FoeWithFood			foeWithFood
-    %% test_.ant %%
+    DONE %% 17_test_switch_case.ant %%
 
     | Food					food
     DONE %% 14_test_is_if.ant %%
