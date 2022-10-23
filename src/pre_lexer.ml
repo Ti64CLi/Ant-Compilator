@@ -22,6 +22,12 @@ let print_string_list l =
   _print_string_list l;
   Printf.printf " ] \n"
 
+let sup_string_char c s =
+  let resul = ref "" in
+  for i = 0 to String.length s - 1 do
+    resul := !resul ^ (if s.[i] <> c then (String.sub s i 1) else "")
+  done;
+  !resul
 
 let rec _browse_line_init l i var_current val_init val_possible =
 match (l,i) with
@@ -233,7 +239,18 @@ let rec read_file forced_values banned_values separator var time final_file file
       add forced_values banned_values final_file !l_final_file "\n" var !nb_var;
     )
     else (
-      add forced_values banned_values final_file !l_final_file (!line^"\n") var !nb_var;
+      if ((String.length !line_trim > 5) && (!line_trim.[0] = 'p' && !line_trim.[1] = 'i' && !line_trim.[2] = 'c' && !line_trim.[3] = 'k' && !line_trim.[4] = 'u' && !line_trim.[5] = 'p') )
+      then (
+        add forced_values banned_values final_file !l_final_file "pickup(" var !nb_var;
+        let name_func = !line_filtered |> List.tl |> List.hd |> sup_string_char '(' |> sup_string_char ')' in
+        add forced_values banned_values final_file !l_final_file name_func var !nb_var;
+        add_value_related forced_values banned_values final_file !l_final_file var !nb_var "" "#";
+        add forced_values banned_values final_file !l_final_file ");" var !nb_var;
+       )
+      else (
+        (* normal line *) 
+        add forced_values banned_values final_file !l_final_file (!line^"\n") var !nb_var; 
+        )
     )
     )
   )
@@ -277,3 +294,10 @@ let pre_lexer file_name =
   write_file final_file !l_final_file new_file_name var !nb_var header;
   new_file_name
 
+(*
+let () =
+  print_string "version_test : ";
+  let version_test = read_line () in
+  let file_name = "../test/pre_lexer/" ^ version_test ^ "_test_pre_lexer.ant" in
+  let a = pre_lexer file_name in ()
+*)

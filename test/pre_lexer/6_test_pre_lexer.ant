@@ -1,0 +1,8 @@
+var x = 0 in 0 1 2 ;
+
+func eat_food () {
+    turn(1);
+    move(2);
+}
+
+pickup (eat_food) ;

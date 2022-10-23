@@ -15,7 +15,7 @@ Equipe Antstein :
 
 ## Grammaire :
 
-##preprogramme:
+## preprogramme:
 
 -
 ```include Name``` inclue au début du programme le fichier Name.ant
@@ -25,7 +25,7 @@ Equipe Antstein :
 
 ## Utilisation de base:
 
--```Name:``` et -```Goto Name``` permettent de créer un label et d'aller à un label
+-```Name:``` et -```goto Name``` permettent de créer un label et d'aller à un label
 
 - ```/* commentaire */``` créé un commentaire
 
@@ -66,33 +66,38 @@ Equipe Antstein :
 Remarque : il est possible de combiner les and, or et not 
 
 - 
-``` if (condition)
+``` 
+if (condition)
     then {
         code1
     }
     else {
         code2
     }
-``` éxécute code1 si condition est vérifié, code2 sinon
+``` 
+éxécute code1 si condition est vérifié, code2 sinon
 
 -
 ``` do {
         code
     }
     if (condition)
-``` éxécute code si condition
+``` 
+éxécute code si condition
 
 -
 ``` while (condition) {
         code
     }
-``` éxécute code tant que la condition est vérifiée
+``` 
+éxécute code tant que la condition est vérifiée
 
 -
 ``` repeate(n) times {
         code
     }
-``` éxécute n fois le code
+``` 
+éxécute n fois le code
 
 -
 ```test(information) in {
@@ -106,7 +111,8 @@ Remarque : il est possible de combiner les and, or et not
         case directionp :
             codeP
     }
-``` vérifie pour chaque cas (information is direction*), et éxécute le code si c'est vérifié. Remarque : il n'y a pas de end final
+``` 
+vérifie pour chaque cas (information is direction*), et éxécute le code si c'est vérifié. Remarque : il n'y a pas de end final
 
 
 
@@ -143,39 +149,6 @@ else
 
 devrait donner en assembleur
 
-```
-goto var-x-0-y-1
-
-var-x-0-y-0 :
-    goto time-0-x-2-y-0
-    time-0-x-0-y-0 :
-    turn(2);
-
-var-x-0-y-1 :
-    goto time-0-x-2-y-1
-    time-0-x-0-y-1 :
-    move(1);
-
-var-x-1-y-0 :
-    goto time-0-x-2-y-0
-    time-0-x-1-y-0 :
-    turn(2);
-
-var-x-1-y-1 :
-    goto time-0-x-2-y-1
-    time-0-x-1-y-1 :
-    move(1);
-
-var-x-2-y-0 :
-    goto time-0-x-2-y-0
-    time-0-x-2-y-0 :
-    turn(2);
-
-var-x-2-y-1 :
-    goto time-0-x-2-y-1
-    time-0-x-2-y-1 :
-    move(1);
-```
 
 - On se déplace vers le label où x vaut 2 (sans changer la valeur de y) pour traduire la commande x = 2
 
