@@ -38,6 +38,55 @@ let rec concat_string stringList =
   | [] -> ""
   | (s, _) :: t -> s ^ concat_string t
 
+let rec get_file_content infile =
+  match input_line infile with
+  | line -> String.trim line :: (get_file_content infile)
+  | exception End_of_file -> []
+
+let rec write_file oc text =
+  match text with
+  | [] -> fprintf oc "\n"
+  | line :: text' ->
+    begin
+      if String.ends_with ~suffix:":" line then
+        fprintf oc "%s\n" line
+      else
+        fprintf oc "\t%s\n" line;
+      
+      write_file oc text'
+    end
+
+let optimize filename =
+  let infile = open_in filename in
+  let outfileOptimized = open_out (filename ^ ".opt") in
+  let codeLines = get_file_content infile in
+  let rec compute_optimizations lines =
+    match lines with
+    | [] -> []
+    | [line1] -> [line1]
+    | line1 :: line2 :: t -> 
+      begin
+        if List.length t > 0 then begin
+          let line3 = List.hd t
+          and t' = List.tl t in
+          let opt = compute_optimizations t' in
+          if String.ends_with ~suffix:":" line1 && String.starts_with ~prefix:"Goto" line2 && String.ends_with ~suffix:":" line3 && 
+          ((String.sub line2 5 (String.length line2 - 5)) = (String.sub line3 0 (String.length line3 - 1))) then
+            line1 :: line3 :: opt
+          else
+            line1 :: line2 :: line3 :: opt
+        end else begin
+          let opt = compute_optimizations t in
+          if (String.starts_with ~prefix:"Goto" line1 || String.starts_with ~prefix:"Sense" line1 || String.starts_with ~prefix:"Flip" line1) && String.starts_with ~prefix:"Goto" line2 then
+            line1 :: opt
+          else
+            line1 :: line2 :: opt
+        end
+      end in
+  write_file outfileOptimized (compute_optimizations codeLines);
+  close_out outfileOptimized;
+  close_in infile
+
 let rec compile_file pathin oc program (*file_opened*) oldCurrentLabel =
   (* do not erase file if already open *)
   (*let oc = 
@@ -465,6 +514,8 @@ let _ =
           Sys.remove (pathout ^ ".brain");
           Sys.remove (pathout ^ ".antpl")
         end
+      else
+        optimize (pathout ^ ".brain")
     with
     | Lexer.Error (e, span) ->
       eprintf "Lex error: %t: %t\n" (CodeMap.Span.print span) (Lexer.print_error e)
