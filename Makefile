@@ -2,7 +2,7 @@
 
 EXE=antsc
 
-TESTS=$(shell find ./test/unit_test_grammar -maxdepth=1 -name \*.ant)
+TESTS=$(shell find ./test/unit_test_grammar -name \*.ant)
 # Le fichier contenant la grammaire du langage.
 GRAMMAR=src/lang.grammar
 # Les sources.
@@ -12,11 +12,10 @@ SRC=$(wildcard src/*)
 # `simple-parser-gen`.
 PARSER_GEN=simple-parser-gen
 PARSER_FILES=src/ast.mli src/ast.ml src/lexer.mli src/lexer.ml src/parser.mli src/parser.ml
-PRE_LEXER=src/pre_lexer/pre_lexer.ml
 
 ### Règles de constructions ###
 
-$(EXE): $(PRE_LEXER) $(PARSER_FILES) $(SRC) $(GRAMMAR)
+$(EXE): $(PARSER_FILES) $(SRC) $(GRAMMAR)
 	dune build @install
 	@cp _build/install/default/bin/antsc $@
 
