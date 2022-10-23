@@ -112,14 +112,15 @@ let incr_value_related forced_values banned_values t l_t var nb_var var_name =
 
 (* let incr_value values var value = () in *) 
 
-let write_file final_file l_final_file file_name var nb_var header = 
+let write_file final_file l_final_file file_name var nb_var header =
   let file = open_out file_name in
   output_string file header;
   for i = 0 to l_final_file - 1 do
     let values = values_of_index var i nb_var in
     let s = string_of_values values in
     
-    output_string file (Printf.sprintf "\nlabel_%s : \n" s);
+    output_string file (Printf.sprintf "\ngoto label_%s;\n" s);
+    output_string file (Printf.sprintf "label_%s : \n" s);
     output_string file final_file.(i);
   done
 
@@ -294,10 +295,10 @@ let pre_lexer file_name =
   write_file final_file !l_final_file new_file_name var !nb_var header;
   new_file_name
 
-(*
+
 let () = 
   print_string "version_test : ";
   let version_test = read_line () in
   let file_name = "../test/pre_lexer/" ^ version_test ^ "_test_pre_lexer.ant" in
   let a = pre_lexer file_name in ()
-*)
+
