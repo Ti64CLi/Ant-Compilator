@@ -8,15 +8,15 @@ type comment =
 	| Comment								/* <ident+_> */
 
 type preprocessor =
-	| Include								include <ident>
-	| Define								define <ident> as <int>
-	| Org									.org <ident>
+	| Include								include <ident+_>
+	| Define								define <ident+_> as <int>
+	| Org									.org <ident+_>
 
 type control =
-	| Label									<ident>:
+	| Label									<ident+_>:
 	| IfThenElse							if(<condition>) then {<program>} else {<program>}
 	| IfThen								do {<program>} if(<condition>)
-	| Func									func <ident>(<ident*,>) {<program>}
+	| Func									func <ident+_>(<ident*,>) {<program>}
 	| While									while(<condition>) {<program>}
 	| Repeat								repeat(<value>) times {<program>}
 	| Switch								test(<category>) in {<case+end>}
@@ -24,22 +24,25 @@ type control =
 type case =
 	| Case									case <direction>: <program>
 
+type labelOnError =
+	| LabelOnError							, <ident+_>
+
 type expression =
 	| Args									args[<value>]
-	| Move									move(<value>, <ident?>)
+	| Move									move(<value> <labelOnError?>)
 	| Turn									turn(<value>)
 	| PickUp								pickup(<ident>)
 	| Drop									drop()
-	| Goto									goto <ident>
+	| Goto									goto <ident+_>
 	| Mark 									mark(<value>)
 	| Unmark								unmark(<value>)
-	| Call									call <ident>
+	| Call									call <ident+_>
 	| Nop									nop
 	| Return								return
 	| Break									break
 
 type value =
-	| Var									<ident>
+	| Var									<ident+_>
 	| Int									<int>
 
 type condition =

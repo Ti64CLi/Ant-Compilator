@@ -33,6 +33,10 @@ let print_error file location message =
   eprintf "Error in file '%s' at '%t' :\n%s\n" file (CodeMap.Span.print location) message;
   errors := !errors + 1
 
+let rec concat_string stringList =
+  match stringList with
+  | [] -> ""
+  | (s, _) :: t -> s ^ concat_string t
 
 let rec compile_file pathin pathout program file_opened oldCurrentLabel =
   (* do not erase file if already open *)
@@ -61,7 +65,7 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
       | h :: _ when h = e -> print_error pathin location "Label was previously declared"
       | _ :: t -> aux t e in
     aux !labels label
-  and look_in_defined define location = (* check whether an identifier is linked to an int *)
+  and look_in_defined defineList location = (* check whether an identifier is linked to an int *)
     let rec aux l e =
       match l with
       | [] -> 
@@ -71,6 +75,7 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
         end
       | (d, v) :: _ when d = e -> v
       | _ :: t -> aux t e in
+      let define = concat_string defineList in
     aux !defines define in
   let process_value value =
     match value with
@@ -140,13 +145,15 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
       end
   and process_preprocessor preprocessor = (* processes type preprocessor *)
     match preprocessor with
-    | Ast.Define ((ident, _), (num, _)) -> 
+    | Ast.Define ((identList, _), (num, _)) -> 
       begin
+        let ident = concat_string identList in
         print_string ("Defined " ^ ident ^ " as " ^ (string_of_int num) ^ "\n");
         defines := (ident, num) :: !defines
       end
-    | Ast.Include (ident, location) ->
+    | Ast.Include (identList, location) ->
       begin
+        let ident = concat_string identList in
         if not (Sys.file_exists (path ^ ident ^ ".ant")) then
           print_error pathin location ("File '" ^ ident ^ ".ant' does not exist");
         
@@ -229,8 +236,9 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
       end
   and process_control control = (* processes type control *)
     match control with
-    | Ast.Label (name, _) -> 
+    | Ast.Label (nameList, _) -> 
       begin
+        let name = concat_string nameList in
         labels := name :: !labels;
 
         write_command oc ("Goto " ^ name);
@@ -266,8 +274,9 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
         write_command oc ("Goto " ^ elseLabel);
         write_label oc elseLabel
       end
-    | Ast.Func ((name, loc1), (args, loc2), (funcBody, _)) -> 
+    | Ast.Func ((nameList, loc1), (args, loc2), (funcBody, _)) -> 
       begin (* assuming there is no args for now *)
+      let name = concat_string nameList in
         look_in_labels name loc1;
 
         if List.length args > 0 then
@@ -336,7 +345,7 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
         let label = "_label" ^ (string_of_int (!currentLabel)) in
         let labelOnError = 
           match onErrorOption with
-          | Some l -> l
+          | Some (Ast.LabelOnError (identList, _)) -> concat_string identList
           | None -> label in
 
         for i = 1 to num do
@@ -365,8 +374,9 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
       begin
         write_command oc "Drop"
       end
-    | Ast.Goto (label, _) -> 
+    | Ast.Goto (labelList, _) -> 
       begin
+        let label = concat_string labelList in
         write_command oc ("Goto " ^ label)
       end
     | Ast.Mark (value, location) -> 
@@ -385,8 +395,9 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
         else
           write_command oc ("Unmark " ^ (string_of_int num))
       end
-    | Ast.Call (ident, _) -> 
+    | Ast.Call (identList, _) -> 
       begin
+        let ident = concat_string identList in
         write_command oc ("Goto " ^ ident);
         (*calls := (ident, List.hd !functions) :: !calls*)
       end
@@ -406,8 +417,9 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
   process_program program
 
 and process_file pathin pathout file_opened oldCurrentLabel =
+  (*let new_filename = Pre_lexer.pre_lexer pathin in*)
   (* Ouvre le fichier et créé un lexer. *)
-  let file = open_in pathin in
+  let file = open_in pathin(*new_filename*) in
   let lexer = Lexer.of_channel file in
   (* Parse le fichier. *)
   let (program, span) = Parser.parse_program lexer in
