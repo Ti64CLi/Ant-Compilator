@@ -1,19 +1,994 @@
-include Numbers.ants
+var n = 0 in 0 1 2 3 4 5 6 7 8 9 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 ;
+
+func ReadNumber() {
+    if (bit(5) is 0)
+    then {
+        if (bit(4) is 0)
+        then {
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 0 ;
+                        }
+                        else {  
+                            var n = 1 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 2 ;
+                        }
+                        else {  
+                            var n = 3 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 4 ;
+                        }
+                        else {  
+                            var n = 5 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 6 ;
+                        }
+                        else {  
+                            var n = 7 ;
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 8 ;
+                        }
+                        else {  
+                            var n = 9 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 10 ;
+                        }
+                        else {  
+                            var n = 11 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 12 ;
+                        }
+                        else {  
+                            var n = 13 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 14 ;
+                        }
+                        else {  
+                            var n = 15 ;
+                        }
+                    }
+                }
+            }
+        }
+        else {  
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 16 ;
+                        }
+                        else {  
+                            var n = 17 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 18 ;
+                        }
+                        else {  
+                            var n = 19 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 20 ;
+                        }
+                        else {  
+                            var n = 21 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 22 ;
+                        }
+                        else {  
+                            var n = 23 ;
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 24 ;
+                        }
+                        else {  
+                            var n = 25 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 26 ;
+                        }
+                        else {  
+                            var n = 27 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 28 ;
+                        }
+                        else {  
+                            var n = 29 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 30 ;
+                        }
+                        else {  
+                            var n = 31 ;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else {
+        if (bit(4) is 0)
+        then {
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 32 ;
+                        }
+                        else {  
+                            var n = 33 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 34 ;
+                        }
+                        else {  
+                            var n = 35 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 36 ;
+                        }
+                        else {  
+                            var n = 37 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 38 ;
+                        }
+                        else {  
+                            var n = 39 ;
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 40 ;
+                        }
+                        else {  
+                            var n = 41 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 42 ;
+                        }
+                        else {  
+                            var n = 43 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 44 ;
+                        }
+                        else {  
+                            var n = 45 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 46 ;
+                        }
+                        else {  
+                            var n = 47 ;
+                        }
+                    }
+                }
+            }
+        }
+        else {  
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 48 ;
+                        }
+                        else {  
+                            var n = 49 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 50 ;
+                        }
+                        else {  
+                            var n = 51 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 52 ;
+                        }
+                        else {  
+                            var n = 53 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 54 ;
+                        }
+                        else {  
+                            var n = 55 ;
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 56 ;
+                        }
+                        else {  
+                            var n = 57 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 58 ;
+                        }
+                        else {  
+                            var n = 59 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 60 ;
+                        }
+                        else {  
+                            var n = 61 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 62 ;
+                        }
+                        else {  
+                            var n = 63 ;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return;
+}
+
+func Write0() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write1() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write2() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write3() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write4() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write5() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write6() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write7() {
+    mark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write8() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write9() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write10() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write11() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write12() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write13() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write14() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write15() {
+    mark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write16() {
+    munark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write17() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write18() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write19() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write20() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write21() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write22() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write23() {
+    mark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write24() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write25() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write26() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write27() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write28() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write29() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write30() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write31() {
+    mark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write32() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write33() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write34() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write35() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write36() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write37() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write38() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write39() {
+    mark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write40() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write41() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write42() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write43() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write44() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write45() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write46() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write47() {
+    mark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write48() {
+    munark(0)
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write49() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write50() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write51() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write52() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write53() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write54() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write55() {
+    mark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write56() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write57() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write58() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write59() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write60() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write61() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write62() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write63() {
+    mark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var compass = 0 in 0 1 2 3 4 5 ;
+
  
 func SearchFood() {
 
     if (food is left)
     then {
         call turn5;
-        
         call PickUpFood;
     }
     else {
         if (food is right)
         then {
             call turn1;
-            
             call PickUpFood;
         }
         else {
@@ -69,19 +1044,15 @@ func SearchFood() {
     if (friendWithFood is ahead)
     then {
         call turn1;
-        
         move(1);
         call turn5;
-        
         move(1);
         call turn1;
-        
     } #contourne un allié si il y en a un sur le passage
     else {
         if (rock is ahead)
         then {
             call turn3;
-            
         }
         else {
             move(1);
@@ -128,7 +1099,7 @@ func PickUpFood (){
                             nop;
                         }
                         else {   
-                            mark(!01);
+                            mark(!00);
                         }
                     }
                 }
@@ -139,19 +1110,15 @@ func PickUpFood (){
     if (friendWithFood is ahead)
     then {
         call turn1;
-        
         move(1);
         call turn5;
-        
         move(1);
         call turn1;
-        
     } #contourne un allié si il y en a un sur le passage
     else {
         if (rock is ahead)
         then {
             call turn3;
-            
         }
         else {
             move(1);
@@ -160,7 +1127,6 @@ func PickUpFood (){
 
     pickup(SerachFood); #si pas de nouriture, refais une recherche
     call turn3; #sinon, fais demi-tour et rammene la nouriture
-    
     call BackFood; #essaye de prendre de la nouriture
 }
 
@@ -168,7 +1134,6 @@ func BackFood () {
     do {
         drop();
         call turn3;
-        
         call SerachFood;
     }
     if (home is here)
@@ -181,31 +1146,26 @@ func BackFood () {
         if (bit(!01) is here)
         then {
             call turn1;
-            
         }
         else {
             if (bit(!02) is here)
             then {
                 call turn2;
-                
             }
             else {
                 if (bit(!03) is here)
                 then {
                     call turn3;
-                    
                 }
                 else {
                     if (bit(!04) is here)
                     then {
                         call turn4;
-                        
                     }
                     else {
                         if (bit(!05) is here)
                         then {
                             call turn5;
-                            
                         }
                         else {
                             nop;
@@ -291,7 +1251,6 @@ func VerifRight() {
                         }
                         else {   
                             call turn1;
-                            
                             goto libre;
                         }
                     }
@@ -333,7 +1292,6 @@ func VerifLeft() {
                         }
                         else {
                             call turn5;
-                            
                             goto Libre;
                         }
                     }
@@ -346,13 +1304,11 @@ func VerifLeft() {
 func DirAlea() {
     do {
         call turn1;
-        
         goto Libre;
     }
     if (randint(3) is 0)
     do {
         call turn5;
-        
         goto Libre;
     }
     if (randint(2) is 0)
@@ -361,7 +1317,7 @@ func DirAlea() {
 
 func turn1 () {
     turn(1);
-    var if  x == 0
+    var if  compass == 0
     then {
         var compass = 1 ;
     }
@@ -428,6 +1384,7 @@ func turn2 () {
             }
         }
     }
+    return;
 }
 
 func turn3 () {
@@ -463,6 +1420,7 @@ func turn3 () {
             }
         }
     }
+    return;
 }
 
 func turn4 () {
@@ -498,6 +1456,7 @@ func turn4 () {
             }
         }
     }
+    return;
 }
 
 func turn5 () {
@@ -533,4 +1492,5 @@ func turn5 () {
             }
         }
     }
+    return;
 } 
