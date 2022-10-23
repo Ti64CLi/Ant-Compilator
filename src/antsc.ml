@@ -70,8 +70,8 @@ let optimize filename =
           let line3 = List.hd t
           and t' = List.tl t in
           let opt = compute_optimizations t' in
-          if String.ends_with ~suffix:":" line1 && String.starts_with ~prefix:"Goto" line2 && String.ends_with ~suffix:":" line3 && 
-          ((String.sub line2 5 (String.length line2 - 5)) = (String.sub line3 0 (String.length line3 - 1))) then
+          if String.ends_with ~suffix:":" line1 && String.starts_with ~prefix:"Goto" line2 && String.ends_with ~suffix:":" line3 && (* Label1: then Goto <name> then Label2: *)
+          ((String.sub line2 5 (String.length line2 - 5)) = (String.sub line3 0 (String.length line3 - 1))) then (* and <name> = Label2 *)
             line1 :: line3 :: opt
           else
             line1 :: line2 :: line3 :: opt
