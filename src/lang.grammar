@@ -14,12 +14,12 @@ type preprocessor =
 
 type control =
 	| Label									<ident+_>:
-	| IfThenElse							if(<condition>) then {<program>} else {<program>}
-	| IfThen								do {<program>} if(<condition>)
-	| Func									func <ident+_>(<ident*,>) {<program>}
-	| While									while(<condition>) {<program>}
-	| Repeat								repeat(<value>) times {<program>}
-	| Switch								test(<category>) in {<case+end>}
+	| IfThenElse							if (<condition>) then {<program>} else {<program>}
+	| IfThen								do {<program>} if (<condition>)
+	| Func									func <ident+_> (<ident*,>) {<program>}
+	| While									while (<condition>) {<program>}
+	| Repeat								repeat (<value>) times {<program>}
+	| Switch								test (<category>) in {<case+end>}
 
 type case =
 	| Case									case <direction>: <program>
@@ -29,13 +29,13 @@ type labelOnError =
 
 type expression =
 	| Args									args[<value>]
-	| Move									move(<value> <labelOnError?>)
-	| Turn									turn(<value>)
-	| PickUp								pickup(<ident>)
-	| Drop									drop()
+	| Move									move (<value> <labelOnError?>)
+	| Turn									turn (<value>)
+	| PickUp								pickup (<ident>)
+	| Drop									drop ()
 	| Goto									goto <ident+_>
-	| Mark 									mark(<value>)
-	| Unmark								unmark(<value>)
+	| Mark 									mark (<value>)
+	| Unmark								unmark (<value>)
 	| Call									call <ident+_>
 	| Nop									nop
 	| Return								return
@@ -47,7 +47,7 @@ type value =
 
 type condition =
 	| Is									<category> is <direction>
-	| RandInt								randint(<value>) is <int>
+	| RandInt								randint (<value>) is <int>
 
 type direction =
 	| Ahead									ahead
@@ -66,6 +66,6 @@ type category =
 	| FoeMarker								foeMarker
 	| Home									home
 	| FoeHome								foeHome
-	| Or									or(<category>, <category>)
-	| And									and(<category>, <category>)
-	| Not									not(<category>)
+	| Or									or (<category>, <category>)
+	| And									and (<category>, <category>)
+	| Not									not (<category>)
