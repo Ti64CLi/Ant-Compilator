@@ -325,16 +325,31 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
           process_program repeatBody
         done
       end
-    | Ast.Switch ((category, _), (switchBody, _)) -> 
+    | Ast.Switch ((category, loc1), (switchBody, _)) -> 
       begin
+        let endSwitchLabel = "_label" ^ (string_of_int !currentLabel) in
+        currentLabel := !currentLabel + 1;
+
         let rec process_cases cases =
           match cases with
-          | [] -> ()
-          | (Ast.Case ((direction, _), (program, _)), _) :: nextCases -> 
+          | [] -> write_command oc ("Goto " ^ endSwitchLabel)
+          | (Ast.Case ((direction, loc2), (program, _)), _) :: nextCases -> 
             begin
+              let (_, thenLabel, elseLabel) = process_condition (Ast.Is ((category, loc1), (direction, loc2))) in
+              write_command oc ("Goto " ^ thenLabel);
+              write_label oc thenLabel;
+
+              process_program program;
+
+              write_command oc ("Goto " ^ endSwitchLabel);
+              write_label oc elseLabel;
+
               process_cases nextCases
             end in
         process_cases switchBody;
+
+        write_command oc ("Goto " ^ endSwitchLabel);
+        write_label oc endSwitchLabel
       end
   and process_expression expression = (* processes type expression *)
     match expression with
