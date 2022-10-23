@@ -36,12 +36,11 @@ let print_error file location message =
 
 let rec compile_file pathin pathout program file_opened =
   (* do not erase file if already open *)
-  let args = ref [Open_creat; Open_text] in
-  if not file_opened then
-    args := Open_trunc :: !args
-  else
-    args := Open_append :: !args;
-  let oc = open_out_gen !args 644 pathout in
+  let oc = 
+    if file_opened then
+      open_out_gen [Open_append; Open_text] 644 pathout
+    else
+      open_out pathout in
 
   let labels = ref []
   and defines = ref []
@@ -50,6 +49,7 @@ let rec compile_file pathin pathout program file_opened =
   and inFunction = ref false
   and inSwitchCategories = ref Ast.Friend
   and currentLabel = ref 0 in
+
   let (path, filename) = get_filename pathin in
 
   write_label oc (get_filename_without_ext filename);
@@ -266,10 +266,12 @@ let rec compile_file pathin pathout program file_opened =
         write_command oc ("Goto " ^ elseLabel);
         write_label oc elseLabel
       end
-    | Ast.Func ((name, _), (args, location), (funcBody, _)) -> 
+    | Ast.Func ((name, loc1), (args, loc2), (funcBody, _)) -> 
       begin (* assuming there is no args for now *)
+        look_in_labels name loc1;
+
         if List.length args > 0 then
-          print_error pathin location "Arguments are not supported yet";
+          print_error pathin loc2 "Arguments are not supported yet";
         
         let label = "_label" ^ (string_of_int !currentLabel) in
 
@@ -409,9 +411,14 @@ and process_file pathin pathout file_opened =
   let lexer = Lexer.of_channel file in
   (* Parse le fichier. *)
   let (program, span) = Parser.parse_program lexer in
-  printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program);
+  (*printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program);*)
+  let currentErrors = !errors in
   compile_file pathin pathout program file_opened;
-  printf "Compilation ended with %d errors\n" !errors
+
+  if !errors <> 0 then (* removes file if there was any error *)
+    Sys.remove pathout;
+
+  printf "Compilation of '%s' ended with %d errors\n" pathin (!errors - currentErrors)
 
 (* Le point de départ du compilateur. *)
 let _ =
