@@ -48,10 +48,9 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
 
   let labels = ref []
   and defines = ref []
-  and calls = ref []
+  (*and calls = ref []*)
   and functions = ref []
   and inFunction = ref false
-  and inSwitchCategories = ref Ast.Friend
   and currentLabel = ref oldCurrentLabel in
 
   let (path, filename) = get_filename pathin in
@@ -353,7 +352,7 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
       end
   and process_expression expression = (* processes type expression *)
     match expression with
-    | Ast.Args (value, _) -> ()
+    | Ast.Args (_, _) -> ()
     | Ast.Move ((value, _), (onErrorOption, _)) ->
       begin
         let num = process_value value in
@@ -437,7 +436,7 @@ and process_file pathin pathout file_opened oldCurrentLabel =
   let file = open_in pathin(*new_filename*) in
   let lexer = Lexer.of_channel file in
   (* Parse le fichier. *)
-  let (program, span) = Parser.parse_program lexer in
+  let (program, _) = Parser.parse_program lexer in
   (*printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program);*)
   let currentErrors = !errors in
   compile_file pathin pathout program file_opened oldCurrentLabel;
