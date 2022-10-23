@@ -17,7 +17,8 @@ let rec _print_string_list l =
 let print_string_list l =
   Printf.printf "[ ";
   _print_string_list l;
-  Printf.printf " ] \n"; in
+  Printf.printf " ] \n" in
+
 
 let rec _browse_line_init l i var_current val_init val_possible =
 match (l,i) with
@@ -28,6 +29,7 @@ match (l,i) with
 
 let browse_line_init l =
   _browse_line_init l 0 [] [] [] in
+
 
 (* convert the index in the the complete_file to values of each variable *)
 let _values_of_index var i nb_var prod =
@@ -47,8 +49,7 @@ let values_of_index var i nb_var =
 let rec string_of_values values =
   match values with
   | (var, value)::q -> var ^ "_" ^ value ^ "_" ^ (string_of_values q)
-  | [] -> "end"
-in
+  | [] -> "end" in
 
 let rec _compatible_forced_values var_name value values =
   match values with
@@ -182,6 +183,7 @@ let rec read_file forced_values banned_values separator var time final_file file
           else if (is_in "++" !line_split)
           then (
             Printf.printf "In ++ \n";
+            (* NOT FINISHED *)
             (* gérer une incrémentation *)
             (* incr_value_related final_file !l_final_file var !nb_var; *)
             add forced_values banned_values final_file !l_final_file (Printf.sprintf "goto time_%d_" !time) var !nb_var;
@@ -227,8 +229,7 @@ let rec read_file forced_values banned_values separator var time final_file file
       add forced_values banned_values final_file !l_final_file (!line^"\n") var !nb_var;
     );
   get_line file separator line line_trim line_split line_filtered test;  
-  done;
-in
+  done; in
 
 let pre_lexer file_name =
   Printf.printf "Begin programm \n";
@@ -270,10 +271,10 @@ let pre_lexer file_name =
   let new_file_name = (file_name^"pl") in
   write_file final_file !l_final_file new_file_name var !nb_var header;
   new_file_name
-  in 
 
-
+(*
 let () = print_string "version_test : " in
 let version_test = read_line () in
 let file_name = version_test^"_test_pre_lexer.ant" in
 let a = pre_lexer file_name in ();
+*)
