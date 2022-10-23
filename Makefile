@@ -1,5 +1,8 @@
 ### Définitions de variables ###
 
+EXE=antsc
+
+TESTS=$(shell find ./test/unit_test_grammar -maxdepth=1 -name \*.ant)
 # Le fichier contenant la grammaire du langage.
 GRAMMAR=src/lang.grammar
 # Les sources.
@@ -12,7 +15,7 @@ PARSER_FILES=src/ast.mli src/ast.ml src/lexer.mli src/lexer.ml src/parser.mli sr
 
 ### Règles de constructions ###
 
-antsc: $(PARSER_FILES) $(SRC) $(GRAMMAR)
+$(EXE): $(PARSER_FILES) $(SRC) $(GRAMMAR)
 	dune build @install
 	@cp _build/install/default/bin/antsc $@
 
@@ -58,4 +61,7 @@ mrproper: clean
 	rm -f antsc antsc.install
 	$(MAKE) --directory parser_generator mrproper
 
-.PHONY: parser clean mrproper deps uninstall_deps
+test:
+	$(foreach var,$(TESTS),./$(EXE) $(var);)
+
+.PHONY: parser clean mrproper deps uninstall_deps test

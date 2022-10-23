@@ -1,0 +1,2472 @@
+var compass = 0 in 0 1 2 3 4 5 ;
+# var n = 0 in 0 1 2 3 4 5 6 7 8 9 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 ;
+
+
+
+call SearchFood;
+
+
+func ReadNumber() {
+    if (bit(5) is 0)
+    then {
+        if (bit(4) is 0)
+        then {
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 0 ;
+                        }
+                        else {  
+                            var n = 1 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 2 ;
+                        }
+                        else {  
+                            var n = 3 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 4 ;
+                        }
+                        else {  
+                            var n = 5 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 6 ;
+                        }
+                        else {  
+                            var n = 7 ;
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 8 ;
+                        }
+                        else {  
+                            var n = 9 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 10 ;
+                        }
+                        else {  
+                            var n = 11 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 12 ;
+                        }
+                        else {  
+                            var n = 13 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 14 ;
+                        }
+                        else {  
+                            var n = 15 ;
+                        }
+                    }
+                }
+            }
+        }
+        else {  
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 16 ;
+                        }
+                        else {  
+                            var n = 17 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 18 ;
+                        }
+                        else {  
+                            var n = 19 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 20 ;
+                        }
+                        else {  
+                            var n = 21 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 22 ;
+                        }
+                        else {  
+                            var n = 23 ;
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 24 ;
+                        }
+                        else {  
+                            var n = 25 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 26 ;
+                        }
+                        else {  
+                            var n = 27 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 28 ;
+                        }
+                        else {  
+                            var n = 29 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 30 ;
+                        }
+                        else {  
+                            var n = 31 ;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else {
+        if (bit(4) is 0)
+        then {
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 32 ;
+                        }
+                        else {  
+                            var n = 33 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 34 ;
+                        }
+                        else {  
+                            var n = 35 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 36 ;
+                        }
+                        else {  
+                            var n = 37 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 38 ;
+                        }
+                        else {  
+                            var n = 39 ;
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 40 ;
+                        }
+                        else {  
+                            var n = 41 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 42 ;
+                        }
+                        else {  
+                            var n = 43 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 44 ;
+                        }
+                        else {  
+                            var n = 45 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 46 ;
+                        }
+                        else {  
+                            var n = 47 ;
+                        }
+                    }
+                }
+            }
+        }
+        else {  
+            if (bit(3) is 0)
+            then {
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 48 ;
+                        }
+                        else {  
+                            var n = 49 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 50 ;
+                        }
+                        else {  
+                            var n = 51 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 52 ;
+                        }
+                        else {  
+                            var n = 53 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 54 ;
+                        }
+                        else {  
+                            var n = 55 ;
+                        }
+                    }
+                }
+            }
+            else {  
+                if (bit(2) is 0)
+                then {
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 56 ;
+                        }
+                        else {  
+                            var n = 57 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 58 ;
+                        }
+                        else {  
+                            var n = 59 ;
+                        }
+                    }
+                }
+                else {  
+                    if (bit(1) is 0)
+                    then {
+                        if (bit(0) is 0)
+                        then {
+                            var n = 60 ;
+                        }
+                        else {  
+                            var n = 61 ;
+                        }
+                    }
+                    else {  
+                        if (bit(0) is 0)
+                        then {
+                            var n = 62 ;
+                        }
+                        else {  
+                            var n = 63 ;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return;
+}
+
+func Write0() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write1() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write2() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write3() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write4() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write5() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write6() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write7() {
+    mark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write8() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write9() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write10() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write11() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write12() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write13() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write14() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write15() {
+    mark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write16() {
+    munark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write17() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write18() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write19() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write20() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write21() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write22() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write23() {
+    mark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write24() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write25() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write26() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write27() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write28() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write29() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write30() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write31() {
+    mark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    unmark(5);
+}
+
+func Write32() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write33() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write34() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write35() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write36() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write37() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write38() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write39() {
+    mark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write40() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write41() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    unmark(5);
+}
+
+func Write42() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write43() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write44() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write45() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write46() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write47() {
+    mark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    unmark(4);
+    mark(5);
+}
+
+func Write48() {
+    munark(0)
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write49() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write50() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write51() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write52() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write53() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write54() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write55() {
+    mark(0);
+    mark(1);
+    mark(2);
+    unmark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write56() {
+    unmark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write57() {
+    mark(0);
+    unmark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write58() {
+    unmark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write59() {
+    mark(0);
+    mark(1);
+    unmark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write60() {
+    unmark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write61() {
+    mark(0);
+    unmark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write62() {
+    unmark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+func Write63() {
+    mark(0);
+    mark(1);
+    mark(2);
+    mark(3);
+    mark(4);
+    mark(5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+func SearchFood() {
+    if (bit(3) is 0)
+    then {
+        nop;
+    }
+    else {
+        call FollowFood;
+    } 
+    # si déjà food, follow it
+
+    if (bit(0) is here)
+    then {
+        nop;
+    }
+    else {
+        if (bit(1) is here)
+        then {
+            nop;
+        }
+        else {
+            if (bit(2) is here)
+            then {
+                nop;
+            }
+            else { # aucun bit de direction est marqué : on peut écrire dessus
+                var if compass == 3
+                then {
+                    unmark(0);
+                    mark(1);
+                    mark(2);# 6
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    mark(0);
+                    unmark(1);
+                    unmark(2);# 1
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5
+                then {
+                    unmark(0);
+                    mark(1);
+                    unmark(2);# 2
+                }
+                else {
+                    nop;
+                }
+                var if compass == 0
+                then {
+                    mark(0);
+                    mark(1);
+                    unmark(2);# 3
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1
+                then {
+                    unmark(0);
+                    unmark(1);
+                    mark(2);# 4
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2
+                then {
+                    mark(0);
+                    unmark(1);
+                    mark(2);# 5
+                }
+                else {
+                    nop;
+                }
+            }
+        }
+    } 
+    # marque sa direction de home si le chemin n est pas déjà marqué
+
+    if(home is here) 
+    #vérifie si elle n'est pas déjà à la maison
+    then {
+        nop;
+    }
+    else{
+        if (food is left)
+        then {
+            turn(5);
+            var if compass == 0 
+            then {
+                var compass = 5 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 1
+            then {
+                var compass = 0 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 2
+            then {
+                var compass = 1 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 3
+            then {
+                var compass = 2 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 4
+            then {
+                var compass = 3 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 5
+            then {
+                var compass = 4 ;
+            }
+            else {
+                nop;
+            }
+            call PickUpFood;
+        }
+        else {
+            if (food is right)
+            then {
+                turn(1);
+                var if compass == 0 
+                then {
+                    var compass = 1 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1 
+                then {
+                    var compass = 2 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2 
+                then {
+                    var compass = 3 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 3 
+                then {
+                    var compass = 4 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    var compass = 5 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5 
+                then {
+                    var compass = 0 ;
+                }
+                else {
+                    nop;
+                }
+                call PickUpFood;
+            }
+            else {
+                do {
+                    call PickUpFood;
+                }
+                if (food is ahead)
+            }
+        }
+    }
+   # se tourne vers là où il y a de la nouriture, si il y en a et va en pickup dans ce cas
+
+    call VerifAhead; 
+    # cherche une direction non marquée
+} 
+#  ne fais rien si pas de food
+
+func VerifAhead() { 
+    # pas trouvé de food si ici
+    if (bit(0) is ahead)
+    then {
+        call VerifRight;
+    }
+    else {
+        if (bit(1) is ahead)
+        then {
+            call VerifRight;
+        }
+        else {
+            if (bit(2) is ahead)
+            then {
+                call VerifRight;
+            }
+            else {
+                call marquage;
+            }
+        }
+    }
+}
+
+func VerifRight() {
+    if (bit(0) is right)
+    then {
+        call Verifleft;
+    }
+    else {
+        if (bit(1) is right)
+        then {
+            call Verifleft;
+        }
+        else {
+            if (bit(2) is right)
+            then {
+                call Verifleft;
+            }
+            else {   
+                turn(1);
+                var if compass == 0 
+                then {
+                    var compass = 1 ;
+                }
+                else {
+                    nop;
+                }
+              var if compass == 1 
+                then {
+                var compass = 2 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2 
+                then {
+                       var compass = 3 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 3 
+                then {
+                    var compass = 4 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    var compass = 5 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5 
+                then {
+                    var compass = 0 ;
+                }
+                else {
+                    nop;
+                }
+                call marquage;
+            }
+        }
+    }
+}
+
+func VerifLeft() {
+    if (bit(0) is left)
+    then {
+        call DirAlea;
+    }
+    else {
+        if (bit(1) is left)
+        then {
+            call DirAlea;
+        }
+        else {
+            if (bit(2) is left)
+            then {
+                call DirAlea;
+            }
+            else {
+                turn(5);
+                var if compass == 0 
+                then {
+                    var compass = 5 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1
+                then {
+                    var compass = 0 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2
+                then {
+                    var compass = 1 ;
+                }
+                    lse {
+                    nop;
+                }
+                var if compass == 3
+                then {
+                    var compass = 2 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    var compass = 3 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5
+                then {
+                    var compass = 4 ;
+                }
+                else {
+                    nop;
+                }
+                call marquage;
+            }
+        }
+    }
+}
+
+func DirAlea() {
+    do {
+        turn(1);
+        var if compass == 0 
+        then {
+            var compass = 1 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 1 
+        then {
+            var compass = 2 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 2 
+        then {
+            var compass = 3 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 3 
+        then {
+            var compass = 4 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 4
+        then {
+            var compass = 5 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 5 
+        then {
+            var compass = 0 ;
+        }
+        else {
+            nop;
+        }
+        call marquage;
+    }
+    if (randint(3) is 0)
+    do {
+        turn(5);
+        var if compass == 0 
+        then {
+            var compass = 5 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 1
+        then {
+            var compass = 0 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 2
+        then {
+            var compass = 1 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 3
+        then {
+            var compass = 2 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 4
+        then {
+            var compass = 3 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 5
+        then {
+            var compass = 4 ;
+        }
+        else {
+            nop;
+        }
+        call marquage;
+    }
+    if (randint(2) is 0)
+    call marquage;
+}
+
+func marquage() { 
+    # suite de : pas trouvé food -> doit avancer
+
+    if (friendWithFood is ahead)
+    then {
+        turn(1);
+        var if compass == 0 
+        then {
+            var compass = 1 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 1 
+        then {
+            var compass = 2 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 2 
+        then {
+            var compass = 3 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 3 
+        then {
+            var compass = 4 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 4
+        then {
+            var compass = 5 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 5 
+        then {
+            var compass = 0 ;
+        }
+        else {
+            nop;
+        }
+        move(1);
+        turn(5);
+        var if compass == 0 
+        then {
+            var compass = 5 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 1
+        then {
+            var compass = 0 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 2
+        then {
+            var compass = 1 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 3
+        then {
+            var compass = 2 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 4
+        then {
+            var compass = 3 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 5
+        then {
+            var compass = 4 ;
+        }
+        else {
+            nop;
+        }
+        move(1);
+        turn(1);
+        var if compass == 0 
+        then {
+            var compass = 1 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 1 
+        then {
+            var compass = 2 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 2 
+        then {
+            var compass = 3 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 3 
+        then {
+            var compass = 4 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 4
+        then {
+            var compass = 5 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 5 
+        then {
+            var compass = 0 ;
+        }
+        else {
+            nop;
+        }
+    } # contourne un allié si il y en a un sur le passage
+    else {
+        if (rock is ahead)
+        then {
+            turn(3);
+            var if compass == 0 
+            then {
+                var compass = 3 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 1 
+            then {
+                var compass = 4 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 2 
+            then {
+                var compass = 5 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 3 
+            then {
+                var compass = 0 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 4
+            then {
+                var compass = 1 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 5 
+            then {
+                var compass = 2 ;
+            }
+            else {
+                nop;
+            }
+        } demi-tour si rock
+        else {
+            if (Foe is ahead)
+            then {
+                turn(1);
+                var if compass == 0 
+                then {
+                    var compass = 1 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1 
+                then {
+                    var compass = 2 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2 
+                then {
+                    var compass = 3 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 3 
+                then {
+                    var compass = 4 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    var compass = 5 ;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5 
+                then {
+                    var compass = 0 ;
+                }
+                else {
+                    nop;
+                }
+            }
+            eles {
+                move(1);
+            }
+        }
+    } # fais demi-tour si il y a un rocher, avance sinon
+    call SearchFood; # cherche de nouveau de la bouffe
+}
+
+func PickUpFood() { 
+    # Food droit devant
+
+    if (friendWithFood is ahead)
+    then {
+        turn(1);
+        var if compass == 0 
+        then {
+            var compass = 1 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 1 
+        then {
+            var compass = 2 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 2 
+        then {
+            var compass = 3 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 3 
+        then {
+            var compass = 4 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 4
+        then {
+            var compass = 5 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 5 
+        then {
+            var compass = 0 ;
+        }
+        else {
+            nop;
+        }
+        move(1);
+        turn(5);
+        var if compass == 0 
+        then {
+            var compass = 5 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 1
+        then {
+            var compass = 0 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 2
+        then {
+            var compass = 1 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 3
+        then {
+            var compass = 2 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 4
+        then {
+            var compass = 3 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 5
+        then {
+            var compass = 4 ;
+        }
+        else {
+            nop;
+        }
+        move(1);
+        turn(1);
+        var if compass == 0 
+        then {
+            var compass = 1 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 1 
+        then {
+            var compass = 2 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 2 
+        then {
+            var compass = 3 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 3 
+        then {
+            var compass = 4 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 4
+        then {
+            var compass = 5 ;
+        }
+        else {
+            nop;
+        }
+        var if compass == 5 
+        then {
+            var compass = 0 ;
+        }
+        else {
+            nop;
+        }
+    } # contourne un allié si il y en a un sur le passage
+    else {
+        if (rock is ahead)
+        then {
+            turn(3);
+            var if compass == 0 
+            then {
+                var compass = 3 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 1 
+            then {
+                var compass = 4 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 2 
+            then {
+                var compass = 5 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 3 
+            then {
+                var compass = 0 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 4
+            then {
+                var compass = 1 ;
+            }
+            else {
+                nop;
+            }
+            var if compass == 5 
+            then {
+                var compass = 2 ;
+            }
+            else {
+                nop;
+            }
+        }
+        else {
+            move(1);
+        }
+    } # fais demi-tour si il y a un rocher et essaye de avancer sinon (quitte à bloquer l'ennemi)
+
+    pickup(SearchFood); # si pas de nouriture, refais une recherche
+    turn(3);
+    var if compass == 0 
+    then {
+        var compass = 3 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 1 
+    then {
+        var compass = 4 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 2 
+    then {
+        var compass = 5 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 3 
+    then {
+        var compass = 0 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 4
+    then {
+        var compass = 1 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 5 
+    then {
+        var compass = 2 ;
+    }
+    else {
+        nop;
+    } # sinon, fais demi-tour et rammene la nouriture
+    call BackFood; # essaye de prendre de la nouriture
+}
+
+func BackFood () { 
+    # Le retour
+    do {
+        drop();
+        call SearchFood;
+    }
+    if (home is here) 
+    # dépose food si dans base
+
+    if (bit(2) is 0)
+    then {
+        if (bit(1) is 0)
+        then {
+            if (bit(0) is 0)
+            then { 
+                # 0
+                nop;
+            }
+            else { 
+                # 1
+                var if compass == 0
+                then {
+                    turn(1);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1
+                then {
+                    nop;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2
+                then {
+                    turn(5);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 3
+                then {
+                    turn(4);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    turn(3);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5
+                then {
+                    turn(2);
+                }
+                else {
+                    nop;
+                }
+                var compass = 1 ;
+            }
+        }
+        else {
+            if (bit(0) is 0)
+            then { 
+                # 2
+                var if compass == 0
+                then {
+                    turn(2);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1
+                then {
+                    turn(1);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2
+                then {
+                    nop;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 3
+                then {
+                    turn(5);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    turn(4);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5
+                then {
+                    turn(3);
+                }
+                else {
+                    nop;
+                }
+                var compass = 2 ;
+            }
+            else { 
+                # 3
+                var if compass == 0
+                then {
+                    turn(3);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1
+                then {
+                    turn(2);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2
+                then {
+                    turn(1);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 3
+                then {
+                    nop;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    turn(5);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5
+                then {
+                    turn(4);
+                }
+                else {
+                    nop;
+                }
+                var compass = 3 ;
+            }
+        }
+    }
+    else {
+        if (bit(1))
+        then {
+            if (bit(0) is 0)
+            then { 
+                # 4
+                var if compass == 0
+                then {
+                    turn(4);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1
+                then {
+                    turn(3);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2
+                then {
+                    turn(2);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 3
+                then {
+                    turn(1);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    nop;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5
+                then {
+                    turn(5);
+                }
+                else {
+                    nop;
+                }
+                var compass = 4 ;
+            }
+            else { 
+                # 5
+                var if compass == 0
+                then {
+                    turn(5);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1
+                then {
+                    turn(4);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2
+                then {
+                    turn(3);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 3
+                then {
+                    turn(2);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    turn(1);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5
+                then {
+                    nop;
+                }
+                else {
+                    nop;
+                }
+                var compass = 5 ;
+            }
+        }
+        else {
+            if (bit(0) is 0)
+            then { 
+                # 6
+                var if compass == 0
+                then {
+                    nop;
+                }
+                else {
+                    nop;
+                }
+                var if compass == 1
+                then {
+                    turn(5);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 2
+                then {
+                    turn(4);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 3
+                then {
+                    turn(3);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 4
+                then {
+                    turn(2);
+                }
+                else {
+                    nop;
+                }
+                var if compass == 5
+                then {
+                    turn(1);
+                }
+                else {
+                    nop;
+                }
+                var compass = 0 ;
+            }
+            else { 
+                # 7
+                nop;
+            }
+        }
+    }
+    mark(3);
+    move(1);
+    call BackFood;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+func turn1 () {
+    turn(1);
+    var if compass == 0 
+    then {
+        var compass = 1 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 1 
+    then {
+        var compass = 2 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 2 
+    then {
+        var compass = 3 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 3 
+    then {
+        var compass = 4 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 4
+    then {
+        var compass = 5 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 5 
+    then {
+        var compass = 0 ;
+    }
+    else {
+        nop;
+    }
+}
+
+func turn2 () {
+    turn(2);
+    var if compass == 0 
+    then {
+        var compass = 2 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 1 
+    then {
+        var compass = 3 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 2 
+    then {
+        var compass = 4 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 3 
+    then {
+        var compass = 5 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 4
+    then {
+        var compass = 0 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 5 
+    then {
+        var compass = 1 ;
+    }
+    else {
+        nop;
+    }
+}
+
+func turn3 () {
+    turn(3);
+    var if compass == 0 
+    then {
+        var compass = 3 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 1 
+    then {
+        var compass = 4 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 2 
+    then {
+        var compass = 5 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 3 
+    then {
+        var compass = 0 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 4
+    then {
+        var compass = 1 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 5 
+    then {
+        var compass = 2 ;
+    }
+    else {
+        nop;
+    }
+}
+
+func turn4 () {
+    turn(4);
+    var if compass == 0 
+    then {
+        var compass = 4 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 1 
+    then {
+        var compass = 5 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 2 
+    then {
+        var compass = 0 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 3 
+    then {
+        var compass = 1 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 4
+    then {
+        var compass = 2 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 5 
+    then {
+        var compass = 3 ;
+    }
+    else {
+        nop;
+    }
+}
+
+func turn5 () {
+    turn(5);
+    var if compass == 0 
+    then {
+        var compass = 5 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 1
+    then {
+        var compass = 0 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 2
+    then {
+        var compass = 1 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 3
+    then {
+        var compass = 2 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 4
+    then {
+        var compass = 3 ;
+    }
+    else {
+        nop;
+    }
+    var if compass == 5
+    then {
+        var compass = 4 ;
+    }
+    else {
+        nop;
+    }
+} 

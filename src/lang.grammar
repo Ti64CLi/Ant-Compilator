@@ -2,6 +2,10 @@ type program =
 	| PreprocessorProgram					<preprocessor> <program?>
 	| ControlProgram						<control> <program?>
 	| ExpressionProgram						<expression>; <program?>
+	| CommentProgram						<comment> <program?>
+
+type comment =
+	| Comment								/* <ident+_> */
 
 type preprocessor =
 	| Include								include <ident>
@@ -15,8 +19,10 @@ type control =
 	| Func									func <ident>(<ident*,>) {<program>}
 	| While									while(<condition>) {<program>}
 	| Repeat								repeat(<value>) times {<program>}
+	| Switch								test(<category>) in {<case+end>}
+
+type case =
 	| Case									case <direction>: <program>
-	| Switch								test(<category>) in {<program>}
 
 type expression =
 	| Args									args[<value>]
