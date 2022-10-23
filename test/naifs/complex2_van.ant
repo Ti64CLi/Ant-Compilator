@@ -984,6 +984,14 @@ func Write63() {
 
  
 func SearchFood() {
+    if (bit(3) is 0)
+    then {
+        nop;
+    }
+    else {
+        call FollowFood;
+    } 
+    # si déjà food, follow it
 
     if (bit(0) is here)
     then {
@@ -1665,8 +1673,8 @@ func marquage() {
         }
     } 
     # fais demi-tour si il y a un rocher, avance sinon
-    call SearchFood; 
-    # cherche de nouveau de la bouffe
+    call SearchFood;
+     # cherche de nouveau de la bouffe
 }
 
 func PickUpFood() { 
@@ -1805,8 +1813,8 @@ func PickUpFood() {
         beginelse {
             nop;
         } endelse
-    } 
-    # contourne un allié si il y en a un sur le passage
+    }
+     # contourne un allié si il y en a un sur le passage
     else {
         if (rock is ahead)
         then {
@@ -1905,8 +1913,7 @@ func PickUpFood() {
     beginelse {
         nop;
     }endelse 
-    
-# sinon, fais demi-tour et rammene la nouriture
+    # sinon, fais demi-tour et rammene la nouriture
     call BackFood; 
     # essaye de prendre de la nouriture
 }
@@ -2226,4 +2233,429 @@ func BackFood () {
     mark(3);
     move(1);
     call BackFood;
+}
+
+func FollowFood(){
+    if (bit(3) is 0)
+    then {
+        call SearchFood;
+    }
+    else {
+        nop;
+    } 
+    if(home is here) 
+    #vérifie si elle n'est pas déjà à la maison
+    then {
+        nop;
+    }
+    else{
+        if (food is left)
+        then {
+            turn(5);
+            var if compass == 0 
+            beginthen {
+                var compass = 5 ;
+            } endthen
+            beginelse {
+                nop;
+            } endelse
+            var if compass == 1
+            beginthen {
+                var compass = 0 ;
+            } endthen
+            beginelse {
+                nop;
+            } endelse
+            var if compass == 2
+            beginthen {
+                var compass = 1 ;
+            } endelse
+            beginelse {
+                nop;
+            } endelse
+            var if compass == 3
+            beginthen {
+                var compass = 2 ;
+            } endthen
+            beginelse {
+                nop;
+            } endelse
+            var if compass == 4
+            beginthen {
+                var compass = 3 ;
+            } endthen
+            beginelse {
+                nop;
+            }endelse
+            var if compass == 5
+            beginthen {
+                var compass = 4 ;
+            } endthen
+            beginelse {
+                nop;
+            } endelse
+            call PickUpFood;
+        }
+        else {
+            if (food is right)
+            then {
+                turn(1);
+                var if compass == 0 
+                beginthen {
+                    var compass = 1 ;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 1 
+                beginthen {
+                    var compass = 2 ;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 2 
+                beginthen {
+                    var compass = 3 ;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 3 
+                beginthen {
+                    var compass = 4 ;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 4
+                beginthen {
+                    var compass = 5 ;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 5 
+                beginthen {
+                    var compass = 0 ;
+                }endthen
+                beginelse {
+                    nop;
+                } endelse
+                call PickUpFood;
+            }
+            else {
+                do {
+                    call PickUpFood;
+                }
+                if (food is ahead)
+            }
+        }
+    }
+
+    if (bit(2) is 0)
+    then {
+        if (bit(1) is 0)
+        then {
+            if (bit(0) is 0)
+            then { 
+                # 0
+                nop;
+            }
+            else { 
+                # 1
+                var if compass == 3
+                beginthen {
+                    turn(1);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 4
+                beginthen {
+                    nop;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 5
+                beginthen {
+                    turn(5);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 0
+                beginthen {
+                    turn(4);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 1
+                beginthen {
+                    turn(3);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 2
+                beginthen {
+                    turn(2);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var compass = 4 ;
+            }
+        }
+        else {
+            if (bit(0) is 0)
+            then { 
+                # 2
+                var if compass == 3
+                beginthen {
+                    turn(2);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 4
+                beginthen {
+                    turn(1);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 5
+                beginthen {
+                    nop;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 0
+                beginthen {
+                    turn(5);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 1
+                beginthen {
+                    turn(4);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 2
+                beginthen {
+                    turn(3);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var compass = 5 ;
+            }
+            else { 
+                # 3
+                var if compass == 3
+                beginthen {
+                    turn(3);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 4
+                beginthen {
+                    turn(2);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 5
+                beginthen {
+                    turn(1);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 0
+                beginthen {
+                    nop;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 1
+                beginthen {
+                    turn(5);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 2
+                beginthen {
+                    turn(4);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var compass = 0 ;
+            }
+        }
+    }
+    else {
+        if (bit(1))
+        then {
+            if (bit(0) is 0)
+            then { 
+                # 4
+                var if compass == 3
+                beginthen {
+                    turn(4);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 4
+                beginthen {
+                    turn(3);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 5
+                beginthen {
+                    turn(2);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 0
+                beginthen {
+                    turn(1);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 1
+                beginthen {
+                    nop;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 2
+                beginthen {
+                    turn(5);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var compass = 1 ;
+            }
+            else { 
+                # 5
+                var if compass == 3
+                beginthen {
+                    turn(5);
+                } endthen
+                else {
+                    nop;
+                } endelse
+                var if compass == 4
+                beginthen {
+                    turn(4);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 5
+                beginthen {
+                    turn(3);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 0
+                beginthen {
+                    turn(2);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 1
+                beginthen {
+                    turn(1);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 2
+                beginthen {
+                    nop;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var compass = 2 ;
+            }
+        }
+        else {
+            if (bit(0) is 0)
+            then { 
+                # 6
+                var if compass == 3
+                beginthen {
+                    nop;
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 4
+                beginthen {
+                    turn(5);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 5
+                beginthen {
+                    turn(4);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 0
+                beginthen {
+                    turn(3);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 1
+                beginthen {
+                    turn(2);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var if compass == 2
+                beginthen {
+                    turn(1);
+                } endthen
+                beginelse {
+                    nop;
+                } endelse
+                var compass = 3 ;
+            }
+            else { 
+                # 7
+                nop;
+            }
+        }
+    }
+    move(1);
+    goto FollowFood;
 }
