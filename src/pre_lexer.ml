@@ -295,7 +295,7 @@ let pre_lexer file_name =
   new_file_name
 
 (*
-let () = 
+let () =
   print_string "version_test : ";
   let version_test = read_line () in
   let file_name = "../test/pre_lexer/" ^ version_test ^ "_test_pre_lexer.ant" in
