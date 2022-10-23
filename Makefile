@@ -12,10 +12,11 @@ SRC=$(wildcard src/*)
 # `simple-parser-gen`.
 PARSER_GEN=simple-parser-gen
 PARSER_FILES=src/ast.mli src/ast.ml src/lexer.mli src/lexer.ml src/parser.mli src/parser.ml
+PRE_LEXER=src/pre_lexer/pre_lexer.ml
 
 ### Règles de constructions ###
 
-$(EXE): $(PARSER_FILES) $(SRC) $(GRAMMAR)
+$(EXE): $(PRE_LEXER) $(PARSER_FILES) $(SRC) $(GRAMMAR)
 	dune build @install
 	@cp _build/install/default/bin/antsc $@
 
