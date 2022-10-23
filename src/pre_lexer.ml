@@ -55,8 +55,8 @@ let rec string_of_values values =
 
 let rec _compatible_forced_values var_name value values =
   match values with
-  | (v_name, v)::t when v_name = var_name -> value = v
-  | h :: t -> _compatible_forced_values var_name value t
+  | (v_name, v)::_ when v_name = var_name -> value = v
+  | _ :: t -> _compatible_forced_values var_name value t
   | [] -> true
 
 let rec compatible_forced_values values1 values2 =
@@ -67,8 +67,8 @@ let rec compatible_forced_values values1 values2 =
 
 let rec _compatible_banned_values var_name value values = 
   match values with
-  | (v_name, v)::t when v_name = var_name -> value <> v
-  | h :: t -> _compatible_banned_values var_name value t
+  | (v_name, v)::_ when v_name = var_name -> value <> v
+  | _ :: t -> _compatible_banned_values var_name value t
   | [] -> true
 
 let rec compatible_banned_values banned_values values =
@@ -79,7 +79,7 @@ let rec compatible_banned_values banned_values values =
 
 let rec change_value values var_name new_value =
   match values with
-  | (v_name, v)::t when v_name = var_name -> (v_name, new_value) :: t
+  | (v_name, _)::t when v_name = var_name -> (v_name, new_value) :: t
   | h::t -> h :: (change_value t var_name new_value)
   | [] -> []
 
@@ -101,7 +101,7 @@ let add_value_related forced_values banned_values t l_t var nb_var var_name new_
     )
   done
 
-let incr_value_related forced_values banned_values t l_t var nb_var var_name =
+let incr_value_related forced_values banned_values t l_t var nb_var =
   for i = 0 to l_t - 1 do
     let values = values_of_index var i nb_var in
     if (compatible_forced_values forced_values values && compatible_banned_values banned_values values)
@@ -186,7 +186,7 @@ let rec read_file forced_values banned_values separator var time final_file file
             (* gérer une incrémentation *)
             (* incr_value_related final_file !l_final_file var !nb_var; *)
             add forced_values banned_values final_file !l_final_file (Printf.sprintf "goto time%d" !time) var !nb_var;
-            incr_value_related forced_values banned_values final_file !l_final_file var !nb_var (List.hd !line_filtered);
+            (*incr_value_related forced_values banned_values final_file !l_final_file var !nb_var (List.hd !line_filtered);*)
             add forced_values banned_values final_file !l_final_file ";\n" var !nb_var;
   
             (* write the time label *)

@@ -320,7 +320,7 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
     | Ast.Repeat ((value, _), (repeatBody, _)) ->
       begin (* for now assume cond is a number *)
         let num = process_value value in
-        for i = 1 to num do
+        for _ = 1 to num do
           process_program repeatBody
         done
       end
@@ -362,7 +362,7 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
           | Some (Ast.LabelOnError (identList, _)) -> concat_string identList
           | None -> label in
 
-        for i = 1 to num do
+        for _ = 1 to num do
           write_command oc ("Move " ^ labelOnError) 
         done;
 
@@ -376,7 +376,7 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
         let num = process_value value in
         let i = num mod 6 in
         let dir = [|"Right"; "Left"|] in
-        for j = 1 to i - 2*(i/4)*(i-3) do
+        for _ = 1 to i - 2*(i/4)*(i-3) do
             write_command oc ("Turn " ^ dir.(i / 4))
         done
       end
@@ -431,18 +431,16 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
   process_program program
 
 and process_file pathin pathout file_opened oldCurrentLabel =
-  (*let new_filename = Pre_lexer.pre_lexer pathin in*)
+  let new_filename = Pre_lexer.pre_lexer pathin in
+  print_string (new_filename ^ "\n");
   (* Ouvre le fichier et créé un lexer. *)
-  let file = open_in pathin(*new_filename*) in
+  let file = open_in (*pathin*)new_filename in
   let lexer = Lexer.of_channel file in
   (* Parse le fichier. *)
   let (program, _) = Parser.parse_program lexer in
   (*printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program);*)
   let currentErrors = !errors in
   compile_file pathin pathout program file_opened oldCurrentLabel;
-
-  if !errors <> 0 then (* removes file if there was any error *)
-    Sys.remove pathout;
 
   printf "Compilation of '%s' ended with %d errors\n" pathin (!errors - currentErrors)
 
@@ -456,7 +454,14 @@ let _ =
   end else begin
     try
       (* On compile le fichier. *)
-      process_file (Sys.argv.(1)) ((get_filename_without_ext Sys.argv.(1)) ^ ".brain") false 0
+      let pathout = ((get_filename_without_ext Sys.argv.(1))) in
+      process_file (Sys.argv.(1)) (pathout ^ ".brain") false 0;
+
+      if !errors <> 0 then (* removes file if there was any error *)
+        begin
+          (*Sys.remove (pathout ^ ".brain");
+          Sys.remove (pathout ^ ".antpl")*)
+        end
     with
     | Lexer.Error (e, span) ->
       eprintf "Lex error: %t: %t\n" (CodeMap.Span.print span) (Lexer.print_error e)
