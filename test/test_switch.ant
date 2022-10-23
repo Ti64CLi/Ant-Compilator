@@ -1,0 +1,8 @@
+test (food) in {
+    case ahead:
+        move(1);
+    end
+    case right:
+        turn(1);
+        move(1);
+}
