@@ -51,7 +51,7 @@ let rec write_file oc text =
       if String.ends_with ~suffix:":" line then
         fprintf oc "%s\n" line
       else
-        fprintf oc "\t%s\n" line;
+        fprintf oc "  %s\n" line;
       
       write_file oc text'
     end
@@ -479,17 +479,16 @@ let rec compile_file pathin oc program (*file_opened*) oldCurrentLabel =
     | Ast.Break -> () in
   process_program program
 
-and process_file pathin oc (*file_opened*) oldCurrentLabel =
+and process_file pathin oc oldCurrentLabel =
   let new_filename = Pre_lexer.pre_lexer pathin in
-  print_string (new_filename ^ "\n");
   (* Ouvre le fichier et créé un lexer. *)
-  let file = open_in (*pathin*)new_filename in
+  let file = open_in new_filename in
   let lexer = Lexer.of_channel file in
   (* Parse le fichier. *)
   let (program, _) = Parser.parse_program lexer in
   (*printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program);*)
   let currentErrors = !errors in
-  compile_file pathin oc program (*file_opened*) oldCurrentLabel;
+  compile_file pathin oc program oldCurrentLabel;
 
   printf "Compilation of '%s' ended with %d errors\n" pathin (!errors - currentErrors)
 
@@ -505,7 +504,7 @@ let _ =
       (* On compile le fichier. *)
       let pathout = ((get_filename_without_ext Sys.argv.(1))) in
       let oc = open_out (pathout ^ ".brain") in
-      process_file (Sys.argv.(1)) oc (*false*) 0;
+      process_file (Sys.argv.(1)) oc 0;
 
       close_out oc;
 
@@ -515,7 +514,11 @@ let _ =
           Sys.remove (pathout ^ ".antpl")
         end
       else
-        optimize (pathout ^ ".brain")
+        begin
+          optimize (pathout ^ ".brain");
+          let _ = Sys.command ("rm " ^ pathout ^ ".brain && " ^ "rm " ^ pathout ^ ".antpl && " ^ "mv " ^ pathout ^ ".brain.opt " ^ pathout ^ ".brain") in
+          ()
+        end
     with
     | Lexer.Error (e, span) ->
       eprintf "Lex error: %t: %t\n" (CodeMap.Span.print span) (Lexer.print_error e)
