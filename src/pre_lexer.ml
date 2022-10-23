@@ -141,9 +141,7 @@ let read_header file separator test_init test var_list values_init nb_var l_fina
 
       let var_current, val_init, val_possible = browse_line_init !line_filtered in
       let l = List.length val_possible in
-      
-      Printf.printf "val_possible = ";
-      print_string_list val_possible;
+  
       
       l_final_file := l * !l_final_file;
       let array_val_possible = Array.of_list val_possible in
@@ -168,27 +166,22 @@ let rec read_file forced_values banned_values separator var time final_file file
     else ( if (List.hd !line_split = "var")
     then (
         (* var line to process *)
-        (* Printf.printf "In var \n"; *)
         if (is_in "if" !line_split)
           then (
-            Printf.printf "In If \n";
             (* var if to process *)
             let var_name, value = (List.hd !line_filtered, !line_filtered |> List.tl |> List.hd)in
             (* process  then *)
-            Printf.printf "In Then\n";
             get_line file separator line line_trim line_split line_filtered test;
             read_file ((var_name, value)::forced_values) banned_values separator var time final_file file test_init test var_list values_init nb_var l_final_file line line_trim line_split line_filtered;
             test := true;
 
             (* process else *)
-            Printf.printf "In Else\n";
             get_line file separator line line_trim line_split line_filtered test;
             read_file forced_values ((var_name, value)::banned_values) separator var time final_file file test_init test var_list values_init nb_var l_final_file line line_trim line_split line_filtered;
             test := true
             )
           else (if (is_in "++" !line_split)
           then (
-            Printf.printf "In ++ \n";
             (* NOT FINISHED *)
             (* gérer une incrémentation *)
             (* incr_value_related final_file !l_final_file var !nb_var; *)
@@ -203,7 +196,6 @@ let rec read_file forced_values banned_values separator var time final_file file
             time := !time + 1
           )
           else (
-            Printf.printf "In assignation \n";
             (* gérer une assignation *)
             let var_name = !line_filtered |> List.hd in
             let new_value = !line_filtered |> List.tl |> List.hd in
@@ -220,7 +212,6 @@ let rec read_file forced_values banned_values separator var time final_file file
     )
     else (if (is_in "func" !line_split)
       then (
-        Printf.printf "In func \n";
         (* rename every func for each label zone *)
         let space_list = List.map (fun s -> " "^s) !line_split in
         add forced_values banned_values final_file !l_final_file (space_list |> List.hd) var !nb_var;
@@ -232,7 +223,6 @@ let rec read_file forced_values banned_values separator var time final_file file
       )
     else (if (is_in "call" !line_split)
     then (
-      Printf.printf "In Call \n";
       (* rename every call for each label zone *)
       let space_list = List.map (fun s -> " "^s) !line_split in
       add forced_values banned_values final_file !l_final_file (space_list |> List.hd) var !nb_var;
@@ -243,8 +233,6 @@ let rec read_file forced_values banned_values separator var time final_file file
       add forced_values banned_values final_file !l_final_file "\n" var !nb_var;
     )
     else (
-      Printf.printf "In normal line \n";
-      Printf.printf "line = %s\n" !line;
       add forced_values banned_values final_file !l_final_file (!line^"\n") var !nb_var;
     )
     )
@@ -255,9 +243,6 @@ let rec read_file forced_values banned_values separator var time final_file file
   done
 
 let pre_lexer file_name =
-  Printf.printf "Begin programm \n";
-  
-  Printf.printf "Open File \n";
   let file = open_in file_name in
 
   let separator = [""; "var"; "="; "in"; "=="; "if"; "func"; "++"; ";"; "{"; "}"] in
@@ -275,7 +260,6 @@ let pre_lexer file_name =
   get_line file separator line line_trim line_split line_filtered test;
 
   (* Read of the Header *)
-  Printf.printf "\nIn read_header \n";
   read_header file separator test_init test var_list values_init nb_var l_final_file line line_trim line_split line_filtered;
 
   (* var contient toutes les informations de l'initialisation *)
@@ -286,19 +270,10 @@ let pre_lexer file_name =
   let header = Printf.sprintf "goto label%s ;\n" (string_of_values !values_init) in
 
   (* Read of the File *)
-  Printf.printf "\nIn read_file \n";
   read_file [] [] separator var time final_file file test_init test var_list values_init nb_var l_final_file line line_trim line_split line_filtered;
 
-  Printf.printf "\nIn write file \n";
   let new_file_name = (file_name^"pl") in
   close_in file;
   write_file final_file !l_final_file new_file_name var !nb_var header;
   new_file_name
-
-
-let () = 
-  print_string "version_test : ";
-  let version_test = read_line () in
-  let file_name = "../test/pre_lexer/" ^ version_test ^ "_test_pre_lexer.ant" in
-  let a = pre_lexer file_name in ()
 
