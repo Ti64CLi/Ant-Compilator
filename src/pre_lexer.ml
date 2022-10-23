@@ -209,9 +209,9 @@ let rec read_file forced_values banned_values separator var time final_file file
             add_value_related forced_values banned_values final_file !l_final_file var !nb_var var_name new_value;
             add forced_values banned_values final_file !l_final_file ";\n" var !nb_var;
   
-            add forced_values banned_values final_file !l_final_file (Printf.sprintf "time%d" !time) var !nb_var;
-            add_value_related forced_values banned_values final_file !l_final_file var !nb_var "" "#";
-            add forced_values banned_values final_file !l_final_file " : \n" var !nb_var;
+            add [] [] final_file !l_final_file (Printf.sprintf "time%d" !time) var !nb_var;
+            add_value_related [] [] final_file !l_final_file var !nb_var "" "#";
+            add [] [] final_file !l_final_file " : \n" var !nb_var;
             time := !time + 1
           )
           )
