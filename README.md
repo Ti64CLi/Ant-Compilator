@@ -2,8 +2,8 @@
 
 Equipe Antstein :
 - Paul ADAM
-- Elie DUMONT
 - Adrien DECOSSE
+- Elie DUMONT
 
 ---
 
