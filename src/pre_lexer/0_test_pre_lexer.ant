@@ -1,5 +1,9 @@
 var x = 2 in 0 1 2 ;
 
-# test
+# test 0
+
+turn (1);
 
 var x = 0 ;
+
+move(1);
