@@ -1,12 +1,11 @@
 var x = 1 in 0 1 2 ;
 
-# test d'un var if
+# test d'un var_if
 
 var if x == 0
-beginthen {  
+beginthen { 
     move(1);
  } endthen
-
 beginelse {
     turn(1);
 } endelse
