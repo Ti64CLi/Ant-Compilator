@@ -229,17 +229,17 @@ func VerifAhead () {
 func VerifRight () {
     if (bit(0) is right)
     then {
-        call Verifleft  ;
+        call VerifLeft  ;
     }
     else {
         if (bit(1) is right)
         then {
-            call Verifleft  ;
+            call VerifLeft  ;
         }
         else {
             if (bit(2) is right)
             then {
-                call Verifleft  ;
+                call VerifLeft  ;
             }
             else {   
                 turn(1)  ;
