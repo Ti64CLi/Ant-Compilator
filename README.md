@@ -14,12 +14,101 @@ Equipe Antstein :
 - écrire une "bonne" stratégie pour les fourmis
 
 ## Grammaire :
-- L'utilisation de la grammaire et l'usage de chacune des commandes est explicité dans "README_grammar.md"
 
-## Compilateur :
+##preprogramme:
+
+-
+```include Name``` inclue au début du programme le fichier Name.ant
+
+-
+```define name as va``` donne à name la valeur val
+
+## Utilisation de base:
+
+-```Name:``` et -```Goto Name``` permettent de créer un label et d'aller à un label
+
+- ```/* commentaire */``` créé un commentaire
+
+- friend, friendWithFoe, foe, foeWithFood, food, rock, home et foeHome sont des informations sur la map
+
+- ```bit(i)``` indique si le bit i (pourt i de 0 à 5) vaut 1
+
+- ahead, left, right et here sont les directions qui peut envisager une fourmi, selon son orientation
+
+-```nop;``` est une commande vide, permet de continuer le programme
+
+-```move(p,label1);``` avance p fois, et va au label label1 si il ne peut pas. ```move(p);``` continue le programme en cazs d'échec
+
+-```turn(p);``` tourne p fois la fourmi sur la droite
+
+-```pickup(Name);``` tente de récupérer de la nouriture sur la case courante, et va en Name sinon. Name peut faire référence à un label comme une fonction 
+
+-```drop();``` dépose la nouriture sur la case courante si le fourmi en porte
+
+-```mark(i);``` change le bit i pour 1 (i de 0 à 5)
+
+-```unmark(i);``` change le bit i pour 0 (i de 0 à 5)
+
+-```call Name``` appelle la fonction Name
+
+-```func Name () {code}``` crée mla fonction Name contenant un code
+
+
+## Commandes complexes:
+
+- une condition est de la forme:
+    - information is direction
+    - randint(p) is q
+    - and(info1,info2) is direction
+    - or(info1,info2) is direction
+    - not(information) is direction
+
+Remarque : il est possible de combiner les and, or et not 
+
 - 
+``` if (condition)
+    then {
+        code1
+    }
+    else {
+        code2
+    }
+``` éxécute code1 si condition est vérifié, code2 sinon
 
----
+-
+``` do {
+        code
+    }
+    if (condition)
+``` éxécute code si condition
+
+-
+``` while (condition) {
+        code
+    }
+``` éxécute code tant que la condition est vérifiée
+
+-
+``` repeate(n) times {
+        code
+    }
+``` éxécute n fois le code
+
+-
+```test(information) in {
+        case direction1 :
+            code1
+        end
+        case direction2 :
+            code2
+        end
+        ...
+        case directionp :
+            codeP
+    }
+``` vérifie pour chaque cas (information is direction*), et éxécute le code si c'est vérifié. Remarque : il n'y a pas de end final
+
+
 
 ## TO DO
 

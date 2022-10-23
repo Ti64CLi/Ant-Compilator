@@ -1009,59 +1009,59 @@ func SearchFood() {
             }
             else { # aucun bit de direction est marqué : on peut écrire dessus
                 var if compass == 3
-                then {
+                beginthen {
                     unmark(0);
                     mark(1);
-                    mark(2);# 6
-                }
-                else {
+                    mark(2);
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     mark(0);
                     unmark(1);
-                    unmark(2);# 1
-                }
-                else {
+                    unmark(2);
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5
-                then {
+                beginthen {
                     unmark(0);
                     mark(1);
-                    unmark(2);# 2
-                }
-                else {
+                    unmark(2);
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 0
-                then {
+                beginthen {
                     mark(0);
                     mark(1);
-                    unmark(2);# 3
-                }
-                else {
+                    unmark(2);
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 1
-                then {
+                beginthen {
                     unmark(0);
                     unmark(1);
-                    mark(2);# 4
-                }
-                else {
+                    mark(2);
+                } endelse
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2
-                then {
+                beginthen {
                     mark(0);
                     unmark(1);
-                    mark(2);# 5
-                }
-                else {
+                    mark(2);
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
             }
         }
     } 
@@ -1077,47 +1077,47 @@ func SearchFood() {
         then {
             turn(5);
             var if compass == 0 
-            then {
+            beginthen {
                 var compass = 5 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 1
-            then {
+            beginthen {
                 var compass = 0 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 2
-            then {
+            beginthen {
                 var compass = 1 ;
-            }
-            else {
+            } endelse
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 3
-            then {
+            beginthen {
                 var compass = 2 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 4
-            then {
+            beginthen {
                 var compass = 3 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            }endelse
             var if compass == 5
-            then {
+            beginthen {
                 var compass = 4 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             call PickUpFood;
         }
         else {
@@ -1125,47 +1125,47 @@ func SearchFood() {
             then {
                 turn(1);
                 var if compass == 0 
-                then {
+                beginthen {
                     var compass = 1 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 1 
-                then {
+                beginthen {
                     var compass = 2 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2 
-                then {
+                beginthen {
                     var compass = 3 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 3 
-                then {
+                beginthen {
                     var compass = 4 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     var compass = 5 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5 
-                then {
+                beginthen {
                     var compass = 0 ;
-                }
-                else {
+                }endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 call PickUpFood;
             }
             else {
@@ -1224,47 +1224,47 @@ func VerifRight() {
             else {   
                 turn(1);
                 var if compass == 0 
-                then {
+                beginthen {
                     var compass = 1 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
               var if compass == 1 
-                then {
+                beginthen {
                 var compass = 2 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2 
-                then {
+                beginthen {
                        var compass = 3 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 3 
-                then {
+                beginthen {
                     var compass = 4 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     var compass = 5 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5 
-                then {
+                beginthen {
                     var compass = 0 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 call marquage;
             }
         }
@@ -1289,47 +1289,47 @@ func VerifLeft() {
             else {
                 turn(5);
                 var if compass == 0 
-                then {
+                beginthen {
                     var compass = 5 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 1
-                then {
+                beginthen {
                     var compass = 0 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2
-                then {
+                beginthen {
                     var compass = 1 ;
-                }
+                } endthen
                     lse {
                     nop;
                 }
                 var if compass == 3
-                then {
+                beginthen {
                     var compass = 2 ;
-                }
-                else {
+                } endthen
+                beginlse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     var compass = 3 ;
-                }
-                else {
+                } endelse
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5
-                then {
+                beginthen {
                     var compass = 4 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 call marquage;
             }
         }
@@ -1340,97 +1340,97 @@ func DirAlea() {
     do {
         turn(1);
         var if compass == 0 
-        then {
+        beginthen {
             var compass = 1 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 1 
-        then {
+        beginthen {
             var compass = 2 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 2 
-        then {
+        beginthen {
             var compass = 3 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 3 
-        then {
+        beginthen {
             var compass = 4 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 4
-        then {
+        beginthen {
             var compass = 5 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 5 
-        then {
+        beginthen {
             var compass = 0 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         call marquage;
     }
     if (randint(3) is 0)
     do {
         turn(5);
         var if compass == 0 
-        then {
+        beginthen {
             var compass = 5 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 1
-        then {
+        beginthen {
             var compass = 0 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 2
-        then {
+        beginthen {
             var compass = 1 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 3
-        then {
+        beginthen {
             var compass = 2 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 4
-        then {
+        beginthen {
             var compass = 3 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 5
-        then {
+        beginthen {
             var compass = 4 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         call marquage;
     }
-    if (randint(2) is 0)
+    if (randint(2) is 0) end
     call marquage;
 }
 
@@ -1441,229 +1441,229 @@ func marquage() {
     then {
         turn(1);
         var if compass == 0 
-        then {
+        beginthen {
             var compass = 1 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 1 
-        then {
+        beginthen {
             var compass = 2 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 2 
-        then {
+        beginthen {
             var compass = 3 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 3 
-        then {
+        beginthen {
             var compass = 4 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 4
-        then {
+        beginthen {
             var compass = 5 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 5 
-        then {
+        beginthen {
             var compass = 0 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         move(1);
         turn(5);
         var if compass == 0 
-        then {
+        beginthen {
             var compass = 5 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 1
-        then {
+        beginthen {
             var compass = 0 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 2
-        then {
+        beginthen {
             var compass = 1 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 3
-        then {
+        beginthen {
             var compass = 2 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 4
-        then {
+        beginthen {
             var compass = 3 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 5
-        then {
+        beginthen {
             var compass = 4 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         move(1);
         turn(1);
         var if compass == 0 
-        then {
+        beginthen {
             var compass = 1 ;
-        }
-        else {
+        }endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 1 
-        then {
+        beginthen {
             var compass = 2 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 2 
-        then {
+        beginthen {
             var compass = 3 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 3 
-        then {
+        beginthen {
             var compass = 4 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 4
-        then {
+        beginthen {
             var compass = 5 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 5 
-        then {
+        beginthen {
             var compass = 0 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
     } # contourne un allié si il y en a un sur le passage
     else {
         if (rock is ahead)
         then {
             turn(3);
             var if compass == 0 
-            then {
+            beginthen {
                 var compass = 3 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 1 
-            then {
+            beginthen {
                 var compass = 4 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 2 
-            then {
+            beginthen {
                 var compass = 5 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 3 
-            then {
+            beginthen {
                 var compass = 0 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 4
-            then {
+            beginthen {
                 var compass = 1 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 5 
-            then {
+            beginthen {
                 var compass = 2 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
         } demi-tour si rock
         else {
             if (Foe is ahead)
             then {
                 turn(1);
                 var if compass == 0 
-                then {
+                beginthen {
                     var compass = 1 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 1 
-                then {
+                beginthen {
                     var compass = 2 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2 
-                then {
+                beginthen {
                     var compass = 3 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 3 
-                then {
+                beginthen {
                     var compass = 4 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     var compass = 5 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5 
-                then {
+                beginthen {
                     var compass = 0 ;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
             }
             eles {
                 move(1);
@@ -1680,182 +1680,182 @@ func PickUpFood() {
     then {
         turn(1);
         var if compass == 0 
-        then {
+        beginthen {
             var compass = 1 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 1 
-        then {
+        beginthen {
             var compass = 2 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 2 
-        then {
+        beginthen {
             var compass = 3 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 3 
-        then {
+        beginthen {
             var compass = 4 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 4
-        then {
+        beginthen {
             var compass = 5 ;
-        }
+        } endthen
         else {
             nop;
-        }
+        } endelse
         var if compass == 5 
-        then {
+        beginthen {
             var compass = 0 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         move(1);
         turn(5);
         var if compass == 0 
-        then {
+        beginthen {
             var compass = 5 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 1
-        then {
+        beginthen {
             var compass = 0 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 2
-        then {
+        beginthen {
             var compass = 1 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 3
-        then {
+        beginthen {
             var compass = 2 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 4
-        then {
+        beginthen {
             var compass = 3 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 5
-        then {
+        beginthen {
             var compass = 4 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         move(1);
         turn(1);
         var if compass == 0 
-        then {
+        beginthen {
             var compass = 1 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 1 
-        then {
+        beginthen {
             var compass = 2 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 2 
-        then {
+        beginthen {
             var compass = 3 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 3 
-        then {
+        beginthen {
             var compass = 4 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 4
-        then {
+        beginthen {
             var compass = 5 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
         var if compass == 5 
-        then {
+        beginthen {
             var compass = 0 ;
-        }
-        else {
+        } endthen
+        beginelse {
             nop;
-        }
+        } endelse
     } # contourne un allié si il y en a un sur le passage
     else {
         if (rock is ahead)
         then {
             turn(3);
             var if compass == 0 
-            then {
+            beginthen {
                 var compass = 3 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 1 
-            then {
+            beginthen {
                 var compass = 4 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 2 
-            then {
+            beginthen {
                 var compass = 5 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 3 
-            then {
+            beginthen {
                 var compass = 0 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 4
-            then {
+            beginthen {
                 var compass = 1 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
             var if compass == 5 
-            then {
+            beginthen {
                 var compass = 2 ;
-            }
-            else {
+            } endthen
+            beginelse {
                 nop;
-            }
+            } endelse
         }
         else {
             move(1);
@@ -1865,47 +1865,47 @@ func PickUpFood() {
     pickup(SearchFood); # si pas de nouriture, refais une recherche
     turn(3);
     var if compass == 0 
-    then {
+    beginthen {
         var compass = 3 ;
-    }
-    else {
+    } endthen
+    beginelse {
         nop;
-    }
+    }endelse
     var if compass == 1 
-    then {
+    beginthen {
         var compass = 4 ;
-    }
-    else {
+    } endthen
+    beginelse {
         nop;
-    }
+    }endelse
     var if compass == 2 
-    then {
+    beginthen {
         var compass = 5 ;
-    }
-    else {
+    } endthen
+    beginelse {
         nop;
-    }
+    }endelse
     var if compass == 3 
-    then {
+    beginthen {
         var compass = 0 ;
-    }
-    else {
+    } endthen
+    beginelse {
         nop;
-    }
+    }endelse
     var if compass == 4
-    then {
+    beginthen {
         var compass = 1 ;
-    }
-    else {
+    } endthen
+    beginelse {
         nop;
-    }
+    }endelse
     var if compass == 5 
-    then {
+    beginthen {
         var compass = 2 ;
-    }
-    else {
+    } endthen
+    beginelse {
         nop;
-    } # sinon, fais demi-tour et rammene la nouriture
+    }endelse # sinon, fais demi-tour et rammene la nouriture
     call BackFood; # essaye de prendre de la nouriture
 }
 
@@ -1930,47 +1930,47 @@ func BackFood () {
             else { 
                 # 1
                 var if compass == 0
-                then {
+                beginthen {
                     turn(1);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 1
-                then {
+                beginthen {
                     nop;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2
-                then {
+                beginthen {
                     turn(5);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 3
-                then {
+                beginthen {
                     turn(4);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     turn(3);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5
-                then {
+                beginthen {
                     turn(2);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var compass = 1 ;
             }
         }
@@ -1979,93 +1979,93 @@ func BackFood () {
             then { 
                 # 2
                 var if compass == 0
-                then {
+                beginthen {
                     turn(2);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 1
-                then {
+                beginthen {
                     turn(1);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2
-                then {
+                beginthen {
                     nop;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 3
-                then {
+                beginthen {
                     turn(5);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     turn(4);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5
-                then {
+                beginthen {
                     turn(3);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var compass = 2 ;
             }
             else { 
                 # 3
                 var if compass == 0
-                then {
+                beginthen {
                     turn(3);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 1
-                then {
+                beginthen {
                     turn(2);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2
-                then {
+                beginthen {
                     turn(1);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 3
-                then {
+                beginthen {
                     nop;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     turn(5);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5
-                then {
+                beginthen {
                     turn(4);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var compass = 3 ;
             }
         }
@@ -2077,93 +2077,93 @@ func BackFood () {
             then { 
                 # 4
                 var if compass == 0
-                then {
+                beginthen {
                     turn(4);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 1
-                then {
+                beginthen {
                     turn(3);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2
-                then {
+                beginthen {
                     turn(2);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 3
-                then {
+                beginthen {
                     turn(1);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     nop;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5
-                then {
+                beginthen {
                     turn(5);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var compass = 4 ;
             }
             else { 
                 # 5
                 var if compass == 0
-                then {
+                beginthen {
                     turn(5);
-                }
+                } endthen
                 else {
                     nop;
-                }
+                } endelse
                 var if compass == 1
-                then {
+                beginthen {
                     turn(4);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2
-                then {
+                beginthen {
                     turn(3);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 3
-                then {
+                beginthen {
                     turn(2);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     turn(1);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5
-                then {
+                beginthen {
                     nop;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var compass = 5 ;
             }
         }
@@ -2172,47 +2172,47 @@ func BackFood () {
             then { 
                 # 6
                 var if compass == 0
-                then {
+                beginthen {
                     nop;
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 1
-                then {
+                beginthen {
                     turn(5);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 2
-                then {
+                beginthen {
                     turn(4);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 3
-                then {
+                beginthen {
                     turn(3);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 4
-                then {
+                beginthen {
                     turn(2);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var if compass == 5
-                then {
+                beginthen {
                     turn(1);
-                }
-                else {
+                } endthen
+                beginelse {
                     nop;
-                }
+                } endelse
                 var compass = 0 ;
             }
             else { 
@@ -2225,248 +2225,3 @@ func BackFood () {
     move(1);
     call BackFood;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-func turn1 () {
-    turn(1);
-    var if compass == 0 
-    then {
-        var compass = 1 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 1 
-    then {
-        var compass = 2 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 2 
-    then {
-        var compass = 3 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 3 
-    then {
-        var compass = 4 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 4
-    then {
-        var compass = 5 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 5 
-    then {
-        var compass = 0 ;
-    }
-    else {
-        nop;
-    }
-}
-
-func turn2 () {
-    turn(2);
-    var if compass == 0 
-    then {
-        var compass = 2 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 1 
-    then {
-        var compass = 3 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 2 
-    then {
-        var compass = 4 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 3 
-    then {
-        var compass = 5 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 4
-    then {
-        var compass = 0 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 5 
-    then {
-        var compass = 1 ;
-    }
-    else {
-        nop;
-    }
-}
-
-func turn3 () {
-    turn(3);
-    var if compass == 0 
-    then {
-        var compass = 3 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 1 
-    then {
-        var compass = 4 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 2 
-    then {
-        var compass = 5 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 3 
-    then {
-        var compass = 0 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 4
-    then {
-        var compass = 1 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 5 
-    then {
-        var compass = 2 ;
-    }
-    else {
-        nop;
-    }
-}
-
-func turn4 () {
-    turn(4);
-    var if compass == 0 
-    then {
-        var compass = 4 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 1 
-    then {
-        var compass = 5 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 2 
-    then {
-        var compass = 0 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 3 
-    then {
-        var compass = 1 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 4
-    then {
-        var compass = 2 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 5 
-    then {
-        var compass = 3 ;
-    }
-    else {
-        nop;
-    }
-}
-
-func turn5 () {
-    turn(5);
-    var if compass == 0 
-    then {
-        var compass = 5 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 1
-    then {
-        var compass = 0 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 2
-    then {
-        var compass = 1 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 3
-    then {
-        var compass = 2 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 4
-    then {
-        var compass = 3 ;
-    }
-    else {
-        nop;
-    }
-    var if compass == 5
-    then {
-        var compass = 4 ;
-    }
-    else {
-        nop;
-    }
-} 
