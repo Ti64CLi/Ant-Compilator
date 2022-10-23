@@ -49,7 +49,8 @@ let values_of_index var i nb_var =
 
 let rec string_of_values values =
   match values with
-  | (var, value)::q -> var ^ "_" ^ value ^ "_" ^ (string_of_values q)
+  (* | (var, value)::q -> var ^ "_" ^ value ^ "_" ^ (string_of_values q) *)
+  | (var, value)::q -> var ^  value ^ (string_of_values q)
   | [] -> "end"
 
 let rec _compatible_forced_values var_name value values =
@@ -119,8 +120,8 @@ let write_file final_file l_final_file file_name var nb_var header =
     let values = values_of_index var i nb_var in
     let s = string_of_values values in
     
-    output_string file (Printf.sprintf "\ngoto label_%s;\n" s);
-    output_string file (Printf.sprintf "label_%s : \n" s);
+    output_string file (Printf.sprintf "\ngoto label%s;\n" s);
+    output_string file (Printf.sprintf "label%s : \n" s);
     output_string file final_file.(i);
   done
 
@@ -190,12 +191,12 @@ let rec read_file forced_values banned_values separator var time final_file file
             (* NOT FINISHED *)
             (* gérer une incrémentation *)
             (* incr_value_related final_file !l_final_file var !nb_var; *)
-            add forced_values banned_values final_file !l_final_file (Printf.sprintf "goto time_%d_" !time) var !nb_var;
+            add forced_values banned_values final_file !l_final_file (Printf.sprintf "goto time%d" !time) var !nb_var;
             incr_value_related forced_values banned_values final_file !l_final_file var !nb_var (List.hd !line_filtered);
             add forced_values banned_values final_file !l_final_file ";\n" var !nb_var;
   
             (* write the time label *)
-            add forced_values banned_values final_file !l_final_file (Printf.sprintf "time_%d_" !time) var !nb_var;
+            add forced_values banned_values final_file !l_final_file (Printf.sprintf "time%d" !time) var !nb_var;
             add_value_related forced_values banned_values final_file !l_final_file var !nb_var "" "#";
             add forced_values banned_values final_file !l_final_file " : \n" var !nb_var;
             time := !time + 1
@@ -203,16 +204,13 @@ let rec read_file forced_values banned_values separator var time final_file file
           else (
             Printf.printf "In assignation \n";
             (* gérer une assignation *)
-            (* write > goto time_1_x_1_y_2_ for the second assignment and go where
-            x is 1 and y 2 *)
             let var_name = !line_filtered |> List.hd in
             let new_value = !line_filtered |> List.tl |> List.hd in
-            add forced_values banned_values final_file !l_final_file (Printf.sprintf "goto time_%d_" !time) var !nb_var;
+            add forced_values banned_values final_file !l_final_file (Printf.sprintf "goto time%d" !time) var !nb_var;
             add_value_related forced_values banned_values final_file !l_final_file var !nb_var var_name new_value;
             add forced_values banned_values final_file !l_final_file ";\n" var !nb_var;
   
-            (* write > time_1_x_1_y_2_ : *)
-            add forced_values banned_values final_file !l_final_file (Printf.sprintf "time_%d_" !time) var !nb_var;
+            add forced_values banned_values final_file !l_final_file (Printf.sprintf "time%d" !time) var !nb_var;
             add_value_related forced_values banned_values final_file !l_final_file var !nb_var "" "#";
             add forced_values banned_values final_file !l_final_file " : \n" var !nb_var;
             time := !time + 1
@@ -284,7 +282,7 @@ let pre_lexer file_name =
   let final_file = Array.make !l_final_file "" in
   let time = ref 0 in
   values_init := List.rev !values_init;
-  let header = Printf.sprintf "goto label_%s ;\n" (string_of_values !values_init) in
+  let header = Printf.sprintf "goto label%s ;\n" (string_of_values !values_init) in
 
   (* Read of the File *)
   Printf.printf "\nIn read_file \n";
