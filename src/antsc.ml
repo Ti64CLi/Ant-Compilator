@@ -38,13 +38,13 @@ let rec concat_string stringList =
   | [] -> ""
   | (s, _) :: t -> s ^ concat_string t
 
-let rec compile_file pathin pathout program file_opened oldCurrentLabel =
+let rec compile_file pathin oc program (*file_opened*) oldCurrentLabel =
   (* do not erase file if already open *)
-  let oc = 
+  (*let oc = 
     (if file_opened then
       open_out_gen [Open_append; Open_text] 644 pathout
     else
-      open_out pathout) in
+      open_out pathout) in*)
 
   let labels = ref []
   and defines = ref []
@@ -156,7 +156,7 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
         if not (Sys.file_exists (path ^ ident ^ ".ant")) then
           print_error pathin location ("File '" ^ ident ^ ".ant' does not exist");
         
-        process_file (path ^ ident ^ ".ant") (pathout) true !currentLabel
+        process_file (path ^ ident ^ ".ant") oc !currentLabel
       end
     | Ast.Org (_, _) -> ()
   and process_condition condition = (* processes type condition *)
@@ -430,7 +430,7 @@ let rec compile_file pathin pathout program file_opened oldCurrentLabel =
     | Ast.Break -> () in
   process_program program
 
-and process_file pathin pathout file_opened oldCurrentLabel =
+and process_file pathin oc (*file_opened*) oldCurrentLabel =
   let new_filename = Pre_lexer.pre_lexer pathin in
   print_string (new_filename ^ "\n");
   (* Ouvre le fichier et créé un lexer. *)
@@ -440,7 +440,7 @@ and process_file pathin pathout file_opened oldCurrentLabel =
   let (program, _) = Parser.parse_program lexer in
   (*printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program);*)
   let currentErrors = !errors in
-  compile_file pathin pathout program file_opened oldCurrentLabel;
+  compile_file pathin oc program (*file_opened*) oldCurrentLabel;
 
   printf "Compilation of '%s' ended with %d errors\n" pathin (!errors - currentErrors)
 
@@ -455,12 +455,15 @@ let _ =
     try
       (* On compile le fichier. *)
       let pathout = ((get_filename_without_ext Sys.argv.(1))) in
-      process_file (Sys.argv.(1)) (pathout ^ ".brain") false 0;
+      let oc = open_out (pathout ^ ".brain") in
+      process_file (Sys.argv.(1)) oc (*false*) 0;
+
+      close_out oc;
 
       if !errors <> 0 then (* removes file if there was any error *)
         begin
-          (*Sys.remove (pathout ^ ".brain");
-          Sys.remove (pathout ^ ".antpl")*)
+          Sys.remove (pathout ^ ".brain");
+          Sys.remove (pathout ^ ".antpl")
         end
     with
     | Lexer.Error (e, span) ->
