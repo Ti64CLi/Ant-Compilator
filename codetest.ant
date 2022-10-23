@@ -1,7 +1,5 @@
 var compass = 0 in 0 1 2 3 4 5   ;
 
-
- 
 func SearchFood () {
 
     if (bit(0) is here)
@@ -960,7 +958,7 @@ func PickUpFood () {
         }
     } 
 
-    pickup(SearchFood)  ; 
+    pickup (SearchFood)  ; 
     turn(3)  ;
     var if compass == 0 
     beginthen {
