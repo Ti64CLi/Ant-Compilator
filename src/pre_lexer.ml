@@ -295,10 +295,10 @@ let pre_lexer file_name =
   write_file final_file !l_final_file new_file_name var !nb_var header;
   new_file_name
 
-
+(*
 let () = 
   print_string "version_test : ";
   let version_test = read_line () in
   let file_name = "../test/pre_lexer/" ^ version_test ^ "_test_pre_lexer.ant" in
   let a = pre_lexer file_name in ()
-
+*)
