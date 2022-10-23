@@ -123,7 +123,8 @@ let write_file final_file l_final_file file_name var nb_var header =
     output_string file (Printf.sprintf "\ngoto label%s;\n" s);
     output_string file (Printf.sprintf "label%s : \n" s);
     output_string file final_file.(i);
-  done
+  done;
+  close_out file
 
 let get_line file separator line line_trim line_split line_filtered test =
   let test_line = try input_line file with End_of_file -> test := false; "" in
@@ -290,13 +291,14 @@ let pre_lexer file_name =
 
   Printf.printf "\nIn write file \n";
   let new_file_name = (file_name^"pl") in
+  close_in file;
   write_file final_file !l_final_file new_file_name var !nb_var header;
   new_file_name
 
-(*
+
 let () = 
   print_string "version_test : ";
   let version_test = read_line () in
   let file_name = "../test/pre_lexer/" ^ version_test ^ "_test_pre_lexer.ant" in
   let a = pre_lexer file_name in ()
-*)
+
