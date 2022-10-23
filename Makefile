@@ -1,6 +1,7 @@
 ### Définitions de variables ###
 
 EXE=antsc
+OCAMLC=ocamlc
 
 TESTS=$(shell find ./test/unit_test_grammar -name \*.ant)
 # Le fichier contenant la grammaire du langage.
@@ -12,12 +13,17 @@ SRC=$(wildcard src/*)
 # `simple-parser-gen`.
 PARSER_GEN=simple-parser-gen
 PARSER_FILES=src/ast.mli src/ast.ml src/lexer.mli src/lexer.ml src/parser.mli src/parser.ml
+PRE_LEXER_FILES=src/pre_lexer.mli src/pre_lexer.ml
 
 ### Règles de constructions ###
 
-$(EXE): $(PARSER_FILES) $(SRC) $(GRAMMAR)
+$(EXE): $(PRE_LEXER_FILES) $(PARSER_FILES) $(SRC) $(GRAMMAR)
 	dune build @install
 	@cp _build/install/default/bin/antsc $@
+
+# Interface du module Pre_lexer
+src/pre_lexer.mli: src/pre_lexer.ml
+	$(OCAMLC) -i $^
 
 # Interface du module Ast contenant la définition de l'arbre de syntaxe abstraite.
 src/ast.mli: $(GRAMMAR)
