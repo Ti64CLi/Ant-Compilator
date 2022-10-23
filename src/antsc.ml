@@ -34,7 +34,7 @@ let print_error file location message =
   errors := !errors + 1
 
 
-let rec compile_file pathin pathout program file_opened =
+let rec compile_file pathin pathout program file_opened oldCurrentLabel =
   (* do not erase file if already open *)
   let oc = 
     if file_opened then
@@ -48,7 +48,7 @@ let rec compile_file pathin pathout program file_opened =
   and functions = ref []
   and inFunction = ref false
   and inSwitchCategories = ref Ast.Friend
-  and currentLabel = ref 0 in
+  and currentLabel = ref oldCurrentLabel in
 
   let (path, filename) = get_filename pathin in
 
@@ -150,7 +150,7 @@ let rec compile_file pathin pathout program file_opened =
         if not (Sys.file_exists (path ^ ident ^ ".ant")) then
           print_error pathin location ("File '" ^ ident ^ ".ant' does not exist");
         
-        process_file (path ^ ident ^ ".ant") (pathout) true
+        process_file (path ^ ident ^ ".ant") (pathout) true !currentLabel
       end
     | Ast.Org (_, _) -> ()
   and process_condition condition = (* processes type condition *)
@@ -405,7 +405,7 @@ let rec compile_file pathin pathout program file_opened =
     | Ast.Break -> () in
   process_program program
 
-and process_file pathin pathout file_opened =
+and process_file pathin pathout file_opened oldCurrentLabel =
   (* Ouvre le fichier et créé un lexer. *)
   let file = open_in pathin in
   let lexer = Lexer.of_channel file in
@@ -413,7 +413,7 @@ and process_file pathin pathout file_opened =
   let (program, span) = Parser.parse_program lexer in
   (*printf "successfully parsed the following program at position %t:\n%t\n" (CodeMap.Span.print span) (Ast.print_program program);*)
   let currentErrors = !errors in
-  compile_file pathin pathout program file_opened;
+  compile_file pathin pathout program file_opened oldCurrentLabel;
 
   if !errors <> 0 then (* removes file if there was any error *)
     Sys.remove pathout;
@@ -430,7 +430,7 @@ let _ =
   end else begin
     try
       (* On compile le fichier. *)
-      process_file (Sys.argv.(1)) ((get_filename_without_ext Sys.argv.(1)) ^ ".brain") false
+      process_file (Sys.argv.(1)) ((get_filename_without_ext Sys.argv.(1)) ^ ".brain") false 0
     with
     | Lexer.Error (e, span) ->
       eprintf "Lex error: %t: %t\n" (CodeMap.Span.print span) (Lexer.print_error e)
