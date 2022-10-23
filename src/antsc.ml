@@ -41,10 +41,10 @@ let rec concat_string stringList =
 let rec compile_file pathin pathout program file_opened oldCurrentLabel =
   (* do not erase file if already open *)
   let oc = 
-    if file_opened then
+    (if file_opened then
       open_out_gen [Open_append; Open_text] 644 pathout
     else
-      open_out pathout in
+      open_out pathout) in
 
   let labels = ref []
   and defines = ref []
