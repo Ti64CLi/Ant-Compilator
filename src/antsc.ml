@@ -50,9 +50,11 @@ let rec write_file oc text =
     begin
       if String.ends_with ~suffix:":" line then
         fprintf oc "%s\n" line
+      else if String.length line > 0 then
+        fprintf oc "  %s\n" line
       else
-        fprintf oc "  %s\n" line;
-      
+        fprintf oc "";
+
       write_file oc text'
     end
 
@@ -63,38 +65,27 @@ let optimize filename =
   let rec compute_optimizations lines =
     match lines with
     | [] -> []
-    | [line1] -> [line1]
+    | [_] -> lines
     | line1 :: line2 :: t -> 
       begin
         if List.length t > 0 then begin
-          let line3 = List.hd t
-          and t' = List.tl t in
-          let opt = compute_optimizations t' in
+          let line3 = List.hd t in
           if String.ends_with ~suffix:":" line1 && String.starts_with ~prefix:"Goto" line2 && String.ends_with ~suffix:":" line3 && (* Label1: then Goto <name> then Label2: *)
           ((String.sub line2 5 (String.length line2 - 5)) = (String.sub line3 0 (String.length line3 - 1))) then (* and <name> = Label2 *)
-            line1 :: line3 :: opt
+            line1 :: (compute_optimizations t)
+          else if (String.starts_with ~prefix:"Goto" line1 || String.starts_with ~prefix:"Sense" line1 || String.starts_with ~prefix:"Flip" line1) && String.starts_with ~prefix:"Goto" line2 then
+            line1 :: (compute_optimizations t)
           else
-            line1 :: line2 :: line3 :: opt
+            line1 :: (compute_optimizations (line2 :: t))
         end else begin
-          let opt = compute_optimizations t in
-          if (String.starts_with ~prefix:"Goto" line1 || String.starts_with ~prefix:"Sense" line1 || String.starts_with ~prefix:"Flip" line1) && String.starts_with ~prefix:"Goto" line2 then
-            line1 :: opt
-          else
-            line1 :: line2 :: opt
+          line1 :: (compute_optimizations (line2 :: t))
         end
       end in
   write_file outfileOptimized (compute_optimizations codeLines);
   close_out outfileOptimized;
   close_in infile
 
-let rec compile_file pathin oc program (*file_opened*) oldCurrentLabel =
-  (* do not erase file if already open *)
-  (*let oc = 
-    (if file_opened then
-      open_out_gen [Open_append; Open_text] 644 pathout
-    else
-      open_out pathout) in*)
-
+let rec compile_file pathin oc program oldCurrentLabel =
   let labels = ref []
   and defines = ref []
   (*and calls = ref []*)
@@ -497,9 +488,29 @@ let _ =
   (* On commence par lire le nom du fichier à compiler passé en paramètre. *)
   if Array.length Sys.argv <= 1 then begin
     (* Pas de fichier... *)
-    eprintf "An argument is missing\nUsage : %s <filename>\n" (Sys.argv.(0));
+    eprintf "An argument is missing\nUsage : %s <filename> [-O<number>]\n" (Sys.argv.(0));
     exit 1
   end else begin
+    let optimizationRounds = 
+      if Array.length Sys.argv > 2 && String.starts_with ~prefix:"-O" Sys.argv.(2) then begin
+        let arg1length = String.length Sys.argv.(2) in
+        if arg1length > 2 then begin
+          let num = (String.sub Sys.argv.(2) 2 (arg1length - 2)) in
+          match int_of_string_opt num with
+          | Some i -> i
+          | None -> 
+            begin
+              eprintf "'%s' is not a valid number\n" num;
+              exit 1
+            end
+        end else begin
+          eprintf "Usage : %s <filename> [-O<number>]\n" Sys.argv.(0);
+          exit 1
+        end 
+      end else
+        0
+      in
+
     try
       (* On compile le fichier. *)
       let pathout = ((get_filename_without_ext Sys.argv.(1))) in
@@ -511,13 +522,18 @@ let _ =
       if !errors <> 0 then (* removes file if there was any error *)
         begin
           Sys.remove (pathout ^ ".brain");
-          Sys.remove (pathout ^ ".antpl")
         end
       else
         begin
-          optimize (pathout ^ ".brain");
-          let _ = Sys.command ("rm " ^ pathout ^ ".brain && " ^ "rm " ^ pathout ^ ".antpl && " ^ "mv " ^ pathout ^ ".brain.opt " ^ pathout ^ ".brain") in
-          ()
+          let _ = Sys.command ("rm " ^ pathout ^ ".antpl") in
+
+          for i = 1 to optimizationRounds do
+            printf "Optimization round %d of %d...\n" i optimizationRounds;
+
+            optimize (pathout ^ ".brain");
+            let _ = Sys.command ("rm " ^ pathout ^ ".brain && " ^ "mv " ^ pathout ^ ".brain.opt " ^ pathout ^ ".brain") in
+            ()
+          done
         end
     with
     | Lexer.Error (e, span) ->
