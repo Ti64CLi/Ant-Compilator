@@ -273,6 +273,7 @@ let rec compile_file pathin oc program oldCurrentLabel =
         currentLabel := !currentLabel + 3;
         (condLabel, thenLabel, elseLabel)
       end
+    | Ast.CondArg (_, _) -> ("", "", "")
   and process_control control = (* processes type control *)
     match control with
     | Ast.Label (nameList, _) -> 
@@ -508,7 +509,7 @@ let _ =
           exit 1
         end 
       end else
-        0
+        3
       in
 
     try
